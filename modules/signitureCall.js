@@ -19,15 +19,15 @@ async function transactionData() {
   var computePrice = data.transaction.message.instructions[1].data
   var gasFee = data.meta.fee
   var timestamp = data.blockTime
-  // console.log(gasFee)
 
   // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
   mintedToken = data.meta.innerInstructions[0].instructions[0].parsed.info.mint;
   transactionType = data.meta.innerInstructions[0].instructions[0].parsed.type;
-// If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
-if (mintedToken != 'So11111111111111111111111111111111111111112' && transactionType == 'getAccountDataSize') {
+  // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
+  // Only 2  "mint": "token", "owner": "wallet" in pre and post balances
+  if (mintedToken != 'So11111111111111111111111111111111111111112' && transactionType == 'getAccountDataSize') {
     console.log('Buy transaction')
-};
+  };
 
 
   // Decoding computebudget and cimpute price to get priority fees
@@ -37,13 +37,8 @@ if (mintedToken != 'So11111111111111111111111111111111111111112' && transactionT
   } };
   
   const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
-  // console.log(decodedComputeBudget);
-  
   const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-  // console.log(decodedComputePrice);
-
   const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)
-
 
   console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
 };
