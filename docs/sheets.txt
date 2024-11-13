@@ -1,0 +1,49 @@
+{
+  config: {
+    url: 'https://sheets.googleapis.com/v4/spreadsheets/1atgcSqIrGJ6Vh1D5XKdwBJ3pVMWtzJmwfB6obW6wiCs/values/A1%3AB10',
+    method: 'GET',
+    userAgentDirectives: [ [Object] ],
+    paramsSerializer: [Function (anonymous)],
+    headers: {
+      'x-goog-api-client': 'gdcl/6.0.4 gl-node/20.15.0',
+      'Accept-Encoding': 'gzip',
+      'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+      Authorization: 'Bearer ya29.c.c0ASRK0GasgVYHw90QFgO9XkJGEmf3Cf09iKKjekTulPu_kOjjCjNYzb48d4u_yIEsTbLrEImXEsEujg-dqCIYwhHyXLlbj9dagup84cwhf7g3YO75PUqDm5yGb8xsx73BH53sau5zTGeXm4gMiu5e8CzZinkT3CpD3R-XTwhKQ9I2zdEGlA2SQjVRSaFT0MD04ZEPkroUpZWpoHCvo_NHwMwtbK_iL3jZn0jx4HA9ZQwd3q3x8i9z-oHDKv29nLDZIw5peUc8l_2xf_RekhUjRzI-UtAsrquV6nDvks_LwjUfVuJ6n8FOSKAdO5NTHJr1Jos5DrxoIQt6cRk-EBDBE_PqAp9NNqP9Ca3LSKqpPUtg0yhE1b5GNSVIT385CBSzchwYlhy62uv-SBbWoaFiOzuQvI9Qh1epg3gZih_Oj1808dSmsfeFlc40ghdZy5nea3umRYS2ZxMeXfaJhtIxRV7m3ftyvzqXM6kWgJUYtgu_QVFpM81iQc8yalYlUfzyrUVo4WtZoO519g_knbOqi188eOnr70yZj7qW8IYdc4Zr_3hIX50XFpl9Wv8QlrtJyOU58SvscI69qXszRnunJ4Xoj_1tqdrtu15WaXFe3XMWbpvO7tphxwZZuwBIk8xMgu89bR47vywrspjjbW2ZbVJptxpY3UZ_U0XQnIuy9sF3hZF91fysXVwv9FXvta6j3sfwus_ZQVms8t2QZMUXSWhW7B6kIdrSiMtMzqd7u5u4ZzJ833gQ-qxi8dF2ys73F-u3kUkeQguXU1dUqsvF0v3BOpF14tdl2a72opUvbx360RjRzOy-_8SMeZ40V5Y8StnMBfy3p0M9W5QaS5Qkm-lFcXbiqopMti73cW2ZFMr6eg6i19SlwkbeVwMY24nRd5XuIJi3b8vBU0vvubOFsbOoob_SuOS4t5-zQe2mwk1wdY9-kldpVkaQSo69ql4bdvbkQXQUkxp6-wv4QM-YiUlbUea0pFmMXMrOBO0yOsyhwJvFggx7d5Q',
+      Accept: 'application/json'
+    },
+    params: {},
+    validateStatus: [Function (anonymous)],
+    retry: true,
+    responseType: 'json'
+  },
+  data: {
+    range: 'Sheet1!A1:B10',
+    majorDimension: 'ROWS',
+    values: [
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array]
+    ]
+  },
+  headers: {
+    'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+    'cache-control': 'private',
+    'content-encoding': 'gzip',
+    'content-type': 'application/json; charset=UTF-8',
+    date: 'Wed, 13 Nov 2024 11:18:16 GMT',
+    server: 'ESF',
+    'transfer-encoding': 'chunked',
+    vary: 'Origin, X-Origin, Referer',
+    'x-content-type-options': 'nosniff',
+    'x-frame-options': 'SAMEORIGIN',
+    'x-l2-request-path': 'l2-managed-6',
+    'x-xss-protection': '0'
+  },
+  status: 200,
+  statusText: 'OK',
+  request: {
+    responseURL: 'https://sheets.googleapis.com/v4/spreadsheets/1atgcSqIrGJ6Vh1D5XKdwBJ3pVMWtzJmwfB6obW6wiCs/values/A1%3AB10'
+  }
+}

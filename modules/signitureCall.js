@@ -21,12 +21,12 @@ async function transactionData() {
   var timestamp = data.blockTime
 
   // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
-  mintedToken = data.meta.innerInstructions[0].instructions[0].parsed.info.mint;
+  boughtToken = data.meta.innerInstructions[0].instructions[0].parsed.info.mint;
   transactionType = data.meta.innerInstructions[0].instructions[0].parsed.type;
   // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
-  // Only 2  "mint": "token", "owner": "wallet" in pre and post balances
-  if (mintedToken != 'So11111111111111111111111111111111111111112' && transactionType == 'getAccountDataSize') {
-    console.log('Buy transaction')
+  // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
+  if (boughtToken != 'So11111111111111111111111111111111111111112' && transactionType == 'getAccountDataSize') {
+    
   };
 
 
