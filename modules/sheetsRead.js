@@ -16,8 +16,9 @@ jwtClient.authorize(function (err, tokens) {
 });
 
 //Google Sheets API
+// Array of info [Row 1[Column 1, Column 2], Row 2[Column 1, Column 2]]
 let spreadsheetId = '1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM';
-let sheetRange = 'automated-crypto!J2:K4';
+let sheetRange = 'automated-crypto!A1:C2';
 let sheets = google.sheets('v4');
 sheets.spreadsheets.values.get({
    auth: jwtClient,

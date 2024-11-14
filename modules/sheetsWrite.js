@@ -17,16 +17,11 @@ jwtClient.authorize(function (err, tokens) {
 
 //Google Sheets API
 let spreadsheetId = '1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM';
-let sheetRange = 'automated-crypto!J2:N4'
+let sheetRange = 'automated-crypto!J2:J3'
 let sheets = google.sheets('v4');
+// Array of info [Row 1[Column 1, Column 2], Row 2[Column 1, Column 2]]
 let values = [
-  [
-    'Jarvis',
-    'JARVIS',
-    'placeholder',
-    'signiture',
-    'medium'
-  ]
+  ['Jarvis'], ['Wealth']
 ];
 const sheetResource = {
   values,
