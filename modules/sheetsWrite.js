@@ -1,4 +1,4 @@
-var { google } = require('googleapis');
+let { google}  = require('googleapis');
 let secretKey = require("../client_secret.json");
 let jwtClient = new google.auth.JWT(
        secretKey.client_email,
@@ -17,17 +17,30 @@ jwtClient.authorize(function (err, tokens) {
 
 //Google Sheets API
 let spreadsheetId = '1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM';
-let sheetRange = 'automated-crypto!J2:K4';
+let sheetRange = 'automated-crypto!J2:N4'
 let sheets = google.sheets('v4');
-sheets.spreadsheets.values.get({
+let values = [
+  [
+    'Jarvis',
+    'JARVIS',
+    'placeholder',
+    'signiture',
+    'medium'
+  ]
+];
+const sheetResource = {
+  values,
+};
+sheets.spreadsheets.values.update({
    auth: jwtClient,
    spreadsheetId: spreadsheetId,
-   range: sheetRange
+   range: sheetRange,
+   resource: sheetResource,
+   valueInputOption: 'USER_ENTERED'
 }, function (err, response) {
    if (err) {
        console.log('The API returned an error: ' + err);
    } else {
-       const data = JSON.parse(JSON.stringify(response, null))
-       console.log(data.data.values)
+        console.log('Successful')
    }
 });
