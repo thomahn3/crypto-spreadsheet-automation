@@ -68,8 +68,19 @@ async function transactionDataFetch(wallet) {
         console.log('No mathcing Post Pairs')
     }
 
-    // Determine the type of transaction
-    if (!preTokenEntry && postTokenAmount > 0) {
+    // Decoding computebudget and cimpute price to get priority fees
+    const schema = { 'struct': { 
+      'discriminator': 'u8', 
+      'units': 'u32' 
+    } };
+
+    const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
+    const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
+    const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
+    console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+
+     // Determine the type of transaction
+     if (!preTokenEntry && postTokenAmount > 0) {
         transactionType = 'Fresh Buy'
     } else if (postTokenAmount > preTokenAmount) {
         transactionType = 'Buy More'
@@ -82,17 +93,6 @@ async function transactionDataFetch(wallet) {
     }
 
     console.log(transactionType)
-
-    // Decoding computebudget and cimpute price to get priority fees
-    const schema = { 'struct': { 
-      'discriminator': 'u8', 
-      'units': 'u32' 
-    } };
-
-    const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
-    const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-    const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
-    console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
 };
 
 const wallet = '2bXjC7XSvxh48prZqJdZqCT8Fp9KGeGnGBkPGnaR2vNp'
