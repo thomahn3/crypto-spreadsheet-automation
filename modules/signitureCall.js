@@ -19,7 +19,7 @@ jwtClient.authorize(function (err, tokens) {
    console.log(err);
    return;
  } else {
-   console.log("Successfully connected!");
+   console.log("Successfully connected to google API");
  }
 });
 
@@ -32,6 +32,7 @@ async function transactionDataFetch(wallet) {
     let solAmount = null
 
     const solana = new web3.Connection(`https://api.mainnet-beta.solana.com`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
+
     // Gets address' signitures
     //const pubkey = new web3.PublicKey(wallet);
     //let transactionList = await solana.getSignaturesForAddress(pubkey);
@@ -50,8 +51,12 @@ async function transactionDataFetch(wallet) {
     const computeBudget = transactionData.transaction.message.instructions[0].data
     const computePrice = transactionData.transaction.message.instructions[1].data
     const gasFee = transactionData.meta.fee
-    const timestamp = transactionData.blockTime 
 
+    // determine date of transaction
+    var timestamp = transactionData.blockTime 
+    var d = new Date(0)
+    d.setUTCSeconds(timestamp)
+    console.log(d)
 
     // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
     // const transactionType = transactionData.meta.innerInstructions[0].instructions[0].parsed.type;
@@ -69,6 +74,8 @@ async function transactionDataFetch(wallet) {
             console.log(tokenName)
             console.log(tokenSymbol)
             break
+      } else {
+        console.log('Failed to get token Id')
       }
     }
 
