@@ -23,26 +23,61 @@ jwtClient.authorize(function (err, tokens) {
  }
 });
 
-async function transactionDataFetch(wallet) {
+
+async function transactionDataFetch() {
     // declare variables
     let tokenId = null
     let transactionType = null
     let postTokenAmount = null
     let preTokenAmount = null
     let solAmount = null
+    let tokenSymbol = null
+    let tokenName = null
+    let wallet = null
 
     const solana = new web3.Connection(`https://api.mainnet-beta.solana.com`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
+    let sheetRange = `automated-crypto!K2:K`;
+
+    try {
+        const response = await sheets.spreadsheets.values.get({
+            auth: jwtClient,
+            spreadsheetId: spreadsheetId,
+            range: 'automated-crypto!E3'
+         });
+            wallet = response.data.values[0][0]
+            console.log('Wallet:' + wallet)
+        } catch (err) {
+            console.log('The API returned an error: ' + err);
+        }
+        
+    sheets.spreadsheets.values.get({
+        auth: jwtClient,
+        spreadsheetId: spreadsheetId,
+        range: sheetRange
+     }, function (err, response) {
+        if (err) {
+            console.log('The API returned an error: ' + err);
+        } else {
+            const data = JSON.parse(JSON.stringify(response, null))
+            try {
+                console.log(data.data.values)
+            } catch (err) {
+                console.log('Undefined Sheets:' + err)
+            }
+        }
+     });
+
 
     // Gets address' signitures
-    //const pubkey = new web3.PublicKey(wallet);
-    //let transactionList = await solana.getSignaturesForAddress(pubkey);
-    //const signatures = transactionList.map(item => item.signature);
+    const pubkey = new web3.PublicKey(wallet);
+    let transactionList = await solana.getSignaturesForAddress(pubkey);
+    const signatures = transactionList.map(item => item.signature);
+    console.log(signatures)
 
-
-    let signiture = '37a61dHbGXMgTpwRh9qs9X3qosj1kNZP3aAuHMRsgN1vZVQAGjqBgvqqq1Udno1MW1MLRmDbf6V3cpiwt4xKCRYo'
+    let signature = '37a61dHbGXMgTpwRh9qs9X3qosj1kNZP3aAuHMRsgN1vZVQAGjqBgvqqq1Udno1MW1MLRmDbf6V3cpiwt4xKCRYo'
 
     transaction = await solana.getParsedTransaction(
-      signiture,
+      signature,
       { maxSupportedTransactionVersion: 0 }
     )
     const transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
@@ -53,7 +88,7 @@ async function transactionDataFetch(wallet) {
     const gasFee = transactionData.meta.fee
 
     // determine date of transaction
-    var timestamp = transactionData.blockTime 
+    var timestamp = transactionData.blockTime
     var d = new Date(0)
     d.setUTCSeconds(timestamp)
     console.log(d)
@@ -62,23 +97,20 @@ async function transactionDataFetch(wallet) {
     // const transactionType = transactionData.meta.innerInstructions[0].instructions[0].parsed.type;
     // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information
     for (let i of transactionData.meta.postTokenBalances) {
-      if (i.mint != 'So11111111111111111111111111111111111111112') {
-          tokenId = i.mint
-          const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
-              method: 'GET',
-              headers: {},
+        if (i.mint != 'So11111111111111111111111111111111111111112') {
+            tokenId = i.mint
+            const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+                method: 'GET',
+                headers: {},
             });
             const tokenData = await response.json();
-            const tokenName = tokenData.pairs[0].baseToken.name;
-            const tokenSymbol = tokenData.pairs[0].baseToken.symbol;
-            console.log(tokenName)
-            console.log(tokenSymbol)
+            tokenName = tokenData.pairs[0].baseToken.name;
+            tokenSymbol = tokenData.pairs[0].baseToken.symbol;
             break
-      } else {
+        } else {
         console.log('Failed to get token Id')
-      }
+        }
     }
-
     // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
     // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
     // if innerInstructions = [] then its an account-account transfer 
@@ -117,22 +149,6 @@ async function transactionDataFetch(wallet) {
     const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
     console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
     
-
-    let sheetRange = 'automated-crypto!A1:C2';
-
-    //sheets.spreadsheets.values.get({
-    //    auth: jwtClient,
-    //    spreadsheetId: spreadsheetId,
-    //    range: sheetRange
-    // }, function (err, response) {
-    //    if (err) {
-    //        console.log('The API returned an error: ' + err);
-    //    } else {
-    //        const data = JSON.parse(JSON.stringify(response, null))
-    //        console.log(data.data.values)
-    //    }
-    // });
-
     // Sol amount in Buy
     if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
         solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
@@ -156,6 +172,7 @@ async function transactionDataFetch(wallet) {
      // Determine the type of transaction
      if (!preTokenEntry && postTokenAmount > 0) {
         transactionType = 'Fresh Buy'
+
     } else if (postTokenAmount > preTokenAmount) {
         transactionType = 'Buy More'
     } else if (preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) {
@@ -167,7 +184,14 @@ async function transactionDataFetch(wallet) {
     }
     console.log ('Lamports exchanged:' + solAmount)
     console.log(transactionType)
+
+    //for (let i of signatures) {
+    //    transaction = await solana.getParsedTransaction(
+    //        i,
+    //        { maxSupportedTransactionVersion: 0 }
+    //      )
+    //      const transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
+    //}
 };
 
-const wallet = '2bXjC7XSvxh48prZqJdZqCT8Fp9KGeGnGBkPGnaR2vNp'
-transactionDataFetch(wallet)
+transactionDataFetch()
