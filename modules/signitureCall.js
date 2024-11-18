@@ -34,8 +34,13 @@ async function transactionDataFetch() {
     let tokenSymbol = null
     let tokenName = null
     let wallet = null
+    let tokenCurrentPrice = null
+    let solAvgPrice = null
+    let tokenAvgPrice = null
+    let postTokenAmountStr = null
+    let preTokenAmountStr = null
 
-    const solana = new web3.Connection(`https://api.mainnet-beta.solana.com`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
+    const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
     let sheetRange = `automated-crypto!K2:K`;
 
     try {
@@ -74,124 +79,166 @@ async function transactionDataFetch() {
     const signatures = transactionList.map(item => item.signature);
     console.log(signatures)
 
-    let signature = '37a61dHbGXMgTpwRh9qs9X3qosj1kNZP3aAuHMRsgN1vZVQAGjqBgvqqq1Udno1MW1MLRmDbf6V3cpiwt4xKCRYo'
+    let signature = ['57oMGi1qoHynV6a9cXgyNuHaVTgLCPny5eEi255m793FyTAiZQs2R4B7QdWrgr6CCeo2G6eGxpFUqiEDYJ5NAK3E']
 
-    transaction = await solana.getParsedTransaction(
-      signature,
-      { maxSupportedTransactionVersion: 0 }
-    )
-    const transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
+    for (let i of signature) {
+        transaction = await solana.getParsedTransaction(
+            i,
+            { maxSupportedTransactionVersion: 0 }
+          )
+          const transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
 
-    // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
-    const computeBudget = transactionData.transaction.message.instructions[0].data
-    const computePrice = transactionData.transaction.message.instructions[1].data
-    const gasFee = transactionData.meta.fee
+          // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
+        const computeBudget = transactionData.transaction.message.instructions[0].data
+        const computePrice = transactionData.transaction.message.instructions[1].data
+        const gasFee = transactionData.meta.fee
 
-    // determine date of transaction
-    var timestamp = transactionData.blockTime
-    var d = new Date(0)
-    d.setUTCSeconds(timestamp)
-    console.log(d)
-
-    // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
-    // const transactionType = transactionData.meta.innerInstructions[0].instructions[0].parsed.type;
-    // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information
-    for (let i of transactionData.meta.postTokenBalances) {
-        if (i.mint != 'So11111111111111111111111111111111111111112') {
-            tokenId = i.mint
-            const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+        // determine date of transaction
+        var timestamp = transactionData.blockTime
+        var myDate = new Date(0)
+        myDate.setUTCSeconds(timestamp)
+        let dateStr = myDate.getDate() + "/" + (myDate.getMonth() + 1) + "/" + myDate.getFullYear() + " " + myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds()
+        console.log(dateStr)
+        
+        try {
+            const solData = await fetch(`https://api.binance.com/api/v3/klines?symbol=SOLUSDC&interval=1s&startTime=${timestamp * 1e3}&endTime=${(timestamp *1e3 )+999}`, {
                 method: 'GET',
-                headers: {},
-            });
-            const tokenData = await response.json();
-            tokenName = tokenData.pairs[0].baseToken.name;
-            tokenSymbol = tokenData.pairs[0].baseToken.symbol;
-            break
-        } else {
-        console.log('Failed to get token Id')
+                headers: {
+                    'Accept': 'application/json'
+                },
+        });
+            const solPriceList = await solData.json();
+            solAvgPrice = (JSON.parse(solPriceList[0][1]) + JSON.parse(solPriceList[0][4]))/2
+            console.log('Sol price at time of transaction: ' + solAvgPrice)
+            tokenAvgPrice = solAvgPrice * (solAmount * 1e-9)
+        } catch (err) {
+            console.log('Error fetching sol price: ' + err)
         }
-    }
-    // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
-    // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
-    // if innerInstructions = [] then its an account-account transfer 
-    // if post > pre but pre = 0 (no pre and token and wallet entry) then it is a buy if post > pre but pre != 0 then buy more if post < pre but post = 0 then sell all if post < pre but post != 0 then sell
-  
-    // Determine token amounts before and after transaction
-    const postTokenEntry = transactionData.meta.postTokenBalances.find(
-        (entry) => entry.mint == tokenId && entry.owner == wallet
-    );
-    if (postTokenEntry) {
-        postTokenAmount = postTokenEntry.uiTokenAmount.amount
-        console.log('Post Token Amount', postTokenAmount)
-    } else {
-        console.log('No matching Post Token found in JSON')
-    }
 
-    const preTokenEntry = transactionData.meta.preTokenBalances.find(
-        (entry) => entry.mint == tokenId && entry.owner == wallet
-    );
 
-    if (preTokenEntry) {
-        preTokenAmount = preTokenEntry.uiTokenAmount.amount
-        console.log('Pre Token Amount', preTokenAmount)
-    } else {
-        console.log('No mathcing Pre Pairs')
-    }
 
-    // Decoding computebudget and compute price to get priority fees
-    const schema = { 'struct': { 
-      'discriminator': 'u8', 
-      'units': 'u32' 
-    } };
-
-    const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
-    const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-    const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
-    console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+        // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
+        // const transactionType = transactionData.meta.innerInstructions[0].instructions[0].parsed.type;
+        // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information
+        for (let i of transactionData.meta.postTokenBalances) {
+            if (i.mint != 'So11111111111111111111111111111111111111112') {
+                tokenId = i.mint
+                const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+                    method: 'GET',
+                    headers: {},
+                });
+                const tokenData = await response.json();
+                //console.log(JSON.stringify(tokenData))
+                tokenName = tokenData.pairs[0].baseToken.name;
+                tokenSymbol = tokenData.pairs[0].baseToken.symbol;
+                tokenCurrentPrice = tokenData.pairs[0].priceUsd
+                console.log(tokenName)
+                console.log(tokenSymbol)
+                console.log(tokenCurrentPrice)
+                break
+            }
+        }
+        // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
+        // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
+        // if innerInstructions = [] then its an account-account transfer 
+        // if post > pre but pre = 0 (no pre and token and wallet entry) then it is a buy if post > pre but pre != 0 then buy more if post < pre but post = 0 then sell all if post < pre but post != 0 then sell
     
-    // Sol amount in Buy
-    if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
-        solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
-            innerInstruction.instructions.filter(
-                (instruction) =>
-                    instruction.parsed?.info?.amount && instruction.parsed.info.amount != postTokenAmount
-            ).map(instruction => instruction.parsed.info.amount)
-        )[0]; // Take the first matching amount (if multiple matches are found)
-    // Sol amount in Sell
-    } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
-        solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
-            innerInstruction.instructions.filter(
-                (instruction) =>
-                    instruction.parsed?.info?.amount && instruction.parsed.info.amount != preTokenAmount
-            ).map(instruction => instruction.parsed.info.amount)
-        )[0]; // Take the first matching amount (if multiple matches are found)
-    } else {
-        console.log("Can't determine sol amounts")
+        // Determine token amounts before and after transaction
+        const postTokenEntry = transactionData.meta.postTokenBalances.find(
+            (entry) => entry.mint == tokenId && entry.owner == wallet
+        );
+        if (postTokenEntry) {
+            postTokenAmount = postTokenEntry.uiTokenAmount.amount
+            if (postTokenEntry.uiTokenAmount.uiAmount == null) {
+                postTokenAmount = 0
+                console.log('Post Token Amount: ' + postTokenAmount)
+            } else {
+            console.log('Post Token Amount', postTokenEntry.uiTokenAmount.uiAmount)
+            }
+        } else {
+            console.log('No matching Post Token found in JSON')
+        }
+
+        const preTokenEntry = transactionData.meta.preTokenBalances.find(
+            (entry) => entry.mint == tokenId && entry.owner == wallet
+        );
+
+        if (preTokenEntry) {
+            preTokenAmount = preTokenEntry.uiTokenAmount.amount
+            console.log('Pre Token Amount: ', preTokenEntry.uiTokenAmount.uiAmount)
+        } else {
+            preTokenAmount = 0
+            console.log('Pre Token Amount: ', preTokenAmount)
+        }
+
+        // Decoding computebudget and compute price to get priority fees
+        const schema = { 'struct': { 
+          'discriminator': 'u8', 
+          'units': 'u32' 
+        } };
+
+        // Decodes compute budget and price to find priority fess
+        const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
+        const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
+        const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
+        console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+
+        // Sol amount in Buy
+        if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
+            solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                innerInstruction.instructions.filter(
+                    (instruction) =>
+                        instruction.parsed?.info?.amount && instruction.parsed.info.amount != postTokenAmount
+                ).map(instruction => instruction.parsed.info.amount)
+            )[0]; // Take the first matching amount (if multiple matches are found)
+
+            tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/((postTokenAmount - preTokenAmount) * 1e-6)
+
+        // Sol amount in Sell
+        } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
+            solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                innerInstruction.instructions.filter(
+                    (instruction) =>
+                        instruction.parsed?.info?.amount && instruction.parsed.info.amount != preTokenAmount
+                ).map(instruction => instruction.parsed.info.amount)
+            )[0]; // Take the first matching amount (if multiple matches are found)
+            tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/((preTokenAmount - postTokenAmount) * 1e-6)
+        } else {
+            console.log("Can't determine sol amounts")
+        }
+
+        //
+        
+
+         // Determine the type of transaction
+         if (!preTokenEntry && postTokenAmount > 0) {
+            transactionType = 'Fresh Buy'
+            
+            console.log('Avg Buy: ' + tokenAvgPrice)
+
+        } else if (postTokenAmount > preTokenAmount) {
+            transactionType = 'Buy More'
+            
+            console.log('Avg Buy: ' + tokenAvgPrice)
+
+        } else if (preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) {
+            transactionType = 'Partial Sell'
+            
+            console.log('Avg Sell: ' + tokenAvgPrice)
+
+        } else if (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)) {
+            transactionType = 'Full Sell'
+
+            console.log('Avg Sell: ' + tokenAvgPrice)
+
+        } else {
+            console.log('Not supported Transaction Type')
+        }
+        console.log ('Lamports exchanged:' + solAmount)
+        console.log(transactionType)
     }
-
-     // Determine the type of transaction
-     if (!preTokenEntry && postTokenAmount > 0) {
-        transactionType = 'Fresh Buy'
-
-    } else if (postTokenAmount > preTokenAmount) {
-        transactionType = 'Buy More'
-    } else if (preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) {
-        transactionType = 'Partial Sell'
-    } else if (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)) {
-        transactionType = 'Full Sell'
-    } else {
-        console.log('Not supported Transaction Type')
-    }
-    console.log ('Lamports exchanged:' + solAmount)
-    console.log(transactionType)
-
-    //for (let i of signatures) {
-    //    transaction = await solana.getParsedTransaction(
-    //        i,
-    //        { maxSupportedTransactionVersion: 0 }
-    //      )
-    //      const transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
-    //}
 };
 
+// Data layout: [[Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL), Exit Dates, Tokens, SOL (sold), Average Sell, Fees (SOL), Current Price]]
+// Variables: [[tokenName, tokenSymbol, tokenId, i, dateStr, ]]
 transactionDataFetch()
