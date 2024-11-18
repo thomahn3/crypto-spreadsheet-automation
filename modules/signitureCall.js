@@ -37,11 +37,12 @@ async function transactionDataFetch() {
     let tokenCurrentPrice = null
     let solAvgPrice = null
     let tokenAvgPrice = null
-    let postTokenAmountStr = null
-    let preTokenAmountStr = null
+    let sheetData = null
+    let updatedSheetData = [];
+    let totalFees = null
+    let forIteration = 0
 
     const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
-    let sheetRange = `automated-crypto!K2:K`;
 
     try {
         const response = await sheets.spreadsheets.values.get({
@@ -54,18 +55,18 @@ async function transactionDataFetch() {
         } catch (err) {
             console.log('The API returned an error: ' + err);
         }
-        
-    sheets.spreadsheets.values.get({
+
+     sheets.spreadsheets.values.get({
         auth: jwtClient,
         spreadsheetId: spreadsheetId,
-        range: sheetRange
+        range: `automated-crypto!J3:S`,
      }, function (err, response) {
         if (err) {
             console.log('The API returned an error: ' + err);
         } else {
-            const data = JSON.parse(JSON.stringify(response, null))
+            sheetData = JSON.parse(JSON.stringify(response, null)).data.values
             try {
-                console.log(data.data.values)
+                console.log(sheetData)
             } catch (err) {
                 console.log('Undefined Sheets:' + err)
             }
@@ -79,9 +80,12 @@ async function transactionDataFetch() {
     const signatures = transactionList.map(item => item.signature);
     console.log(signatures)
 
-    let signature = ['57oMGi1qoHynV6a9cXgyNuHaVTgLCPny5eEi255m793FyTAiZQs2R4B7QdWrgr6CCeo2G6eGxpFUqiEDYJ5NAK3E']
+    let signature = ['41gsqkFHw51Lxk5N7L3QPCLrQRYkGJKhhfcbBa2SS7PdDtmcXz7vUfkdegXKW7K6v1nvj2jmt45UJ6p7nDh4UhLv']
 
-    for (let i of signature) {
+    for (let i of signatures) {
+        forIteration += 1
+        console.log(forIteration)
+
         transaction = await solana.getParsedTransaction(
             i,
             { maxSupportedTransactionVersion: 0 }
@@ -115,8 +119,6 @@ async function transactionDataFetch() {
             console.log('Error fetching sol price: ' + err)
         }
 
-
-
         // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
         // const transactionType = transactionData.meta.innerInstructions[0].instructions[0].parsed.type;
         // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information
@@ -132,12 +134,14 @@ async function transactionDataFetch() {
                 tokenName = tokenData.pairs[0].baseToken.name;
                 tokenSymbol = tokenData.pairs[0].baseToken.symbol;
                 tokenCurrentPrice = tokenData.pairs[0].priceUsd
-                console.log(tokenName)
-                console.log(tokenSymbol)
-                console.log(tokenCurrentPrice)
+                console.log('Token Name: ' + tokenName)
+                console.log('Token Symbol: ' + tokenSymbol)
+                console.log('Token Current Price: ' + tokenCurrentPrice)
                 break
             }
-        }
+        } 
+
+
         // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
         // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
         // if innerInstructions = [] then its an account-account transfer 
@@ -178,10 +182,15 @@ async function transactionDataFetch() {
         } };
 
         // Decodes compute budget and price to find priority fess
-        const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
-        const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-        const totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
-        console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+        try {
+            const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
+            const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
+            totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
+            console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+        } catch (err) {
+            console.log("Can't determine priority fees: " + err)
+            continue;
+        }
 
         // Sol amount in Buy
         if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
@@ -204,7 +213,8 @@ async function transactionDataFetch() {
             )[0]; // Take the first matching amount (if multiple matches are found)
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/((preTokenAmount - postTokenAmount) * 1e-6)
         } else {
-            console.log("Can't determine sol amounts")
+            console.log("Can't determine sol amounts (continuing)")
+            continue;
         }
 
         //
@@ -215,6 +225,9 @@ async function transactionDataFetch() {
             transactionType = 'Fresh Buy'
             
             console.log('Avg Buy: ' + tokenAvgPrice)
+            const newEntry = [tokenName, tokenSymbol, tokenId, i, dateStr, postTokenAmount, parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
+            updatedSheetData.push(newEntry)
+
 
         } else if (postTokenAmount > preTokenAmount) {
             transactionType = 'Buy More'
@@ -233,12 +246,21 @@ async function transactionDataFetch() {
 
         } else {
             console.log('Not supported Transaction Type')
+            continue;
         }
         console.log ('Lamports exchanged:' + solAmount)
         console.log(transactionType)
-    }
-};
 
-// Data layout: [[Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL), Exit Dates, Tokens, SOL (sold), Average Sell, Fees (SOL), Current Price]]
-// Variables: [[tokenName, tokenSymbol, tokenId, i, dateStr, ]]
+        
+
+
+    }
+    console.log('SHEET DATA')
+    console.log(updatedSheetData)
+
+};
+// [[Current Price]]
+// [[Exit Dates, Tokens, SOL (sold), Average Sell, Fees (SOL)
+// Data layout (BUY): [[Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL)]] 
+// Variables: [[tokenName, tokenSymbol, tokenId, i, dateStr, postTokenAmount, solAmount, tokenAvgPrice, totalFees]]
 transactionDataFetch()
