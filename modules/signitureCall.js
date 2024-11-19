@@ -2,6 +2,7 @@ const web3 = require("@solana/web3.js");
 const borsh = require('borsh');
 const bs58 = require('bs58');
 require('dotenv').config();
+const { promisify } = require('util');
 
 var { google } = require('googleapis');
 let secretKey = require("../client_secret.json");
@@ -12,6 +13,7 @@ let jwtClient = new google.auth.JWT(
        null,
        secretKey.private_key,
        ['https://www.googleapis.com/auth/spreadsheets']);
+sheets.spreadsheets.values.get = promisify(sheets.spreadsheets.values.get);
 
 // Autehntication Request
 jwtClient.authorize(function (err, tokens) {
@@ -28,8 +30,6 @@ async function transactionDataFetch() {
     // declare variables
     let tokenId = null
     let transactionType = null
-    let postTokenAmount = null
-    let preTokenAmount = null
     let solAmount = null
     let tokenSymbol = null
     let tokenName = null
@@ -38,9 +38,11 @@ async function transactionDataFetch() {
     let solAvgPrice = null
     let tokenAvgPrice = null
     let sheetData = null
-    let updatedSheetData = [];
+    let transactionArray = [];
     let totalFees = null
     let forIteration = 0
+    let caData = null
+    let transactionData = null
 
     const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
 
@@ -59,7 +61,7 @@ async function transactionDataFetch() {
      sheets.spreadsheets.values.get({
         auth: jwtClient,
         spreadsheetId: spreadsheetId,
-        range: `automated-crypto!J3:S`,
+        range: `automated-crypto!J3:X`,
      }, function (err, response) {
         if (err) {
             console.log('The API returned an error: ' + err);
@@ -80,17 +82,48 @@ async function transactionDataFetch() {
     const signatures = transactionList.map(item => item.signature);
     console.log(signatures)
 
-    let signature = ['41gsqkFHw51Lxk5N7L3QPCLrQRYkGJKhhfcbBa2SS7PdDtmcXz7vUfkdegXKW7K6v1nvj2jmt45UJ6p7nDh4UhLv']
+    let signature = ['5viJgMht2AGC1V153oamFHvCbn9qoTgc4oaBqsVFdmuFwfkmbHWxBXoRwfrgJFSYqyeGnRcWT2WvbhWpz8V3Cijp']
 
-    for (let i of signatures) {
+    for (const i of signatures) {
+        // resets amounts every loop
+        let postTokenAmount = null
+        let preTokenAmount = null
+
         forIteration += 1
         console.log(forIteration)
+        console.log(i)
+    
+        sheets.spreadsheets.values.get({
+            auth: jwtClient,
+            spreadsheetId: spreadsheetId,
+            range: `automated-crypto!L3:L`,
+         }, async function (err, response) {
+            if (err) {
+                console.log('The API returned an error: ' + err);
+            } else {
+                caData = await JSON.parse(JSON.stringify(response, null)).data.values
+                try {
+                    console.log("All CA's: " + caData)
+                } catch (err) {
+                    console.log('Undefined Sheets:' + err)
+                }
+            }
+         });
 
-        transaction = await solana.getParsedTransaction(
-            i,
-            { maxSupportedTransactionVersion: 0 }
-          )
-          const transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
+        try {
+            transaction = await solana.getParsedTransaction(
+                i,
+                { maxSupportedTransactionVersion: 0 }
+            )
+            transactionData = JSON.parse(JSON.stringify(transaction, null, 2))
+        } catch (err) {
+            console.error(`Error processing transaction ${i}:`, err);
+        }
+        
+        if (transactionData.meta.innerInstructions[0] == undefined) {
+            console.log('Transfer Transaction (Skipping)');
+            continue;
+        } 
 
           // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
         const computeBudget = transactionData.transaction.message.instructions[0].data
@@ -112,9 +145,8 @@ async function transactionDataFetch() {
                 },
         });
             const solPriceList = await solData.json();
-            solAvgPrice = (JSON.parse(solPriceList[0][1]) + JSON.parse(solPriceList[0][4]))/2
+            solAvgPrice = await (JSON.parse(solPriceList[0][1]) + JSON.parse(solPriceList[0][4]))/2
             console.log('Sol price at time of transaction: ' + solAvgPrice)
-            tokenAvgPrice = solAvgPrice * (solAmount * 1e-9)
         } catch (err) {
             console.log('Error fetching sol price: ' + err)
         }
@@ -125,19 +157,23 @@ async function transactionDataFetch() {
         for (let i of transactionData.meta.postTokenBalances) {
             if (i.mint != 'So11111111111111111111111111111111111111112') {
                 tokenId = i.mint
-                const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
-                    method: 'GET',
-                    headers: {},
-                });
-                const tokenData = await response.json();
-                //console.log(JSON.stringify(tokenData))
-                tokenName = tokenData.pairs[0].baseToken.name;
-                tokenSymbol = tokenData.pairs[0].baseToken.symbol;
-                tokenCurrentPrice = tokenData.pairs[0].priceUsd
-                console.log('Token Name: ' + tokenName)
-                console.log('Token Symbol: ' + tokenSymbol)
-                console.log('Token Current Price: ' + tokenCurrentPrice)
-                break
+                try {
+                    const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+                        method: 'GET',
+                        headers: {},
+                    });
+                    const tokenData = await response.json();
+                    //console.log(JSON.stringify(tokenData))
+                    tokenName = tokenData.pairs[0].baseToken.name;
+                    tokenSymbol = tokenData.pairs[0].baseToken.symbol;
+                    tokenCurrentPrice = tokenData.pairs[0].priceUsd
+                    console.log('Token Name: ' + tokenName)
+                    console.log('Token Symbol: ' + tokenSymbol)
+                    console.log('Token Current Price: ' + tokenCurrentPrice)
+                    break
+                } catch (err) {
+                    console.log('Error fetching token info ' + err)
+                }
             }
         } 
 
@@ -152,7 +188,7 @@ async function transactionDataFetch() {
             (entry) => entry.mint == tokenId && entry.owner == wallet
         );
         if (postTokenEntry) {
-            postTokenAmount = postTokenEntry.uiTokenAmount.amount
+            postTokenAmount = await postTokenEntry.uiTokenAmount.amount
             if (postTokenEntry.uiTokenAmount.uiAmount == null) {
                 postTokenAmount = 0
                 console.log('Post Token Amount: ' + postTokenAmount)
@@ -168,11 +204,14 @@ async function transactionDataFetch() {
         );
 
         if (preTokenEntry) {
-            preTokenAmount = preTokenEntry.uiTokenAmount.amount
-            console.log('Pre Token Amount: ', preTokenEntry.uiTokenAmount.uiAmount)
+            preTokenAmount = await preTokenEntry.uiTokenAmount.amount
+            if (preTokenAmount == null) {
+                preTokenAmount = 0
+            } else {
+                console.log('Pre Token Amount: ', preTokenEntry.uiTokenAmount.uiAmount)
+            }
         } else {
-            preTokenAmount = 0
-            console.log('Pre Token Amount: ', preTokenAmount)
+            console.log('No Pre Token Pair')
         }
 
         // Decoding computebudget and compute price to get priority fees
@@ -194,18 +233,18 @@ async function transactionDataFetch() {
 
         // Sol amount in Buy
         if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
-            solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+            solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                 innerInstruction.instructions.filter(
                     (instruction) =>
                         instruction.parsed?.info?.amount && instruction.parsed.info.amount != postTokenAmount
                 ).map(instruction => instruction.parsed.info.amount)
             )[0]; // Take the first matching amount (if multiple matches are found)
-
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/((postTokenAmount - preTokenAmount) * 1e-6)
+
 
         // Sol amount in Sell
         } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
-            solAmount = transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+            solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                 innerInstruction.instructions.filter(
                     (instruction) =>
                         instruction.parsed?.info?.amount && instruction.parsed.info.amount != preTokenAmount
@@ -225,13 +264,15 @@ async function transactionDataFetch() {
             transactionType = 'Fresh Buy'
             
             console.log('Avg Buy: ' + tokenAvgPrice)
+            //
             const newEntry = [tokenName, tokenSymbol, tokenId, i, dateStr, postTokenAmount, parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
-            updatedSheetData.push(newEntry)
+                
+            transactionArray.push(newEntry)
 
 
         } else if (postTokenAmount > preTokenAmount) {
             transactionType = 'Buy More'
-            
+
             console.log('Avg Buy: ' + tokenAvgPrice)
 
         } else if (preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) {
@@ -251,12 +292,30 @@ async function transactionDataFetch() {
         console.log ('Lamports exchanged:' + solAmount)
         console.log(transactionType)
 
-        
-
 
     }
     console.log('SHEET DATA')
-    console.log(updatedSheetData)
+    console.log(transactionArray)
+    
+    const rowCount = transactionArray.length
+    console.log(rowCount)
+
+    const sheetResource = {
+        values : transactionArray,
+      };
+      sheets.spreadsheets.values.update({
+         auth: jwtClient,
+         spreadsheetId: spreadsheetId,
+         range: `automated-crypto!J3:R${rowCount+3}`,
+         resource: sheetResource,
+         valueInputOption: 'USER_ENTERED'
+      }, function (err, response) {
+         if (err) {
+             console.log('The API returned an error: ' + err);
+         } else {
+              console.log('Successfully wrote content')
+         }
+      });
 
 };
 // [[Current Price]]
