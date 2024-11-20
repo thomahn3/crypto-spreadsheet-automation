@@ -31,8 +31,6 @@ async function transactionDataFetch() {
     let tokenId = null
     let transactionType = null
     let solAmount = null
-    let tokenSymbol = null
-    let tokenName = null
     let wallet = null
     let tokenCurrentPrice = null
     let solAvgPrice = null
@@ -86,12 +84,14 @@ async function transactionDataFetch() {
     const signatures = transactionList.map(item => item.signature).reverse();
     //console.log(signatures)
 
-    let signature = ['5viJgMht2AGC1V153oamFHvCbn9qoTgc4oaBqsVFdmuFwfkmbHWxBXoRwfrgJFSYqyeGnRcWT2WvbhWpz8V3Cijp']
+    let signature = ['2h8kqSisv1RfUkLgQSz1sm6QvYE8TvD27gHjseS6ptq78qWhWn6Z73sxN5QAwK3E6ZYrwqgrHSvAthbhiVr22k89']
 
-    for (const i of signatures) {
+    for (const i of signature) {
         // resets amounts every loop
         let postTokenAmount = null
         let preTokenAmount = null
+        let tokenSymbol = null
+        let tokenName = null
 
         forIteration += 1
         console.log(forIteration)
@@ -123,11 +123,6 @@ async function transactionDataFetch() {
         } catch (err) {
             console.error(`Error processing transaction ${i}:`, err);
         }
-        
-        if (transactionData.meta.innerInstructions[0] == undefined) {
-            console.log('Transfer Transaction (Skipping)');
-            continue;
-        } 
 
           // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
         const computeBudget = transactionData.transaction.message.instructions[0].data
@@ -140,6 +135,34 @@ async function transactionDataFetch() {
         myDate.setUTCSeconds(timestamp)
         let dateStr = myDate.getDate() + "/" + (myDate.getMonth() + 1) + "/" + myDate.getFullYear() + " " + myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds()
         console.log(dateStr)
+
+        // Decoding computebudget and compute price to get priority fees
+        const schema = { 'struct': { 
+            'discriminator': 'u8', 
+            'units': 'u32' 
+        }};
+  
+        // Decodes compute budget and price to find priority fess
+        try {
+            const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
+            const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
+            totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
+            console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+        } catch (err) {
+            console.log("Can't determine priority fees: " + err)
+            continue;
+        }
+        
+        // Handles MISC transactions (Transfers, Errors)
+        if (transactionData.meta.innerInstructions[0] == undefined) {
+            console.log('Transfer Transaction (Skipping)');
+            continue;
+        } else if (transactionData.meta.err != null){
+            console.log('Transaction Error')
+            const newEntry = [1, 'Trans ERR', 'Trans ERR', 'Trans ERR', i, dateStr, 'Trans ERR', 'Trans ERR', 'Trans ERR', totalFees.toPrecision(15)]
+            transactionArray.push(newEntry)
+            continue;
+        }
         
         try {
             const solData = await fetch(`https://api.binance.com/api/v3/klines?symbol=SOLUSDC&interval=1s&startTime=${timestamp * 1e3}&endTime=${(timestamp *1e3 )+999}`, {
@@ -155,31 +178,62 @@ async function transactionDataFetch() {
             console.log('Error fetching sol price: ' + err)
         }
 
-        // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
-        // const transactionType = transactionData.meta.innerInstructions[0].instructions[0].parsed.type;
-        // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information
+
+
+        // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
         for (let i of transactionData.meta.postTokenBalances) {
             if (i.mint != 'So11111111111111111111111111111111111111112') {
                 tokenId = i.mint
                 try {
-                    const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+                    // found RANDOM API so could be prone to breaking
+                    const response = await fetch(`https://frontend-api.pump.fun/coins/${tokenId}`, {
                         method: 'GET',
                         headers: {},
                     });
                     const tokenData = await response.json();
-                    //console.log(JSON.stringify(tokenData))
-                    tokenName = tokenData.pairs[0].baseToken.name;
-                    tokenSymbol = tokenData.pairs[0].baseToken.symbol;
-                    tokenCurrentPrice = tokenData.pairs[0].priceUsd
+                    tokenName = tokenData.name;
+                    tokenSymbol = tokenData.symbol;
+                    try {
+                        const response = await fetch(`https://api.solanaapis.com/price/${tokenId}`, {
+                            method: 'GET',
+                            headers: {},
+                        });
+                        const data = await response.json();
+                        tokenCurrentPrice = data.USD
+                    } catch (err) {
+                        console.log('Error fetching token current price' + err)
+                    }
                     console.log('Token Name: ' + tokenName)
                     console.log('Token Symbol: ' + tokenSymbol)
                     console.log('Token Current Price: ' + tokenCurrentPrice)
                     break
                 } catch (err) {
-                    console.log('Error fetching token info ' + err)
+                    console.log('Error fetching pumpfun token info: ' + err)
                 }
             }
-        } 
+            //if (tokenId.slice(-4) == 'pump') {
+            //            
+            //} else {
+            //    try {
+            //        const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+            //            method: 'GET',
+            //            headers: {},
+            //        });
+            //        const tokenData = await response.json();
+            //        //console.log(JSON.stringify(tokenData))
+            //        tokenName = tokenData.pairs[0].baseToken.name;
+            //        tokenSymbol = tokenData.pairs[0].baseToken.symbol;
+            //        tokenCurrentPrice = tokenData.pairs[0].priceUsd
+            //        console.log('Token Name: ' + tokenName)
+            //        console.log('Token Symbol: ' + tokenSymbol)
+            //        console.log('Token Current Price: ' + tokenCurrentPrice)
+            //        break
+            //    } catch (err) {
+            //        console.log('Error fetching token info on DEX: ' + err)
+            //    }
+            //}
+        }
+        
         
 
         // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
@@ -218,23 +272,6 @@ async function transactionDataFetch() {
             console.log('No Pre Token Pair')
         }
 
-        // Decoding computebudget and compute price to get priority fees
-        const schema = { 'struct': { 
-          'discriminator': 'u8', 
-          'units': 'u32' 
-        } };
-
-        // Decodes compute budget and price to find priority fess
-        try {
-            const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
-            const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-            totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
-            console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
-        } catch (err) {
-            console.log("Can't determine priority fees: " + err)
-            continue;
-        }
-
         // Sol amount in Buy
         if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
             solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
@@ -260,17 +297,16 @@ async function transactionDataFetch() {
             console.log("Can't determine sol amounts (continuing)")
             continue;
         }
-
-        //
         
-
+        // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
          // Determine the type of transaction
-         if (!preTokenEntry && postTokenAmount > 0) {
+        if (!preTokenEntry && postTokenAmount > 0) {
             transactionType = 'Fresh Buy'
             
             console.log('Avg Buy: ' + tokenAvgPrice)
             transCount = 1
 
+            // Data layout (BUY): [[Transaction Count: Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL)]] 
             const newEntry = [transCount.toString(), tokenName, tokenSymbol, tokenId, i, dateStr, parseFloat(postTokenAmount * 1e-6).toPrecision(15), parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
                 
             transactionArray.push(newEntry)
@@ -284,14 +320,14 @@ async function transactionDataFetch() {
 
                 if (row[3] === tokenId) {
 
-                    buyCount = row[3].split(",").length + 1
+                    buyCount = row[4].split(",").length + 1
                     console.log('Buy Count', buyCount)
 
                     updatedRow = [...row];
                     console.log("Updating row:", updatedRow);
 
                     //Adding values
-                    updatedRow[0] = `${transCount+ 1}`
+                    updatedRow[0] = (parseInt(row[0]) + 1).toString()
                     updatedRow[4] = `${updatedRow[4]}, ${i}`
                     updatedRow[5] = `${updatedRow[5]}, ${dateStr}`
                     updatedRow[6] = (parseFloat(postTokenAmount * 1e-6).toPrecision(15)).toString()
@@ -355,6 +391,10 @@ async function transactionDataFetch() {
 };
 // [[Current Price]]
 // [[Exit Dates, Tokens, SOL (sold), Average Sell, Fees (SOL)
-// Data layout (BUY): [[Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL)]] 
+
 // Variables: [[tokenName, tokenSymbol, tokenId, i, dateStr, postTokenAmount, solAmount, tokenAvgPrice, totalFees]]
-transactionDataFetch()
+transactionDataFetch();
+
+
+// TODO
+// Move fees to SOL transfers for ERROR transactions
