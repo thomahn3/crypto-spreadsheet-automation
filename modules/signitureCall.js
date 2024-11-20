@@ -43,6 +43,10 @@ async function transactionDataFetch() {
     let forIteration = 0
     let caData = null
     let transactionData = null
+    let tokenBuyArray = [];
+    let tokenSellArray = [];
+    let buyCount = 1
+    let transCount = null
 
     const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
 
@@ -61,7 +65,7 @@ async function transactionDataFetch() {
      sheets.spreadsheets.values.get({
         auth: jwtClient,
         spreadsheetId: spreadsheetId,
-        range: `automated-crypto!J3:X`,
+        range: `automated-crypto!I3:X`,
      }, function (err, response) {
         if (err) {
             console.log('The API returned an error: ' + err);
@@ -79,8 +83,8 @@ async function transactionDataFetch() {
     // Gets address' signitures
     const pubkey = new web3.PublicKey(wallet);
     let transactionList = await solana.getSignaturesForAddress(pubkey);
-    const signatures = transactionList.map(item => item.signature);
-    console.log(signatures)
+    const signatures = transactionList.map(item => item.signature).reverse();
+    //console.log(signatures)
 
     let signature = ['5viJgMht2AGC1V153oamFHvCbn9qoTgc4oaBqsVFdmuFwfkmbHWxBXoRwfrgJFSYqyeGnRcWT2WvbhWpz8V3Cijp']
 
@@ -93,22 +97,22 @@ async function transactionDataFetch() {
         console.log(forIteration)
         console.log(i)
     
-        sheets.spreadsheets.values.get({
-            auth: jwtClient,
-            spreadsheetId: spreadsheetId,
-            range: `automated-crypto!L3:L`,
-         }, async function (err, response) {
-            if (err) {
-                console.log('The API returned an error: ' + err);
-            } else {
-                caData = await JSON.parse(JSON.stringify(response, null)).data.values
-                try {
-                    console.log("All CA's: " + caData)
-                } catch (err) {
-                    console.log('Undefined Sheets:' + err)
-                }
-            }
-         });
+        //sheets.spreadsheets.values.get({
+        //    auth: jwtClient,
+        //    spreadsheetId: spreadsheetId,
+        //    range: `automated-crypto!L3:L`,
+        // }, async function (err, response) {
+        //    if (err) {
+        //        console.log('The API returned an error: ' + err);
+        //    } else {
+        //        caData = await JSON.parse(JSON.stringify(response, null)).data.values
+        //        try {
+        //            console.log("All CA's: " + caData)
+        //        } catch (err) {
+        //            console.log('Undefined Sheets:' + err)
+        //        }
+        //    }
+        //});
 
         try {
             transaction = await solana.getParsedTransaction(
@@ -176,7 +180,7 @@ async function transactionDataFetch() {
                 }
             }
         } 
-
+        
 
         // If minted token is not So11111111111111111111111111111111111111112 AND type: "getAccountDataSize" (issue is what if sol isn't involved and its USDC or smthn)
         // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
@@ -240,7 +244,7 @@ async function transactionDataFetch() {
                 ).map(instruction => instruction.parsed.info.amount)
             )[0]; // Take the first matching amount (if multiple matches are found)
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/((postTokenAmount - preTokenAmount) * 1e-6)
-
+            tokenBuyArray.push(tokenId)
 
         // Sol amount in Sell
         } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
@@ -251,6 +255,7 @@ async function transactionDataFetch() {
                 ).map(instruction => instruction.parsed.info.amount)
             )[0]; // Take the first matching amount (if multiple matches are found)
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/((preTokenAmount - postTokenAmount) * 1e-6)
+            tokenSellArray.push(tokenId)
         } else {
             console.log("Can't determine sol amounts (continuing)")
             continue;
@@ -264,14 +269,45 @@ async function transactionDataFetch() {
             transactionType = 'Fresh Buy'
             
             console.log('Avg Buy: ' + tokenAvgPrice)
-            //
-            const newEntry = [tokenName, tokenSymbol, tokenId, i, dateStr, postTokenAmount, parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
+            transCount = 1
+
+            const newEntry = [transCount.toString(), tokenName, tokenSymbol, tokenId, i, dateStr, parseFloat(postTokenAmount * 1e-6).toPrecision(15), parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
                 
             transactionArray.push(newEntry)
 
 
         } else if (postTokenAmount > preTokenAmount) {
             transactionType = 'Buy More'
+
+            transactionArray = transactionArray.map(row => {
+                console.log(`Checking row[3]: ${row[3]}, tokenId: ${tokenId}`);
+
+                if (row[3] === tokenId) {
+
+                    buyCount = row[3].split(",").length + 1
+                    console.log('Buy Count', buyCount)
+
+                    updatedRow = [...row];
+                    console.log("Updating row:", updatedRow);
+
+                    //Adding values
+                    updatedRow[0] = `${transCount+ 1}`
+                    updatedRow[4] = `${updatedRow[4]}, ${i}`
+                    updatedRow[5] = `${updatedRow[5]}, ${dateStr}`
+                    updatedRow[6] = (parseFloat(postTokenAmount * 1e-6).toPrecision(15)).toString()
+                    updatedRow[7] = (parseFloat(row[7]) + solAmount * 1e-9).toPrecision(15).toString()
+                    if (buyCount == 2) {
+                        updatedRow[8] = ((parseFloat(row[8]) + tokenAvgPrice)/2).toString()
+                    } else {
+                        updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokenAvgPrice * 1e-6)/buyCount).toString()
+                    }
+                    updatedRow[9] = (parseFloat(row[9]) + totalFees).toPrecision(15).toString()
+                    console.log("Updated row:", updatedRow);
+                    //console.log("After updates:", transactionArray);
+                    return updatedRow
+                }
+                return row
+            });
 
             console.log('Avg Buy: ' + tokenAvgPrice)
 
@@ -298,7 +334,6 @@ async function transactionDataFetch() {
     console.log(transactionArray)
     
     const rowCount = transactionArray.length
-    console.log(rowCount)
 
     const sheetResource = {
         values : transactionArray,
@@ -306,7 +341,7 @@ async function transactionDataFetch() {
       sheets.spreadsheets.values.update({
          auth: jwtClient,
          spreadsheetId: spreadsheetId,
-         range: `automated-crypto!J3:R${rowCount+3}`,
+         range: `automated-crypto!I3:R${rowCount+3}`,
          resource: sheetResource,
          valueInputOption: 'USER_ENTERED'
       }, function (err, response) {
