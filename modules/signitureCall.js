@@ -53,6 +53,7 @@ async function transactionDataFetch() {
     let currentPriceArray = [];
     let signatures = null
     let success = false
+    let transferArray = [];
 
     const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
 
@@ -107,7 +108,7 @@ async function transactionDataFetch() {
 
     let signature = ['3P1mwUzqSNjUw8JXgiKFUW4E6MruCHRJPa7nBA9T8gwnvctM71GySS8Ko5xRDWEnpaqbuHFX3EmUKHRfAsdxL5t1']
 
-    for (const i of signatures) {
+    mainLoop: for (const i of signatures) {
         // resets amounts every loop
         let postTokenAmount = null
         let preTokenAmount = null
@@ -159,10 +160,6 @@ async function transactionDataFetch() {
             }
         }   
         
-        if (transactionData.meta.innerInstructions[0] == undefined) {
-            console.log('Transfer Transaction (Skipping)');
-            continue;
-        }
           // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
         const computeBudget = transactionData.transaction.message.instructions[0].data
         const computePrice = transactionData.transaction.message.instructions[1].data
@@ -189,16 +186,9 @@ async function transactionDataFetch() {
             console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
         } catch (err) {
             console.log("Can't determine priority fees: " + err)
-            continue;
         }
         
-        // Handles MISC transactions (Transfers, Errors)
-        if (transactionData.meta.err != null){
-            console.log('Transaction Error')
-            const newEntry = ['1', 'Trans ERR', 'Trans ERR', 'Trans ERR', i, dateStr, 'Trans ERR', 'Trans ERR', 'Trans ERR', totalFees.toPrecision(15)]
-            transactionArray.push(newEntry)
-            continue;
-        }
+        
         
         try {
             const solData = await fetch(`https://api.binance.com/api/v3/klines?symbol=SOLUSDC&interval=1s&startTime=${timestamp * 1e3}&endTime=${(timestamp * 1e3) + 999}`, {
@@ -214,12 +204,84 @@ async function transactionDataFetch() {
             console.log('Error fetching sol price: ' + err)
         }
 
+        //Sol Amounts for TRansfger Transactions
+        if (!transactionData.meta.innerInstructions[0]) {
+            console.log('TRANSFER TRANSACTION:');
+        
+            // Iterate over instructions
+            for (let instruction of transactionData.transaction.message.instructions) {
+                // Extract parsed data
+                const parsedInfo = instruction.parsed?.info;
+                if (!parsedInfo) {
+                    continue; // Skip non-parsed instructions
+                }
+        
+                // Check if the wallet is involved in the transaction
+                const isReceive = parsedInfo.destination === wallet;
+                const isSend = parsedInfo.source === wallet;
+        
+                // Determine transaction type
+                if (isReceive) {
+                    if (transactionData.meta.err != null) {
+                        console.log('Error incoming transaction')
+                        continue mainLoop;
+                    } else {
+                    const solAmount = parsedInfo.lamports;
+                    let newEntry = [
+                        dateStr,
+                        i,
+                        (solAvgPrice * (solAmount * 1e-9)).toPrecision(15).toString(),
+                        solAmount * 1e-9,
+                        null,
+                        null
+                    ];
+                    transferArray.push(newEntry)
+                    console.log('Receive:', newEntry)
+                    continue mainLoop;
+                    }
 
+                } else if (isSend) {
+                    if (transactionData.meta.err != null) {
+                        let newEntry = [
+                            dateStr,
+                            i,
+                            'Transaction Error',
+                            null,
+                            null,
+                            totalFees
+                        ];
+                        transferArray.push(newEntry)
+                        console.log('Error Sending transfer', newEntry)
+                        continue mainLoop;
+                    } else {
+                        const solAmount = parsedInfo.lamports;
+                        let newEntry = [
+                            dateStr,
+                            i,
+                            (solAvgPrice * (solAmount * 1e-9)).toPrecision(15).toString(),
+                            null,
+                            solAmount * 1e-9,
+                            totalFees
+                        ];
+                        transferArray.push(newEntry)
+                        console.log('Sent:', newEntry)
+                        continue mainLoop;
+                    }
+                }
+            }
+        }
 
+        // Handles MISC transactions (Transfers, Errors)
+        if (transactionData.meta.err != null){
+            console.log('Transaction Error')
+            const newEntry = ['1', 'Trans ERR', 'Trans ERR', 'Trans ERR', i, dateStr, 'Trans ERR', 'Trans ERR', 'Trans ERR', totalFees.toPrecision(15), null]
+            transactionArray.push(newEntry)
+            continue;
+        }
         // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
-        for (let i of transactionData.meta.postTokenBalances) {
-            if (i.mint != 'So11111111111111111111111111111111111111112') {
-                tokenId = i.mint
+        for (let j of transactionData.meta.postTokenBalances) {
+            if (j.mint != 'So11111111111111111111111111111111111111112') {
+                tokenId = j.mint
                 try {
                     const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
                         method: 'GET',
@@ -520,8 +582,7 @@ async function transactionDataFetch() {
     console.log(transactionArray)
     console.log(currentPriceArray)
     
-    const rowCount = transactionArray.length
-
+    let rowCount = transactionArray.length
     const sheetResource = {
         values : transactionArray,
       };
@@ -553,6 +614,25 @@ async function transactionDataFetch() {
              console.log('The API returned an error: ' + err);
          } else {
               console.log('Successfully wrote current price')
+         }
+      });
+
+
+
+      const sheetResource2 = {
+        values : transferArray,
+      };
+      sheets.spreadsheets.values.update({
+         auth: jwtClient,
+         spreadsheetId: spreadsheetId,
+         range: `automated-crypto!A9:F`,
+         resource: sheetResource2,
+         valueInputOption: 'USER_ENTERED'
+      }, function (err, response) {
+         if (err) {
+             console.log('The API returned an error: ' + err);
+         } else {
+              console.log('Successfully wrote transfer amounts')
          }
       });
 

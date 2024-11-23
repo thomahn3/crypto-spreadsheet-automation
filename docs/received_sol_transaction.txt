@@ -1,0 +1,90 @@
+{
+  "blockTime": 1731041529,
+  "meta": {
+    "computeUnitsConsumed": 300,
+    "err": null,
+    "fee": 105000,
+    "innerInstructions": [],
+    "logMessages": [
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [1]",
+      "Program 11111111111111111111111111111111 success"
+    ],
+    "postBalances": [
+      1249112586450156,
+      166620000,
+      1,
+      1
+    ],
+    "postTokenBalances": [],
+    "preBalances": [
+      1249112753175156,
+      0,
+      1,
+      1
+    ],
+    "preTokenBalances": [],
+    "rewards": [],
+    "status": {
+      "Ok": null
+    }
+  },
+  "slot": 300125883,
+  "transaction": {
+    "message": {
+      "accountKeys": [
+        {
+          "pubkey": "FWznbcNXWQuHTawe9RxvQ2LdCENssh12dsznf4RiouN5",
+          "signer": true,
+          "source": "transaction",
+          "writable": true
+        },
+        {
+          "pubkey": "2bXjC7XSvxh48prZqJdZqCT8Fp9KGeGnGBkPGnaR2vNp",
+          "signer": false,
+          "source": "transaction",
+          "writable": true
+        },
+        {
+          "pubkey": "11111111111111111111111111111111",
+          "signer": false,
+          "source": "transaction",
+          "writable": false
+        },
+        {
+          "pubkey": "ComputeBudget111111111111111111111111111111",
+          "signer": false,
+          "source": "transaction",
+          "writable": false
+        }
+      ],
+      "instructions": [
+        {
+          "accounts": [],
+          "data": "3Jv73z5Y9SRV",
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "stackHeight": null
+        },
+        {
+          "parsed": {
+            "info": {
+              "destination": "2bXjC7XSvxh48prZqJdZqCT8Fp9KGeGnGBkPGnaR2vNp",
+              "lamports": 166620000,
+              "source": "FWznbcNXWQuHTawe9RxvQ2LdCENssh12dsznf4RiouN5"
+            },
+            "type": "transfer"
+          },
+          "program": "system",
+          "programId": "11111111111111111111111111111111",
+          "stackHeight": null
+        }
+      ],
+      "recentBlockhash": "78CRM4nzHsKmLzJwY2ctT4hP4A64YL74ia8nCvH1fnjq"
+    },
+    "signatures": [
+      "4FoWib253F7wmRx7kVVpPoqDA1DyAFZUgPYNQYjbzFTd6hcmQ15yPwT2Cg22dkydE6jNVTiQDUsaqzFLnWXUiGnc"
+    ]
+  },
+  "version": "legacy"
+}
