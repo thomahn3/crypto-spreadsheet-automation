@@ -1,0 +1,2109 @@
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+2vdFhEwRYQZcCeEVFcBQ8kHZWfAyMDvi5VuGqggvcTCESNUgcLdgbeimZvtFPeU8hZXsN1WpDz26gE1DG1fihUhW
+4/11/2024 14:17:29
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 163.19
+TRANSFER TRANSACTION:
+Receive:
+4/11/2024 14:17:29,2vdFhEwRYQZcCeEVFcBQ8kHZWfAyMDvi5VuGqggvcTCESNUgcLdgbeimZvtFPeU8hZXsN1WpDz26gE1DG1fihUhW,163.190000000000,1,,
+2
+2A6f8aikoFL2QtNK143S9xgPKf9KttZRRzqQwZ5hEPwfXNTuaEPmmVMNhXY191qdnk2K9Nr3NEEYkMkaK2xBwn1A
+5/11/2024 14:30:46
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.86
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: high
+Token Symbol: high
+Token Current Price: null
+Post Token Amount
+38648.720718
+No Pre Token Pair
+Avg Buy: 0.00004136230049279429
+Lamports exchanged:10000000
+Fresh Buy
+Updated Current Price Array at index 0: [null]
+3
+3USjbDK918dyEdPPvgThM3G79xBi3CHiJm95AxVaoCXb7HcYb12ByQsPmkE15DTLRc6CU8V2F8G5SqXxtVeXtWVW
+5/11/2024 14:30:51
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.77
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:30:51,3USjbDK918dyEdPPvgThM3G79xBi3CHiJm95AxVaoCXb7HcYb12ByQsPmkE15DTLRc6CU8V2F8G5SqXxtVeXtWVW,0.0000159770000000000,1.0000000000000001e-7,,
+4
+3PP5D2EodvKPLefE6LtKL7gKa87ruURUAREvxpnNFB9srZbWegXhDXrz4zZbGGqHVbDXY33wRWVnD5aMcbDjGs3J
+5/11/2024 14:30:51
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.77
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:30:51,3PP5D2EodvKPLefE6LtKL7gKa87ruURUAREvxpnNFB9srZbWegXhDXrz4zZbGGqHVbDXY33wRWVnD5aMcbDjGs3J,0.0000159770000000000,1.0000000000000001e-7,,
+5
+2yJGf7LhsQ6uKu9hLMwn2vBnob75z3yMmeiUuARQQf51MVRirJEC1Vw1QAkzWhE946kpCkD2J1YEYNZ6Df68ecB7
+5/11/2024 14:40:31
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.93
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: high
+Token Symbol: high
+Token Current Price: null
+Post Token Amount: 0
+Pre Token Amount: 
+38648.720718
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k
+Updating row:
+1,high,high,6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k,2A6f8aikoFL2QtNK143S9xgPKf9KttZRRzqQwZ5hEPwfXNTuaEPmmVMNhXY191qdnk2K9Nr3NEEYkMkaK2xBwn1A,5/11/2024 14:30:46,38648.720718,0.0100000000000000,0.0000413623004927943,0.00600500000000000
+Avg Sell: 0.00004495523720351256
+Lamports exchanged:10863893
+Full Sell
+Updated Current Price Array at index 0: [null]
+6
+2VBzvyuf1fQsNTH5rsmCrMRArD7SCUYvixJFhGK5GdENFKEJnDpTFKLuSFrfLBS1ZWUE3fvnHBrLUQYZLTxHA2Pg
+5/11/2024 14:40:33
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.93
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:40:33,2VBzvyuf1fQsNTH5rsmCrMRArD7SCUYvixJFhGK5GdENFKEJnDpTFKLuSFrfLBS1ZWUE3fvnHBrLUQYZLTxHA2Pg,0.0000159930000000000,1.0000000000000001e-7,,
+7
+4y22pgGVi9wkNECsSV13SWSy4mwBDA2nGsN9YVcm7aGcWnxBwCVSPkC1CEqG5SJyM6uM38Hfds2ar2dodz8ooYqY
+5/11/2024 14:40:33
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.93
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:40:33,4y22pgGVi9wkNECsSV13SWSy4mwBDA2nGsN9YVcm7aGcWnxBwCVSPkC1CEqG5SJyM6uM38Hfds2ar2dodz8ooYqY,0.0000159930000000000,1.0000000000000001e-7,,
+8
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: null
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Avg Buy: NaN
+Lamports exchanged:undefined
+Fresh Buy
+Updated Current Price Array at index 1: [null]
+9
+4soqU54JH4QTrdW8onAovht1JPVRkmH6F2CH6nBnTmXhbHxQoke7X3jZGnGJKFdc7sgDY9nBfM7M312ToRFTuNM5
+5/11/2024 14:48:46
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 160.07
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: null
+No matching Post Token found in JSON
+Pre Token Amount: 
+99639.5072
+OKX DEX
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM
+Updating row:
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,NaN,NaN,0.00600500000000000
+Avg Sell: 0
+Lamports exchanged:0
+Full Sell
+Updated Current Price Array at index 1: [null]
+10
+34BjM36VvTGNwytsQN68wZcKER46NZ7H6UL3vdJnJ83sTxzCgunQ4etKJiizDCpECq19s4t6ZnziNrkp6hGLkRke
+5/11/2024 14:51:23
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 160.17
+Token Name: Gile
+Token Symbol: Gile
+Token Current Price: 0.00001366
+Post Token Amount
+50605.57536
+No Pre Token Pair
+Avg Buy: 0.00009495198830992997
+Lamports exchanged:30000000
+Fresh Buy
+Updated Current Price Array at index 2: ["0.00001366"]
+11
+thb78h5u9gLfdYCU7HBPt6juC3GNTpeV9XY3XU4kqLDCVv5CguJWgp4y35XHHtdywuJR36KMoFNEunoZJVJo7Aj
+5/11/2024 14:57:17
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.88
+Token Name: Gile
+Token Symbol: Gile
+Token Current Price: 0.00001366
+Post Token Amount: 0
+Pre Token Amount: 
+50605.57536
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump
+Updating row:
+1,Gile,Gile,EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump,34BjM36VvTGNwytsQN68wZcKER46NZ7H6UL3vdJnJ83sTxzCgunQ4etKJiizDCpECq19s4t6ZnziNrkp6hGLkRke,5/11/2024 14:51:23,50605.57536,0.0300000000000000,0.0000949519883099300,0.00600500000000000
+Avg Sell: 0.00011139081177556639
+Lamports exchanged:35257669
+Full Sell
+Updated Current Price Array at index 2: ["0.00001366"]
+12
+36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ
+5/11/2024 15:7:45
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.94
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount
+2319.34836
+No Pre Token Pair
+Avg Buy: 0.0013791804867122246
+Lamports exchanged:20000000
+Fresh Buy
+Updated Current Price Array at index 3: [null]
+13
+5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm
+5/11/2024 15:8:9
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.96
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount: 0
+Pre Token Amount: 
+2319.34836
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Updating row:
+1,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ,5/11/2024 15:7:45,2319.34836,0.0200000000000000,0.00137918048671222,0.00600500000000000
+Avg Sell: 0.0021917194198460125
+Lamports exchanged:31778950
+Full Sell
+Updated Current Price Array at index 3: [null]
+14
+2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa
+5/11/2024 15:8:52
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.95
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount
+2381.688658
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Buy Count
+2
+Updating row:
+2,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ,5/11/2024 15:7:45,2319.34836,0.0200000000000000,0.00137918048671222,0.00600500000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Updated row:
+3,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Avg Buy: 0.0013431646446544062
+Lamports exchanged:20000000
+Buy More
+Updated Current Price Array at index 3: [null]
+15
+dBcUsNNiwpNifoGmPhSdKgw1d5i32BEpQuzmU6L5gtUQGEp16sjLAQGoDLWs3LAuPfhVrh4PgaYLWYbcmUYdqne
+5/11/2024 15:9:42
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.88
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount: 0
+Pre Token Amount: 
+2381.688658
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Updating row:
+3,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Sell Count:
+2
+Updated row:
+4,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, dBcUsNNiwpNifoGmPhSdKgw1d5i32BEpQuzmU6L5gtUQGEp16sjLAQGoDLWs3LAuPfhVrh4PgaYLWYbcmUYdqne,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:9:42,4700.68865800000,0.0694519300000000,0.00208439667771336,0.0120100000000000
+Avg Sell: 0.0019770739355807103
+Lamports exchanged:29451930
+Full Sell
+Updated Current Price Array at index 3: [null]
+16
+haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx
+5/11/2024 15:10:22
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.83
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount
+2724.444047
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Buy Count
+3
+Updating row:
+3,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Updated row:
+4,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22,2724.44404700000,0.0700000000000000,0.0009074489637740072,0.0180150000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Avg Buy: 0.0017599553954062179
+Lamports exchanged:30000000
+Buy More
+Updated Current Price Array at index 3: [null]
+17
+oXPh5XCuZ7E3L9KFmuLvm3XhrW9pqmUiYnCB536VbAPVUYAm13G2VSMZZgDkjEtM8rgF9snSsZUBoyTwWjwu3My
+5/11/2024 15:12:44
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.75
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount: 0
+Pre Token Amount: 
+2724.444047
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Updating row:
+4,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22,2724.44404700000,0.0700000000000000,0.0009074489637740072,0.0180150000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Sell Count:
+2
+Updated row:
+5,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22,2724.44404700000,0.0700000000000000,0.0009074489637740072,0.0180150000000000,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, oXPh5XCuZ7E3L9KFmuLvm3XhrW9pqmUiYnCB536VbAPVUYAm13G2VSMZZgDkjEtM8rgF9snSsZUBoyTwWjwu3My,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22, 5/11/2024 15:12:44,5043.44404700000,0.102712177000000,0.0020549123066361426,0.0120100000000000
+Avg Sell: 0.0019181051934262757
+Lamports exchanged:32712177
+Full Sell
+Updated Current Price Array at index 3: [null]
+18
+26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF
+5/11/2024 15:14:18
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.88
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount
+4372.112572
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Buy Count
+4
+Updating row:
+4,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22,2724.44404700000,0.0700000000000000,0.0009074489637740072,0.0180150000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Updated row:
+5,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, 26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22, 5/11/2024 15:14:18,4372.11257200000,0.100000000000000,0.0006805869970915131,0.0240200000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Avg Buy: 0.001097044031006254
+Lamports exchanged:30000000
+Buy More
+Updated Current Price Array at index 3: [null]
+19
+cQQch4tdrph924z8zaZp7MLrAPxjEJu8dJ6RPDnkxDetsfAwJphXiJgYZjoQRaeNJbY7TQDNhdAwxW1VVTeex9h
+5/11/2024 15:22:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: null
+Post Token Amount: 0
+Pre Token Amount: 
+4372.112572
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Updating row:
+5,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, 26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22, 5/11/2024 15:14:18,4372.11257200000,0.100000000000000,0.0006805869970915131,0.0240200000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Sell Count:
+2
+Updated row:
+6,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, 26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22, 5/11/2024 15:14:18,4372.11257200000,0.100000000000000,0.0006805869970915131,0.0240200000000000,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, 26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF, cQQch4tdrph924z8zaZp7MLrAPxjEJu8dJ6RPDnkxDetsfAwJphXiJgYZjoQRaeNJbY7TQDNhdAwxW1VVTeex9h,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22, 5/11/2024 15:14:18, 5/11/2024 15:22:20,6691.11257200000,0.143901048000000,0.0018991016843522032,0.0120100000000000
+Avg Sell: 0.0016064839488583967
+Lamports exchanged:43901048
+Full Sell
+Updated Current Price Array at index 3: [null]
+20
+58ebnyEGamdpdPxQ1apJtx1u45j2U1YRr7e7pHyPfSQ9GL6cdSHQvg8ZvaUPjgpaMjoFY1pUMetMF11Ds9k8caWB
+5/11/2024 15:27:18
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Trump Elon Terminal
+Token Symbol: TET
+Token Current Price: null
+Post Token Amount
+30.227317
+No Pre Token Pair
+Avg Buy: 0.1587868351001844
+Lamports exchanged:30000000
+Fresh Buy
+Updated Current Price Array at index 4: [null]
+21
+57HWsHgxm69wxFqGEy4vM23Mep1yFNPiLRQEH5rSmW8DcBrdF46uRrF8XHwjUbuqBNnqBcsqEZf69Hz8xKCcvG3b
+5/11/2024 16:0:12
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 160.71
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching token current priceTypeError: fetch failed
+Token Name: Trump Elon Terminal
+Token Symbol: TET
+Token Current Price: null
+Post Token Amount: 0
+Pre Token Amount: 
+30.227317
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh
+Updating row:
+1,Trump Elon Terminal,TET,5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh,58ebnyEGamdpdPxQ1apJtx1u45j2U1YRr7e7pHyPfSQ9GL6cdSHQvg8ZvaUPjgpaMjoFY1pUMetMF11Ds9k8caWB,5/11/2024 15:27:18,30.227317,0.0300000000000000,0.158786835100184,0.00600500000000000
+Avg Sell: 2.6583570086620657e-8
+Lamports exchanged:5
+Full Sell
+Updated Current Price Array at index 4: [null]
+22
+4vPXznE32Z11CNtKuT81NJf3Uka9Z2GjnhbJZZFPBe5u6QXNLhCrCdZXXXjTVH3nrtdCb3jF5Z52sxi5GUsQDTb
+5/11/2024 16:0:13
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 160.71
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 16:0:13,4vPXznE32Z11CNtKuT81NJf3Uka9Z2GjnhbJZZFPBe5u6QXNLhCrCdZXXXjTVH3nrtdCb3jF5Z52sxi5GUsQDTb,0.0000160710000000000,1.0000000000000001e-7,,
+23
+5NenDyQ5MtVg8q1ZZ3xDH2qc8Mc95Z8Mg7x2Z4HR3KqXQzDv1X5RSrMZt5ounmG2NDTQFzVpYo1yHs5RjgRa1sQ1
+5/11/2024 16:0:14
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 160.71
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 16:0:14,5NenDyQ5MtVg8q1ZZ3xDH2qc8Mc95Z8Mg7x2Z4HR3KqXQzDv1X5RSrMZt5ounmG2NDTQFzVpYo1yHs5RjgRa1sQ1,0.0000160710000000000,1.0000000000000001e-7,,
+24
+HNKWKFhiS3yWmXAGhCFD8UoyRQzuCmAZJoQSzTve7yZL8qg9JNzrDzvFupL3hP6hzqzV44WWTwYafSVd6QjjJSd
+6/11/2024 0:7:42
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 163.51
+TRANSFER TRANSACTION:
+Receive:
+6/11/2024 0:7:42,HNKWKFhiS3yWmXAGhCFD8UoyRQzuCmAZJoQSzTve7yZL8qg9JNzrDzvFupL3hP6hzqzV44WWTwYafSVd6QjjJSd,1.63510000000000e-7,1e-9,,
+25
+3hjGNYLA9QWc8LNjTmstPqqxJxKBgrgDJHDdSwUFYd5uFthh6MS32iNSrTEyfTuQe6wozcEWwj9ZEoVH37CnyjYo
+6/11/2024 7:40:42
+Total Fees: 0.000804999924012000
+Sol price at time of transaction: 166.25
+Token Name: Pnut
+Token Symbol: PNUT
+Token Current Price: 0.002227
+Post Token Amount
+7072.093156
+No Pre Token Pair
+Avg Buy: 0.000059945123833716653
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 5: ["0.002227"]
+26
+35iwgUCuNqH72UDSkufva2TNrbex62U3YN1FamyV33uPbLMpkHs8yx3u691f2npoS4zhNmUgwYAyEg5g2PjFNZAN
+6/11/2024 7:40:52
+Total Fees: 0.00000632120000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+27
+28Ns52dJtx34tE172KgfpsjmREEAuaZ5uzw7cedHstw4xpwvMKQXyDsT8zx8JSghUMStnSKGKEdth5wm4DzSMTxY
+6/11/2024 7:40:52
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+28
+2xxr1rgnTyh3ChYi674fnrofV95MxWMf91zMXTKDi65Ksp9NaEWzEYPxFsRegDCBGZidrxgrq8HFiJRiK3MTKorC
+6/11/2024 7:40:52
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+29
+2z6Ek1pUe9gKMw7AJ7hrBCfSm4TipQ9MC83NRNXYA6BKQmWx1cjpwjH3ucuquSt6td6aWYqkp8frVMaPEoNbYA6
+6/11/2024 7:40:52
+Total Fees: 0.00000632120000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+30
+2udNmHxwBPEyS7dwepLeR3LMC5gueJEJqGShPUdTJS3pjSLEQVA2LhXgRZ34f6A1iwK8yLQ8T3SywP5fwfDyvddD
+6/11/2024 7:40:52
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+31
+3kCwJ8NUxftmy83rSPFbLiqWQqNnda8yRH4fgEoWeUM6QKvKdqyF4SsnUTwDBPP6crxfZADWYhPe95qfza7WiHcf
+6/11/2024 7:40:52
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+32
+rgzaB6JUSSRwRPhAd9F9CtfuX1uxDCYkLr4nooCeGxmUdBJumdk1wksDVSh3MvG5FQh1TVzxTWjnE7GgC8B9gmM
+6/11/2024 7:40:53
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 166.25
+TRANSFER TRANSACTION:
+Error incoming transaction
+33
+43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt
+6/11/2024 8:7:10
+Total Fees: 0.000804999939581000
+Sol price at time of transaction: 165.76
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07153
+Post Token Amount
+9578.478091
+No Pre Token Pair
+Avg Buy: 0.000044128931129169714
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 6: ["0.07153"]
+34
+5i2aiVx9H7GbqNdrZTseJkMAPc3Jgzg3MxyANUdofWrvRF6QUVRHChP4nUfDiA4rCyeHSHkB8asaDgogBPcw2xG3
+6/11/2024 8:13:40
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 165.56
+TRANSFER TRANSACTION:
+Receive:
+6/11/2024 8:13:40,5i2aiVx9H7GbqNdrZTseJkMAPc3Jgzg3MxyANUdofWrvRF6QUVRHChP4nUfDiA4rCyeHSHkB8asaDgogBPcw2xG3,107.712935344800,0.65059758,,
+35
+47MiGqaxVk5qJ5ZdquoiM3UZQc61TyBde6z3SysMadLADSc95W5Z3vi9k7KLz47C6yKjhoauy1Xa6nhuvWxZ3E2
+6/11/2024 11:31:20
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 173.7
+TRANSFER TRANSACTION:
+Receive:
+6/11/2024 11:31:20,47MiGqaxVk5qJ5ZdquoiM3UZQc61TyBde6z3SysMadLADSc95W5Z3vi9k7KLz47C6yKjhoauy1Xa6nhuvWxZ3E2,1.73700000000000e-7,1e-9,,
+36
+5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q
+6/11/2024 13:5:17
+Total Fees: 0.000804999933584000
+Sol price at time of transaction: 181.755
+Token Name: We Love Tits
+Token Symbol: TITS
+Token Current Price: 0.3244
+Post Token Amount
+1119.428055363
+No Pre Token Pair
+Avg Buy: 0.00041402861736363
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 7: ["0.3244"]
+37
+398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik
+6/11/2024 13:8:2
+Total Fees: 0.000804999804760000
+Sol price at time of transaction: 183.855
+Token Name: Drift
+Token Symbol: DRIFT
+Token Current Price: 1.35
+Post Token Amount
+120.567664
+No Pre Token Pair
+Avg Buy: 0.0038885239578001613
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 8: ["1.35"]
+38
+64dppe5r1ewrWELVGue7tMhMLw87m9dmRbkwydczMHgowL5GQZmHUEru8BqqMFkpLb72zc2w6oMCSPq8hBwqWNKw
+6/11/2024 13:14:27
+Total Fees: 0.000804999849849000
+Sol price at time of transaction: 180.84
+Token Name: Goatseus Maximus
+Token Symbol: GOAT
+Token Current Price: 0.8691
+Post Token Amount
+76.499687
+No Pre Token Pair
+Avg Buy: 0.006028024663682612
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 9: ["0.8691"]
+39
+4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ
+7/11/2024 8:53:55
+Total Fees: 0.000804999979860000
+Sol price at time of transaction: 189.86
+Token Name: We Love Tits
+Token Symbol: TITS
+Token Current Price: 0.3244
+Post Token Amount
+373.428055363
+Pre Token Amount: 
+1119.428055363
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Updating row:
+1,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q,6/11/2024 13:5:17,1119.428055363,0.00255000000000000,0.000414028617363630,0.000804999933584000
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Avg Sell: 0.0005548762846648793
+Lamports exchanged:2180226
+Partial Sell
+Updated Current Price Array at index 7: ["0.3244"]
+40
+2Pbuab2gFpCqXeYs9umhjUA2Ggv5a4MX7YkDgcU8AtRNMJc6ZDTcXoY8y8MonxYA563xfXjvKuv2UtbDposKDcNP
+7/11/2024 9:5:32
+Total Fees: 0.000804999950830000
+Sol price at time of transaction: 188.33
+Token Name: Goatseus Maximus
+Token Symbol: GOAT
+Token Current Price: 0.8691
+Post Token Amount: 0
+Pre Token Amount: 
+76.499687
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump
+Updating row:
+1,Goatseus Maximus,GOAT,CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump,64dppe5r1ewrWELVGue7tMhMLw87m9dmRbkwydczMHgowL5GQZmHUEru8BqqMFkpLb72zc2w6oMCSPq8hBwqWNKw,6/11/2024 13:14:27,76.499687,0.00255000000000000,0.00602802466368261,0.000804999849849000
+Avg Sell: 0.14561962161047798
+Lamports exchanged:59150722
+Full Sell
+Updated Current Price Array at index 9: ["0.8691"]
+41
+5rk8BY3eDGoM1ztXtYwRQwQXsyscGQyVnrnTFdendqGt7vY67KgSRnkkUPunkM5qPnkeC6NpA4QYALmAsVbeoxW2
+7/11/2024 9:5:44
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 188.33
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 9:5:44,5rk8BY3eDGoM1ztXtYwRQwQXsyscGQyVnrnTFdendqGt7vY67KgSRnkkUPunkM5qPnkeC6NpA4QYALmAsVbeoxW2,0.0000188330000000000,1.0000000000000001e-7,,
+42
+4Hcre6ZMJsRRk1zMaudP4hz6SCoE4uHBwnf1AYRVw5yJByXk77rKD7zfWs41FNhcKwp4VFTjBXJJnSz6rxU9Tyir
+7/11/2024 9:5:44
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 188.33
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 9:5:44,4Hcre6ZMJsRRk1zMaudP4hz6SCoE4uHBwnf1AYRVw5yJByXk77rKD7zfWs41FNhcKwp4VFTjBXJJnSz6rxU9Tyir,0.0000188330000000000,1.0000000000000001e-7,,
+43
+2ewstEE9wRK3dvS54e5YLpC9BoX1ygo3xYPNNPYaJASHu3YVoEBc87Z4LTNSCkD6NnKqFmAHxM3sb7xZ16pzTr9Q
+7/11/2024 9:5:44
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 188.33
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 9:5:44,2ewstEE9wRK3dvS54e5YLpC9BoX1ygo3xYPNNPYaJASHu3YVoEBc87Z4LTNSCkD6NnKqFmAHxM3sb7xZ16pzTr9Q,0.0000188330000000000,1.0000000000000001e-7,,
+44
+2xymGfVL2M5HumgoKTmCvGzH7MBvhtG8W91Hb2mgEihBuzjem1Mw5kpFCRYcxzW7LCnamm4D1WmJ1jBfXhNkDFns
+7/11/2024 9:13:46
+Total Fees: 0.000804999818016000
+Sol price at time of transaction: 187.7
+Token Name: USD Coin
+Token Symbol: USDC
+Token Current Price: 0.9989
+No matching Post Token found in JSON
+No Pre Token Pair
+Can't determine sol amounts (continuing)
+45
+5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM
+7/11/2024 10:17:15
+Total Fees: 0.000804999992643000
+Sol price at time of transaction: 186.95
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07153
+Post Token Amount
+3193.478091
+Pre Token Amount: 
+9578.478091
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Updating row:
+1,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt,6/11/2024 8:7:10,9578.478091,0.00255000000000000,0.0000441289311291697,0.000804999939581000
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Sell: 0.18694999999999998
+Lamports exchanged:6385000000
+Partial Sell
+Updated Current Price Array at index 6: ["0.07153"]
+46
+TQTz7475Tkd6xRBjgFYVYqu6kUJK51Twt3V6tLgeTA2KUMvNmo4rjVcBpDnTuHC7gKQBZ4Z1qnk1TKFAJqL5TbS
+7/11/2024 10:17:19
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 186.95499999999998
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 10:17:19,TQTz7475Tkd6xRBjgFYVYqu6kUJK51Twt3V6tLgeTA2KUMvNmo4rjVcBpDnTuHC7gKQBZ4Z1qnk1TKFAJqL5TbS,0.0000186955000000000,1.0000000000000001e-7,,
+47
+53qUktL7FSRr98BQzAGa8zy5nM8PMyB43uDLexJFGrNAKn6xuqK7jdP5Q9RbVJzAt6hL9oLDEn1vnvJJ6KU3kpy9
+7/11/2024 10:17:19
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 186.95499999999998
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 10:17:19,53qUktL7FSRr98BQzAGa8zy5nM8PMyB43uDLexJFGrNAKn6xuqK7jdP5Q9RbVJzAt6hL9oLDEn1vnvJJ6KU3kpy9,0.0000186955000000000,1.0000000000000001e-7,,
+48
+4ey3hjjzm9G4QhrYnVpfqizZhf9Dab4562bSSfyX6TTSJLdVAca7prGuiwZxfyJbe9LpdMocF7qGwEJxM6PJgPSP
+7/11/2024 10:37:59
+Total Fees: 0.000804999983011000
+Sol price at time of transaction: 186.9
+Token Name: DOGE MASCOT
+Token Symbol: SHIBU
+Token Current Price: 0.002695
+Post Token Amount
+9330.217908
+No Pre Token Pair
+Avg Buy: 0.00003405386703000463
+Lamports exchanged:1700000
+Fresh Buy
+Updated Current Price Array at index 10: ["0.002695"]
+49
+51UyRD8hu8QVFRdtyFiDFxzndjDzd6aJ2E4WVtGNVWVXUSJxNhkVATEtkkQU4oqdjcgRpKczLanoEcipwuiEEgmU
+7/11/2024 10:38:3
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 186.9
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 10:38:3,51UyRD8hu8QVFRdtyFiDFxzndjDzd6aJ2E4WVtGNVWVXUSJxNhkVATEtkkQU4oqdjcgRpKczLanoEcipwuiEEgmU,0.0000186900000000000,1.0000000000000001e-7,,
+50
+2HBw2XexzeqdZCsbacAfX6ZwurSfHdCiLszB7AbN7Y4WT743LvyNuBNJj3rpjVcjQaySgJPkbU1a28aVgS5Uu1E9
+7/11/2024 10:38:3
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 186.9
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 10:38:3,2HBw2XexzeqdZCsbacAfX6ZwurSfHdCiLszB7AbN7Y4WT743LvyNuBNJj3rpjVcjQaySgJPkbU1a28aVgS5Uu1E9,0.0000186900000000000,1.0000000000000001e-7,,
+51
+4FbG9bTr3LAvzE2zHAB67EQK1z3E3wAZgcdkEeLdgzYL4vB5JDQ15DnsQ3EX6CxsdTrAW3YcnTA8eDmLd3dq9iqb
+7/11/2024 10:38:3
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 186.9
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 10:38:3,4FbG9bTr3LAvzE2zHAB67EQK1z3E3wAZgcdkEeLdgzYL4vB5JDQ15DnsQ3EX6CxsdTrAW3YcnTA8eDmLd3dq9iqb,0.0000186900000000000,1.0000000000000001e-7,,
+52
+C1nYEHR3Zy1rMikEf6vnrtGp1aN916Tk9fVytKDLR2hm6kxw2183Sb51SfrL7Gvg7fGTnukmKLddTPT9KEbNVTm
+7/11/2024 10:38:3
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 186.9
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 10:38:3,C1nYEHR3Zy1rMikEf6vnrtGp1aN916Tk9fVytKDLR2hm6kxw2183Sb51SfrL7Gvg7fGTnukmKLddTPT9KEbNVTm,0.0000186900000000000,1.0000000000000001e-7,,
+53
+2QFmdsHZNubfeRN76bHkTsNQvvoh5RamvFSHq827JbE7zrXrDwLpkjzogjAEiE6NZenFNLQWbJ6bovaAyKSw47dK
+7/11/2024 11:15:18
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 188.66
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 11:15:18,2QFmdsHZNubfeRN76bHkTsNQvvoh5RamvFSHq827JbE7zrXrDwLpkjzogjAEiE6NZenFNLQWbJ6bovaAyKSw47dK,1.88660000000000e-7,1e-9,,
+54
+2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM
+7/11/2024 15:11:1
+Total Fees: 0.000804999936886000
+Sol price at time of transaction: 188.61
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07153
+Post Token Amount
+10657.443601
+Pre Token Amount: 
+3193.478091
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Buy Count
+2
+Updating row:
+2,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt,6/11/2024 8:7:10,9578.478091,0.00255000000000000,0.0000441289311291697,0.000804999939581000,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Updated row:
+3,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM,6/11/2024 8:7:10, 7/11/2024 15:11:1,10657.4436010000,0.00510000000000000,0.0000542829625120607,0.00160999987646700,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Buy: 0.0000644369938949517
+Lamports exchanged:2550000
+Buy More
+Updated Current Price Array at index 6: ["0.07153"]
+55
+YJFQVtne9G6NQWD6zitstpsQTWpNvMq4Dyjm7FXhd96kAiENrPDUg5eREw4a1gGWzRPsstyMjjyzuEAb57Vhnky
+7/11/2024 15:11:16
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 188.24
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 15:11:16,YJFQVtne9G6NQWD6zitstpsQTWpNvMq4Dyjm7FXhd96kAiENrPDUg5eREw4a1gGWzRPsstyMjjyzuEAb57Vhnky,0.0000188240000000000,1.0000000000000001e-7,,
+56
+2RNsudLd1EMU4S4RmiGghFNVZB6mvtkC1z7kNa3Khuaqno558AtcByJw9KQezb2fBwH3P3MR96ofo4mjLxBsj193
+7/11/2024 15:11:16
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 188.24
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 15:11:16,2RNsudLd1EMU4S4RmiGghFNVZB6mvtkC1z7kNa3Khuaqno558AtcByJw9KQezb2fBwH3P3MR96ofo4mjLxBsj193,0.0000188240000000000,1.0000000000000001e-7,,
+57
+5bbFzQjjcQBoMqerTfkXMHBXrtNHjF1mBDGSJxaB5bM57uozdXbGSDwQ3VU1vkdQboKv1tnv9HKrLnywRk98ajbS
+7/11/2024 22:31:9
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 187.31
+TRANSFER TRANSACTION:
+Receive:
+7/11/2024 22:31:9,5bbFzQjjcQBoMqerTfkXMHBXrtNHjF1mBDGSJxaB5bM57uozdXbGSDwQ3VU1vkdQboKv1tnv9HKrLnywRk98ajbS,1.87310000000000e-7,1e-9,,
+58
+2EnH22trQZ5tKj44sTJQJ8mTxH1QX985SdfoLcP3n87xKwTXn15WwE1oeN2RgWFQhecp1VSXLi7p6PT4CzB2d1na
+8/11/2024 4:23:55
+Total Fees: 0.0928547072600000
+Sol price at time of transaction: 195.68
+No matching Post Token found in JSON
+No Pre Token Pair
+Can't determine sol amounts (continuing)
+59
+5wzTJ4DXHA7dBoBkdmq37pih44qiHV4wZUxyNs2ZBFpEK3qUfDdFUTmXe1YUgU5rNZac2XAiUQsSKBjVA6uNjk4g
+8/11/2024 7:38:45
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 197.02
+Token Name: MAKE MEMES GREAT AGAIN
+Token Symbol: MMGA
+Token Current Price: 0.00001146
+Post Token Amount
+117575.263635
+No Pre Token Pair
+Avg Buy: 0.00025135389099993155
+Lamports exchanged:150000000
+Fresh Buy
+Updated Current Price Array at index 11: ["0.00001146"]
+60
+26zUCARLjob9mNowU1PtTZRAWC4EgLj1PUvhhGK1RwaeDDZvJm4XbMUjb15eWPQES4HNvASMkniMofzoR1NauEDo
+8/11/2024 7:38:53
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 197.03
+TRANSFER TRANSACTION:
+Receive:
+8/11/2024 7:38:53,26zUCARLjob9mNowU1PtTZRAWC4EgLj1PUvhhGK1RwaeDDZvJm4XbMUjb15eWPQES4HNvASMkniMofzoR1NauEDo,0.0000197030000000000,1.0000000000000001e-7,,
+61
+3wn7893NXw1bcvzZUrY2irPT8sUzbWnBFsGo8DAwAs99vQMW8bBS8N4wYDaqeHLsctKnA8ciHfsFRNN96zvjrd4X
+8/11/2024 7:38:54
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 197.03
+TRANSFER TRANSACTION:
+Receive:
+8/11/2024 7:38:54,3wn7893NXw1bcvzZUrY2irPT8sUzbWnBFsGo8DAwAs99vQMW8bBS8N4wYDaqeHLsctKnA8ciHfsFRNN96zvjrd4X,0.0000197030000000000,1.0000000000000001e-7,,
+62
+5do8mZZ9pmywSaRwqRUKwibifFNuUrbCifVQDkExCVKt38J3Je3ikLF4xtsNmYge7Vsojsy42ASuRqfaWZuPccwG
+8/11/2024 11:1:11
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 198.76999999999998
+TRANSFER TRANSACTION:
+Receive:
+8/11/2024 11:1:11,5do8mZZ9pmywSaRwqRUKwibifFNuUrbCifVQDkExCVKt38J3Je3ikLF4xtsNmYge7Vsojsy42ASuRqfaWZuPccwG,1.98770000000000e-7,1e-9,,
+63
+35ytihhQ4tTc548QKd5dCwxDNzwxgkLmJa53nbho29BFDoyrC7gtkSRZMB8Va7YuGm9njkfHEd64FMo7qNY3vBGn
+8/11/2024 16:4:6
+Total Fees: 0.000804999954816000
+Sol price at time of transaction: 199.22
+Token Name: DOGE MASCOT
+Token Symbol: SHIBU
+Token Current Price: 0.002695
+Post Token Amount: 0
+Pre Token Amount: 
+9330.217908
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Updating row:
+1,DOGE MASCOT,SHIBU,yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump,4ey3hjjzm9G4QhrYnVpfqizZhf9Dab4562bSSfyX6TTSJLdVAca7prGuiwZxfyJbe9LpdMocF7qGwEJxM6PJgPSP,7/11/2024 10:37:59,9330.217908,0.00170000000000000,0.0000340538670300046,0.000804999983011000
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump
+Avg Sell: 0.0027223248863460525
+Lamports exchanged:127496659
+Full Sell
+Updated Current Price Array at index 10: ["0.002695"]
+64
+5iMHtVWkrUp5uXmuzS9ryYtVfUXL2yDpTSbUtS1oSjrdw1rvK55rwoeNHaj6a49Dvk4smZ6LT4c3U9Cyeb4hBVmx
+8/11/2024 16:4:13
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 199.22
+TRANSFER TRANSACTION:
+Receive:
+8/11/2024 16:4:13,5iMHtVWkrUp5uXmuzS9ryYtVfUXL2yDpTSbUtS1oSjrdw1rvK55rwoeNHaj6a49Dvk4smZ6LT4c3U9Cyeb4hBVmx,0.0000199220000000000,1.0000000000000001e-7,,
+65
+4mbSdwcRPSKnK5a2BZfNDxr8UYnBRXfkBwZqE5ZmRmDxj6WkUPcZiCFTBZfEjJ5dredaCvRZKAzMSEThMbNHhFYi
+8/11/2024 16:4:13
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 199.22
+TRANSFER TRANSACTION:
+Receive:
+8/11/2024 16:4:13,4mbSdwcRPSKnK5a2BZfNDxr8UYnBRXfkBwZqE5ZmRmDxj6WkUPcZiCFTBZfEjJ5dredaCvRZKAzMSEThMbNHhFYi,0.0000199220000000000,1.0000000000000001e-7,,
+66
+2sv8pB8PKtm9CNUG8z3rGxoRrVDzkeJYrPN2ZoAXJU4XFyBqnfuXurJA6uM6oLxjHUKhKQ6SR2wVBwkD1nBSgy13
+9/11/2024 11:20:52
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 199.57
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 11:20:52,2sv8pB8PKtm9CNUG8z3rGxoRrVDzkeJYrPN2ZoAXJU4XFyBqnfuXurJA6uM6oLxjHUKhKQ6SR2wVBwkD1nBSgy13,1.99570000000000e-7,1e-9,,
+67
+5tk2iipnQzhjL37PfvuEYrR7Xv42nas9Z7xA4nxxcpR5RWtjLL4SdEoXtqMMiDsVbxHSwFHiNmuPfyKYpvrXXxLE
+9/11/2024 14:28:1
+Total Fees: 0.000804999747435000
+Sol price at time of transaction: 200.05
+Token Name: Raydium
+Token Symbol: RAY
+Token Current Price: 6.026
+Post Token Amount
+11.307022
+No Pre Token Pair
+Avg Buy: 0.045115990753356636
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 12: ["6.026"]
+68
+5GXJdEkYSTX9wMbri6YH1njuGPnCmverA7KtkiN9bXK9q8P3ZPJxgcSM6LzBWZuPPgJAf6VqVo8trMo7EZtBbHGK
+9/11/2024 14:28:8
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 200.05
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:28:8,5GXJdEkYSTX9wMbri6YH1njuGPnCmverA7KtkiN9bXK9q8P3ZPJxgcSM6LzBWZuPPgJAf6VqVo8trMo7EZtBbHGK,0.0000200050000000000,1.0000000000000001e-7,,
+69
+4bWPyy1XKfqjov5k1oQRMa7QQW5EwQxo9821Uh9f6vdJ2fS1wNau1g3PStLrdXAvKRZQVWrohLCJ2tAS3cJmxbGc
+9/11/2024 14:28:8
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 200.05
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:28:8,4bWPyy1XKfqjov5k1oQRMa7QQW5EwQxo9821Uh9f6vdJ2fS1wNau1g3PStLrdXAvKRZQVWrohLCJ2tAS3cJmxbGc,0.0000200050000000000,1.0000000000000001e-7,,
+70
+MfWXoUQWocSntKJRf6Trx2Rmjwwj1k3QhcT9gNhqDxEwGGiPw6FwB4EDf2HymfH1yDfyaDPU81xN4e3RSsnyGg1
+9/11/2024 14:28:8
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 200.05
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:28:8,MfWXoUQWocSntKJRf6Trx2Rmjwwj1k3QhcT9gNhqDxEwGGiPw6FwB4EDf2HymfH1yDfyaDPU81xN4e3RSsnyGg1,0.0000200050000000000,1.0000000000000001e-7,,
+71
+2u4tH5zGYxd3nbA7qAD4jr1wUDT4EfxeWWV8tUmzizrDkQRXKkD7HGrFakcPwLsQcYzDDZ3Cdw84gh32U4d62ZwN
+9/11/2024 14:28:8
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 200.05
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:28:8,2u4tH5zGYxd3nbA7qAD4jr1wUDT4EfxeWWV8tUmzizrDkQRXKkD7HGrFakcPwLsQcYzDDZ3Cdw84gh32U4d62ZwN,0.0000200050000000000,1.0000000000000001e-7,,
+72
+47VJeZKapfcr2XWhZXm2kgZmbh9riGqQn7AysebrQWFimtT919ok9zwrHDSemDLxhartHGZUSnrCDrmEbsBUeFkX
+9/11/2024 14:28:8
+Total Fees: 0.00000569360000000000
+Sol price at time of transaction: 200.05
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:28:8,47VJeZKapfcr2XWhZXm2kgZmbh9riGqQn7AysebrQWFimtT919ok9zwrHDSemDLxhartHGZUSnrCDrmEbsBUeFkX,0.0000200050000000000,1.0000000000000001e-7,,
+73
+3H8U7QmhP7VYczW84vT1bw9hAXLXoh33VyaHut8Z8w77uLcyrUPRJu1ce3VMbsBJX7pT2FTCxi7qvNYjDFLSqteH
+9/11/2024 14:28:8
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 200.05
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:28:8,3H8U7QmhP7VYczW84vT1bw9hAXLXoh33VyaHut8Z8w77uLcyrUPRJu1ce3VMbsBJX7pT2FTCxi7qvNYjDFLSqteH,0.0000200050000000000,1.0000000000000001e-7,,
+74
+29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk
+9/11/2024 14:45:6
+Total Fees: 0.000804999985330000
+Sol price at time of transaction: 199.93
+Token Name: We Love Tits
+Token Symbol: TITS
+Token Current Price: 0.3244
+Post Token Amount
+815.652767619
+Pre Token Amount: 
+373.428055363
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Buy Count
+2
+Updating row:
+2,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q,6/11/2024 13:5:17,1119.428055363,0.00255000000000000,0.000414028617363630,0.000804999933584000,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Updated row:
+3,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk,6/11/2024 13:5:17, 9/11/2024 14:45:6,815.652767619000,0.00425000000000000,0.0005912997076886958,0.00160999991891400,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Avg Buy: 0.0007685707980137617
+Lamports exchanged:1700000
+Buy More
+Updated Current Price Array at index 7: ["0.3244"]
+75
+4jjDU2gbPSAaWGRErzSpZwdqwoPRzww3xfzEmqz2EunsZwWtQ4XDFZ1CHQNqTWy3r3BU9NXUVw5Q6cKgztSkFjBZ
+9/11/2024 14:47:21
+Total Fees: 0.000804999781184000
+Sol price at time of transaction: 199.97
+Token Name: USD Coin
+Token Symbol: USDC
+Token Current Price: 0.9989
+No matching Post Token found in JSON
+No Pre Token Pair
+Can't determine sol amounts (continuing)
+76
+2jRwuHi5oFqDtXpX3Uw8bHYcbKqj6oBmEx1ABe2cUQZY1RkGX2pUPNk2SEKXKWhPzMReFp4ejsoHSZomQa3GjHKw
+9/11/2024 14:51:11
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 199.57
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 14:51:11,2jRwuHi5oFqDtXpX3Uw8bHYcbKqj6oBmEx1ABe2cUQZY1RkGX2pUPNk2SEKXKWhPzMReFp4ejsoHSZomQa3GjHKw,149.707435500000,0.7501500000000001,,
+77
+4QGWWtVLECifkCnTf6x9HZkFyyDBA51LjcAxLEkaHmZYLnpoBBJjxHR4K3Ajfjf3WrEjwu1wU8J9rQipX9ieaDKe
+9/11/2024 14:54:17
+Total Fees: 0.000804999857121000
+Sol price at time of transaction: 199.64
+Token Name: Drift
+Token Symbol: DRIFT
+Token Current Price: 1.35
+Post Token Amount
+28.048927
+Pre Token Amount: 
+14.130234
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Buy Count
+2
+Updating row:
+1,Drift,DRIFT,DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7,398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik,6/11/2024 13:8:2,120.567664,0.00255000000000000,0.00388852395780016,0.000804999804760000
+Updated row:
+2,Drift,DRIFT,DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7,398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik, 4QGWWtVLECifkCnTf6x9HZkFyyDBA51LjcAxLEkaHmZYLnpoBBJjxHR4K3Ajfjf3WrEjwu1wU8J9rQipX9ieaDKe,6/11/2024 13:8:2, 9/11/2024 14:54:17,28.0489270000000,0.00382500000000000,0.011088116218662392,0.00160999966188100
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Avg Buy: 0.018287708479524625
+Lamports exchanged:1275000
+Buy More
+Updated Current Price Array at index 8: ["1.35"]
+78
+zNG999HzBUwx9KwfNwGLdpodpPz4WRU3ZVBvgwLwSoo8mAvQDiz1saaWvi2jAZgj2U15nUXytXF7mc7UPuJN1Yf
+9/11/2024 15:10:23
+Total Fees: 0.000804999687912000
+Sol price at time of transaction: 200.51
+Token Name: Moo Deng
+Token Symbol: MOODENG
+Token Current Price: 0.3894
+Post Token Amount
+191.87
+No Pre Token Pair
+Avg Buy: 0.002664827747954344
+Lamports exchanged:2550000
+Fresh Buy
+Updated Current Price Array at index 13: ["0.3894"]
+79
+sWP89GXvksSneDYKsh914BnkNbdCpMUHpJmjn61Md8KCmgs24WuLChtwvAoQwewo6wkFKmhnsdtZ4a3u1331Goe
+9/11/2024 19:34:23
+Total Fees: 0.000804999817620000
+Sol price at time of transaction: 202.57
+Token Name: Raydium
+Token Symbol: RAY
+Token Current Price: 6.026
+Post Token Amount
+18.063196
+Pre Token Amount: 
+11.307022
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Buy Count
+2
+Updating row:
+1,Raydium,RAY,4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R,5tk2iipnQzhjL37PfvuEYrR7Xv42nas9Z7xA4nxxcpR5RWtjLL4SdEoXtqMMiDsVbxHSwFHiNmuPfyKYpvrXXxLE,9/11/2024 14:28:1,11.307022,0.00255000000000000,0.0451159907533566,0.000804999747435000
+Updated row:
+2,Raydium,RAY,4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R,5tk2iipnQzhjL37PfvuEYrR7Xv42nas9Z7xA4nxxcpR5RWtjLL4SdEoXtqMMiDsVbxHSwFHiNmuPfyKYpvrXXxLE, sWP89GXvksSneDYKsh914BnkNbdCpMUHpJmjn61Md8KCmgs24WuLChtwvAoQwewo6wkFKmhnsdtZ4a3u1331Goe,9/11/2024 14:28:1, 9/11/2024 19:34:23,18.0631960000000,0.00425000000000000,0.04804349945043365,0.00160999956505500
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R
+Avg Buy: 0.0509710081475107
+Lamports exchanged:1700000
+Buy More
+Updated Current Price Array at index 12: ["6.026"]
+80
+3wGrtkhy8fPth5w6KwxEXSXZCtUm6bQytDZ3wEy54DEeEpgQNsshQYmNKgDbaf8wGU1pJh2bSmNxTvb2KbbKJPwi
+9/11/2024 19:34:37
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 202.57
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 19:34:37,3wGrtkhy8fPth5w6KwxEXSXZCtUm6bQytDZ3wEy54DEeEpgQNsshQYmNKgDbaf8wGU1pJh2bSmNxTvb2KbbKJPwi,0.0000202570000000000,1.0000000000000001e-7,,
+81
+3NaTKCCCy8tPMja5QMWvczAHCcH6Nw2kybY3sW5sVbt5fHMpLwBrQRoeW2rrBr3q9WAZYrUUJXpK3A7LnMHuoNcr
+9/11/2024 19:34:37
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 202.57
+TRANSFER TRANSACTION:
+Receive:
+9/11/2024 19:34:37,3NaTKCCCy8tPMja5QMWvczAHCcH6Nw2kybY3sW5sVbt5fHMpLwBrQRoeW2rrBr3q9WAZYrUUJXpK3A7LnMHuoNcr,0.0000202570000000000,1.0000000000000001e-7,,
+82
+6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe
+9/11/2024 19:35:38
+Total Fees: 0.000804999859855000
+Sol price at time of transaction: 202.57
+Token Name: We Love Tits
+Token Symbol: TITS
+Token Current Price: 0.3244
+Post Token Amount
+1198.60830265
+Pre Token Amount: 
+815.652767619
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Buy Count
+3
+Updating row:
+3,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk,6/11/2024 13:5:17, 9/11/2024 14:45:6,815.652767619000,0.00425000000000000,0.0005912997076886958,0.00160999991891400,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Updated row:
+4,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk, 6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe,6/11/2024 13:5:17, 9/11/2024 14:45:6, 9/11/2024 19:35:38,1198.60830265000,0.00571767500000000,0.00039420006390860404,0.00241499977876900,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Avg Buy: 0.0007763484205181502
+Lamports exchanged:1467675
+Buy More
+Updated Current Price Array at index 7: ["0.3244"]
+83
+4MMff4gHwbogQYnqbNZqZA2VjjbXXnAxVu41cFwSU2d4W1xeNaeyiS7ziZeHWpmhFKkXzJD6KNLZq18AZ2N5Z26c
+10/11/2024 2:6:55
+Total Fees: 0.000804999959475000
+Sol price at time of transaction: 198.48
+Transaction Error
+84
+5AUHEQwiq8YEj3du8oNaArPeBYsBt3WXSL8QefzqyjnLxUoq49LfZgwVFn1RCL7RDoum2EAWExDYq5DNc6ejduML
+10/11/2024 11:50:18
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 200.15
+TRANSFER TRANSACTION:
+Receive:
+10/11/2024 11:50:18,5AUHEQwiq8YEj3du8oNaArPeBYsBt3WXSL8QefzqyjnLxUoq49LfZgwVFn1RCL7RDoum2EAWExDYq5DNc6ejduML,2.00150000000000e-7,1e-9,,
+85
+3P5sgAjypSbGZTFYca2NKsD8SjeMRKF5KoPx8mMwNCuuWzs9sjgLYrEsKxz2XGrHPsscTyrbRQkgnaZ7fCX35Tmh
+10/11/2024 14:17:48
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 201.95
+TRANSFER TRANSACTION:
+Receive:
+10/11/2024 14:17:48,3P5sgAjypSbGZTFYca2NKsD8SjeMRKF5KoPx8mMwNCuuWzs9sjgLYrEsKxz2XGrHPsscTyrbRQkgnaZ7fCX35Tmh,49.9866640000000,0.24752000000000002,,
+86
+ZTkdSV6qA7SHJCTCb5BjFwJiCAB9KAvFQyDhQfwovmP5Zp9zE5CRp6mXq8HkDXL4YnQ1D4yT9tpEevDoa7KxpMo
+10/11/2024 14:25:53
+Total Fees: 0.000804999877278000
+Sol price at time of transaction: 201.93
+Token Name: Drift
+Token Symbol: DRIFT
+Token Current Price: 1.35
+Post Token Amount: 0
+Pre Token Amount: 
+28.048927
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Updating row:
+2,Drift,DRIFT,DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7,398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik, 4QGWWtVLECifkCnTf6x9HZkFyyDBA51LjcAxLEkaHmZYLnpoBBJjxHR4K3Ajfjf3WrEjwu1wU8J9rQipX9ieaDKe,6/11/2024 13:8:2, 9/11/2024 14:54:17,28.0489270000000,0.00382500000000000,0.011088116218662392,0.00160999966188100
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Avg Sell: 0.3551329237635365
+Lamports exchanged:49329458
+Full Sell
+Updated Current Price Array at index 8: ["1.35"]
+87
+5zdaW8c77E9m6ash3EJSJKBKkvZde6PkaTm9H9MtC64fpe4ZBtXkA9mGVWXAXEjzw5jaSy6pjke3gkdPCkwGoXHD
+10/11/2024 15:59:25
+Total Fees: 0.000804999953152000
+Sol price at time of transaction: 207.1
+Token Name: MEDUSA
+Token Symbol: MEDUSA
+Token Current Price: 0.0007925
+Post Token Amount
+85548.560606
+No Pre Token Pair
+Avg Buy: 0.000004115440371013178
+Lamports exchanged:1700000
+Fresh Buy
+Updated Current Price Array at index 14: ["0.0007925"]
+88
+o2hvhCQbWsGNCvkdYWjY86hMQ9zQGJgE5TyiZTvdwSgudUghwQwjJCUW4TU9BLokBwGNz6Nn8mRvy1aoWsVFYvy
+10/11/2024 22:40:57
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 204.24
+TRANSFER TRANSACTION:
+Receive:
+10/11/2024 22:40:57,o2hvhCQbWsGNCvkdYWjY86hMQ9zQGJgE5TyiZTvdwSgudUghwQwjJCUW4TU9BLokBwGNz6Nn8mRvy1aoWsVFYvy,2.04240000000000e-7,1e-9,,
+89
+3Hu5TG79ebiq4sezKHKtwXC9smbzrwmD3DU57i46yq9aANNrtm4gNnkcKK3JE4hr3DfBaMXT6YKnkk4cS34dAYKD
+11/11/2024 12:47:30
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 209.81
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 12:47:30,3Hu5TG79ebiq4sezKHKtwXC9smbzrwmD3DU57i46yq9aANNrtm4gNnkcKK3JE4hr3DfBaMXT6YKnkk4cS34dAYKD,2.09810000000000e-7,1e-9,,
+90
+5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk
+11/11/2024 15:57:11
+Total Fees: 0.000804999998152000
+Sol price at time of transaction: 204.98
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07172
+Post Token Amount
+13274.440467
+Pre Token Amount: 
+10657.443601
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Buy Count
+3
+Updating row:
+3,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM,6/11/2024 8:7:10, 7/11/2024 15:11:1,10657.4436010000,0.00510000000000000,0.0000542829625120607,0.00160999987646700,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Updated row:
+4,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11,13274.4404670000,0.00637500000000000,0.00003618867496343634,0.00241499987461900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Buy: 0.00009986618761201072
+Lamports exchanged:1275000
+Buy More
+Updated Current Price Array at index 6: ["0.07172"]
+91
+yFLZop7ZSUfycna2N3xmmLMwi9zxkuvxmGFgL3A9Zkr7eU2XB5JURrExvUGT3isALkLk25oSqSQxKGyFCJDsW9m
+11/11/2024 15:57:35
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 205.27
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 15:57:35,yFLZop7ZSUfycna2N3xmmLMwi9zxkuvxmGFgL3A9Zkr7eU2XB5JURrExvUGT3isALkLk25oSqSQxKGyFCJDsW9m,0.0000205270000000000,1.0000000000000001e-7,,
+92
+4ZpTc6nrU9Q3R92RDQPdpbEAGuMcvuWx3nrJrZpVKoiSHuLB2ECft51KpGvYTw8Cn5oPm6VyVbdEAVqXVpuKWkEW
+11/11/2024 15:57:44
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 205.36
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 15:57:44,4ZpTc6nrU9Q3R92RDQPdpbEAGuMcvuWx3nrJrZpVKoiSHuLB2ECft51KpGvYTw8Cn5oPm6VyVbdEAVqXVpuKWkEW,0.0000205360000000000,1.0000000000000001e-7,,
+93
+55ERt6fYk6UgMJA7sUybu3Rz3bbdBA2bLVm7p2ujMck672MqKUkq3Vscv1eLkUPjzkXGaV7hbnkxhkfp27Sxp3dx
+11/11/2024 16:9:37
+Total Fees: 0.000804999985902000
+Sol price at time of transaction: 206.77
+Token Name: MEDUSA
+Token Symbol: MEDUSA
+Token Current Price: 0.0007925
+Post Token Amount: 0
+Pre Token Amount: 
+85548.560606
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Updating row:
+1,MEDUSA,MEDUSA,Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4,5zdaW8c77E9m6ash3EJSJKBKkvZde6PkaTm9H9MtC64fpe4ZBtXkA9mGVWXAXEjzw5jaSy6pjke3gkdPCkwGoXHD,10/11/2024 15:59:25,85548.560606,0.00170000000000000,0.00000411544037101318,0.000804999953152000
+Avg Sell: 0.00045193176547658265
+Lamports exchanged:186981245
+Full Sell
+Updated Current Price Array at index 14: ["0.0007925"]
+94
+2nYhTWnKkCuxpyhGcMxGTQHpUkC2mRD4itcHMs6WtDr1pgC4oKWrV6ACfUB7KsBNx9zZjyfRkopJsSgyiGDeUxTc
+11/11/2024 16:16:41
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 205.31
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 16:16:41,2nYhTWnKkCuxpyhGcMxGTQHpUkC2mRD4itcHMs6WtDr1pgC4oKWrV6ACfUB7KsBNx9zZjyfRkopJsSgyiGDeUxTc,199.524364200000,0.97182,,
+95
+33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg
+11/11/2024 16:20:15
+Total Fees: 0.000804999978450000
+Sol price at time of transaction: 205.48
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07172
+Post Token Amount
+18068.165869
+Pre Token Amount: 
+13274.440467
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Buy Count
+4
+Updating row:
+4,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11,13274.4404670000,0.00637500000000000,0.00003618867496343634,0.00241499987461900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Updated row:
+5,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Buy: 0.0001093041332282804
+Lamports exchanged:2550000
+Buy More
+Updated Current Price Array at index 6: ["0.07172"]
+96
+64fKfmrGSxLTsr9mXqdYpcw1ob9NH381oQgnD2TDy947odjPTx6aPeurAYigTB1mSLBR3xuVuLQ5rqpc9Zxxwq1A
+11/11/2024 21:25:28
+Total Fees: 0.000804999992643000
+Sol price at time of transaction: 216.84
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07172
+Post Token Amount
+2068.165869
+Pre Token Amount: 
+18068.165869
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Updating row:
+5,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Sell Count:
+2
+Updated row:
+6,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg, 64fKfmrGSxLTsr9mXqdYpcw1ob9NH381oQgnD2TDy947odjPTx6aPeurAYigTB1mSLBR3xuVuLQ5rqpc9Zxxwq1A,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15, 11/11/2024 21:25:28,22385.0000000000,16.0089250000000,0.201895,0.00160999998528600
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Sell: 0.21684
+Lamports exchanged:16000000000
+Partial Sell
+Updated Current Price Array at index 6: ["0.07172"]
+97
+3EpCSEAwNyRNWQZAG6tyFtajrC8rcgFbvsgFCPGMfLWQpNs1tK6MhqZv422teJryMa3Wzi99SNtC2KSnSNdVBEWP
+11/11/2024 21:25:36
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 216.875
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 21:25:36,3EpCSEAwNyRNWQZAG6tyFtajrC8rcgFbvsgFCPGMfLWQpNs1tK6MhqZv422teJryMa3Wzi99SNtC2KSnSNdVBEWP,0.0000216875000000000,1.0000000000000001e-7,,
+98
+3RAGeLfcy2t2eAFNoVk94xKe51TNYJzTNNii4NTdodP7YnqwLZ6VME9ETWiZbvhNTGfLvrbh7TW3kduqebTdaceE
+11/11/2024 21:25:37
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 216.9
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 21:25:37,3RAGeLfcy2t2eAFNoVk94xKe51TNYJzTNNii4NTdodP7YnqwLZ6VME9ETWiZbvhNTGfLvrbh7TW3kduqebTdaceE,0.0000216900000000000,1.0000000000000001e-7,,
+99
+3fCzfkeJjVNJvbkCiN9ZfYfCKYcYZfXzknupxgigPfqa7Jj8y13AUaoJorraWRc8Z6LD7QrnnftmpdP3FcZRqmj
+11/11/2024 21:25:37
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 216.9
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 21:25:37,3fCzfkeJjVNJvbkCiN9ZfYfCKYcYZfXzknupxgigPfqa7Jj8y13AUaoJorraWRc8Z6LD7QrnnftmpdP3FcZRqmj,0.0000216900000000000,1.0000000000000001e-7,,
+100
+2FDUfMJquy4pTCgovLej6H6tqLpPeC1ojs8NwV3975n6WZ43LUo2UnbW1qkXNE36sKWc2mv2dK8QTSar8q8DkT12
+11/11/2024 21:25:37
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 216.9
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 21:25:37,2FDUfMJquy4pTCgovLej6H6tqLpPeC1ojs8NwV3975n6WZ43LUo2UnbW1qkXNE36sKWc2mv2dK8QTSar8q8DkT12,0.0000216900000000000,1.0000000000000001e-7,,
+101
+63wWvmJY7jaUGSFgxCayeBUSktFThJcVaaBgqkXsHJ6yns1eiUDMyJgMrXhRmAhwVD4CQiqEN3K2Lyfh1CtHjFSp
+11/11/2024 21:33:28
+Total Fees: 0.000804999833024000
+Sol price at time of transaction: 217.015
+Token Name: USDT
+Token Symbol: USDT
+Token Current Price: 1.0011
+Post Token Amount
+236.388615
+No Pre Token Pair
+Avg Buy: 1.0098477035368223
+Lamports exchanged:1100000000
+Fresh Buy
+Updated Current Price Array at index 15: ["1.0011"]
+102
+iHvxBxqD2KSfQpQwrZ8hFAvanPmZnG3Nd51Pednhai299Pq9P1mwfyRPDVNP6ugV3fjgGF9adZrX3d7YggY8Zbd
+11/11/2024 21:34:15
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 217.16
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 21:34:15,iHvxBxqD2KSfQpQwrZ8hFAvanPmZnG3Nd51Pednhai299Pq9P1mwfyRPDVNP6ugV3fjgGF9adZrX3d7YggY8Zbd,0.000217160000000000,0.0000010000000000000002,,
+103
+28YmkEQ3thea4daL3kwacrC7yzhomcmJXpdo1Aeg6GaeA5x4yA7KrB7D2WERKFkttmxu2HZ9EcSvcNCUPoUvcKFf
+11/11/2024 22:56:18
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 216.61
+TRANSFER TRANSACTION:
+Receive:
+11/11/2024 22:56:18,28YmkEQ3thea4daL3kwacrC7yzhomcmJXpdo1Aeg6GaeA5x4yA7KrB7D2WERKFkttmxu2HZ9EcSvcNCUPoUvcKFf,2.16610000000000e-7,1e-9,,
+104
+2S28S2anbieK9qCDDordLBoTjR7E4jQTwr4WZni2nh97Cjno9B3REKwrKgbuzhhaiuASRzaE56uyjheRjQNnS64E
+12/11/2024 14:53:41
+Total Fees: 0.000804999941460000
+Sol price at time of transaction: 220.03
+Token Name: rocky
+Token Symbol: rocky
+Token Current Price: 0.005291
+Post Token Amount
+3659.732955
+No Pre Token Pair
+Avg Buy: 0.0001022071841304607
+Lamports exchanged:1700000
+Fresh Buy
+Updated Current Price Array at index 16: ["0.005291"]
+105
+atUDVLFfFhXYw6YmjEJWBkDSp7d9CLFcn7Rb68bbpajgqt3zRhsNx8tjRrpQZoKRR38h6PPLojVV8oScDKHSTWn
+12/11/2024 14:53:50
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 219.96
+TRANSFER TRANSACTION:
+Receive:
+12/11/2024 14:53:50,atUDVLFfFhXYw6YmjEJWBkDSp7d9CLFcn7Rb68bbpajgqt3zRhsNx8tjRrpQZoKRR38h6PPLojVV8oScDKHSTWn,0.0000219960000000000,1.0000000000000001e-7,,
+106
+5tam5RMqR874usYoLJ69FppvdkQLFuKrpmw9Yey8oeTVYS26C5KNZpV7XFFKRdLdBErz7i2VNtiWgMoDjfU8boBm
+12/11/2024 17:56:47
+Total Fees: 0.000804999847995000
+Sol price at time of transaction: 221.225
+Token Name: USD Coin
+Token Symbol: USDC
+Token Current Price: 0.9989
+No matching Post Token found in JSON
+No Pre Token Pair
+Can't determine sol amounts (continuing)
+107
+5WBX7Dc9sMzWp2vjxDKVRzCxZX9vQVja8LjDabwhfsEZSxjZHmwin2JtT9PFP5h1Qu841TttrJEvfL9UGSXLTcV1
+12/11/2024 18:10:3
+Total Fees: 0.000804999646004000
+Sol price at time of transaction: 221.64
+Token Name: Drift
+Token Symbol: DRIFT
+Token Current Price: 1.35
+Post Token Amount
+66.67503
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Buy Count
+3
+Updating row:
+3,Drift,DRIFT,DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7,398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik, 4QGWWtVLECifkCnTf6x9HZkFyyDBA51LjcAxLEkaHmZYLnpoBBJjxHR4K3Ajfjf3WrEjwu1wU8J9rQipX9ieaDKe,6/11/2024 13:8:2, 9/11/2024 14:54:17,28.0489270000000,0.00382500000000000,0.011088116218662392,0.00160999966188100,10/11/2024 14:25:53,ZTkdSV6qA7SHJCTCb5BjFwJiCAB9KAvFQyDhQfwovmP5Zp9zE5CRp6mXq8HkDXL4YnQ1D4yT9tpEevDoa7KxpMo,28.048927,0.0493294580000000,0.355132923763537,0.000804999877278000
+Updated row:
+4,Drift,DRIFT,DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7,398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik, 4QGWWtVLECifkCnTf6x9HZkFyyDBA51LjcAxLEkaHmZYLnpoBBJjxHR4K3Ajfjf3WrEjwu1wU8J9rQipX9ieaDKe, 5WBX7Dc9sMzWp2vjxDKVRzCxZX9vQVja8LjDabwhfsEZSxjZHmwin2JtT9PFP5h1Qu841TttrJEvfL9UGSXLTcV1,6/11/2024 13:8:2, 9/11/2024 14:54:17, 12/11/2024 18:10:3,66.6750300000000,0.00467500000000000,0.007392078420960106,0.00241499930788500,10/11/2024 14:25:53,ZTkdSV6qA7SHJCTCb5BjFwJiCAB9KAvFQyDhQfwovmP5Zp9zE5CRp6mXq8HkDXL4YnQ1D4yT9tpEevDoa7KxpMo,28.048927,0.0493294580000000,0.355132923763537,0.000804999877278000
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7
+Avg Buy: 0.002825555534058252
+Lamports exchanged:850000
+Buy More
+Updated Current Price Array at index 8: ["1.35"]
+108
+g1NUiFTUnXfPUqHb7UTVmWeQY7VYbh3GBGLwrY8Rg3HUBN94iF1GUQzrVP5irhXeoAVv1CJG6vyHesPC6q7bfw8
+12/11/2024 18:10:6
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 221.64
+TRANSFER TRANSACTION:
+Receive:
+12/11/2024 18:10:6,g1NUiFTUnXfPUqHb7UTVmWeQY7VYbh3GBGLwrY8Rg3HUBN94iF1GUQzrVP5irhXeoAVv1CJG6vyHesPC6q7bfw8,0.0000221640000000000,1.0000000000000001e-7,,
+109
+4EzAsWK4fHULpft53DoniACDiQmScDq5PfwbEvQ7Y4TKTqnHXdM5VQdGUqMk8HTtc32cATjEGhPsFi5WTEC5AyQn
+12/11/2024 18:10:14
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 221.45499999999998
+TRANSFER TRANSACTION:
+Receive:
+12/11/2024 18:10:14,4EzAsWK4fHULpft53DoniACDiQmScDq5PfwbEvQ7Y4TKTqnHXdM5VQdGUqMk8HTtc32cATjEGhPsFi5WTEC5AyQn,0.0000221455000000000,1.0000000000000001e-7,,
+110
+2NVuxx6GcrYJo9fpcHf5sbX6YPvKovijDHBJpD3nvELEdWgKJoeCg49uhpSo451ZM2vyvftFikrrW72H81CC5nTV
+12/11/2024 18:29:13
+Total Fees: 0.0000249996852330000
+Sol price at time of transaction: 223.6
+TRANSFER TRANSACTION:
+Token Name: USDT
+Token Symbol: USDT
+Token Current Price: 1.0011
+Post Token Amount: 0
+Pre Token Amount: 
+91.388615
+OKX DEX
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Updating row:
+1,USDT,USDT,Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB,63wWvmJY7jaUGSFgxCayeBUSktFThJcVaaBgqkXsHJ6yns1eiUDMyJgMrXhRmAhwVD4CQiqEN3K2Lyfh1CtHjFSp,11/11/2024 21:33:28,236.388615,1.10000000000000,1.00984770353682,0.000804999833024000
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
+Avg Sell: 0
+Lamports exchanged:0
+Full Sell
+Updated Current Price Array at index 15: ["1.0011"]
+111
+A5JEpjhYJax8hHVnEC5xRkZfRCtMB1XpPskYkgiwJ8aRMa9S7PBQU6oGd4Ug2B93Hz8WP9baj1gc8Mg75XnpWY6
+13/11/2024 19:7:35
+Total Fees: 0.000804999721452000
+Sol price at time of transaction: 206.15
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07172
+Post Token Amount
+568.165869
+Pre Token Amount: 
+2068.165869
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Updating row:
+5,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Sell Count:
+2
+Updated row:
+6,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg, A5JEpjhYJax8hHVnEC5xRkZfRCtMB1XpPskYkgiwJ8aRMa9S7PBQU6oGd4Ug2B93Hz8WP9baj1gc8Mg75XnpWY6,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15, 13/11/2024 19:7:35,7885.00000000000,1.50892500000000,0.19655,0.00160999971409500
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Sell: 0.20615000000000003
+Lamports exchanged:1500000000
+Partial Sell
+Updated Current Price Array at index 6: ["0.07172"]
+112
+4vJ5pTgLdSjk2Dg2MbK6NnDqZyixhjotZfhDWjnj3JmKjX4HT6uRoa9fmuytd1NT6CMBKJUe5M3h8L3jXo7nQ3qt
+13/11/2024 19:7:41
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 206.07999999999998
+TRANSFER TRANSACTION:
+Receive:
+13/11/2024 19:7:41,4vJ5pTgLdSjk2Dg2MbK6NnDqZyixhjotZfhDWjnj3JmKjX4HT6uRoa9fmuytd1NT6CMBKJUe5M3h8L3jXo7nQ3qt,0.0000206080000000000,1.0000000000000001e-7,,
+113
+5scGnLHCVW4rg7Zc3giien6ngc8U5Y5v3P5VC5bYeZWyjXxYTAErjqT8X9CFEstvprANbWg4jZEhUSHB9Byzx6Rz
+13/11/2024 19:7:41
+Total Fees: 0.00000506701000000000
+Sol price at time of transaction: 206.07999999999998
+TRANSFER TRANSACTION:
+Receive:
+13/11/2024 19:7:41,5scGnLHCVW4rg7Zc3giien6ngc8U5Y5v3P5VC5bYeZWyjXxYTAErjqT8X9CFEstvprANbWg4jZEhUSHB9Byzx6Rz,0.0000206080000000000,1.0000000000000001e-7,,
+114
+3XKcSeyEL99aJEj3WU1bBJYP1N7861X7fmmUx7uNC9LEiUQahX3ctb7CoKNVhNZbJ7djV9LRTdiMnY2AqkV9zDpH
+14/11/2024 18:51:38
+Total Fees: 0.000804999954816000
+Sol price at time of transaction: 219.39499999999998
+Token Name: First Convicted RACCON
+Token Symbol: FRED
+Token Current Price: 0.07172
+Post Token Amount
+189.771609
+Pre Token Amount: 
+568.165869
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Updating row:
+5,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000
+Sell Count:
+2
+Updated row:
+6,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg, 3XKcSeyEL99aJEj3WU1bBJYP1N7861X7fmmUx7uNC9LEiUQahX3ctb7CoKNVhNZbJ7djV9LRTdiMnY2AqkV9zDpH,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15, 14/11/2024 18:51:38,6763.39426000000,0.387319260000000,0.20317249999999998,0.00160999994745900
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump
+Avg Sell: 0.21939499999999998
+Lamports exchanged:378394260
+Partial Sell
+Updated Current Price Array at index 6: ["0.07172"]
+115
+52HQcb8XFwn715hC2ABLFGC811zWbgx4BqsSYqQkVD8DJr92sbCzrHNZE4buKderbnLwaCdx6oGXTg5VP9go1zfb
+14/11/2024 18:51:56
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 219.26
+TRANSFER TRANSACTION:
+Receive:
+14/11/2024 18:51:56,52HQcb8XFwn715hC2ABLFGC811zWbgx4BqsSYqQkVD8DJr92sbCzrHNZE4buKderbnLwaCdx6oGXTg5VP9go1zfb,0.0000219260000000000,1.0000000000000001e-7,,
+116
+2BeRFkPJ9fzMJvWexBf6XwCiubtzSYS8J59jkA3cM9AUYCxbCfgC37xARt3GenrCAnG1uC5TaGydLsnHfcZUrPkR
+14/11/2024 18:51:56
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 219.26
+TRANSFER TRANSACTION:
+Receive:
+14/11/2024 18:51:56,2BeRFkPJ9fzMJvWexBf6XwCiubtzSYS8J59jkA3cM9AUYCxbCfgC37xARt3GenrCAnG1uC5TaGydLsnHfcZUrPkR,0.0000219260000000000,1.0000000000000001e-7,,
+117
+3N6Ta65KDMKfv4osPsBzhKXNVu4uEmfMvPs2VSybBVKq3kzWdvQ4fwbDSNQSo83Zsi5UCyTs765jSQd8SY7N77gS
+14/11/2024 19:21:8
+Total Fees: 0.000804999979005000
+Sol price at time of transaction: 221.84
+Token Name: MEDUSA
+Token Symbol: MEDUSA
+Token Current Price: 0.0007925
+Post Token Amount
+32077.520767
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Buy Count
+2
+Updating row:
+2,MEDUSA,MEDUSA,Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4,5zdaW8c77E9m6ash3EJSJKBKkvZde6PkaTm9H9MtC64fpe4ZBtXkA9mGVWXAXEjzw5jaSy6pjke3gkdPCkwGoXHD,10/11/2024 15:59:25,85548.560606,0.00170000000000000,0.00000411544037101318,0.000804999953152000,11/11/2024 16:9:37,55ERt6fYk6UgMJA7sUybu3Rz3bbdBA2bLVm7p2ujMck672MqKUkq3Vscv1eLkUPjzkXGaV7hbnkxhkfp27Sxp3dx,85548.560606,0.186981245000000,0.000451931765476583,0.000804999985902000
+Updated row:
+3,MEDUSA,MEDUSA,Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4,5zdaW8c77E9m6ash3EJSJKBKkvZde6PkaTm9H9MtC64fpe4ZBtXkA9mGVWXAXEjzw5jaSy6pjke3gkdPCkwGoXHD, 3N6Ta65KDMKfv4osPsBzhKXNVu4uEmfMvPs2VSybBVKq3kzWdvQ4fwbDSNQSo83Zsi5UCyTs765jSQd8SY7N77gS,10/11/2024 15:59:25, 14/11/2024 19:21:8,32077.5207670000,0.00340000000000000,0.000007936104658223905,0.00160999993215700,11/11/2024 16:9:37,55ERt6fYk6UgMJA7sUybu3Rz3bbdBA2bLVm7p2ujMck672MqKUkq3Vscv1eLkUPjzkXGaV7hbnkxhkfp27Sxp3dx,85548.560606,0.186981245000000,0.000451931765476583,0.000804999985902000
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4
+Avg Buy: 0.00001175676894543463
+Lamports exchanged:1700000
+Buy More
+Updated Current Price Array at index 14: ["0.0007925"]
+118
+122amq2zVwHWNJ4vZE5EDhF6YzKUCewWUuF8oNsmU4CGs29LfwoMHmrPed45tEoEXBrTV9NHN1S5x1X23vDG1thc
+17/11/2024 23:37:26
+Total Fees: 0.00138435931200000
+Sol price at time of transaction: 231.75
+Token Name: FWOG
+Token Symbol: FWOG
+Token Current Price: 0.4701
+Post Token Amount
+96.589631
+No Pre Token Pair
+Avg Buy: 0.5947328989174832
+Lamports exchanged:247875000
+Fresh Buy
+Updated Current Price Array at index 17: ["0.4701"]
+119
+32K3v85NMiaxCwET8udzEkKxGfgySVNB5DzWUShKhEjW9mhRgqyxF7xkujVZaj5yH9TcVybVjghGQKzQscisRTEs
+17/11/2024 23:37:30
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 231.61
+TRANSFER TRANSACTION:
+Receive:
+17/11/2024 23:37:30,32K3v85NMiaxCwET8udzEkKxGfgySVNB5DzWUShKhEjW9mhRgqyxF7xkujVZaj5yH9TcVybVjghGQKzQscisRTEs,0.0000231610000000000,1.0000000000000001e-7,,
+120
+4zXnzCo72nQmATg6b1dLQot5UCKC4GahpQ5Sofy56iQXK4d9ujmX7ukMUQET6Cgr3yFP9NitdMeACfdJjzHZrzzt
+17/11/2024 23:37:30
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 231.61
+TRANSFER TRANSACTION:
+Receive:
+17/11/2024 23:37:30,4zXnzCo72nQmATg6b1dLQot5UCKC4GahpQ5Sofy56iQXK4d9ujmX7ukMUQET6Cgr3yFP9NitdMeACfdJjzHZrzzt,0.0000231610000000000,1.0000000000000001e-7,,
+121
+3CSt9HevunaBeNEpouGdafcwBdvkFTLcp9U1gXAieHKmeajprGB7BH7rWGCy33LciMA9gKSE6XVenX5XaPMXeZwh
+17/11/2024 23:37:30
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 231.61
+TRANSFER TRANSACTION:
+Receive:
+17/11/2024 23:37:30,3CSt9HevunaBeNEpouGdafcwBdvkFTLcp9U1gXAieHKmeajprGB7BH7rWGCy33LciMA9gKSE6XVenX5XaPMXeZwh,0.0000231610000000000,1.0000000000000001e-7,,
+122
+44z7KPnKXPu4hujL4BvGe7BBviwCYeM8To7c5rf1gdwiK28PrbCDzyKeNvJath5mKhRWpTezpN8ZnqYjhxCypBYX
+17/11/2024 23:37:30
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 231.61
+TRANSFER TRANSACTION:
+Receive:
+17/11/2024 23:37:30,44z7KPnKXPu4hujL4BvGe7BBviwCYeM8To7c5rf1gdwiK28PrbCDzyKeNvJath5mKhRWpTezpN8ZnqYjhxCypBYX,0.0000231610000000000,1.0000000000000001e-7,,
+123
+5Yq7XFNUG9meVXpHCv5sDec3zZFaChBE1Y3nVLpsYM21RVNZd2TGg4cmXktFwGyirbgMHVdaRFZDbjD9t8QdcM9N
+17/11/2024 23:37:30
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 231.61
+TRANSFER TRANSACTION:
+Receive:
+17/11/2024 23:37:30,5Yq7XFNUG9meVXpHCv5sDec3zZFaChBE1Y3nVLpsYM21RVNZd2TGg4cmXktFwGyirbgMHVdaRFZDbjD9t8QdcM9N,0.0000231610000000000,1.0000000000000001e-7,,
+124
+2vueaNLJ3eejAH7yk9Z8tPZhPPUYsztknj9bJVgAdRX9cLZuNuXRNToTN9rJX9My7RbUPHPGJwVkYLoRofdxew1z
+17/11/2024 23:38:51
+Total Fees: 0.00343280519800000
+Sol price at time of transaction: 231.91
+Token Name: Myro
+Token Symbol: $MYRO
+Token Current Price: 0.1232
+Post Token Amount
+394.708439094
+No Pre Token Pair
+Avg Buy: 0.03378199167045043
+Lamports exchanged:57496603
+Fresh Buy
+Updated Current Price Array at index 18: ["0.1232"]
+125
+5AtUvtFcSPjvpVXxPZkgFSxX9iS4v48pUHkxFLVixFrXh6XR6c5Vtp67mEb8XNYo6MV4gQ7k7raKESJcrJ5zo9Dn
+17/11/2024 23:38:56
+Total Fees: 0.00000506000000000000
+Sol price at time of transaction: 231.88
+TRANSFER TRANSACTION:
+Receive:
+17/11/2024 23:38:56,5AtUvtFcSPjvpVXxPZkgFSxX9iS4v48pUHkxFLVixFrXh6XR6c5Vtp67mEb8XNYo6MV4gQ7k7raKESJcrJ5zo9Dn,0.0000231880000000000,1.0000000000000001e-7,,
+126
+5ZR6seszEKYdvdieyXGejqHTPk3UCHkErxUQixReeaiUYcVE4qgnztRPWhtQm2D4LVdDv5Ub8b4vPM1fS9WXWaBR
+19/11/2024 6:31:48
+Total Fees: 0.0928547072600000
+Sol price at time of transaction: 238.51
+No matching Post Token found in JSON
+No Pre Token Pair
+Can't determine sol amounts (continuing)
+127
+2yMUrut9H516iNTbaJnS6n48TRDaYxf28XFmw74yVaGDAeUcdai9TmW2v8B7sUwMe1PkPYj3SdcNsUQA6mvenGz8
+19/11/2024 10:58:37
+Total Fees: 0.000804999952933000
+Sol price at time of transaction: 239.91
+Token Name: Trust The Process
+Token Symbol: TRUST
+Token Current Price: 0.00002318
+Post Token Amount
+223840.32407
+No Pre Token Pair
+Avg Buy: 9.110221799724899e-7
+Lamports exchanged:850000
+Fresh Buy
+Updated Current Price Array at index 19: ["0.00002318"]
+128
+3HARLWmpFb8vjbvzyuMHy6HNVEreTS2BZ4oKTmR5R4fLSNDeJ7W1mGzQekSRSWELUd1QkgdJJxRUjZnaKFYo6P2h
+19/11/2024 10:59:27
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 240
+TRANSFER TRANSACTION:
+Receive:
+19/11/2024 10:59:27,3HARLWmpFb8vjbvzyuMHy6HNVEreTS2BZ4oKTmR5R4fLSNDeJ7W1mGzQekSRSWELUd1QkgdJJxRUjZnaKFYo6P2h,0.0000240000000000000,1.0000000000000001e-7,,
+129
+Ww7id3WyvoYZN2PBhuZFwD9XVQYE3G7nvurptR6aLazamxZvz684Y8uvsGQYgqcuXBsi6ux8FkdRDG4GzdGBCb8
+19/11/2024 10:59:28
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 240
+TRANSFER TRANSACTION:
+Receive:
+19/11/2024 10:59:28,Ww7id3WyvoYZN2PBhuZFwD9XVQYE3G7nvurptR6aLazamxZvz684Y8uvsGQYgqcuXBsi6ux8FkdRDG4GzdGBCb8,0.0000240000000000000,1.0000000000000001e-7,,
+130
+5NhCvrx1fuR2u1PQEk1MXL2Qxdc5UaYoxqJKrAMBGDVnTZkSdLZ7xNZZNELjqP4Lvj6QS4ZTr1ktJ7VDAGET5XYr
+19/11/2024 11:47:57
+Total Fees: 0.0928547072600000
+Sol price at time of transaction: 239.8
+No matching Post Token found in JSON
+No Pre Token Pair
+Can't determine sol amounts (continuing)
+131
+42Fqg4YACksLDbtpLsKs1f3VCkzAsNciVptfaAKq33mvf7VEnJeoWFxLXX3HrmSWQeReEuhrqjoUkCJiWco5ye4c
+19/11/2024 22:7:45
+Total Fees: 0.00000665000000000000
+Sol price at time of transaction: 247.44
+TRANSFER TRANSACTION:
+Receive:
+19/11/2024 22:7:45,42Fqg4YACksLDbtpLsKs1f3VCkzAsNciVptfaAKq33mvf7VEnJeoWFxLXX3HrmSWQeReEuhrqjoUkCJiWco5ye4c,2.47440000000000e-7,1e-9,,
+132
+3oDwzPfrBB8i3tBhEDF4HMV6xetNpwucoaTP3Gg8x6D6eJbH9QA5NDkhtqD6QGXfULW6SwWzp39vbdfXTqdqmMX8
+20/11/2024 10:33:35
+Total Fees: 0.00000665000000000000
+Sol price at time of transaction: 236.64
+TRANSFER TRANSACTION:
+Receive:
+20/11/2024 10:33:35,3oDwzPfrBB8i3tBhEDF4HMV6xetNpwucoaTP3Gg8x6D6eJbH9QA5NDkhtqD6QGXfULW6SwWzp39vbdfXTqdqmMX8,2.36640000000000e-7,1e-9,,
+133
+5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb
+21/11/2024 10:29:12
+Total Fees: 0.000804999977000000
+Sol price at time of transaction: 237.52
+Token Name: Trust The Process
+Token Symbol: TRUST
+Token Current Price: 0.00002318
+Post Token Amount: 0
+Pre Token Amount: 
+223840.32407
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Checking row[3]: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump, tokenId: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump
+Updating row:
+1,Trust The Process,TRUST,AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump,2yMUrut9H516iNTbaJnS6n48TRDaYxf28XFmw74yVaGDAeUcdai9TmW2v8B7sUwMe1PkPYj3SdcNsUQA6mvenGz8,19/11/2024 10:58:37,223840.32407,0.000850000000000000,9.11022179972490e-7,0.000804999952933000
+Avg Sell: 0.000033754802876166154
+Lamports exchanged:31810736
+Full Sell
+Updated Current Price Array at index 19: ["0.00002318"]
+134
+5zpQzopRQA9fYjAnJy36N4WcpCd7yhUiKeHB1VLtUFBJCxfgAe5Ye5tuAE85UytqczgnsAcTnSLEK4GtMFpVDhbn
+21/11/2024 10:29:16
+Total Fees: 0.00000566110000000000
+Sol price at time of transaction: 237.405
+TRANSFER TRANSACTION:
+Receive:
+21/11/2024 10:29:16,5zpQzopRQA9fYjAnJy36N4WcpCd7yhUiKeHB1VLtUFBJCxfgAe5Ye5tuAE85UytqczgnsAcTnSLEK4GtMFpVDhbn,0.0000237405000000000,1.0000000000000001e-7,,
+135
+4sac71mkDgUFmMYPBSoMT4kNDE6fLMzaWPB5eyasCB9uMzqVB8YYJhBBpx2T1yGKojEPLqci3turtBnkaGj72a2d
+21/11/2024 10:29:16
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 237.405
+TRANSFER TRANSACTION:
+Receive:
+21/11/2024 10:29:16,4sac71mkDgUFmMYPBSoMT4kNDE6fLMzaWPB5eyasCB9uMzqVB8YYJhBBpx2T1yGKojEPLqci3turtBnkaGj72a2d,0.0000237405000000000,1.0000000000000001e-7,,
+136
+5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX
+21/11/2024 15:19:7
+Total Fees: 0.000388401201000000
+Sol price at time of transaction: 240.84
+Token Name: We Love Tits
+Token Symbol: TITS
+Token Current Price: 0.3226
+Post Token Amount
+1457.453430874
+Pre Token Amount: 
+1229.650646314
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Buy Count
+4
+Updating row:
+4,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk, 6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe,6/11/2024 13:5:17, 9/11/2024 14:45:6, 9/11/2024 19:35:38,1198.60830265000,0.00571767500000000,0.00039420006390860404,0.00241499977876900,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Updated row:
+5,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk, 6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe, 5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX,6/11/2024 13:5:17, 9/11/2024 14:45:6, 9/11/2024 19:35:38, 21/11/2024 15:19:7,1457.45343087400,0.253592675000000,0.0002957155631699029,0.00280340097976900,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Avg Buy: 0.26206095379960687
+Lamports exchanged:247875000
+Buy More
+Updated Current Price Array at index 7: ["0.3226"]
+137
+3jZkXHTF2zpGZYrn9QFEZQgo6MwuqpkGXeaaDswGnEJwyPvnuTSWkWtT5xEvxo36H4oegynfdPiMrU6dyp1E12wL
+21/11/2024 15:19:12
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 240.91
+TRANSFER TRANSACTION:
+Receive:
+21/11/2024 15:19:12,3jZkXHTF2zpGZYrn9QFEZQgo6MwuqpkGXeaaDswGnEJwyPvnuTSWkWtT5xEvxo36H4oegynfdPiMrU6dyp1E12wL,0.0000240910000000000,1.0000000000000001e-7,,
+138
+VHJFReUEgHFLF14FFCvbCPZDx3N4AKh4g6aA6zraP9dfwg8QDTwLpNeBEjpuHX39Bjb85pPw68BNKEjfPtsfoKA
+21/11/2024 15:19:16
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 240.91
+TRANSFER TRANSACTION:
+Receive:
+21/11/2024 15:19:16,VHJFReUEgHFLF14FFCvbCPZDx3N4AKh4g6aA6zraP9dfwg8QDTwLpNeBEjpuHX39Bjb85pPw68BNKEjfPtsfoKA,0.0000240910000000000,1.0000000000000001e-7,,
+139
+4fMNWTY2v6A3ahCzXqo2RQsV1SsEvKpo3vXvhX7o2hzpyi7dFt9jMoz2sUeEvsRsk9h7MCRCzYKykXd3mjXi1VQH
+21/11/2024 15:19:20
+Total Fees: 0.00000560000000000000
+Sol price at time of transaction: 240.91
+TRANSFER TRANSACTION:
+Receive:
+21/11/2024 15:19:20,4fMNWTY2v6A3ahCzXqo2RQsV1SsEvKpo3vXvhX7o2hzpyi7dFt9jMoz2sUeEvsRsk9h7MCRCzYKykXd3mjXi1VQH,0.0000240910000000000,1.0000000000000001e-7,,
+140
+4DFeNmZXrN9AvHBMaVoGv272a19wSqGeoakdKZPB2ydwRpmEC9SW422Jkh8ZhUBRmvHZ3cN64Q7UTQZviH9URhip
+21/11/2024 15:29:14
+Total Fees: 0.00187893344900000
+Sol price at time of transaction: 241.33
+Token Name: Moo Deng
+Token Symbol: MOODENG
+Token Current Price: 0.3848
+Post Token Amount
+330.91
+Pre Token Amount: 
+191.87
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Buy Count
+2
+Updating row:
+1,Moo Deng,MOODENG,ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY,zNG999HzBUwx9KwfNwGLdpodpPz4WRU3ZVBvgwLwSoo8mAvQDiz1saaWvi2jAZgj2U15nUXytXF7mc7UPuJN1Yf,9/11/2024 15:10:23,191.87,0.00255000000000000,0.00266482774795434,0.000804999687912000
+Updated row:
+2,Moo Deng,MOODENG,ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY,zNG999HzBUwx9KwfNwGLdpodpPz4WRU3ZVBvgwLwSoo8mAvQDiz1saaWvi2jAZgj2U15nUXytXF7mc7UPuJN1Yf, 4DFeNmZXrN9AvHBMaVoGv272a19wSqGeoakdKZPB2ydwRpmEC9SW422Jkh8ZhUBRmvHZ3cN64Q7UTQZviH9URhip,9/11/2024 15:10:23, 21/11/2024 15:29:14,330.910000000000,0.0620400000000000,0.0529604407007896,0.00268393313691200
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Checking row[3]: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump, tokenId: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY
+Avg Buy: 0.10325605365362485
+Lamports exchanged:59490000
+Buy More
+Updated Current Price Array at index 13: ["0.3848"]
+141
+48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c
+21/11/2024 15:32:25
+Total Fees: 0.000858635633000000
+Sol price at time of transaction: 241.34
+Token Name: We Love Tits
+Token Symbol: TITS
+Token Current Price: 0.3226
+Post Token Amount
+1643.159441287
+Pre Token Amount: 
+1457.453430874
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Buy Count
+5
+Updating row:
+5,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk, 6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe, 5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX,6/11/2024 13:5:17, 9/11/2024 14:45:6, 9/11/2024 19:35:38, 21/11/2024 15:19:7,1457.45343087400,0.253592675000000,0.0002957155631699029,0.00280340097976900,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Updated row:
+6,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk, 6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe, 5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX, 48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c,6/11/2024 13:5:17, 9/11/2024 14:45:6, 9/11/2024 19:35:38, 21/11/2024 15:19:7, 21/11/2024 15:32:25,1643.15944128700,0.455907277000000,0.00023662503537788632,0.00366203661276900,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Checking row[3]: AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump, tokenId: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi
+Avg Buy: 0.26292420982009335
+Lamports exchanged:202314602
+Buy More
+Updated Current Price Array at index 7: ["0.3226"]
+142
+24FaYSTubpVFT2TFJ4YfZhGL1RL47Z6zCNR1kZFXzCSWWbEUquDv4aHRsDU5DxwnPVrLKLYhY5sooZxup7Kz48bJ
+21/11/2024 22:51:59
+Total Fees: 0.00000665000000000000
+Sol price at time of transaction: 244.07
+TRANSFER TRANSACTION:
+Receive:
+21/11/2024 22:51:59,24FaYSTubpVFT2TFJ4YfZhGL1RL47Z6zCNR1kZFXzCSWWbEUquDv4aHRsDU5DxwnPVrLKLYhY5sooZxup7Kz48bJ,2.44070000000000e-7,1e-9,,
+143
+5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK
+22/11/2024 10:18:12
+Total Fees: 0.00000665000000000000
+Sol price at time of transaction: 256.63
+TRANSFER TRANSACTION:
+Receive:
+22/11/2024 10:18:12,5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK,2.56630000000000e-7,1e-9,,
+SHEET DATA
+2,high,high,6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k,2A6f8aikoFL2QtNK143S9xgPKf9KttZRRzqQwZ5hEPwfXNTuaEPmmVMNhXY191qdnk2K9Nr3NEEYkMkaK2xBwn1A,5/11/2024 14:30:46,38648.720718,0.0100000000000000,0.0000413623004927943,0.00600500000000000,5/11/2024 14:40:31,2yJGf7LhsQ6uKu9hLMwn2vBnob75z3yMmeiUuARQQf51MVRirJEC1Vw1QAkzWhE946kpCkD2J1YEYNZ6Df68ecB7,38648.720718,0.0108638930000000,0.0000449552372035126,0.00600500000000000,2,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,NaN,NaN,0.00600500000000000,5/11/2024 14:48:46,4soqU54JH4QTrdW8onAovht1JPVRkmH6F2CH6nBnTmXhbHxQoke7X3jZGnGJKFdc7sgDY9nBfM7M312ToRFTuNM5,99639.5072,0.00000000000000,0.00000000000000,0.00600500000000000,2,Gile,Gile,EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump,34BjM36VvTGNwytsQN68wZcKER46NZ7H6UL3vdJnJ83sTxzCgunQ4etKJiizDCpECq19s4t6ZnziNrkp6hGLkRke,5/11/2024 14:51:23,50605.57536,0.0300000000000000,0.0000949519883099300,0.00600500000000000,5/11/2024 14:57:17,thb78h5u9gLfdYCU7HBPt6juC3GNTpeV9XY3XU4kqLDCVv5CguJWgp4y35XHHtdywuJR36KMoFNEunoZJVJo7Aj,50605.57536,0.0352576690000000,0.000111390811775566,0.00600500000000000,5,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, 26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:10:22, 5/11/2024 15:14:18,4372.11257200000,0.100000000000000,0.0006805869970915131,0.0240200000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000,2,Trump Elon Terminal,TET,5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh,58ebnyEGamdpdPxQ1apJtx1u45j2U1YRr7e7pHyPfSQ9GL6cdSHQvg8ZvaUPjgpaMjoFY1pUMetMF11Ds9k8caWB,5/11/2024 15:27:18,30.227317,0.0300000000000000,0.158786835100184,0.00600500000000000,5/11/2024 16:0:12,57HWsHgxm69wxFqGEy4vM23Mep1yFNPiLRQEH5rSmW8DcBrdF46uRrF8XHwjUbuqBNnqBcsqEZf69Hz8xKCcvG3b,30.227317,5.00000000000000e-9,2.65835700866207e-8,0.00600500000000000,1,Pnut,PNUT,7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D,3hjGNYLA9QWc8LNjTmstPqqxJxKBgrgDJHDdSwUFYd5uFthh6MS32iNSrTEyfTuQe6wozcEWwj9ZEoVH37CnyjYo,6/11/2024 7:40:42,7072.093156,0.00255000000000000,0.0000599451238337167,0.000804999924012000,5,First Convicted RACCON,FRED,CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump,43ST6JHd1a5WugUE4L2fPqEtemrVdgVmpKCi7TmvkxaTprUEDDiwdru9XAy8kUUa5zmM1GauwfUUB33zVkJXMjtt, 2qYET8qoyR6MVNtGgsQWZMwi3YVLr5joj1WEDgi2xphkJQz93osrcDwPFQ7s9FAHk1aBQmejKqWk1GxhRVLy3SkM, 5W4jmchLo1JLnBPXupqJiqPVnudkXsqAdUke4tCSPAsd7NyXS2bNQ9gJWkv61xdL39ef8Af5LQqLVZxfp1WKS6Mk, 33q62p5WZqVvMjhuWUdyY6scjxeYrL3CFsu18ai3a1v6Mcm12pRHTYU6dvVYJGAfpEeQp4eGRrprdhqdQnZsTvxg,6/11/2024 8:7:10, 7/11/2024 15:11:1, 11/11/2024 15:57:11, 11/11/2024 16:20:15,18068.1658690000,0.00892500000000000,0.00002714153354861056,0.00321999985306900,7/11/2024 10:17:15,5bT6bm2nZzK4bu3yoCmh8VtLYzk5Q7JSJjhCoHNux9fwMykCyGefJhYrndrrUUEASPBwo5wvPmu7wxk1UVHm1MTM,6385.000000000001,6.38500000000000,0.186950000000000,0.000804999992643000,6,We Love Tits,TITS,23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi,5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q, 29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk, 6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe, 5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX, 48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c,6/11/2024 13:5:17, 9/11/2024 14:45:6, 9/11/2024 19:35:38, 21/11/2024 15:19:7, 21/11/2024 15:32:25,1643.15944128700,0.455907277000000,0.00023662503537788632,0.00366203661276900,7/11/2024 8:53:55,4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ,746.0000000000001,0.00218022600000000,0.000554876284664879,0.000804999979860000,4,Drift,DRIFT,DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7,398tvLzGRAPjKruyk7eG55hMJVUqaZwDiUHmsJ9GvYk4nBAFwaeQQsnLgnrj5BE5v8VDfDgzWz41RhSofu2guRik, 4QGWWtVLECifkCnTf6x9HZkFyyDBA51LjcAxLEkaHmZYLnpoBBJjxHR4K3Ajfjf3WrEjwu1wU8J9rQipX9ieaDKe, 5WBX7Dc9sMzWp2vjxDKVRzCxZX9vQVja8LjDabwhfsEZSxjZHmwin2JtT9PFP5h1Qu841TttrJEvfL9UGSXLTcV1,6/11/2024 13:8:2, 9/11/2024 14:54:17, 12/11/2024 18:10:3,66.6750300000000,0.00467500000000000,0.007392078420960106,0.00241499930788500,10/11/2024 14:25:53,ZTkdSV6qA7SHJCTCb5BjFwJiCAB9KAvFQyDhQfwovmP5Zp9zE5CRp6mXq8HkDXL4YnQ1D4yT9tpEevDoa7KxpMo,28.048927,0.0493294580000000,0.355132923763537,0.000804999877278000,2,Goatseus Maximus,GOAT,CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump,64dppe5r1ewrWELVGue7tMhMLw87m9dmRbkwydczMHgowL5GQZmHUEru8BqqMFkpLb72zc2w6oMCSPq8hBwqWNKw,6/11/2024 13:14:27,76.499687,0.00255000000000000,0.00602802466368261,0.000804999849849000,7/11/2024 9:5:32,2Pbuab2gFpCqXeYs9umhjUA2Ggv5a4MX7YkDgcU8AtRNMJc6ZDTcXoY8y8MonxYA563xfXjvKuv2UtbDposKDcNP,76.499687,0.0591507220000000,0.145619621610478,0.000804999950830000,2,DOGE MASCOT,SHIBU,yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump,4ey3hjjzm9G4QhrYnVpfqizZhf9Dab4562bSSfyX6TTSJLdVAca7prGuiwZxfyJbe9LpdMocF7qGwEJxM6PJgPSP,7/11/2024 10:37:59,9330.217908,0.00170000000000000,0.0000340538670300046,0.000804999983011000,8/11/2024 16:4:6,35ytihhQ4tTc548QKd5dCwxDNzwxgkLmJa53nbho29BFDoyrC7gtkSRZMB8Va7YuGm9njkfHEd64FMo7qNY3vBGn,9330.217908,0.127496659000000,0.00272232488634605,0.000804999954816000,1,MAKE MEMES GREAT AGAIN,MMGA,4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump,5wzTJ4DXHA7dBoBkdmq37pih44qiHV4wZUxyNs2ZBFpEK3qUfDdFUTmXe1YUgU5rNZac2XAiUQsSKBjVA6uNjk4g,8/11/2024 7:38:45,117575.263635,0.150000000000000,0.000251353890999932,0.00600500000000000,2,Raydium,RAY,4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R,5tk2iipnQzhjL37PfvuEYrR7Xv42nas9Z7xA4nxxcpR5RWtjLL4SdEoXtqMMiDsVbxHSwFHiNmuPfyKYpvrXXxLE, sWP89GXvksSneDYKsh914BnkNbdCpMUHpJmjn61Md8KCmgs24WuLChtwvAoQwewo6wkFKmhnsdtZ4a3u1331Goe,9/11/2024 14:28:1, 9/11/2024 19:34:23,18.0631960000000,0.00425000000000000,0.04804349945043365,0.00160999956505500,2,Moo Deng,MOODENG,ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY,zNG999HzBUwx9KwfNwGLdpodpPz4WRU3ZVBvgwLwSoo8mAvQDiz1saaWvi2jAZgj2U15nUXytXF7mc7UPuJN1Yf, 4DFeNmZXrN9AvHBMaVoGv272a19wSqGeoakdKZPB2ydwRpmEC9SW422Jkh8ZhUBRmvHZ3cN64Q7UTQZviH9URhip,9/11/2024 15:10:23, 21/11/2024 15:29:14,330.910000000000,0.0620400000000000,0.0529604407007896,0.00268393313691200,3,MEDUSA,MEDUSA,Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4,5zdaW8c77E9m6ash3EJSJKBKkvZde6PkaTm9H9MtC64fpe4ZBtXkA9mGVWXAXEjzw5jaSy6pjke3gkdPCkwGoXHD, 3N6Ta65KDMKfv4osPsBzhKXNVu4uEmfMvPs2VSybBVKq3kzWdvQ4fwbDSNQSo83Zsi5UCyTs765jSQd8SY7N77gS,10/11/2024 15:59:25, 14/11/2024 19:21:8,32077.5207670000,0.00340000000000000,0.000007936104658223905,0.00160999993215700,11/11/2024 16:9:37,55ERt6fYk6UgMJA7sUybu3Rz3bbdBA2bLVm7p2ujMck672MqKUkq3Vscv1eLkUPjzkXGaV7hbnkxhkfp27Sxp3dx,85548.560606,0.186981245000000,0.000451931765476583,0.000804999985902000,2,USDT,USDT,Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB,63wWvmJY7jaUGSFgxCayeBUSktFThJcVaaBgqkXsHJ6yns1eiUDMyJgMrXhRmAhwVD4CQiqEN3K2Lyfh1CtHjFSp,11/11/2024 21:33:28,236.388615,1.10000000000000,1.00984770353682,0.000804999833024000,12/11/2024 18:29:13,2NVuxx6GcrYJo9fpcHf5sbX6YPvKovijDHBJpD3nvELEdWgKJoeCg49uhpSo451ZM2vyvftFikrrW72H81CC5nTV,91.388615,0.00000000000000,0.00000000000000,0.0000249996852330000,1,rocky,rocky,BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump,2S28S2anbieK9qCDDordLBoTjR7E4jQTwr4WZni2nh97Cjno9B3REKwrKgbuzhhaiuASRzaE56uyjheRjQNnS64E,12/11/2024 14:53:41,3659.732955,0.00170000000000000,0.000102207184130461,0.000804999941460000,1,FWOG,FWOG,A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump,122amq2zVwHWNJ4vZE5EDhF6YzKUCewWUuF8oNsmU4CGs29LfwoMHmrPed45tEoEXBrTV9NHN1S5x1X23vDG1thc,17/11/2024 23:37:26,96.589631,0.247875000000000,0.594732898917483,0.00138435931200000,1,Myro,$MYRO,HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4,2vueaNLJ3eejAH7yk9Z8tPZhPPUYsztknj9bJVgAdRX9cLZuNuXRNToTN9rJX9My7RbUPHPGJwVkYLoRofdxew1z,17/11/2024 23:38:51,394.708439094,0.0574966030000000,0.0337819916704504,0.00343280519800000,2,Trust The Process,TRUST,AsZbLhzi1MgxKKD1SceeUCyxkmHxNZy7dvo89AZEpump,2yMUrut9H516iNTbaJnS6n48TRDaYxf28XFmw74yVaGDAeUcdai9TmW2v8B7sUwMe1PkPYj3SdcNsUQA6mvenGz8,19/11/2024 10:58:37,223840.32407,0.000850000000000000,9.11022179972490e-7,0.000804999952933000,21/11/2024 10:29:12,5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb,223840.32407,0.0318107360000000,0.0000337548028761662,0.000804999977000000
+,,0.00001366,,,0.002227,0.07172,0.3226,1.35,0.8691,0.002695,0.00001146,6.026,0.3848,0.0007925,1.0011,0.005291,0.4701,0.1232,0.00002318
+4/11/2024 14:17:29,2vdFhEwRYQZcCeEVFcBQ8kHZWfAyMDvi5VuGqggvcTCESNUgcLdgbeimZvtFPeU8hZXsN1WpDz26gE1DG1fihUhW,163.190000000000,1,,,5/11/2024 14:30:51,3USjbDK918dyEdPPvgThM3G79xBi3CHiJm95AxVaoCXb7HcYb12ByQsPmkE15DTLRc6CU8V2F8G5SqXxtVeXtWVW,0.0000159770000000000,1.0000000000000001e-7,,,5/11/2024 14:30:51,3PP5D2EodvKPLefE6LtKL7gKa87ruURUAREvxpnNFB9srZbWegXhDXrz4zZbGGqHVbDXY33wRWVnD5aMcbDjGs3J,0.0000159770000000000,1.0000000000000001e-7,,,5/11/2024 14:40:33,2VBzvyuf1fQsNTH5rsmCrMRArD7SCUYvixJFhGK5GdENFKEJnDpTFKLuSFrfLBS1ZWUE3fvnHBrLUQYZLTxHA2Pg,0.0000159930000000000,1.0000000000000001e-7,,,5/11/2024 14:40:33,4y22pgGVi9wkNECsSV13SWSy4mwBDA2nGsN9YVcm7aGcWnxBwCVSPkC1CEqG5SJyM6uM38Hfds2ar2dodz8ooYqY,0.0000159930000000000,1.0000000000000001e-7,,,5/11/2024 16:0:13,4vPXznE32Z11CNtKuT81NJf3Uka9Z2GjnhbJZZFPBe5u6QXNLhCrCdZXXXjTVH3nrtdCb3jF5Z52sxi5GUsQDTb,0.0000160710000000000,1.0000000000000001e-7,,,5/11/2024 16:0:14,5NenDyQ5MtVg8q1ZZ3xDH2qc8Mc95Z8Mg7x2Z4HR3KqXQzDv1X5RSrMZt5ounmG2NDTQFzVpYo1yHs5RjgRa1sQ1,0.0000160710000000000,1.0000000000000001e-7,,,6/11/2024 0:7:42,HNKWKFhiS3yWmXAGhCFD8UoyRQzuCmAZJoQSzTve7yZL8qg9JNzrDzvFupL3hP6hzqzV44WWTwYafSVd6QjjJSd,1.63510000000000e-7,1e-9,,,6/11/2024 8:13:40,5i2aiVx9H7GbqNdrZTseJkMAPc3Jgzg3MxyANUdofWrvRF6QUVRHChP4nUfDiA4rCyeHSHkB8asaDgogBPcw2xG3,107.712935344800,0.65059758,,,6/11/2024 11:31:20,47MiGqaxVk5qJ5ZdquoiM3UZQc61TyBde6z3SysMadLADSc95W5Z3vi9k7KLz47C6yKjhoauy1Xa6nhuvWxZ3E2,1.73700000000000e-7,1e-9,,,7/11/2024 9:5:44,5rk8BY3eDGoM1ztXtYwRQwQXsyscGQyVnrnTFdendqGt7vY67KgSRnkkUPunkM5qPnkeC6NpA4QYALmAsVbeoxW2,0.0000188330000000000,1.0000000000000001e-7,,,7/11/2024 9:5:44,4Hcre6ZMJsRRk1zMaudP4hz6SCoE4uHBwnf1AYRVw5yJByXk77rKD7zfWs41FNhcKwp4VFTjBXJJnSz6rxU9Tyir,0.0000188330000000000,1.0000000000000001e-7,,,7/11/2024 9:5:44,2ewstEE9wRK3dvS54e5YLpC9BoX1ygo3xYPNNPYaJASHu3YVoEBc87Z4LTNSCkD6NnKqFmAHxM3sb7xZ16pzTr9Q,0.0000188330000000000,1.0000000000000001e-7,,,7/11/2024 10:17:19,TQTz7475Tkd6xRBjgFYVYqu6kUJK51Twt3V6tLgeTA2KUMvNmo4rjVcBpDnTuHC7gKQBZ4Z1qnk1TKFAJqL5TbS,0.0000186955000000000,1.0000000000000001e-7,,,7/11/2024 10:17:19,53qUktL7FSRr98BQzAGa8zy5nM8PMyB43uDLexJFGrNAKn6xuqK7jdP5Q9RbVJzAt6hL9oLDEn1vnvJJ6KU3kpy9,0.0000186955000000000,1.0000000000000001e-7,,,7/11/2024 10:38:3,51UyRD8hu8QVFRdtyFiDFxzndjDzd6aJ2E4WVtGNVWVXUSJxNhkVATEtkkQU4oqdjcgRpKczLanoEcipwuiEEgmU,0.0000186900000000000,1.0000000000000001e-7,,,7/11/2024 10:38:3,2HBw2XexzeqdZCsbacAfX6ZwurSfHdCiLszB7AbN7Y4WT743LvyNuBNJj3rpjVcjQaySgJPkbU1a28aVgS5Uu1E9,0.0000186900000000000,1.0000000000000001e-7,,,7/11/2024 10:38:3,4FbG9bTr3LAvzE2zHAB67EQK1z3E3wAZgcdkEeLdgzYL4vB5JDQ15DnsQ3EX6CxsdTrAW3YcnTA8eDmLd3dq9iqb,0.0000186900000000000,1.0000000000000001e-7,,,7/11/2024 10:38:3,C1nYEHR3Zy1rMikEf6vnrtGp1aN916Tk9fVytKDLR2hm6kxw2183Sb51SfrL7Gvg7fGTnukmKLddTPT9KEbNVTm,0.0000186900000000000,1.0000000000000001e-7,,,7/11/2024 11:15:18,2QFmdsHZNubfeRN76bHkTsNQvvoh5RamvFSHq827JbE7zrXrDwLpkjzogjAEiE6NZenFNLQWbJ6bovaAyKSw47dK,1.88660000000000e-7,1e-9,,,7/11/2024 15:11:16,YJFQVtne9G6NQWD6zitstpsQTWpNvMq4Dyjm7FXhd96kAiENrPDUg5eREw4a1gGWzRPsstyMjjyzuEAb57Vhnky,0.0000188240000000000,1.0000000000000001e-7,,,7/11/2024 15:11:16,2RNsudLd1EMU4S4RmiGghFNVZB6mvtkC1z7kNa3Khuaqno558AtcByJw9KQezb2fBwH3P3MR96ofo4mjLxBsj193,0.0000188240000000000,1.0000000000000001e-7,,,7/11/2024 22:31:9,5bbFzQjjcQBoMqerTfkXMHBXrtNHjF1mBDGSJxaB5bM57uozdXbGSDwQ3VU1vkdQboKv1tnv9HKrLnywRk98ajbS,1.87310000000000e-7,1e-9,,,8/11/2024 7:38:53,26zUCARLjob9mNowU1PtTZRAWC4EgLj1PUvhhGK1RwaeDDZvJm4XbMUjb15eWPQES4HNvASMkniMofzoR1NauEDo,0.0000197030000000000,1.0000000000000001e-7,,,8/11/2024 7:38:54,3wn7893NXw1bcvzZUrY2irPT8sUzbWnBFsGo8DAwAs99vQMW8bBS8N4wYDaqeHLsctKnA8ciHfsFRNN96zvjrd4X,0.0000197030000000000,1.0000000000000001e-7,,,8/11/2024 11:1:11,5do8mZZ9pmywSaRwqRUKwibifFNuUrbCifVQDkExCVKt38J3Je3ikLF4xtsNmYge7Vsojsy42ASuRqfaWZuPccwG,1.98770000000000e-7,1e-9,,,8/11/2024 16:4:13,5iMHtVWkrUp5uXmuzS9ryYtVfUXL2yDpTSbUtS1oSjrdw1rvK55rwoeNHaj6a49Dvk4smZ6LT4c3U9Cyeb4hBVmx,0.0000199220000000000,1.0000000000000001e-7,,,8/11/2024 16:4:13,4mbSdwcRPSKnK5a2BZfNDxr8UYnBRXfkBwZqE5ZmRmDxj6WkUPcZiCFTBZfEjJ5dredaCvRZKAzMSEThMbNHhFYi,0.0000199220000000000,1.0000000000000001e-7,,,9/11/2024 11:20:52,2sv8pB8PKtm9CNUG8z3rGxoRrVDzkeJYrPN2ZoAXJU4XFyBqnfuXurJA6uM6oLxjHUKhKQ6SR2wVBwkD1nBSgy13,1.99570000000000e-7,1e-9,,,9/11/2024 14:28:8,5GXJdEkYSTX9wMbri6YH1njuGPnCmverA7KtkiN9bXK9q8P3ZPJxgcSM6LzBWZuPPgJAf6VqVo8trMo7EZtBbHGK,0.0000200050000000000,1.0000000000000001e-7,,,9/11/2024 14:28:8,4bWPyy1XKfqjov5k1oQRMa7QQW5EwQxo9821Uh9f6vdJ2fS1wNau1g3PStLrdXAvKRZQVWrohLCJ2tAS3cJmxbGc,0.0000200050000000000,1.0000000000000001e-7,,,9/11/2024 14:28:8,MfWXoUQWocSntKJRf6Trx2Rmjwwj1k3QhcT9gNhqDxEwGGiPw6FwB4EDf2HymfH1yDfyaDPU81xN4e3RSsnyGg1,0.0000200050000000000,1.0000000000000001e-7,,,9/11/2024 14:28:8,2u4tH5zGYxd3nbA7qAD4jr1wUDT4EfxeWWV8tUmzizrDkQRXKkD7HGrFakcPwLsQcYzDDZ3Cdw84gh32U4d62ZwN,0.0000200050000000000,1.0000000000000001e-7,,,9/11/2024 14:28:8,47VJeZKapfcr2XWhZXm2kgZmbh9riGqQn7AysebrQWFimtT919ok9zwrHDSemDLxhartHGZUSnrCDrmEbsBUeFkX,0.0000200050000000000,1.0000000000000001e-7,,,9/11/2024 14:28:8,3H8U7QmhP7VYczW84vT1bw9hAXLXoh33VyaHut8Z8w77uLcyrUPRJu1ce3VMbsBJX7pT2FTCxi7qvNYjDFLSqteH,0.0000200050000000000,1.0000000000000001e-7,,,9/11/2024 14:51:11,2jRwuHi5oFqDtXpX3Uw8bHYcbKqj6oBmEx1ABe2cUQZY1RkGX2pUPNk2SEKXKWhPzMReFp4ejsoHSZomQa3GjHKw,149.707435500000,0.7501500000000001,,,9/11/2024 19:34:37,3wGrtkhy8fPth5w6KwxEXSXZCtUm6bQytDZ3wEy54DEeEpgQNsshQYmNKgDbaf8wGU1pJh2bSmNxTvb2KbbKJPwi,0.0000202570000000000,1.0000000000000001e-7,,,9/11/2024 19:34:37,3NaTKCCCy8tPMja5QMWvczAHCcH6Nw2kybY3sW5sVbt5fHMpLwBrQRoeW2rrBr3q9WAZYrUUJXpK3A7LnMHuoNcr,0.0000202570000000000,1.0000000000000001e-7,,,10/11/2024 2:6:55,4MMff4gHwbogQYnqbNZqZA2VjjbXXnAxVu41cFwSU2d4W1xeNaeyiS7ziZeHWpmhFKkXzJD6KNLZq18AZ2N5Z26c,Transaction Error,,,0.0008049999594750001,10/11/2024 11:50:18,5AUHEQwiq8YEj3du8oNaArPeBYsBt3WXSL8QefzqyjnLxUoq49LfZgwVFn1RCL7RDoum2EAWExDYq5DNc6ejduML,2.00150000000000e-7,1e-9,,,10/11/2024 14:17:48,3P5sgAjypSbGZTFYca2NKsD8SjeMRKF5KoPx8mMwNCuuWzs9sjgLYrEsKxz2XGrHPsscTyrbRQkgnaZ7fCX35Tmh,49.9866640000000,0.24752000000000002,,,10/11/2024 22:40:57,o2hvhCQbWsGNCvkdYWjY86hMQ9zQGJgE5TyiZTvdwSgudUghwQwjJCUW4TU9BLokBwGNz6Nn8mRvy1aoWsVFYvy,2.04240000000000e-7,1e-9,,,11/11/2024 12:47:30,3Hu5TG79ebiq4sezKHKtwXC9smbzrwmD3DU57i46yq9aANNrtm4gNnkcKK3JE4hr3DfBaMXT6YKnkk4cS34dAYKD,2.09810000000000e-7,1e-9,,,11/11/2024 15:57:35,yFLZop7ZSUfycna2N3xmmLMwi9zxkuvxmGFgL3A9Zkr7eU2XB5JURrExvUGT3isALkLk25oSqSQxKGyFCJDsW9m,0.0000205270000000000,1.0000000000000001e-7,,,11/11/2024 15:57:44,4ZpTc6nrU9Q3R92RDQPdpbEAGuMcvuWx3nrJrZpVKoiSHuLB2ECft51KpGvYTw8Cn5oPm6VyVbdEAVqXVpuKWkEW,0.0000205360000000000,1.0000000000000001e-7,,,11/11/2024 16:16:41,2nYhTWnKkCuxpyhGcMxGTQHpUkC2mRD4itcHMs6WtDr1pgC4oKWrV6ACfUB7KsBNx9zZjyfRkopJsSgyiGDeUxTc,199.524364200000,0.97182,,,11/11/2024 21:25:36,3EpCSEAwNyRNWQZAG6tyFtajrC8rcgFbvsgFCPGMfLWQpNs1tK6MhqZv422teJryMa3Wzi99SNtC2KSnSNdVBEWP,0.0000216875000000000,1.0000000000000001e-7,,,11/11/2024 21:25:37,3RAGeLfcy2t2eAFNoVk94xKe51TNYJzTNNii4NTdodP7YnqwLZ6VME9ETWiZbvhNTGfLvrbh7TW3kduqebTdaceE,0.0000216900000000000,1.0000000000000001e-7,,,11/11/2024 21:25:37,3fCzfkeJjVNJvbkCiN9ZfYfCKYcYZfXzknupxgigPfqa7Jj8y13AUaoJorraWRc8Z6LD7QrnnftmpdP3FcZRqmj,0.0000216900000000000,1.0000000000000001e-7,,,11/11/2024 21:25:37,2FDUfMJquy4pTCgovLej6H6tqLpPeC1ojs8NwV3975n6WZ43LUo2UnbW1qkXNE36sKWc2mv2dK8QTSar8q8DkT12,0.0000216900000000000,1.0000000000000001e-7,,,11/11/2024 21:34:15,iHvxBxqD2KSfQpQwrZ8hFAvanPmZnG3Nd51Pednhai299Pq9P1mwfyRPDVNP6ugV3fjgGF9adZrX3d7YggY8Zbd,0.000217160000000000,0.0000010000000000000002,,,11/11/2024 22:56:18,28YmkEQ3thea4daL3kwacrC7yzhomcmJXpdo1Aeg6GaeA5x4yA7KrB7D2WERKFkttmxu2HZ9EcSvcNCUPoUvcKFf,2.16610000000000e-7,1e-9,,,12/11/2024 14:53:50,atUDVLFfFhXYw6YmjEJWBkDSp7d9CLFcn7Rb68bbpajgqt3zRhsNx8tjRrpQZoKRR38h6PPLojVV8oScDKHSTWn,0.0000219960000000000,1.0000000000000001e-7,,,12/11/2024 18:10:6,g1NUiFTUnXfPUqHb7UTVmWeQY7VYbh3GBGLwrY8Rg3HUBN94iF1GUQzrVP5irhXeoAVv1CJG6vyHesPC6q7bfw8,0.0000221640000000000,1.0000000000000001e-7,,,12/11/2024 18:10:14,4EzAsWK4fHULpft53DoniACDiQmScDq5PfwbEvQ7Y4TKTqnHXdM5VQdGUqMk8HTtc32cATjEGhPsFi5WTEC5AyQn,0.0000221455000000000,1.0000000000000001e-7,,,13/11/2024 19:7:41,4vJ5pTgLdSjk2Dg2MbK6NnDqZyixhjotZfhDWjnj3JmKjX4HT6uRoa9fmuytd1NT6CMBKJUe5M3h8L3jXo7nQ3qt,0.0000206080000000000,1.0000000000000001e-7,,,13/11/2024 19:7:41,5scGnLHCVW4rg7Zc3giien6ngc8U5Y5v3P5VC5bYeZWyjXxYTAErjqT8X9CFEstvprANbWg4jZEhUSHB9Byzx6Rz,0.0000206080000000000,1.0000000000000001e-7,,,14/11/2024 18:51:56,52HQcb8XFwn715hC2ABLFGC811zWbgx4BqsSYqQkVD8DJr92sbCzrHNZE4buKderbnLwaCdx6oGXTg5VP9go1zfb,0.0000219260000000000,1.0000000000000001e-7,,,14/11/2024 18:51:56,2BeRFkPJ9fzMJvWexBf6XwCiubtzSYS8J59jkA3cM9AUYCxbCfgC37xARt3GenrCAnG1uC5TaGydLsnHfcZUrPkR,0.0000219260000000000,1.0000000000000001e-7,,,17/11/2024 23:37:30,32K3v85NMiaxCwET8udzEkKxGfgySVNB5DzWUShKhEjW9mhRgqyxF7xkujVZaj5yH9TcVybVjghGQKzQscisRTEs,0.0000231610000000000,1.0000000000000001e-7,,,17/11/2024 23:37:30,4zXnzCo72nQmATg6b1dLQot5UCKC4GahpQ5Sofy56iQXK4d9ujmX7ukMUQET6Cgr3yFP9NitdMeACfdJjzHZrzzt,0.0000231610000000000,1.0000000000000001e-7,,,17/11/2024 23:37:30,3CSt9HevunaBeNEpouGdafcwBdvkFTLcp9U1gXAieHKmeajprGB7BH7rWGCy33LciMA9gKSE6XVenX5XaPMXeZwh,0.0000231610000000000,1.0000000000000001e-7,,,17/11/2024 23:37:30,44z7KPnKXPu4hujL4BvGe7BBviwCYeM8To7c5rf1gdwiK28PrbCDzyKeNvJath5mKhRWpTezpN8ZnqYjhxCypBYX,0.0000231610000000000,1.0000000000000001e-7,,,17/11/2024 23:37:30,5Yq7XFNUG9meVXpHCv5sDec3zZFaChBE1Y3nVLpsYM21RVNZd2TGg4cmXktFwGyirbgMHVdaRFZDbjD9t8QdcM9N,0.0000231610000000000,1.0000000000000001e-7,,,17/11/2024 23:38:56,5AtUvtFcSPjvpVXxPZkgFSxX9iS4v48pUHkxFLVixFrXh6XR6c5Vtp67mEb8XNYo6MV4gQ7k7raKESJcrJ5zo9Dn,0.0000231880000000000,1.0000000000000001e-7,,,19/11/2024 10:59:27,3HARLWmpFb8vjbvzyuMHy6HNVEreTS2BZ4oKTmR5R4fLSNDeJ7W1mGzQekSRSWELUd1QkgdJJxRUjZnaKFYo6P2h,0.0000240000000000000,1.0000000000000001e-7,,,19/11/2024 10:59:28,Ww7id3WyvoYZN2PBhuZFwD9XVQYE3G7nvurptR6aLazamxZvz684Y8uvsGQYgqcuXBsi6ux8FkdRDG4GzdGBCb8,0.0000240000000000000,1.0000000000000001e-7,,,19/11/2024 22:7:45,42Fqg4YACksLDbtpLsKs1f3VCkzAsNciVptfaAKq33mvf7VEnJeoWFxLXX3HrmSWQeReEuhrqjoUkCJiWco5ye4c,2.47440000000000e-7,1e-9,,,20/11/2024 10:33:35,3oDwzPfrBB8i3tBhEDF4HMV6xetNpwucoaTP3Gg8x6D6eJbH9QA5NDkhtqD6QGXfULW6SwWzp39vbdfXTqdqmMX8,2.36640000000000e-7,1e-9,,,21/11/2024 10:29:16,5zpQzopRQA9fYjAnJy36N4WcpCd7yhUiKeHB1VLtUFBJCxfgAe5Ye5tuAE85UytqczgnsAcTnSLEK4GtMFpVDhbn,0.0000237405000000000,1.0000000000000001e-7,,,21/11/2024 10:29:16,4sac71mkDgUFmMYPBSoMT4kNDE6fLMzaWPB5eyasCB9uMzqVB8YYJhBBpx2T1yGKojEPLqci3turtBnkaGj72a2d,0.0000237405000000000,1.0000000000000001e-7,,,21/11/2024 15:19:12,3jZkXHTF2zpGZYrn9QFEZQgo6MwuqpkGXeaaDswGnEJwyPvnuTSWkWtT5xEvxo36H4oegynfdPiMrU6dyp1E12wL,0.0000240910000000000,1.0000000000000001e-7,,,21/11/2024 15:19:16,VHJFReUEgHFLF14FFCvbCPZDx3N4AKh4g6aA6zraP9dfwg8QDTwLpNeBEjpuHX39Bjb85pPw68BNKEjfPtsfoKA,0.0000240910000000000,1.0000000000000001e-7,,,21/11/2024 15:19:20,4fMNWTY2v6A3ahCzXqo2RQsV1SsEvKpo3vXvhX7o2hzpyi7dFt9jMoz2sUeEvsRsk9h7MCRCzYKykXd3mjXi1VQH,0.0000240910000000000,1.0000000000000001e-7,,,21/11/2024 22:51:59,24FaYSTubpVFT2TFJ4YfZhGL1RL47Z6zCNR1kZFXzCSWWbEUquDv4aHRsDU5DxwnPVrLKLYhY5sooZxup7Kz48bJ,2.44070000000000e-7,1e-9,,,22/11/2024 10:18:12,5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK,2.56630000000000e-7,1e-9,,
+Successfully wrote current price
+Successfully wrote data
+Successfully wrote transfer amounts

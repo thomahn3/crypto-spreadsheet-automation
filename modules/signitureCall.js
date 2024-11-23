@@ -274,9 +274,16 @@ async function transactionDataFetch() {
         // Handles MISC transactions (Transfers, Errors)
         if (transactionData.meta.err != null){
             console.log('Transaction Error')
-            const newEntry = ['1', 'Trans ERR', 'Trans ERR', 'Trans ERR', i, dateStr, 'Trans ERR', 'Trans ERR', 'Trans ERR', totalFees.toPrecision(15), null]
-            transactionArray.push(newEntry)
-            continue;
+            let newEntry = [
+                dateStr,
+                i,
+                'Transaction Error',
+                null,
+                null,
+                totalFees
+            ];
+            transferArray.push(newEntry)
+            continue mainLoop;
         }
         // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
         for (let j of transactionData.meta.postTokenBalances) {
@@ -581,6 +588,7 @@ async function transactionDataFetch() {
     console.log('SHEET DATA')
     console.log(transactionArray)
     console.log(currentPriceArray)
+    console.log(transferArray)
     
     let rowCount = transactionArray.length
     const sheetResource = {
