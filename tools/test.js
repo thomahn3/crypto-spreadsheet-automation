@@ -1,16 +1,18 @@
+require('dotenv').config();
+const publicKey = require('@metaplex-foundation/umi');
+const createUmi = require('@metaplex-foundation/umi-bundle-defaults');
+const dasApi = require('@metaplex-foundation/digital-asset-standard-api');
 
 (async () => {
     try {
-        const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/CmpuL8k9KY3NrpfDRoJrVmuwd1zRMFRUxX55avyGpump`, {
-            method: 'GET',
-            headers: {},
-        });
-        const tokenData = await response.json();
-        //console.log(JSON.stringify(tokenData))
-        tokenName = tokenData.pairs[0].baseToken.name;
-        tokenSymbol = tokenData.pairs[0].baseToken.symbol;
+        const umi = createUmi.createUmi(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`).use(dasApi.dasApi());
+        const assetId = publicKey.publicKey('AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM');
+
+        const tokenData = await umi.rpc.getAsset(assetId);
+        tokenName = tokenData.content.metadata.name;
+        tokenSymbol = tokenData.content.metadata.symbol;
         console.log(JSON.stringify(tokenData))
     } catch (err) {
-        console.log(err)
+        console.log('Error fetching Token Metadata on DAS')
     }
 })();

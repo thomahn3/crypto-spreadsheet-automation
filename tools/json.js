@@ -4,7 +4,7 @@ require('dotenv').config();
 (async () => {
   const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`);
     transaction = await solana.getParsedTransaction(
-      "qSVhUEcpDCTg5ii9DCjfukwRyecBYZGQ7qjmg19ozqQMgr9Ui35tjJofW5Ak2obT7dTybpndPHPBQZRTUecQWZ5",
+      "3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy",
       { maxSupportedTransactionVersion: 0 }
     )
   const data = JSON.parse(JSON.stringify(transaction, null, 2))

@@ -1,0 +1,457 @@
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Avg Buy: NaN
+Lamports exchanged:undefined
+Fresh Buy
+Updated Current Price Array at index 0: ["0.0000072741"]
+SHEET DATA
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,NaN,NaN,0.00600500000000000
+0.0000072741
+
+Successfully wrote transfer amounts
+Successfully wrote data
+Successfully wrote current price
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+CONTINUE
+CONTINUE
+Avg Buy: NaN
+Lamports exchanged:undefined
+Fresh Buy
+Updated Current Price Array at index 0: ["0.0000072741"]
+SHEET DATA
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,NaN,NaN,0.00600500000000000
+0.0000072741
+
+Successfully wrote transfer amounts
+Successfully wrote data
+Successfully wrote current price
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+New Total Fees:
+25475922.006005
+Avg Buy: 0.000040906392206443996
+Lamports exchanged:25475922
+Fresh Buy
+Updated Current Price Array at index 0: ["0.0000072741"]
+SHEET DATA
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,0.0254759220000000,0.0000409063922064440,25475922.0060050
+0.0000072741
+
+Successfully wrote data
+Successfully wrote transfer amounts
+Successfully wrote current price
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+New Total Fees:
+0.031480922
+Avg Buy: 0.000040906392206443996
+Lamports exchanged:25475922
+Fresh Buy
+Updated Current Price Array at index 0: ["0.0000072741"]
+SHEET DATA
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,0.0254759220000000,0.0000409063922064440,0.0314809220000000
+0.0000072741
+
+Successfully wrote transfer amounts
+Successfully wrote current price
+Successfully wrote data
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Pump Fun Buy
+New Total Fees:
+0.006005
+Avg Buy: 0.000040906392206443996
+Lamports exchanged:25475922
+Fresh Buy
+Updated Current Price Array at index 0: ["0.0000072741"]
+SHEET DATA
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,0.0254759220000000,0.0000409063922064440,0.00600500000000000
+0.0000072741
+
+Successfully wrote data
+Successfully wrote transfer amounts
+Successfully wrote current price
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK
+22/11/2024 10:18:12
+Total Fees: 0.00000665000000000000
+Sol price at time of transaction: 256.63
+TRANSFER TRANSACTION:
+Receive:
+22/11/2024 10:18:12,5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK,2.56630000000000e-7,1e-9,,
+SHEET DATA
+
+
+22/11/2024 10:18:12,5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK,2.56630000000000e-7,1e-9,,
+Successfully wrote transfer amounts
+Successfully wrote data
+Successfully wrote current price
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK
+22/11/2024 10:18:12
+Total Fees: 0.00000665000000000000
+Sol price at time of transaction: 256.63
+TRANSFER TRANSACTION:
+Receive:
+22/11/2024 10:18:12,5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK,2.56630000000000e-7,1e-9,,
+SHEET DATA
+
+
+22/11/2024 10:18:12,5NQgdZPshqjpL5LnSipxGRLMANT21Juw1q7L8hcH9m1jZ4vbXCjYKPFd4rMQDybnMTqvd5aA3bnvoHbUaxkbg8pK,2.56630000000000e-7,1e-9,,
+Successfully wrote data
+Successfully wrote current price
+Successfully wrote transfer amounts
+Successfully connected to google API
+Wallet:C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1
+1
+2vdFhEwRYQZcCeEVFcBQ8kHZWfAyMDvi5VuGqggvcTCESNUgcLdgbeimZvtFPeU8hZXsN1WpDz26gE1DG1fihUhW
+4/11/2024 14:17:29
+Can't determine priority fees: TypeError: Expected String
+Sol price at time of transaction: 163.19
+TRANSFER TRANSACTION:
+Receive:
+4/11/2024 14:17:29,2vdFhEwRYQZcCeEVFcBQ8kHZWfAyMDvi5VuGqggvcTCESNUgcLdgbeimZvtFPeU8hZXsN1WpDz26gE1DG1fihUhW,163.190000000000,1,,
+2
+2A6f8aikoFL2QtNK143S9xgPKf9KttZRRzqQwZ5hEPwfXNTuaEPmmVMNhXY191qdnk2K9Nr3NEEYkMkaK2xBwn1A
+5/11/2024 14:30:46
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.86
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching Token Metadata on DAS
+Token Name: high
+Token Symbol: high
+Token Current Price: undefined
+Post Token Amount
+38648.720718
+No Pre Token Pair
+Avg Buy: 0.00004136230049279429
+Lamports exchanged:10000000
+Fresh Buy
+Updated Current Price Array at index 0: [null]
+3
+3USjbDK918dyEdPPvgThM3G79xBi3CHiJm95AxVaoCXb7HcYb12ByQsPmkE15DTLRc6CU8V2F8G5SqXxtVeXtWVW
+5/11/2024 14:30:51
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.77
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:30:51,3USjbDK918dyEdPPvgThM3G79xBi3CHiJm95AxVaoCXb7HcYb12ByQsPmkE15DTLRc6CU8V2F8G5SqXxtVeXtWVW,0.0000159770000000000,1.0000000000000001e-7,,
+4
+3PP5D2EodvKPLefE6LtKL7gKa87ruURUAREvxpnNFB9srZbWegXhDXrz4zZbGGqHVbDXY33wRWVnD5aMcbDjGs3J
+5/11/2024 14:30:51
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.77
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:30:51,3PP5D2EodvKPLefE6LtKL7gKa87ruURUAREvxpnNFB9srZbWegXhDXrz4zZbGGqHVbDXY33wRWVnD5aMcbDjGs3J,0.0000159770000000000,1.0000000000000001e-7,,
+5
+2yJGf7LhsQ6uKu9hLMwn2vBnob75z3yMmeiUuARQQf51MVRirJEC1Vw1QAkzWhE946kpCkD2J1YEYNZ6Df68ecB7
+5/11/2024 14:40:31
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.93
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching Token Metadata on DAS
+Token Name: high
+Token Symbol: high
+Token Current Price: undefined
+Post Token Amount: 0
+Pre Token Amount: 
+38648.720718
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k
+Updating row:
+1,high,high,6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k,2A6f8aikoFL2QtNK143S9xgPKf9KttZRRzqQwZ5hEPwfXNTuaEPmmVMNhXY191qdnk2K9Nr3NEEYkMkaK2xBwn1A,5/11/2024 14:30:46,38648.720718,0.0100000000000000,0.0000413623004927943,0.00600500000000000
+Avg Sell: 0.00004495523720351256
+Lamports exchanged:10863893
+Full Sell
+Updated Current Price Array at index 0: [null]
+6
+2VBzvyuf1fQsNTH5rsmCrMRArD7SCUYvixJFhGK5GdENFKEJnDpTFKLuSFrfLBS1ZWUE3fvnHBrLUQYZLTxHA2Pg
+5/11/2024 14:40:33
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.93
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:40:33,2VBzvyuf1fQsNTH5rsmCrMRArD7SCUYvixJFhGK5GdENFKEJnDpTFKLuSFrfLBS1ZWUE3fvnHBrLUQYZLTxHA2Pg,0.0000159930000000000,1.0000000000000001e-7,,
+7
+4y22pgGVi9wkNECsSV13SWSy4mwBDA2nGsN9YVcm7aGcWnxBwCVSPkC1CEqG5SJyM6uM38Hfds2ar2dodz8ooYqY
+5/11/2024 14:40:33
+Total Fees: 0.00000620000000000000
+Sol price at time of transaction: 159.93
+TRANSFER TRANSACTION:
+Receive:
+5/11/2024 14:40:33,4y22pgGVi9wkNECsSV13SWSy4mwBDA2nGsN9YVcm7aGcWnxBwCVSPkC1CEqG5SJyM6uM38Hfds2ar2dodz8ooYqY,0.0000159930000000000,1.0000000000000001e-7,,
+8
+3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy
+5/11/2024 14:44:20
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.99
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+Post Token Amount
+99639.5072
+No Pre Token Pair
+Pump Fun Buy
+Avg Buy: 0.000040906392206443996
+Lamports exchanged:25475922
+Fresh Buy
+Updated Current Price Array at index 1: ["0.0000072741"]
+9
+4soqU54JH4QTrdW8onAovht1JPVRkmH6F2CH6nBnTmXhbHxQoke7X3jZGnGJKFdc7sgDY9nBfM7M312ToRFTuNM5
+5/11/2024 14:48:46
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 160.07
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Token Name: Poly
+Token Symbol: POLY
+Token Current Price: 0.0000072741
+No matching Post Token found in JSON
+Pre Token Amount: 
+99639.5072
+OKX DEX SELL
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM
+Updating row:
+1,Poly,POLY,AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM,3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy,5/11/2024 14:44:20,99639.5072,0.0254759220000000,0.0000409063922064440,0.00600500000000000
+Avg Sell: 0
+Lamports exchanged:0
+Full Sell
+Updated Current Price Array at index 1: ["0.0000072741"]
+10
+34BjM36VvTGNwytsQN68wZcKER46NZ7H6UL3vdJnJ83sTxzCgunQ4etKJiizDCpECq19s4t6ZnziNrkp6hGLkRke
+5/11/2024 14:51:23
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 160.17
+Token Name: Gile
+Token Symbol: Gile
+Token Current Price: 0.00001372
+Post Token Amount
+50605.57536
+No Pre Token Pair
+Avg Buy: 0.00009495198830992997
+Lamports exchanged:30000000
+Fresh Buy
+Updated Current Price Array at index 2: ["0.00001372"]
+11
+thb78h5u9gLfdYCU7HBPt6juC3GNTpeV9XY3XU4kqLDCVv5CguJWgp4y35XHHtdywuJR36KMoFNEunoZJVJo7Aj
+5/11/2024 14:57:17
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.88
+Token Name: Gile
+Token Symbol: Gile
+Token Current Price: 0.00001372
+Post Token Amount: 0
+Pre Token Amount: 
+50605.57536
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump
+Updating row:
+1,Gile,Gile,EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump,34BjM36VvTGNwytsQN68wZcKER46NZ7H6UL3vdJnJ83sTxzCgunQ4etKJiizDCpECq19s4t6ZnziNrkp6hGLkRke,5/11/2024 14:51:23,50605.57536,0.0300000000000000,0.0000949519883099300,0.00600500000000000
+Avg Sell: 0.00011139081177556639
+Lamports exchanged:35257669
+Full Sell
+Updated Current Price Array at index 2: ["0.00001372"]
+12
+36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ
+5/11/2024 15:7:45
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.94
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching Token Metadata on DAS
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: undefined
+Post Token Amount
+2319.34836
+No Pre Token Pair
+Avg Buy: 0.0013791804867122246
+Lamports exchanged:20000000
+Fresh Buy
+Updated Current Price Array at index 3: [null]
+13
+5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm
+5/11/2024 15:8:9
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.96
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching Token Metadata on DAS
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: undefined
+Post Token Amount: 0
+Pre Token Amount: 
+2319.34836
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Updating row:
+1,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ,5/11/2024 15:7:45,2319.34836,0.0200000000000000,0.00137918048671222,0.00600500000000000
+Avg Sell: 0.0021917194198460125
+Lamports exchanged:31778950
+Full Sell
+Updated Current Price Array at index 3: [null]
+14
+2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa
+5/11/2024 15:8:52
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.95
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching Token Metadata on DAS
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: undefined
+Post Token Amount
+2381.688658
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Buy Count
+2
+Updating row:
+2,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ,5/11/2024 15:7:45,2319.34836,0.0200000000000000,0.00137918048671222,0.00600500000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Updated row:
+3,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Avg Buy: 0.0013431646446544062
+Lamports exchanged:20000000
+Buy More
+Updated Current Price Array at index 3: [null]
+15
+dBcUsNNiwpNifoGmPhSdKgw1d5i32BEpQuzmU6L5gtUQGEp16sjLAQGoDLWs3LAuPfhVrh4PgaYLWYbcmUYdqne
+5/11/2024 15:9:42
+Total Fees: 0.00600500000000000
+Sol price at time of transaction: 159.88
+Error fetching token info on DEXSCREENER: TypeError: Cannot read properties of null (reading '0')
+Error fetching Token Metadata on DAS
+Token Name: Key Opinion Leader 6900
+Token Symbol: KOL6900
+Token Current Price: undefined
+Post Token Amount: 0
+Pre Token Amount: 
+2381.688658
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump
+Updating row:
+3,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,5/11/2024 15:8:9,5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm,2319.34836,0.0317789500000000,0.00219171941984601,0.00600500000000000
+Sell Count:
+2
+Updated row:
+4,Key Opinion Leader 6900,KOL6900,7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa,5/11/2024 15:7:45, 5/11/2024 15:8:52,2381.68865800000,0.0400000000000000,0.001361172565683313,0.0120100000000000,36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, dBcUsNNiwpNifoGmPhSdKgw1d5i32BEpQuzmU6L5gtUQGEp16sjLAQGoDLWs3LAuPfhVrh4PgaYLWYbcmUYdqne,5/11/2024 15:7:45, 5/11/2024 15:8:52, 5/11/2024 15:9:42,4700.68865800000,0.0694519300000000,0.00208439667771336,0.0120100000000000
+Avg Sell: 0.0019770739355807103
+Lamports exchanged:29451930
+Full Sell
+Updated Current Price Array at index 3: [null]
+16
+haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx

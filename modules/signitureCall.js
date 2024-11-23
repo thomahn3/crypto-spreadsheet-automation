@@ -106,7 +106,7 @@ async function transactionDataFetch() {
     signatures = transactionList.map(item => item.signature).reverse();
     //console.log(signatures)
 
-    let signature = ['3P1mwUzqSNjUw8JXgiKFUW4E6MruCHRJPa7nBA9T8gwnvctM71GySS8Ko5xRDWEnpaqbuHFX3EmUKHRfAsdxL5t1']
+    let signature = ['3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy']
 
     mainLoop: for (const i of signatures) {
         // resets amounts every loop
@@ -325,6 +325,7 @@ async function transactionDataFetch() {
                             const tokenData = await umi.rpc.getAsset(assetId);
                             tokenName = tokenData.content.metadata.name;
                             tokenSymbol = tokenData.content.metadata.symbol;
+                            tokenCurrentPrice = tokenData.token_info.price_info.price_per_token;
                         } catch (err) {
                             console.log('Error fetching Token Metadata on DAS')
                         }
@@ -339,7 +340,7 @@ async function transactionDataFetch() {
                         const data = await response.json();
                         tokenCurrentPrice = data.USD
                     } catch (err) {
-                        console.log('Error fetching token current price' + err)
+                        console.log('Error fetching token current price', err)
                     }
                 }
                 console.log('Token Name: ' + tokenName)
@@ -353,7 +354,7 @@ async function transactionDataFetch() {
         // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
         // if innerInstructions = [] then its an account-account transfer 
         // if post > pre but pre = 0 (no pre and token and wallet entry) then it is a buy if post > pre but pre != 0 then buy more if post < pre but post = 0 then sell all if post < pre but post != 0 then sell
-    
+        //0.026241642
         // Determine token amounts before and after transaction
         const postTokenEntry = transactionData.meta.postTokenBalances.find(
             (entry) => entry.mint == tokenId && entry.owner == wallet
@@ -396,9 +397,32 @@ async function transactionDataFetch() {
                         (instruction.parsed?.info?.amount && instruction.parsed.info.amount != rawPostTokenAmount)
                 ).map(instruction => instruction.parsed.info.amount)
             )[0]; // Take the first matching amount (if multiple matches are found)
+
+            // Pump.FUN BUY
+            if (!solAmount) {
+                console.log('Pump Fun Buy')
+                let total = 0
+                // Add 'lamports' from inner instructions
+                transactionData.meta.innerInstructions.forEach(instructionGroup => {
+                    instructionGroup.instructions.forEach(instruction => {
+                    if (instruction.parsed?.info?.lamports) {
+                        total += instruction.parsed.info.lamports;
+                    }
+                    });
+                });
+                
+                // Add 'lamports' from message
+                transactionData.transaction.message.instructions.forEach(instructionGroup => {
+                    if (instructionGroup.parsed?.info?.lamports) {
+                        total += Number(instructionGroup.parsed.info.lamports);
+                    }
+                });
+
+                solAmount = total
+            }
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/(postTokenAmount - preTokenAmount)
             tokenBuyArray.push(tokenId)
-
+ 
         // Sol amount in Sell
         } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
             solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
@@ -410,7 +434,7 @@ async function transactionDataFetch() {
             
             //OKX DEX LAYOUT
             if (!solAmount) {
-                console.log('OKX DEX')
+                console.log('OKX DEX SELL')
                 transactionData.meta.innerInstructions.forEach((innerInstruction) => {
                     innerInstruction.instructions.forEach((instruction) => {
                         const parsedInfo = instruction.parsed?.info;
