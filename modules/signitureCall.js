@@ -46,10 +46,13 @@ async function transactionDataFetch() {
     let forIteration = 0
     let tokenBuyArray = [];
     let tokenSellArray = [];
-    let buyCount = 1
+    let buyCount = null
+    let sellCount = null
     let transCount = null
     let transactionList = null
     let currentPriceArray = [];
+    let signatures = null
+    let success = false
 
     const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
 
@@ -65,37 +68,44 @@ async function transactionDataFetch() {
             console.log('The API returned an error: ' + err);
         }
 
-     sheets.spreadsheets.values.get({
-        auth: jwtClient,
-        spreadsheetId: spreadsheetId,
-        range: `automated-crypto!I3:X`,
-     }, function (err, response) {
-        if (err) {
-            console.log('The API returned an error: ' + err);
-        } else {
-            sheetData = JSON.parse(JSON.stringify(response, null)).data.values
-            //try {
-            //    console.log(sheetData)
-            //} catch (err) {
-            //    console.log('Undefined Sheets:' + err)
-            //}
-        }
-     });
+    //sheets.spreadsheets.values.get({
+    //   auth: jwtClient,
+    //   spreadsheetId: spreadsheetId,
+    //   range: `automated-crypto!I3:X`,
+    //}, function (err, response) {
+    //   if (err) {
+    //       console.log('The API returned an error: ' + err);
+    //   } else {
+    //       sheetData = JSON.parse(JSON.stringify(response, null)).data.values
+    //       try {
+    //          console.log(sheetData)
+    //       } catch (err) {
+    //           console.log('Undefined Sheets:' + err)
+    //       }
+    //   }
+    //});
 
 
     // Gets address' signitures
     const pubkey = new web3.PublicKey(wallet);
-    while (!transactionList) {
+
+    while (!success) {
         try {
             transactionList = await solana.getSignaturesForAddress(pubkey);
+            success = true; // Set success to true if no error occurs
         } catch (err) {
-            console.log('Error Trying again...')
+            if (err.code === 500) { // Check if the error code is 500
+                console.log('Error 500: Trying again...');
+            } else {
+                console.error('An unexpected error occurred:', err);
+                throw err; // Exit if the error is not what we expect
+            }
         }
     }
-    const signatures = transactionList.map(item => item.signature).reverse();
+    signatures = transactionList.map(item => item.signature).reverse();
     //console.log(signatures)
 
-    let signature = ['39bLd7GMkB75GwKDEELA5EH1QNCzNXAgzH9PoAEU23F6tyFvE41MH68AsJ3hXvkVoMeF432yESmJWyRubNeJqG5M']
+    let signature = ['3P1mwUzqSNjUw8JXgiKFUW4E6MruCHRJPa7nBA9T8gwnvctM71GySS8Ko5xRDWEnpaqbuHFX3EmUKHRfAsdxL5t1']
 
     for (const i of signatures) {
         // resets amounts every loop
@@ -266,8 +276,6 @@ async function transactionDataFetch() {
                 console.log('Token Name: ' + tokenName)
                 console.log('Token Symbol: ' + tokenSymbol)
                 console.log('Token Current Price: ' + tokenCurrentPrice)
-                currentPriceArray.push([tokenCurrentPrice])
-                console.log(currentPriceArray)
                 break
             }
         }
@@ -391,7 +399,7 @@ async function transactionDataFetch() {
                     updatedRow[0] = (parseInt(row[0]) + 1).toString()
                     updatedRow[4] = `${updatedRow[4]}, ${i}`
                     updatedRow[5] = `${updatedRow[5]}, ${dateStr}`
-                    updatedRow[6] = (parseFloat(postTokenAmount * 1e-6).toPrecision(15)).toString()
+                    updatedRow[6] = (parseFloat(postTokenAmount).toPrecision(15)).toString()
                     updatedRow[7] = (parseFloat(row[7]) + solAmount * 1e-9).toPrecision(15).toString()
                     if (buyCount == 2) {
                         updatedRow[8] = ((parseFloat(row[8]) + tokenAvgPrice)/2).toString()
@@ -410,21 +418,78 @@ async function transactionDataFetch() {
 
         } else if (preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) {
             transactionType = 'Partial Sell'
-            
+            let newEntry = [dateStr, i, (preTokenAmount - postTokenAmount), parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
+            transactionArray = transactionArray.map(row => {
+                console.log(`Checking row[3]: ${row[3]}, tokenId: ${tokenId}`);
+                if (row[3] === tokenId) {
+                    updatedRow = [...row];
+                    console.log("Updating row:", updatedRow);
+                    // Checks if token has been sold before
+                    if (!row[10]) {
+
+                    updatedRow[0] = (parseInt(row[0]) + 1).toString()
+
+                    return [...updatedRow, ...newEntry];
+                    } else {
+
+                        sellCount = row[10].split(",").length + 1
+                        console.log('Sell Count:', sellCount)
+
+                        updatedRow[0] = (parseInt(row[0]) + 1).toString()
+                        updatedRow[10] = `${updatedRow[4]}, ${i}`
+                        updatedRow[11] = `${updatedRow[5]}, ${dateStr}`
+                        updatedRow[12] = ((parseInt(row[12]) + (preTokenAmount - postTokenAmount)).toPrecision(15)).toString()
+                        updatedRow[13] = (parseFloat(row[7]) + solAmount * 1e-9).toPrecision(15).toString()
+                        if (sellCount == 2) {
+                            updatedRow[14] = ((parseFloat(row[14]) + tokenAvgPrice)/2).toString()
+                        } else {
+                            updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokenAvgPrice * 1e-6)/sellCount).toString()
+                        }
+                        updatedRow[15] = (parseFloat(row[15]) + totalFees).toPrecision(15).toString()
+                        console.log("Updated row:", updatedRow);
+                    }
+                }
+                return row;
+            });
+
+
             console.log('Avg Sell: ' + tokenAvgPrice)
+
 
         } else if (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)) {
             transactionType = 'Full Sell'
 
-            let newEntry = [dateStr, i, preTokenAmount, parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
+            let newEntry = [dateStr, i, (preTokenAmount - postTokenAmount), parseFloat(solAmount * 1e-9).toPrecision(15), tokenAvgPrice.toPrecision(15), totalFees.toPrecision(15)]
             transactionArray = transactionArray.map(row => {
                 console.log(`Checking row[3]: ${row[3]}, tokenId: ${tokenId}`);
-
                 if (row[3] === tokenId) {
-                    console.log('Old array', row)
-                    console.log('New array',row, ...newEntry)
-                    return [...row, ...newEntry];
-                    
+                    updatedRow = [...row];
+                    console.log("Updating row:", updatedRow);
+                    // Checks if token has been sold before
+                    if (!row[10]) {
+
+                    updatedRow[0] = (parseInt(row[0]) + 1).toString()
+
+                    return [...updatedRow, ...newEntry];
+                    } else {
+
+                        sellCount = row[10].split(",").length + 1
+                        console.log('Sell Count:', sellCount)
+
+
+                        updatedRow[0] = (parseInt(row[0]) + 1).toString()
+                        updatedRow[10] = `${updatedRow[4]}, ${i}`
+                        updatedRow[11] = `${updatedRow[5]}, ${dateStr}`
+                        updatedRow[12] = ((parseInt(row[12]) + preTokenAmount).toPrecision(15)).toString()
+                        updatedRow[13] = (parseFloat(row[7]) + solAmount * 1e-9).toPrecision(15).toString()
+                        if (sellCount == 2) {
+                            updatedRow[14] = ((parseFloat(row[14]) + tokenAvgPrice)/2).toString()
+                        } else {
+                            updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokenAvgPrice * 1e-6)/sellCount).toString()
+                        }
+                        updatedRow[15] = (parseFloat(row[15]) + totalFees).toPrecision(15).toString()
+                        console.log("Updated row:", updatedRow);
+                    }
                 }
                 return row;
             });
@@ -439,9 +504,21 @@ async function transactionDataFetch() {
         console.log ('Lamports exchanged:' + solAmount)
         console.log(transactionType)
 
+        // Iterate through Array 1
+        for (let i = 0; i < transactionArray.length; i++) {
+            // Check if the third value in the current row of Array 1 matches tokenId
+            if (transactionArray[i][3] === tokenId) {
+                // If a match is found, update Array 2 at the same index
+                currentPriceArray[i] = [tokenCurrentPrice];
+                console.log(`Updated Current Price Array at index ${i}: ${JSON.stringify(currentPriceArray[i])}`);
+                break; // Exit the loop once the match is found
+            }
+        }
+
     }
     console.log('SHEET DATA')
     console.log(transactionArray)
+    console.log(currentPriceArray)
     
     const rowCount = transactionArray.length
 
@@ -468,7 +545,7 @@ async function transactionDataFetch() {
       sheets.spreadsheets.values.update({
          auth: jwtClient,
          spreadsheetId: spreadsheetId,
-         range: `automated-crypto!Y3:Y${rowCount+3}`,
+         range: `automated-crypto!Y3:Y`,
          resource: sheetResource1,
          valueInputOption: 'USER_ENTERED'
       }, function (err, response) {
