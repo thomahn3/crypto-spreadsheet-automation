@@ -69,6 +69,7 @@ async function transactionDataFetch() {
         } catch (err) {
             console.log('The API returned an error: ' + err);
         }
+    wallet = '6G8je2ZvN9fhZuMKvYc9Mu235cEMkgxri8WxfF6qts53'
     //sheets.spreadsheets.values.get({
     //   auth: jwtClient,
     //   spreadsheetId: spreadsheetId,
@@ -96,12 +97,13 @@ async function transactionDataFetch() {
             let transLength = signatures.length
             while (transLength >= 1000) {
                 console.log('MORE THAN 1000 SIGNATURES')
-                currentsignatures = [];
+                let newSignatures = [];
                 const lastSignature = signatures[signatures.length - 1];
-                const nextSignatures = await solana.getSignaturesForAddress(pubkey, { before: lastSignature.signature });
-                let newSignatures = nextSignatures.map(item => item.signature)
+                console.log(lastSignature)
+                const nextSignatures = await solana.getSignaturesForAddress(pubkey, { before: lastSignature });
+                newSignatures = nextSignatures.map(item => item.signature)
                 signatures = [...signatures, ...newSignatures]
-                transLength = nextSignatures.map(item => item.signature).length
+                transLength = newSignatures.map(item => item.signature).length
                 console.log('Signature', signatures.length)
             };
         } catch (err) {
@@ -111,7 +113,6 @@ async function transactionDataFetch() {
     signatures = signatures.reverse()
     console.log(signatures)
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
-    
 
 
     let signature = ['3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy']
@@ -170,10 +171,13 @@ async function transactionDataFetch() {
         }   
         
           // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
-        const computeBudget = transactionData.transaction.message.instructions[0].data
-        const computePrice = transactionData.transaction.message.instructions[1].data
-        const gasFee = transactionData.meta.fee
-
+        try {
+            const computeBudget = transactionData.transaction.message.instructions[0].data
+            const computePrice = transactionData.transaction.message.instructions[1].data
+            const gasFee = transactionData.meta.fee
+        } catch (err) {
+            console.log('ERROR reading compute Data', err)
+        }
         // determine date of transaction
         var timestamp = transactionData.blockTime
         var myDate = new Date(0)
