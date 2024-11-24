@@ -51,11 +51,12 @@ async function transactionDataFetch() {
     let transCount = null
     let transactionList = null
     let currentPriceArray = [];
-    let signatures = null
+    let signatures = [];
     let success = false
     let transferArray = [];
+    let allTransactions = []
 
-    const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
+    const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
 
     try {
         const response = await sheets.spreadsheets.values.get({
@@ -68,7 +69,6 @@ async function transactionDataFetch() {
         } catch (err) {
             console.log('The API returned an error: ' + err);
         }
-
     //sheets.spreadsheets.values.get({
     //   auth: jwtClient,
     //   spreadsheetId: spreadsheetId,
@@ -85,26 +85,34 @@ async function transactionDataFetch() {
     //       }
     //   }
     //});
-
-
+    
     // Gets address' signitures
-    const pubkey = new web3.PublicKey(wallet);
-
-    while (!success) {
-        try {
+    while (signatures.length == 0) {
+        try{
+            const pubkey = new web3.PublicKey(wallet);
             transactionList = await solana.getSignaturesForAddress(pubkey);
-            success = true; // Set success to true if no error occurs
+            signatures = transactionList.map(item => item.signature)
+            console.log('Signature', signatures.length)
+            let transLength = signatures.length
+            while (transLength >= 1000) {
+                console.log('MORE THAN 1000 SIGNATURES')
+                currentsignatures = [];
+                const lastSignature = signatures[signatures.length - 1];
+                const nextSignatures = await solana.getSignaturesForAddress(pubkey, { before: lastSignature.signature });
+                let newSignatures = nextSignatures.map(item => item.signature)
+                signatures = [...signatures, ...newSignatures]
+                transLength = nextSignatures.map(item => item.signature).length
+                console.log('Signature', signatures.length)
+            };
         } catch (err) {
-            if (err.code === 500) { // Check if the error code is 500
-                console.log('Error 500: Trying again...');
-            } else {
-                console.error('An unexpected error occurred:', err);
-                throw err; // Exit if the error is not what we expect
-            }
+            console.log('Error fetching Addresses:', err)
         }
     }
-    signatures = transactionList.map(item => item.signature).reverse();
-    //console.log(signatures)
+    signatures = signatures.reverse()
+    console.log(signatures)
+    console.log('FINAL SIGNATURE COUNT:',(signatures.length))
+    
+
 
     let signature = ['3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy']
 
@@ -126,6 +134,7 @@ async function transactionDataFetch() {
         let transactionData = null
         let amountWithAuthority = null
         let amountWithoutAuthority = null
+        let aggregator = null
 
         forIteration += 1
         console.log(forIteration)
@@ -182,7 +191,7 @@ async function transactionDataFetch() {
         try {
             const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
             const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-            totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)  
+            totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)
             console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
         } catch (err) {
             console.log("Can't determine priority fees: " + err)
@@ -285,6 +294,8 @@ async function transactionDataFetch() {
             transferArray.push(newEntry)
             continue mainLoop;
         }
+
+
         // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
         for (let j of transactionData.meta.postTokenBalances) {
             if (j.mint != 'So11111111111111111111111111111111111111112') {
@@ -354,7 +365,8 @@ async function transactionDataFetch() {
         // Only 2  "mint": "token", "owner": "wallet" in pre and post balances (if amountPostBalance > amountPreBalance then its a BUY)
         // if innerInstructions = [] then its an account-account transfer 
         // if post > pre but pre = 0 (no pre and token and wallet entry) then it is a buy if post > pre but pre != 0 then buy more if post < pre but post = 0 then sell all if post < pre but post != 0 then sell
-        //0.026241642
+        
+
         // Determine token amounts before and after transaction
         const postTokenEntry = transactionData.meta.postTokenBalances.find(
             (entry) => entry.mint == tokenId && entry.owner == wallet
@@ -388,6 +400,38 @@ async function transactionDataFetch() {
         } else {
             console.log('No Pre Token Pair')
         }
+
+        // Determine aggregator
+        for (let j of transactionData.transaction.message.instructions) {
+            if (j.programId == '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8') {
+                console.log('Radiuym Aggregator')
+                aggregator = 1
+                break
+            } else if (j.programId == '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P') {
+                console.log('Pump.fun Aggregator')
+                aggregator = 2
+                break
+            } else if (j.programId == 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4') {
+                console.log('Jupiter Aggregator')
+                aggregator = 3
+                break
+            }
+        }
+        if (!aggregator) {
+            console.log('Invalid Agregator')
+            tokenName = 'Invalid Aggregator'
+            tokenSymbol = 'Invalid Aggregator'
+        }
+
+
+        transactionData.transaction.message.instructions.forEach(instructionGroup => {
+            if (instructionGroup == '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8') {
+                console.log('Radiuym Aggregator')
+            }
+
+            });
+        
+
 
         // Sol amount in Buy
         if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
@@ -443,7 +487,7 @@ async function transactionDataFetch() {
                         if (parsedInfo && parsedInfo.tokenAmount && parsedInfo.mint === 'So11111111111111111111111111111111111111112') {
                             const amount = parseInt(parsedInfo.tokenAmount.amount, 10); // Convert amount to integer
                             
-                            if (parsedInfo.authority === '2bXjC7XSvxh48prZqJdZqCT8Fp9KGeGnGBkPGnaR2vNp') {
+                            if (parsedInfo.authority === wallet) {
                                 amountWithAuthority += amount; // Accumulate amount with specified authority
                             } else {
                                 amountWithoutAuthority += amount; // Accumulate amount without the specified authority
@@ -578,7 +622,7 @@ async function transactionDataFetch() {
                         if (sellCount == 2) {
                             updatedRow[14] = ((parseFloat(row[14]) + tokenAvgPrice)/2).toString()
                         } else {
-                            updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokenAvgPrice * 1e-6)/sellCount).toString()
+                            updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokenAvgPrice)/sellCount).toString()
                         }
                         updatedRow[15] = (parseFloat(row[15]) + totalFees).toPrecision(15).toString()
                         console.log("Updated row:", updatedRow);
@@ -657,7 +701,7 @@ async function transactionDataFetch() {
       sheets.spreadsheets.values.update({
          auth: jwtClient,
          spreadsheetId: spreadsheetId,
-         range: `automated-crypto!A9:F`,
+         range: `automated-crypto!A10:F`,
          resource: sheetResource2,
          valueInputOption: 'USER_ENTERED'
       }, function (err, response) {
@@ -677,4 +721,9 @@ transactionDataFetch();
 
 
 // TODO
-// Move fees to SOL transfers for ERROR transactions
+// maintain accuracy by using the scaled up numbers
+// implement jupitor aggregator
+// increase efficiency by combinging API requests
+// Check aggregator First (Alllows aggregator err Handling)
+// Add more than 1000 transaction capabilities
+// Fix sometime not fetch ing all transactions
