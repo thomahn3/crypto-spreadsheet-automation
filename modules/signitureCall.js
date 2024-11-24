@@ -69,7 +69,7 @@ async function transactionDataFetch() {
         } catch (err) {
             console.log('The API returned an error: ' + err);
         }
-    wallet = '6G8je2ZvN9fhZuMKvYc9Mu235cEMkgxri8WxfF6qts53'
+
     //sheets.spreadsheets.values.get({
     //   auth: jwtClient,
     //   spreadsheetId: spreadsheetId,
@@ -136,6 +136,9 @@ async function transactionDataFetch() {
         let amountWithAuthority = null
         let amountWithoutAuthority = null
         let aggregator = null
+        let computeBudget = null
+        let computePrice = null
+        let gasFee = null
 
         forIteration += 1
         console.log(forIteration)
@@ -172,9 +175,9 @@ async function transactionDataFetch() {
         
           // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
         try {
-            const computeBudget = transactionData.transaction.message.instructions[0].data
-            const computePrice = transactionData.transaction.message.instructions[1].data
-            const gasFee = transactionData.meta.fee
+            computeBudget = transactionData.transaction.message.instructions[0].data
+            computePrice = transactionData.transaction.message.instructions[1].data
+            gasFee = transactionData.meta.fee
         } catch (err) {
             console.log('ERROR reading compute Data', err)
         }
@@ -418,6 +421,14 @@ async function transactionDataFetch() {
             } else if (j.programId == 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4') {
                 console.log('Jupiter Aggregator')
                 aggregator = 3
+                break
+            } else if (j.programId == 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc') {
+                console.log('Orca Aggregator')
+                aggregator = 4
+                break
+            } else if (j.programId == 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo') {
+                console.log('Meteora Aggregator')
+                aggregator = 5
                 break
             }
         }
