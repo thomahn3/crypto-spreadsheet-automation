@@ -115,7 +115,7 @@ async function transactionDataFetch() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 
-    let signature = ['3rQZ8LrV1CBDHYC8CAzzDMVBZkMRGNjtszkQ4TgPxU4gcUd8VM2XDiCexLdDQXyqLEwhyYhzjs1kDx84ytzynBjy']
+    let signature = ['122amq2zVwHWNJ4vZE5EDhF6YzKUCewWUuF8oNsmU4CGs29LfwoMHmrPed45tEoEXBrTV9NHN1S5x1X23vDG1thc']
 
     mainLoop: for (const i of signatures) {
         // resets amounts every loop
@@ -139,6 +139,8 @@ async function transactionDataFetch() {
         let computeBudget = null
         let computePrice = null
         let gasFee = null
+        let tokenDestination = null
+        let solChange = null
 
         forIteration += 1
         console.log(forIteration)
@@ -173,14 +175,6 @@ async function transactionDataFetch() {
             }
         }   
         
-          // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
-        try {
-            computeBudget = transactionData.transaction.message.instructions[0].data
-            computePrice = transactionData.transaction.message.instructions[1].data
-            gasFee = transactionData.meta.fee
-        } catch (err) {
-            console.log('ERROR reading compute Data', err)
-        }
         // determine date of transaction
         var timestamp = transactionData.blockTime
         var myDate = new Date(0)
@@ -188,21 +182,30 @@ async function transactionDataFetch() {
         let dateStr = myDate.getDate() + "/" + (myDate.getMonth() + 1) + "/" + myDate.getFullYear() + " " + myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds()
         console.log(dateStr)
 
+          // Extracting information from JSON (computing units, gas fee, timestamp, buy transaction(SOL buy amount, Token recived), sell transaction (SOL recieved, token sold)
+        //try {
+        //    computeBudget = transactionData.transaction.message.instructions[0].data
+        //    computePrice = transactionData.transaction.message.instructions[1].data
+        //    gasFee = transactionData.meta.fee
+        //} catch (err) {
+        //    console.log('ERROR reading compute Data', err)
+        //}
+
         // Decoding computebudget and compute price to get priority fees
-        const schema = { 'struct': { 
-            'discriminator': 'u8', 
-            'units': 'u32' 
-        }};
-  
-        // Decodes compute budget and price to find priority fess
-        try {
-            const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
-            const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
-            totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)
-            console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
-        } catch (err) {
-            console.log("Can't determine priority fees: " + err)
-        }
+        //const schema = { 'struct': { 
+        //    'discriminator': 'u8', 
+        //    'units': 'u32' 
+        //}};
+  //
+        //// Decodes compute budget and price to find priority fess
+        //try {
+        //    const decodedComputeBudget = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computeBudget))).units;
+        //    const decodedComputePrice = borsh.deserialize(schema, Buffer.from(bs58.default.decode(computePrice))).units;
+        //    totalFees = ((decodedComputeBudget * decodedComputePrice) * 1e-15) + (gasFee * 1e-9)
+        //    console.log('Total Fees: ' + parseFloat(totalFees).toPrecision(15))
+        //} catch (err) {
+        //    console.log("Can't determine priority fees: " + err)
+        //}
         
         
         
@@ -220,8 +223,8 @@ async function transactionDataFetch() {
             console.log('Error fetching sol price: ' + err)
         }
 
-        //Sol Amounts for TRansfger Transactions
-        if (!transactionData.meta.innerInstructions[0]) {
+        //Sol Amounts for Transfer Transactions
+        if (!transactionData.meta.innerInstructions || transactionData.meta.innerInstructions.length == 0) {
             console.log('TRANSFER TRANSACTION:');
         
             // Iterate over instructions
@@ -296,7 +299,7 @@ async function transactionDataFetch() {
                 'Transaction Error',
                 null,
                 null,
-                totalFees
+                ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
             ];
             transferArray.push(newEntry)
             continue mainLoop;
@@ -411,24 +414,28 @@ async function transactionDataFetch() {
         // Determine aggregator
         for (let j of transactionData.transaction.message.instructions) {
             if (j.programId == '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8') {
-                console.log('Radiuym Aggregator')
-                aggregator = 1
+                console.log('Raydium Program')
+                aggregator = 'raydium'
                 break
             } else if (j.programId == '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P') {
-                console.log('Pump.fun Aggregator')
-                aggregator = 2
+                console.log('Pump.fun Program')
+                aggregator = 'pumpfun'
                 break
             } else if (j.programId == 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4') {
-                console.log('Jupiter Aggregator')
-                aggregator = 3
+                console.log('Jupiter Program')
+                aggregator = 'jupiter'
                 break
             } else if (j.programId == 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc') {
-                console.log('Orca Aggregator')
-                aggregator = 4
+                console.log('Orca Program')
+                aggregator = 'orca'
                 break
             } else if (j.programId == 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo') {
-                console.log('Meteora Aggregator')
-                aggregator = 5
+                console.log('Meteora Program')
+                aggregator = 'meteora'
+                break
+            } else if (j.programId == '6m2CDdhRgxpH4WjvdzxAYbGxwdGUz5MziiL5jek2kBma') {
+                console.log('OKX Program')
+                aggregator = 'okx-dex'
                 break
             }
         }
@@ -437,81 +444,87 @@ async function transactionDataFetch() {
             tokenName = 'Invalid Aggregator'
             tokenSymbol = 'Invalid Aggregator'
         }
-
-
-        transactionData.transaction.message.instructions.forEach(instructionGroup => {
-            if (instructionGroup == '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8') {
-                console.log('Radiuym Aggregator')
-            }
-
-            });
         
-
 
         // Sol amount in Buy
         if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
-            solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
-                innerInstruction.instructions.filter(
-                    (instruction) =>
-                        (instruction.parsed?.info?.amount && instruction.parsed.info.amount != rawPostTokenAmount)
-                ).map(instruction => instruction.parsed.info.amount)
-            )[0]; // Take the first matching amount (if multiple matches are found)
+            solChange = transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]
+            if (aggregator == 'raydium') {
+                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                    innerInstruction.instructions.filter(
+                        (instruction) =>
+                            (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
+                    ).map(instruction => instruction.parsed.info.amount)
+                )[0]; // Take the first matching amount (if multiple matches are found)
+                totalFees = (solChange - solAmount) * 1e-9;
 
-            // Pump.FUN BUY
-            if (!solAmount) {
+            } else if (aggregator == 'pumpfun') {
                 console.log('Pump Fun Buy')
-                let total = 0
+                // Checks address where tokens are being exchanged
+                transactionData.meta.innerInstructions.forEach(instructionGroup => {
+                    instructionGroup.instructions.forEach(instruction => {
+                        if(instruction.parsed?.info?.amount == rawPostTokenAmount) {
+                            tokenDestination = instruction.parsed.info.authority
+                        }
+                    })
+                })
+
                 // Add 'lamports' from inner instructions
                 transactionData.meta.innerInstructions.forEach(instructionGroup => {
                     instructionGroup.instructions.forEach(instruction => {
-                    if (instruction.parsed?.info?.lamports) {
-                        total += instruction.parsed.info.lamports;
+                    if (instruction.parsed?.info?.lamports && instruction.parsed.info.destination == tokenDestination) {
+                        solAmount += instruction.parsed.info.lamports;
+                    } else {
+                        console.log("Couldn't determine SOL AMOUNT through pumpfun")
                     }
+                    totalFees = (solChange - solAmount) * 1e-9;
                     });
                 });
-                
-                // Add 'lamports' from message
-                transactionData.transaction.message.instructions.forEach(instructionGroup => {
-                    if (instructionGroup.parsed?.info?.lamports) {
-                        total += Number(instructionGroup.parsed.info.lamports);
-                    }
-                });
 
-                solAmount = total
+            } else if (aggregator == 'jupiter') {
+                console.log('Jupiter Buy')
+                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                    innerInstruction.instructions.filter(
+                        (instruction) =>
+                            (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
+                    ).map(instruction => instruction.parsed.info.amount)
+                )[1]; 
+                totalFees = (solChange - solAmount) * 1e-9
+            } else if (aggregator = 'okx-dex') {
+                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                    innerInstruction.instructions.filter(
+                        (instruction) =>
+                            (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
+                    ).map(instruction => instruction.parsed.info.amount)
+                )[0]; // Take the first matching amount (if multiple matches are found)
+                totalFees = (solChange - solAmount) * 1e-9;
             }
-            tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/(postTokenAmount - preTokenAmount)
-            tokenBuyArray.push(tokenId)
+        
+        console.log('TOTAL FEES:', totalFees)
+        tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/(postTokenAmount - preTokenAmount)
+        tokenBuyArray.push(tokenId)
  
         // Sol amount in Sell
         } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
+            solChange = transactionData.meta.postBalances[0] - transactionData.meta.preBalances[0]
             solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                 innerInstruction.instructions.filter(
                     (instruction) =>
                         (instruction.parsed?.info?.amount && instruction.parsed.info.amount != rawPreTokenAmount) 
                 ).map(instruction => instruction.parsed.info.amount)
             )[0]; // Take the first matching amount (if multiple matches are found)
-            
-            //OKX DEX LAYOUT
+            // Special DEX CASE
             if (!solAmount) {
-                console.log('OKX DEX SELL')
-                transactionData.meta.innerInstructions.forEach((innerInstruction) => {
-                    innerInstruction.instructions.forEach((instruction) => {
-                        const parsedInfo = instruction.parsed?.info;
-                
-                        // Check if parsedInfo and tokenAmount exist and the mint matches
-                        if (parsedInfo && parsedInfo.tokenAmount && parsedInfo.mint === 'So11111111111111111111111111111111111111112') {
-                            const amount = parseInt(parsedInfo.tokenAmount.amount, 10); // Convert amount to integer
-                            
-                            if (parsedInfo.authority === wallet) {
-                                amountWithAuthority += amount; // Accumulate amount with specified authority
-                            } else {
-                                amountWithoutAuthority += amount; // Accumulate amount without the specified authority
-                            }
-                        }
-                    });
-                });
-                solAmount = amountWithoutAuthority - amountWithAuthority;
+                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                    innerInstruction.instructions.filter(
+                        (instruction) =>
+                            (instruction.parsed?.info?.tokenAmount?.amount && instruction.parsed.info.tokenAmount.amount != rawPreTokenAmount) 
+                    ).map(instruction => instruction.parsed.info.tokenAmount.amount)
+                )[0]; // Take the first matching amount (if multiple matches are found)
             }
+            totalFees = (solAmount - solChange) * 1e-9;
+            
+            console.log("TOTAL FEES:", totalFees)
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/(preTokenAmount - postTokenAmount)
             tokenSellArray.push(tokenId)
         } else {
@@ -736,9 +749,6 @@ transactionDataFetch();
 
 
 // TODO
-// maintain accuracy by using the scaled up numbers
-// implement jupitor aggregator
-// increase efficiency by combinging API requests
+// Simplify BUY logic
+// increase efficiency by combinging API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
 // Check aggregator First (Alllows aggregator err Handling)
-// Add more than 1000 transaction capabilities
-// Fix sometime not fetch ing all transactions
