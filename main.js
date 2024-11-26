@@ -41,7 +41,7 @@ jwtClient.authorize(function (err, tokens) {
 })
 
 // Establish connection to RPC node
-const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`); //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3} HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
+const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`); //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3} HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
 
 async function initializeWallet() {
 
@@ -59,9 +59,6 @@ async function initializeWallet() {
     let signatures = [];
     let transferArray = [];
     let allTransactions = [];
-    let tokenAddresses = [];
-    let token1 = null
-    let token2 = null
     const raydium = '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8'
     const orca = 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc'
     const pumpfun = '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P'
@@ -114,8 +111,8 @@ async function initializeWallet() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 //For troubleshooting
-    let signature = ['48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
-    wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
+    let signature = ['5WBX7Dc9sMzWp2vjxDKVRzCxZX9vQVja8LjDabwhfsEZSxjZHmwin2JtT9PFP5h1Qu841TttrJEvfL9UGSXLTcV1']
+    //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
     mainLoop: for (const i of signature) {
         
@@ -141,9 +138,10 @@ async function initializeWallet() {
         let tokenDestination = null
         let solNetChange = null
         let solTrans = null
-        const tokenBought = {};
-        const tokenSold = {};
         let counter = 0
+        let tokenAddresses = [];
+        let token1 = {}
+        let token2 = {}
         
 // Shows the iteration that the program is on
         forIteration += 1
@@ -280,8 +278,9 @@ async function initializeWallet() {
         })
 
 // Detrmines the nature of the transition
-        if (tokenAddresses.some(subArray => subArray.includes(solAddress))) {
+        if (tokenAddresses.length == 1) {
             solTrans = true
+            console.log('---- SOL TRANSACTION ----')
 
             // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
             // Needs to change to find all coin Mints that aren't SOL in a non-SOl - non-SOL transaciton
@@ -453,14 +452,18 @@ async function initializeWallet() {
                     // Add 'lamports' from inner instructions
                     transactionData.meta.innerInstructions.forEach(instructionGroup => {
                         instructionGroup.instructions.forEach(instruction => {
-                        if (instruction.parsed?.info?.lamports && instruction.parsed.info.destination == tokenDestination) {
-                            solAmount += instruction.parsed.info.lamports;
-                        } else {
-                            console.log("Couldn't determine SOL AMOUNT through pumpfun")
-                        }
-                        totalFees = (solNetChange - solAmount) * 1e-9;
+                            if (instruction.parsed?.info?.lamports && instruction.parsed.info.destination == tokenDestination) {
+                                solAmount += instruction.parsed.info.lamports;
+                            } 
+                        
                         });
                     });
+                    if (!solAmount) {
+                        console.log("Couldn't determine SOL AMOUNT through pumpfun")
+                    }
+                        
+                    totalFees = (solNetChange - solAmount) * 1e-9;
+                      
 
                 } else if (aggregator == 'jupiter') {
 
@@ -691,12 +694,13 @@ async function initializeWallet() {
 
 
             
-        } else if (!tokenAddresses.some(subArray => subArray.includes(solAddress))) {
+        } else if (tokenAddresses.length == 2) {
             solTrans = false
+            console.log('---- NON-SOL TRANSACTION ----')
 
             for (let j of tokenAddresses.flat()) {
                 counter += 1
-
+                
                 try {
                     const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${j}`, {
                         method: 'GET',
@@ -751,10 +755,31 @@ async function initializeWallet() {
                     }
                 }
 
-                console.log('Token Name: ' + tokenName)
-                console.log('Token Symbol: ' + tokenSymbol)
-                console.log('Token Current Price: ' + tokenCurrentPrice)
-            
+                // assign values to tokens in transaction
+                if (counter == 1) {
+                    token1.tokenName = tokenName
+                    token1.tokenSymbol = tokenSymbol
+                    token1.address = tokenAddresses[0][0]
+                    token1.signature = i
+                    token1.date = dateStr
+                    console.log('TOKEN 1 INFO:', token1)
+
+                } else if (counter == 2) {
+                    token2.tokenName = tokenName
+                    token2.tokenSymbol = tokenSymbol
+                    token2.address = tokenAddresses[1][0]
+                    token2.signature = i
+                    token2.date = dateStr
+                    console.log('TOKEN 2 INFO:', token2)
+
+                } else {
+                    console.log('Counter Error in token object assigning')
+                    continue mainLoop
+                }
+
+                
+
+
             }
             
 
