@@ -57,15 +57,17 @@ async function initializeWallet() {
     let transactionList = null
     let currentPriceArray = [];
     let signatures = [];
-    let success = false
     let transferArray = [];
-    let allTransactions = []
+    let allTransactions = [];
+    let tokenAddresses = [];
     const raydium = '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8'
     const orca = 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc'
     const pumpfun = '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P'
     const jupiter = 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4'
     const meteora = 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo'
     const okx_dex = '6m2CDdhRgxpH4WjvdzxAYbGxwdGUz5MziiL5jek2kBma'
+    const lfinity_swap_v2 = '2wT8Yq49kHgDzXuPxZSaeLaH1qbmGXtEyPy64bL7aD3c'
+    const solAddress = 'So11111111111111111111111111111111111111112'
 
 
 //Gets wallet address
@@ -109,10 +111,11 @@ async function initializeWallet() {
     console.log(signatures)
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
-//For troubleshooting single trans signatures
-    let signature = ['5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q']
+//For troubleshooting
+    let signature = ['48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
+    wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
-    mainLoop: for (const i of signatures) {
+    mainLoop: for (const i of signature) {
         
         // Variables that need to be reset every loop
         let postTokenAmount = null
@@ -132,11 +135,10 @@ async function initializeWallet() {
         let amountWithAuthority = null
         let amountWithoutAuthority = null
         let aggregator = null
-        let computeBudget = null
-        let computePrice = null
         let gasFee = null
         let tokenDestination = null
-        let solChange = null
+        let solNetChange = null
+        let solTrans = null
         
 // Shows the iteration that the program is on
         forIteration += 1
@@ -206,7 +208,7 @@ async function initializeWallet() {
                         dateStr,
                         i,
                         (solAvgPrice * (solAmount * 1e-9)).toPrecision(15).toString(),
-                        solAmount * 1e-9,
+                        ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15),
                         null,
                         null
                     ];
@@ -235,7 +237,7 @@ async function initializeWallet() {
                             i,
                             (solAvgPrice * (solAmount * 1e-9)).toPrecision(15).toString(),
                             null,
-                            solAmount * 1e-9,
+                            ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15),
                             totalFees
                         ];
                         transferArray.push(newEntry)
@@ -260,6 +262,29 @@ async function initializeWallet() {
             transferArray.push(newEntry)
             continue mainLoop;
         }
+
+// Determines SOL net Change 
+        solNetChange = ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
+
+
+        transactionData.meta.postTokenBalances.forEach(balance => {
+            if (balance.owner == wallet) {
+                tokenAddresses.push(balance.mint)
+                console.log(tokenAddresses)
+            }
+        })
+
+        
+        if (tokenAddresses.includes(solAddress)) {
+            solTrans = true
+        } else if (!tokenAddresses.includes(solAddress)) {
+            solTrans = false
+        } else {
+            console.log('Incorrect Token Address reading')
+            continue mainLoop
+        }
+
+         
 
 // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
 // Needs to change to find all coin Mints that aren't SOL in a non-SOl - non-SOL transaciton
@@ -408,7 +433,7 @@ async function initializeWallet() {
 
 // Sol amount in Buy
         if ((!preTokenEntry && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
-            solChange = transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]
+            solNetChange = transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]
             if (aggregator == 'raydium') {
                 solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                     innerInstruction.instructions.filter(
@@ -416,7 +441,7 @@ async function initializeWallet() {
                             (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
                     ).map(instruction => instruction.parsed.info.amount)
                 )[0]; // Take the first matching amount (if multiple matches are found)
-                totalFees = (solChange - solAmount) * 1e-9;
+                totalFees = (solNetChange - solAmount) * 1e-9;
 
             } else if (aggregator == 'pumpfun') {
                 console.log('Pump Fun Buy')
@@ -437,7 +462,7 @@ async function initializeWallet() {
                     } else {
                         console.log("Couldn't determine SOL AMOUNT through pumpfun")
                     }
-                    totalFees = (solChange - solAmount) * 1e-9;
+                    totalFees = (solNetChange - solAmount) * 1e-9;
                     });
                 });
 
@@ -451,7 +476,7 @@ async function initializeWallet() {
                             (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
                     ).map(instruction => instruction.parsed.info.amount)
                 )[1]; 
-                totalFees = (solChange - solAmount) * 1e-9
+                totalFees = (solNetChange - solAmount) * 1e-9
 
             } else if (aggregator == 'okx-dex') {
                 console.log('OKX Buy')
@@ -461,7 +486,7 @@ async function initializeWallet() {
                             (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
                     ).map(instruction => instruction.parsed.info.amount)
                 )[0]; // Take the first matching amount (if multiple matches are found)
-                totalFees = (solChange - solAmount) * 1e-9;
+                totalFees = (solNetChange - solAmount) * 1e-9;
 
             } else if (aggregator == 'orca') {
                 console.log('Orca Buy')
@@ -480,7 +505,7 @@ async function initializeWallet() {
 
 // Sol amount in Sell
         } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
-            solChange = transactionData.meta.postBalances[0] - transactionData.meta.preBalances[0]
+            solNetChange = transactionData.meta.postBalances[0] - transactionData.meta.preBalances[0]
             solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                 innerInstruction.instructions.filter(
                     (instruction) =>
@@ -496,7 +521,7 @@ async function initializeWallet() {
                     ).map(instruction => instruction.parsed.info.tokenAmount.amount)
                 )[0]; // Take the first matching amount (if multiple matches are found)
             }
-            totalFees = (solAmount - solChange) * 1e-9;
+            totalFees = (solAmount - solNetChange) * 1e-9;
             
             console.log("TOTAL FEES:", totalFees)
             tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9).toPrecision(15)).toFixed(2)/(preTokenAmount - postTokenAmount)
