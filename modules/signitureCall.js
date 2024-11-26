@@ -55,8 +55,14 @@ async function transactionDataFetch() {
     let success = false
     let transferArray = [];
     let allTransactions = []
+    const raydium = '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8'
+    const orca = 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc'
+    const pumpfun = '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P'
+    const jupiter = 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4'
+    const meteora = 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo'
+    const okx_dex = '6m2CDdhRgxpH4WjvdzxAYbGxwdGUz5MziiL5jek2kBma'
 
-    const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); //RPC endpoint https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}
+    const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`); //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3} HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
 
     try {
         const response = await sheets.spreadsheets.values.get({
@@ -115,9 +121,9 @@ async function transactionDataFetch() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 
-    let signature = ['122amq2zVwHWNJ4vZE5EDhF6YzKUCewWUuF8oNsmU4CGs29LfwoMHmrPed45tEoEXBrTV9NHN1S5x1X23vDG1thc']
+    let signature = ['5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q', '29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk', '6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe', '5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX', '48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
 
-    mainLoop: for (const i of signatures) {
+    mainLoop: for (const i of signature) {
         // resets amounts every loop
         let postTokenAmount = null
         let preTokenAmount = null
@@ -141,6 +147,7 @@ async function transactionDataFetch() {
         let gasFee = null
         let tokenDestination = null
         let solChange = null
+        let solTransaction = null
 
         forIteration += 1
         console.log(forIteration)
@@ -305,6 +312,9 @@ async function transactionDataFetch() {
             continue mainLoop;
         }
 
+        // Determines wether the transaction is SOL - TOKEN or TOKEN - SOL
+        //transactionData.meta.postTokenBalances.forEach(instructionGroup => {
+        //    if(instructionGroup.mint == 'So11111111111111111111111111111111111111112' && ) {
 
         // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
         for (let j of transactionData.meta.postTokenBalances) {
@@ -413,27 +423,38 @@ async function transactionDataFetch() {
 
         // Determine aggregator
         for (let j of transactionData.transaction.message.instructions) {
-            if (j.programId == '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8') {
+            if (j.programId == raydium) {
                 console.log('Raydium Program')
                 aggregator = 'raydium'
                 break
-            } else if (j.programId == '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P') {
+            } else if (j.programId == pumpfun) {
                 console.log('Pump.fun Program')
                 aggregator = 'pumpfun'
                 break
-            } else if (j.programId == 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4') {
+            } else if (j.programId == jupiter) {
                 console.log('Jupiter Program')
                 aggregator = 'jupiter'
+                transactionData.meta.innerInstructions.forEach(instructionGroup => {
+                    instructionGroup.instructions.forEach(instruction => {
+                        if(instruction.programId == orca) {
+                            console.log('jupiter-orca')
+                        } else if (instruction.programId == raydium) {
+                            console.log('jupiter-raydium')
+                        } else if (instruction.programId == meteora) {
+                            console.log('jupiter meteora')
+                        }
+                    })
+                })
                 break
-            } else if (j.programId == 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc') {
+            } else if (j.programId == orca) {
                 console.log('Orca Program')
                 aggregator = 'orca'
                 break
-            } else if (j.programId == 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo') {
+            } else if (j.programId == meteora) {
                 console.log('Meteora Program')
                 aggregator = 'meteora'
                 break
-            } else if (j.programId == '6m2CDdhRgxpH4WjvdzxAYbGxwdGUz5MziiL5jek2kBma') {
+            } else if (j.programId == okx_dex) {
                 console.log('OKX Program')
                 aggregator = 'okx-dex'
                 break
@@ -482,7 +503,9 @@ async function transactionDataFetch() {
                 });
 
             } else if (aggregator == 'jupiter') {
+
                 console.log('Jupiter Buy')
+                // Raydium
                 solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                     innerInstruction.instructions.filter(
                         (instruction) =>
@@ -490,7 +513,9 @@ async function transactionDataFetch() {
                     ).map(instruction => instruction.parsed.info.amount)
                 )[1]; 
                 totalFees = (solChange - solAmount) * 1e-9
-            } else if (aggregator = 'okx-dex') {
+
+            } else if (aggregator == 'okx-dex') {
+                console.log('OKX Buy')
                 solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                     innerInstruction.instructions.filter(
                         (instruction) =>
@@ -498,12 +523,22 @@ async function transactionDataFetch() {
                     ).map(instruction => instruction.parsed.info.amount)
                 )[0]; // Take the first matching amount (if multiple matches are found)
                 totalFees = (solChange - solAmount) * 1e-9;
+
+            } else if (aggregator == 'orca') {
+                console.log('Orca Buy')
+                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                    innerInstruction.instructions.filter(
+                        (instruction) =>
+                            (instruction.parsed?.info?.tokenAmount?.amount && instruction.parsed.info.tokenAmount.amount != rawPreTokenAmount) 
+                    ).map(instruction => instruction.parsed.info.tokenAmount.amount)
+                )[0]; 
             }
         
         console.log('TOTAL FEES:', totalFees)
-        tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/(postTokenAmount - preTokenAmount)
+        tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9).toPrecision(15)).toFixed(2)/(postTokenAmount - preTokenAmount)
+        console.log((solAvgPrice * (solAmount * 1e-9).toPrecision(15)).toFixed(2))
         tokenBuyArray.push(tokenId)
- 
+
         // Sol amount in Sell
         } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
             solChange = transactionData.meta.postBalances[0] - transactionData.meta.preBalances[0]
@@ -525,7 +560,8 @@ async function transactionDataFetch() {
             totalFees = (solAmount - solChange) * 1e-9;
             
             console.log("TOTAL FEES:", totalFees)
-            tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9))/(preTokenAmount - postTokenAmount)
+            tokenAvgPrice = (solAvgPrice * (solAmount * 1e-9).toPrecision(15)).toFixed(2)/(preTokenAmount - postTokenAmount)
+            
             tokenSellArray.push(tokenId)
         } else {
             console.log("Can't determine sol amounts (continuing)")
@@ -752,3 +788,4 @@ transactionDataFetch();
 // Simplify BUY logic
 // increase efficiency by combinging API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
 // Check aggregator First (Alllows aggregator err Handling)
+// Determine if its a SOL transaction
