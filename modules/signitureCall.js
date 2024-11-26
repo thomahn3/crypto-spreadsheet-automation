@@ -123,7 +123,7 @@ async function transactionDataFetch() {
 
     let signature = ['5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q', '29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk', '6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe', '5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX', '48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
 
-    mainLoop: for (const i of signature) {
+    mainLoop: for (const i of signatures) {
         // resets amounts every loop
         let postTokenAmount = null
         let preTokenAmount = null
@@ -147,7 +147,6 @@ async function transactionDataFetch() {
         let gasFee = null
         let tokenDestination = null
         let solChange = null
-        let solTransaction = null
 
         forIteration += 1
         console.log(forIteration)
@@ -312,9 +311,6 @@ async function transactionDataFetch() {
             continue mainLoop;
         }
 
-        // Determines wether the transaction is SOL - TOKEN or TOKEN - SOL
-        //transactionData.meta.postTokenBalances.forEach(instructionGroup => {
-        //    if(instructionGroup.mint == 'So11111111111111111111111111111111111111112' && ) {
 
         // Finds the ID of the token other than SOL in the transaction and gets the name and symbol information if on pump fun for one API and not on pumpfun through a DEX
         for (let j of transactionData.meta.postTokenBalances) {
