@@ -13,7 +13,7 @@ const console = {
 async function getJson() {
   const solana = new web3.Connection(`https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`);
     transaction = await solana.getParsedTransaction(
-      "4jn9udYdDY3TpdszcA3LDHbzxhegADP4SWok8aQVpQjvEHugDYcFxXiHUaidqtoyqJXRAnaX5jG6QDpAid7f88nh",
+      "thb78h5u9gLfdYCU7HBPt6juC3GNTpeV9XY3XU4kqLDCVv5CguJWgp4y35XHHtdywuJR36KMoFNEunoZJVJo7Aj",
       { maxSupportedTransactionVersion: 0 }
     )
   const data = JSON.parse(JSON.stringify(transaction, null, 2))
