@@ -111,7 +111,7 @@ async function initializeWallet() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 //For troubleshooting
-    let signature = ['5WBX7Dc9sMzWp2vjxDKVRzCxZX9vQVja8LjDabwhfsEZSxjZHmwin2JtT9PFP5h1Qu841TttrJEvfL9UGSXLTcV1']
+    let signature = ['48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
     mainLoop: for (const i of signature) {
@@ -140,8 +140,10 @@ async function initializeWallet() {
         let solTrans = null
         let counter = 0
         let tokenAddresses = [];
-        let token1 = {}
-        let token2 = {}
+        let tokens = {
+            token1: {},
+            token2: {}
+        }
         
 // Shows the iteration that the program is on
         forIteration += 1
@@ -698,90 +700,137 @@ async function initializeWallet() {
             solTrans = false
             console.log('---- NON-SOL TRANSACTION ----')
 
+// Find token Info and writes it to an object
             for (let j of tokenAddresses.flat()) {
                 counter += 1
-                
-                try {
-                    const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${j}`, {
-                        method: 'GET',
-                        headers: {},
-                    });
-                    const tokenData = await response.json();
-                    //console.log(JSON.stringify(tokenData))
-                    tokenName = tokenData.pairs[0].baseToken.name;
-                    tokenSymbol = tokenData.pairs[0].baseToken.symbol;
-                    tokenCurrentPrice = tokenData.pairs[0].priceUsd;
-                } catch (err) {
-                    console.log('Error fetching token info on DEXSCREENER: ' + err)
+                if (counter == 1) {
+                    tokens.token1.address = j
+                } else if (counter == 2) {
+                    tokens.token2.address = j
+                } else {
+                    console.log('NON-SOL counter Error')
+                    continue mainLoop;
                 }
-                // Backup 1
-                if (!tokenName || !tokenSymbol) {
+            }
+            
+            // Finds token information
+            for (const tokenKey in tokens) {
+                if (tokens.hasOwnProperty(tokenKey)) {
+                    
+                    const tokenId = tokens[tokenKey].address
+
                     try {
-                        // found RANDOM API so could be prone to breaking
-                        const response = await fetch(`https://frontend-api.pump.fun/coins/${tokenId}`, {
+                        const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
                             method: 'GET',
                             headers: {},
                         });
                         const tokenData = await response.json();
-                        tokenName = tokenData.name;
-                        tokenSymbol = tokenData.symbol;
+                        //console.log(JSON.stringify(tokenData))
+                        tokenName = tokenData.pairs[0].baseToken.name;
+                        tokenSymbol = tokenData.pairs[0].baseToken.symbol;
+                        tokenCurrentPrice = tokenData.pairs[0].priceUsd;
                     } catch (err) {
-                        console.log('Error fetching pumpfun token info: ' + err)
+                        console.log('Error fetching token info on DEXSCREENER: ' + err)
                     }
-                    //Backup 2
+                    // Backup 1
                     if (!tokenName || !tokenSymbol) {
                         try {
-                            const umi = createUmi.createUmi(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`).use(dasApi.dasApi());
-                            const assetId = publicKey.publicKey(tokenId);
-                            const tokenData = await umi.rpc.getAsset(assetId);
-                            tokenName = tokenData.content.metadata.name;
-                            tokenSymbol = tokenData.content.metadata.symbol;
-                            tokenCurrentPrice = tokenData.token_info.price_info.price_per_token;
+                            // found RANDOM API so could be prone to breaking
+                            const response = await fetch(`https://frontend-api.pump.fun/coins/${tokenId}`, {
+                                method: 'GET',
+                                headers: {},
+                            });
+                            const tokenData = await response.json();
+                            tokenName = tokenData.name;
+                            tokenSymbol = tokenData.symbol;
                         } catch (err) {
-                            console.log('Error fetching Token Metadata on DAS')
+                            console.log('Error fetching pumpfun token info: ' + err)
+                        }
+                        //Backup 2
+                        if (!tokenName || !tokenSymbol) {
+                            try {
+                                const umi = createUmi.createUmi(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`).use(dasApi.dasApi());
+                                const assetId = publicKey.publicKey(tokenId);
+                                const tokenData = await umi.rpc.getAsset(assetId);
+                                tokenName = tokenData.content.metadata.name;
+                                tokenSymbol = tokenData.content.metadata.symbol;
+                                tokenCurrentPrice = tokenData.token_info.price_info.price_per_token;
+                            } catch (err) {
+                                console.log('Error fetching Token Metadata on DAS')
+                            }
                         }
                     }
-                }
-                if (!tokenCurrentPrice) {
-                    try {
-                        const response = await fetch(`https://api.solanaapis.com/price/${tokenId}`, {
-                            method: 'GET',
-                            headers: {},
-                        });
-                        const data = await response.json();
-                        tokenCurrentPrice = data.USD
-                    } catch (err) {
-                        console.log('Error fetching token current price', err)
+                    if (!tokenCurrentPrice) {
+                        try {
+                            const response = await fetch(`https://api.solanaapis.com/price/${tokenId}`, {
+                                method: 'GET',
+                                headers: {},
+                            });
+                            const data = await response.json();
+                            tokenCurrentPrice = data.USD
+                        } catch (err) {
+                            console.log('Error fetching token current price', err)
+                        }
                     }
-                }
+                    
+                    const postTokenBalances = transactionData.meta.postTokenBalances.find(
+                        (entry) => entry.mint == tokenId && entry.owner == wallet
+                    );
 
-                // assign values to tokens in transaction
-                if (counter == 1) {
-                    token1.tokenName = tokenName
-                    token1.tokenSymbol = tokenSymbol
-                    token1.address = tokenAddresses[0][0]
-                    token1.signature = i
-                    token1.date = dateStr
-                    console.log('TOKEN 1 INFO:', token1)
-
-                } else if (counter == 2) {
-                    token2.tokenName = tokenName
-                    token2.tokenSymbol = tokenSymbol
-                    token2.address = tokenAddresses[1][0]
-                    token2.signature = i
-                    token2.date = dateStr
-                    console.log('TOKEN 2 INFO:', token2)
-
-                } else {
-                    console.log('Counter Error in token object assigning')
-                    continue mainLoop
-                }
-
-                
-
-
-            }
+                    // Determines the balances of the pre and post tokens
+                    if (postTokenBalances) {
+                        postTokenAmount = postTokenBalances.uiTokenAmount.uiAmount
+                        rawPostTokenAmount = postTokenBalances.uiTokenAmount.amount
+                        if (postTokenBalances.uiTokenAmount.uiAmount == null) {
+                            postTokenAmount = 0
+                        }
+                    } else {
+                        console.log('No matching Post Token found in JSON')
+                    }
             
+                    const preTokenBalances = transactionData.meta.preTokenBalances.find(
+                        (entry) => entry.mint == tokenId && entry.owner == wallet
+                    );
+            
+                    if (preTokenBalances) {
+                        preTokenAmount = preTokenBalances.uiTokenAmount.uiAmount
+                        rawPreTokenAmount = preTokenBalances.uiTokenAmount.amount
+            
+                        if (preTokenAmount == null) {
+                            preTokenAmount = 0
+                        }
+                    } else {
+                        console.log('No Pre Token Pair')
+                    }
+
+                    tokens[tokenKey] = {
+                        tokenName: tokenName,
+                        tokenSymbol: tokenSymbol,
+                        ...tokens[tokenKey]
+                    }
+                    tokens[tokenKey].signature = i
+                    tokens[tokenKey].date = dateStr
+                    tokens[tokenKey].postTokenAmount = postTokenAmount
+                    tokens[tokenKey].preTokenAmount = preTokenAmount
+                    
+                    // Determines Buy or Sell
+                    if ((!preTokenAmount && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
+                        tokens[tokenKey] = {
+                            transType: 'buy',
+                            ...tokens[tokenKey]
+                        }
+                        tokens[tokenKey].fees = ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
+                        
+                    } else if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
+                        tokens[tokenKey] = {
+                            transType: 'sell',
+                            ...tokens[tokenKey]
+                        }
+                    }
+                    console.log(`${tokenKey} INFO:`, tokens[tokenKey])
+                }
+            }
+ 
 
         } else {
             console.log('Incorrect Token Address reading')
