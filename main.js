@@ -117,7 +117,7 @@ async function initializeWallet() {
     let signature = ['2xymGfVL2M5HumgoKTmCvGzH7MBvhtG8W91Hb2mgEihBuzjem1Mw5kpFCRYcxzW7LCnamm4D1WmJ1jBfXhNkDFns']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
-    mainLoop: for (const i of signature) {
+    mainLoop: for (const i of signatures) {
         
         // Variables that need to be reset every loop
         let postTokenAmount = null
@@ -941,7 +941,7 @@ async function initializeWallet() {
                         })
                     }
                     
-                    if (solAmountArray[1] == solAmountArray[2]) {
+                    if (solAmountArray[1] == solAmountArray[2] && solAmountArray[3] == solAmountArray[4]) {
                         tokens[tokenKey].solAmount = solAmountArray[3]
                     } else {
                         tokens[tokenKey].solAmount = solAmountArray[counter]
