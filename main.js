@@ -41,7 +41,7 @@ jwtClient.authorize(function (err, tokens) {
 })
 
 // Establish connection to RPC node
-const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); 
+const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} `); 
 //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} 
 //QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3} 
 //HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
@@ -114,7 +114,7 @@ async function initializeWallet() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 //For troubleshooting
-    let signature = ['2xymGfVL2M5HumgoKTmCvGzH7MBvhtG8W91Hb2mgEihBuzjem1Mw5kpFCRYcxzW7LCnamm4D1WmJ1jBfXhNkDFns']
+    let signature = ['36Wd7jS48iyYXJ6mMm6AMDKQHvY677gJPFEbJxYfdjyKicUrPVFTrbedGkpvepnUeQ6EaVuupJCjbEj6m3F7j8uJ, 2va7RabAF6f1sUdM4FpYRHAXx7AFPkVJSzuB8b2XYB13a3KZtCjFkHJeH9pjRbGj7zTSboCYuaS1ChvcVALPzqDa, haGqRd958DGgXaacSXDoffi3anBxF9X8HSbFiyFdEGFVksWcTaPrMGiqAcp8VwRTeRY4dSvWDwVA5HUjn3dtQqx, 26z4ooQtkmxVQ6am5VD26ToQh3RehXzdNiz7MomnTTUSRhAKFRTbieixnJ4Ee48xhsopkVYFJURy9PMYVYfwtpCF', '5zPEVzgxMMAf5tAFTf4MZTDvh85ePTTr6bcDFrc2Pd4BTkhcjPZEh471k4hAZx5hwaYir2E2B1amtPzUqbc6wsDm']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
     mainLoop: for (const i of signatures) {
@@ -642,7 +642,7 @@ async function initializeWallet() {
                         updatedRow[0] = (parseInt(row[0]) + 1).toString()
                         updatedRow[4] = `${updatedRow[4]}, ${token.signature}`
                         updatedRow[5] = `${updatedRow[5]}, ${token.date}`
-                        updatedRow[6] = (parseFloat(token.postTokenAmount).toPrecision(15)).toString()
+                        updatedRow[6] = (parseInt(row[6]) + token.postTokenAmount).toString()
                         updatedRow[7] = (parseFloat(row[7]) + token.solAmount * 1e-9).toPrecision(15).toString()
                         if (buyCount == 2) {
                             updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2).toString()
@@ -658,7 +658,7 @@ async function initializeWallet() {
                 });
                 if (!match) {
                     // Data layout (BUY): [[Transaction Count: Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL)]] 
-                    const newEntry = [transCount.toString(), token.tokenName, token.tokenSymbol, token.address, token.signature, token.date, token.postTokenAmount, (parseInt(token.solAmount) * 1e-9).toPrecision(15), token.avgPrice.toPrecision(15), token.fees.toPrecision(15)]
+                    const newEntry = [transCount.toString(), token.tokenName, token.tokenSymbol, token.address, token.signature, token.date, token.postTokenAmount.toString(), (parseInt(token.solAmount) * 1e-9).toPrecision(15), token.avgPrice.toPrecision(15), token.fees.toPrecision(15)]
                         
                     transactionArray.push(newEntry)
                 }
@@ -720,7 +720,7 @@ async function initializeWallet() {
                             updatedRow[0] = (parseInt(row[0]) + 1).toString()
                             updatedRow[10] = `${updatedRow[4]}, ${token.signature}`
                             updatedRow[11] = `${updatedRow[5]}, ${token.date}`
-                            updatedRow[12] = ((parseInt(row[12]) + (token.preTokenAmount - token.postTokenAmount)).toPrecision(15)).toString()
+                            updatedRow[12] = (token.preTokenAmount - token.postTokenAmount).toPrecision(15).toString()
                             updatedRow[13] = (parseFloat(row[7]) + token.solAmount * 1e-9).toPrecision(15).toString()
                             if (sellCount == 2) {
                                 updatedRow[14] = ((parseFloat(row[14]) + token.avgPrice)/2).toString()
@@ -729,6 +729,7 @@ async function initializeWallet() {
                             }
                             updatedRow[15] = (parseFloat(row[15]) + token.fees).toPrecision(15).toString()
                             console.log("Updated row:", updatedRow);
+                            return updatedRow
                         }
                     }
                     return row;
@@ -743,19 +744,20 @@ async function initializeWallet() {
                     console.log(`Checking row[3]: ${row[3]}, tokenId: ${token.address}`);
                     if (row[3] === token.address) {
                         updatedRow = [...row];
-                        console.log("Updating row:", updatedRow);
+                        
                         // Checks if token has been sold before
                         if (!row[10]) {
 
                             let newEntry = [token.date, token.signature, (token.preTokenAmount - token.postTokenAmount), parseFloat(token.solAmount * 1e-9).toPrecision(15), token.avgPrice.toPrecision(15), token.fees.toPrecision(15)]
                             updatedRow[0] = (parseInt(row[0]) + 1).toString()
 
+                            console.log(...updatedRow, ...newEntry)
                             return [...updatedRow, ...newEntry];
                         } else {
 
                             sellCount = row[10].split(",").length + 1
                             console.log('Sell Count:', sellCount)
-
+                            console.log("Updating row:", updatedRow);
 
                             updatedRow[0] = (parseInt(row[0]) + 1).toString()
                             updatedRow[10] = `${updatedRow[4]}, ${token.address}`
@@ -769,6 +771,7 @@ async function initializeWallet() {
                             }
                             updatedRow[15] = (parseFloat(row[15]) + token.fees).toPrecision(15).toString()
                             console.log("Updated row:", updatedRow);
+                            return updatedRow
                         }
                     }
                     return row;
@@ -991,7 +994,7 @@ async function initializeWallet() {
                                 updatedRow[0] = (parseInt(row[0]) + 1).toString()
                                 updatedRow[4] = `${updatedRow[4]}, ${tokens[tokenKey].signature}`
                                 updatedRow[5] = `${updatedRow[5]}, ${tokens[tokenKey].date}`
-                                updatedRow[6] = (parseFloat(tokens[tokenKey].postTokenAmount).toPrecision(15)).toString()
+                                updatedRow[6] = (parseInt(row[6]) + tokens[tokenKey].postTokenAmount).toPrecision(15).toString()
                                 updatedRow[7] = (parseFloat(row[7]) + tokens[tokenKey].solAmount * 1e-9).toPrecision(15).toString()
                                 if (buyCount == 2) {
                                     updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2).toString()
@@ -1078,6 +1081,7 @@ async function initializeWallet() {
                                     }
                                     updatedRow[15] = (parseFloat(row[15]) + tokens[tokenKey].fees).toPrecision(15).toString()
                                     console.log("Updated row:", updatedRow);
+                                    return updatedRow
                                 }
                             }
                             return row;
@@ -1118,6 +1122,7 @@ async function initializeWallet() {
                                     }
                                     updatedRow[15] = (parseFloat(row[15]) + tokens[tokenKey].fees).toPrecision(15).toString()
                                     console.log("Updated row:", updatedRow);
+                                    return updatedRow
                                 }
                             }
                             return row;
@@ -1229,3 +1234,5 @@ initializeWallet();
 // increase efficiency by combinging API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
 // Check aggregator First (Alllows aggregator err Handling)
 // Get non SOL-token transactions working
+
+// ISSUES 
