@@ -41,7 +41,7 @@ jwtClient.authorize(function (err, tokens) {
 })
 
 // Establish connection to RPC node
-const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} `); 
+const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); 
 //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} 
 //QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3} 
 //HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
@@ -70,6 +70,8 @@ async function initializeWallet() {
     const okx_dex = '6m2CDdhRgxpH4WjvdzxAYbGxwdGUz5MziiL5jek2kBma'
     const lfinity_swap_v2 = '2wT8Yq49kHgDzXuPxZSaeLaH1qbmGXtEyPy64bL7aD3c'
     const solAddress = 'So11111111111111111111111111111111111111112'
+    const usdcAddress = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
+    const usdtAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
 
 
 //Gets wallet address
@@ -115,6 +117,7 @@ async function initializeWallet() {
 
 //For troubleshooting
     let signature = ['63wWvmJY7jaUGSFgxCayeBUSktFThJcVaaBgqkXsHJ6yns1eiUDMyJgMrXhRmAhwVD4CQiqEN3K2Lyfh1CtHjFSp', 'A5JEpjhYJax8hHVnEC5xRkZfRCtMB1XpPskYkgiwJ8aRMa9S7PBQU6oGd4Ug2B93Hz8WP9baj1gc8Mg75XnpWY6', '48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
+    //['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
     mainLoop: for (const i of signatures) {
@@ -150,6 +153,7 @@ async function initializeWallet() {
         let token = {}
         let match = false
         let solAmountArray = [];
+        let symbol = null
         
 // Shows the iteration that the program is on
         forIteration += 1
@@ -157,9 +161,9 @@ async function initializeWallet() {
         console.log('Signature:', i)
 
 // Debugging certain parts
-        if (forIteration < 100 || forIteration > 150) {
-            continue mainLoop
-        }
+        //if (forIteration < 100 || forIteration > 150) {
+        //    continue mainLoop
+        //}
 
 // Fetches the transaction info for the signiture present in the loop
         while (!transactionData) {
@@ -652,7 +656,7 @@ async function initializeWallet() {
                         if (buyCount == 2) {
                             updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2).toString()
                         } else {
-                            updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice * 1e-6)/buyCount).toString()
+                            updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice)/buyCount).toString()
                         }
                         updatedRow[9] = (parseFloat(row[9]) + token.fees).toPrecision(15).toString()
                         console.log("Updated row:", updatedRow);
@@ -691,7 +695,7 @@ async function initializeWallet() {
                         if (buyCount == 2) {
                             updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2).toString()
                         } else {
-                            updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice * 1e-6)/buyCount).toString()
+                            updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice)/buyCount).toString()
                         }
                         updatedRow[9] = (parseFloat(row[9]) + token.fees).toPrecision(15).toString()
                         console.log("Updated row:", updatedRow);
@@ -730,7 +734,7 @@ async function initializeWallet() {
                             if (sellCount == 2) {
                                 updatedRow[14] = ((parseFloat(row[14]) + token.avgPrice)/2).toString()
                             } else {
-                                updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + token.avgPrice * 1e-6)/sellCount).toString()
+                                updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + token.avgPrice)/sellCount).toString()
                             }
                             updatedRow[15] = (parseFloat(row[15]) + token.fees).toPrecision(15).toString()
                             console.log("Updated row:", updatedRow);
@@ -957,6 +961,36 @@ async function initializeWallet() {
                     } else {
                         tokens[tokenKey].solAmount = solAmountArray[counter]
                     }
+
+                    if (tokenAddresses[0].indexOf(usdcAddress) == 0 || tokenAddresses[0].indexOf(usdtAddress) == 0) {
+                        symbol = tokens.token1.tokenSymbol
+                    } else if (tokenAddresses[1].indexOf(usdcAddress) == 0 || tokenAddresses[1].indexOf(usdtAddress) == 0) {
+                        symbol = tokens.token2.tokenSymbol
+                    }
+                    
+                    if (symbol) {
+                        try {
+                            const solData = await fetch(`https://api.binance.com/api/v3/klines?symbol=SOL${symbol}&interval=1s&startTime=${timestamp * 1e3}&endTime=${(timestamp * 1e3) + 999}`, {
+                                method: 'GET',
+                                headers: {
+                                    'Accept': 'application/json'
+                                },
+                            });
+
+                            const solPriceList = await solData.json();
+                            solAvgPrice = (JSON.parse(solPriceList[0][1]) + JSON.parse(solPriceList[0][4]))/2
+
+                        } catch (err) {
+                            console.log('Invalid Symbol ' + err)
+                        }
+                            if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
+                                solAmount = (1/solAvgPrice) * (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount) * 1e9
+                            } else if ((!preTokenAmount && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
+                                solAmount = (1/solAvgPrice) * (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount) * 1e9
+                            }
+                            tokens.token1.solAmount = solAmount
+                            tokens.token2.solAmount = solAmount
+                    }    
                     
                     
                     // Determines Buy or Sell
@@ -978,7 +1012,6 @@ async function initializeWallet() {
                         tokens[tokenKey].avgPrice = (solAvgPrice * (tokens[tokenKey].solAmount * 1e-9).toPrecision(15)).toFixed(2)/(tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount)
                         tokens[tokenKey].fees = 0
                     }
-                    console.log(`${tokenKey} INFO:`, tokens[tokenKey])
                     
                     // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
                     // Determine the type of transaction
@@ -1007,7 +1040,7 @@ async function initializeWallet() {
                                 if (buyCount == 2) {
                                     updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2).toString()
                                 } else {
-                                    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice * 1e-6)/buyCount).toString()
+                                    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice)/buyCount).toString()
                                 }
                                 updatedRow[9] = (parseFloat(row[9]) + tokens[tokenKey].fees).toPrecision(15).toString()
                                 console.log("Updated row:", updatedRow);
@@ -1046,7 +1079,7 @@ async function initializeWallet() {
                                 if (buyCount == 2) {
                                     updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2).toString()
                                 } else {
-                                    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice * 1e-6)/buyCount).toString()
+                                    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice)/buyCount).toString()
                                 }
                                 updatedRow[9] = (parseFloat(row[9]) + tokens[tokenKey].fees).toPrecision(15).toString()
                                 console.log("Updated row:", updatedRow);
@@ -1086,7 +1119,7 @@ async function initializeWallet() {
                                     if (sellCount == 2) {
                                         updatedRow[14] = ((parseFloat(row[14]) + tokens[tokenKey].avgPrice)/2).toString()
                                     } else {
-                                        updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokens[tokenKey].avgPrice * 1e-6)/sellCount).toString()
+                                        updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokens[tokenKey].avgPrice)/sellCount).toString()
                                     }
                                     updatedRow[15] = (parseFloat(row[15]) + tokens[tokenKey].fees).toPrecision(15).toString()
                                     console.log("Updated row:", updatedRow);
@@ -1163,14 +1196,19 @@ async function initializeWallet() {
 
                 }
             }
+            console.log(`Token1 info:`, tokens.token1)
+            console.log(`Token2 info:`, tokens.token2)
  
 
         } else {
             console.log('Incorrect Token Address reading')
             continue mainLoop;
         }
+        
+        
      
     }
+    
 
            
 
@@ -1246,3 +1284,4 @@ initializeWallet();
 // Get non SOL-token transactions working
 
 // ISSUES 
+// Avg Sell above 3 isn't working
