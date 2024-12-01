@@ -35754,3 +35754,44 @@ Sol price at time of transaction: 231.91
 HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
 OKX Program
 ---- SOL TRANSACTION ----
+247875000,57496603,57496603,57487508,57487508
+5
+[object Object]
+Checking row[3]: 6ckuEe9EdqvxKcpJrdTwMH3ChXELP1KJUi46qz1QP47k, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: AmrQXwT57S4Acf4tFX8CCdMGRbSB4ezSbvC5icofzmgM, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: EnhdqvhdZL5c1gKAP1zSMLJBYKobGVKnT15dH2Gbpump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 7zRBLV2cSXKqikAYoSAYAHbnJTkki6RFLRqcTDTXpump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 5Jkq28H2ES9ciVNvTVkyK39PU1D1t2PafKJuvBo5VhYh, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 7jYfnjn3jHWmUhhgfkZ9uUEKroH3Zz1BvF8RmVQHm86D, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: CNvitvFnSM5ed6K28RUNSaAjqqz5tX1rA5HgaBN9pump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 23CTZMjEYNNZUE4itfn3iv6kgM4xn7X7dx1kVX1Gr8Xi, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: yG6bXPEFaUnGAEHHqH9H7t1VSfaK7YrggCqHy35pump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 4esBtF9NzhSDzmo4GutSeP7hEdp5TchSHf3qh4xgpump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: Fosp9yoXQBdx8YqyURZePYzgpCnxp9XsfnQq69DRvvU4, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: BVG3BJH4ghUPJT9mCi7JbziNwx3dqRTzgo9x5poGpump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: 3S8qX1MsMqRbiwKg2cQyx7nis1oHMgaCuc9c4VfvVdPN, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Checking row[3]: A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump, tokenId: HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4
+Fresh Buy
+Updated Current Price Array at index 19: ["0.1153"]
+125 / 165
+Signature:
+5AtUvtFcSPjvpVXxPZkgFSxX9iS4v48pUHkxFLVixFrXh6XR6c5Vtp67mEb8XNYo6MV4gQ7k7raKESJcrJ5zo9Dn
+17/11/2024 23:38:56
+Sol price at time of transaction: 231.88
+TRANSFER TRANSACTION:
+126 / 165
+Signature:
+5ZR6seszEKYdvdieyXGejqHTPk3UCHkErxUQixReeaiUYcVE4qgnztRPWhtQm2D4LVdDv5Ub8b4vPM1fS9WXWaBR
+19/11/2024 6:31:48
+Sol price at time of transaction: 238.51
+
+Incorrect Token Address reading
+127 / 165
+Signature:
+2yMUrut9H516iNTbaJnS6n48TRDaYxf28XFmw74yVaGDAeUcdai9TmW2v8B7sUwMe1PkPYj3SdcNsUQA6mvenGz8
+19/11/2024 10:58:37
