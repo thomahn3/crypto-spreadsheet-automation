@@ -41,7 +41,7 @@ jwtClient.authorize(function (err, tokens) {
 })
 
 // Establish connection to RPC node
-const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); 
+const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`); 
 //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} 
 //QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3} 
 //HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
@@ -116,7 +116,7 @@ async function initializeWallet() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 //For troubleshooting
-    let signature = ['63wWvmJY7jaUGSFgxCayeBUSktFThJcVaaBgqkXsHJ6yns1eiUDMyJgMrXhRmAhwVD4CQiqEN3K2Lyfh1CtHjFSp', 'A5JEpjhYJax8hHVnEC5xRkZfRCtMB1XpPskYkgiwJ8aRMa9S7PBQU6oGd4Ug2B93Hz8WP9baj1gc8Mg75XnpWY6', '48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c']
+    let signature = ['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
@@ -154,6 +154,7 @@ async function initializeWallet() {
         let match = false
         let solAmountArray = [];
         let symbol = null
+        let tokenArray = [];
         
 // Shows the iteration that the program is on
         forIteration += 1
@@ -161,7 +162,7 @@ async function initializeWallet() {
         console.log('Signature:', i)
 
 // Debugging certain parts
-        //if (forIteration < 100 || forIteration > 150) {
+        //if (forIteration < 80 || forIteration > 130) {
         //    continue mainLoop
         //}
 
@@ -502,23 +503,59 @@ async function initializeWallet() {
                 tokenSymbol = 'Invalid Aggregator'
             }
 
+            transactionData.meta.innerInstructions.forEach(innerInstructions => {
+                innerInstructions.instructions.forEach((instructions, index, instructionsArray) => {
+                    if (instructions?.parsed?.info?.amount && instructions?.parsed?.type == 'transfer' && instructions?.parsed?.info?.amount != (rawPreTokenAmount - rawPostTokenAmount) && instructions?.parsed?.info?.amount != (rawPostTokenAmount - rawPreTokenAmount)) {
+
+                        solAmountArray.push(instructions?.parsed?.info?.amount)
+
+                    } else if (instructions?.parsed?.info?.tokenAmount?.amount && instructions?.parsed?.type == 'transferChecked') {
+                        solAmountArray.push(instructions.parsed.info.tokenAmount.amount)
+                    }
+                        // removes all uncessary jupiter transactions like fees
+                        const nextInstruction = instructionsArray[index + 1];
+                        if (nextInstruction) {
+
+                            const nextProgramId = nextInstruction.programId
+                            if (nextProgramId == jupiter) {
+                                solAmountArray.pop()
+                            }
+                        }
+                })
+            })
+
+            console.log(solAmountArray)
+            console.log(solAmountArray.length)
+            // assign first or last values for the solAmount using [].length - 1] for last or [0] for first
+
     // Sol amount in Buy
             if ((!preTokenAmount && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
                 token.transType = 'buy'
                 solNetChange = (transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0])
 
-                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
-                    innerInstruction.instructions.filter(
-                        (instruction) =>
-                            (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
-                    ).map(instruction => instruction.parsed.info.amount)
-                )[0]; // Take the first matching amount (if multiple matches are found)
+                // Gets first value
+                solAmount = solAmountArray[0]
+
+                if (!solAmount) {
+                    transactionData.meta.innerInstructions.forEach(instructionGroup => {
+                        instructionGroup.instructions.forEach(instructions => {
+                        tokenArray.push(instructions?.parsed?.info?.amount)
+                        })
+                    })
+
+                    for (let l of tokenArray) {
+                        if (l == rawPostTokenAmount - rawPreTokenAmount) {
+                            solAmount = tokenArray[tokenArray.indexOf(l) - 1]
+                            break
+                        }
+                    }
+                }
                 
-                if (!solAmount || aggregator == 'meteora') {
+                if (!solAmount) {
                     solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
                         innerInstruction.instructions.filter(
                             (instruction) =>
-                                (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
+                                (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPostTokenAmount - rawPreTokenAmount))
                         ).map(instruction => instruction.parsed.info.amount)
                     )[1]; 
                 }
@@ -562,12 +599,18 @@ async function initializeWallet() {
                 token.transType = 'sell'
 
                 solNetChange = transactionData.meta.postBalances[0] - transactionData.meta.preBalances[0]
-                solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
-                    innerInstruction.instructions.filter(
-                        (instruction) =>
-                            (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
-                    ).map(instruction => instruction.parsed.info.amount)
-                )[0]; // Take the first matching amount (if multiple matches are found)
+                
+                // LAst value typically the amount being deposited
+                solAmount = solAmountArray[solAmountArray.length - 1]
+
+                if (!solAmount) {
+                    solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
+                        innerInstruction.instructions.filter(
+                            (instruction) =>
+                                (instruction.parsed?.info?.amount && instruction.parsed.info.amount != (rawPreTokenAmount - rawPostTokenAmount))
+                        ).map(instruction => instruction.parsed.info.amount)
+                    )[0]; // Take the first matching amount (if multiple matches are found)
+                }
                 
                 if (!solAmount || solAmount == undefined || aggregator == 'meteora') {
                     solAmount = await transactionData.meta.innerInstructions.flatMap((innerInstruction) => 
@@ -651,7 +694,7 @@ async function initializeWallet() {
                         updatedRow[0] = (parseInt(row[0]) + 1).toString()
                         updatedRow[4] = `${row[4]}, ${token.signature}`
                         updatedRow[5] = `${row[5]}, ${token.date}`
-                        updatedRow[6] = (parseInt(row[6]) + token.postTokenAmount).toString()
+                        updatedRow[6] = (parseInt(row[6]) + (token.postTokenAmount - token.preTokenAmount)).toPrecision(15).toString()
                         updatedRow[7] = (parseFloat(row[7]) + token.solAmount * 1e-9).toPrecision(15).toString()
                         if (buyCount == 2) {
                             updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2).toString()
@@ -690,7 +733,7 @@ async function initializeWallet() {
                         updatedRow[0] = (parseInt(row[0]) + 1).toString()
                         updatedRow[4] = `${row[4]}, ${token.signature}`
                         updatedRow[5] = `${row[5]}, ${token.date}`
-                        updatedRow[6] = (parseFloat(token.postTokenAmount).toPrecision(15)).toString()
+                        updatedRow[6] = (parseInt(row[6]) + (token.postTokenAmount - token.preTokenAmount)).toPrecision(15).toString()
                         updatedRow[7] = (parseFloat(row[7]) + token.solAmount * 1e-9).toPrecision(15).toString()
                         if (buyCount == 2) {
                             updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2).toString()
@@ -729,7 +772,7 @@ async function initializeWallet() {
                             updatedRow[0] = (parseInt(row[0]) + 1).toString()
                             updatedRow[10] = `${row[10]}, ${token.signature}`
                             updatedRow[11] = `${row[11]}, ${token.date}`
-                            updatedRow[12] = (token.preTokenAmount - token.postTokenAmount).toPrecision(15).toString()
+                            updatedRow[12] = (parseInt(row[12]) + (token.preTokenAmount - token.postTokenAmount)).toPrecision(15).toString()
                             updatedRow[13] = (parseFloat(row[13]) + token.solAmount * 1e-9).toPrecision(15).toString()
                             if (sellCount == 2) {
                                 updatedRow[14] = ((parseFloat(row[14]) + token.avgPrice)/2).toString()
@@ -954,14 +997,6 @@ async function initializeWallet() {
                         })
                     }
                     
-                    if (solAmountArray[1] == solAmountArray[2] && solAmountArray[3] == solAmountArray[4]) {
-                        tokens[tokenKey].solAmount = solAmountArray[3]
-                    } else if (solAmountArray[4] == solAmountArray[5] && solAmountArray[7] == solAmountArray[8]) {
-                        tokens[tokenKey].solAmount = solAmountArray[7]
-                    } else {
-                        tokens[tokenKey].solAmount = solAmountArray[counter]
-                    }
-
                     if (tokenAddresses[0].indexOf(usdcAddress) == 0 || tokenAddresses[0].indexOf(usdtAddress) == 0) {
                         symbol = tokens.token1.tokenSymbol
                     } else if (tokenAddresses[1].indexOf(usdcAddress) == 0 || tokenAddresses[1].indexOf(usdtAddress) == 0) {
@@ -983,14 +1018,34 @@ async function initializeWallet() {
                         } catch (err) {
                             console.log('Invalid Symbol ' + err)
                         }
+
+                        console.log('Sol avg price:', solAvgPrice)
+                        
+                        if (tokens[tokenKey].tokenSymbol == symbol) {
                             if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
+                                //sell
+                                console.log('sol amt sell')
                                 solAmount = (1/solAvgPrice) * (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount) * 1e9
                             } else if ((!preTokenAmount && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
+                                //buy
+                                console.log('sol amt buy')
                                 solAmount = (1/solAvgPrice) * (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount) * 1e9
                             }
                             tokens.token1.solAmount = solAmount
                             tokens.token2.solAmount = solAmount
-                    }    
+                            console.log('solAmt:', solAmount)
+                        }
+                    }  else {
+                        if (solAmountArray[1] == solAmountArray[2] && solAmountArray[3] == solAmountArray[4]) {
+                            tokens[tokenKey].solAmount = solAmountArray[3]
+                        } else if (solAmountArray[4] == solAmountArray[5] && solAmountArray[7] == solAmountArray[8]) {
+                            tokens[tokenKey].solAmount = solAmountArray[7]
+                        } else if (solAmountArray[0] == solAmountArray[1] && solAmountArray[2] == solAmountArray[3]) {
+                            tokens[tokenKey].solAmount = solAmountArray[2]
+                        } else {
+                            tokens[tokenKey].solAmount = solAmountArray[counter]
+                        }
+                    }
                     
                     
                     // Determines Buy or Sell
@@ -1035,7 +1090,7 @@ async function initializeWallet() {
                                 updatedRow[0] = (parseInt(row[0]) + 1).toString()
                                 updatedRow[4] = `${row[4]}, ${tokens[tokenKey].signature}`
                                 updatedRow[5] = `${row[5]}, ${tokens[tokenKey].date}`
-                                updatedRow[6] = (parseInt(row[6]) + tokens[tokenKey].postTokenAmount).toPrecision(15).toString()
+                                updatedRow[6] = (parseInt(row[6]) + (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount)).toPrecision(15).toString()
                                 updatedRow[7] = (parseFloat(row[7]) + tokens[tokenKey].solAmount * 1e-9).toPrecision(15).toString()
                                 if (buyCount == 2) {
                                     updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2).toString()
@@ -1074,7 +1129,7 @@ async function initializeWallet() {
                                 updatedRow[0] = (parseInt(row[0]) + 1).toString()
                                 updatedRow[4] = `${row[4]}, ${tokens[tokenKey].signature}`
                                 updatedRow[5] = `${row[5]}, ${tokens[tokenKey].date}`
-                                updatedRow[6] = (parseFloat(tokens[tokenKey].postTokenAmount).toPrecision(15)).toString()
+                                updatedRow[6] = (parseInt(row[6]) + (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount)).toPrecision(15).toString()
                                 updatedRow[7] = (parseFloat(row[7]) + tokens[tokenKey].solAmount * 1e-9).toPrecision(15).toString()
                                 if (buyCount == 2) {
                                     updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2).toString()
@@ -1284,4 +1339,3 @@ initializeWallet();
 // Get non SOL-token transactions working
 
 // ISSUES 
-// Avg Sell above 3 isn't working
