@@ -41,7 +41,10 @@ jwtClient.authorize(function (err, tokens) {
 })
 
 // Establish connection to RPC node
-const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`); 
+    // Used for getting full wallet history
+const solanaQuickNode = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); 
+    // Mainly to get quickest response times
+const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`);
 //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} 
 //QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}
 //HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
@@ -62,13 +65,7 @@ async function initializeWallet() {
     let signatures = [];
     let transferArray = [];
     let allTransactions = [];
-    const raydium = '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8'
-    const orca = 'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc'
-    const pumpfun = '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P'
     const jupiter = 'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4'
-    const meteora = 'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo'
-    const okx_dex = '6m2CDdhRgxpH4WjvdzxAYbGxwdGUz5MziiL5jek2kBma'
-    const lfinity_swap_v2 = '2wT8Yq49kHgDzXuPxZSaeLaH1qbmGXtEyPy64bL7aD3c'
     const solAddress = 'So11111111111111111111111111111111111111112'
     const usdcAddress = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
     const usdtAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
@@ -92,7 +89,7 @@ async function initializeWallet() {
     while (signatures.length == 0) {
         try{
             const pubkey = new web3.PublicKey(wallet);
-            transactionList = await solana.getSignaturesForAddress(pubkey);
+            transactionList = await solanaQuickNode.getSignaturesForAddress(pubkey);
             signatures = transactionList.map(item => item.signature)
             console.log('Signature', signatures.length)
             let transLength = signatures.length
@@ -100,8 +97,8 @@ async function initializeWallet() {
                 console.log('MORE THAN 1000 SIGNATURES')
                 let newSignatures = [];
                 const lastSignature = signatures[signatures.length - 1];
-                console.log(lastSignature)
-                const nextSignatures = await solana.getSignaturesForAddress(pubkey, { before: lastSignature });
+                //console.log(lastSignature)
+                const nextSignatures = await solanaQuickNode.getSignaturesForAddress(pubkey, { before: lastSignature });
                 newSignatures = nextSignatures.map(item => item.signature)
                 signatures = [...signatures, ...newSignatures]
                 transLength = newSignatures.map(item => item.signature).length
@@ -116,7 +113,7 @@ async function initializeWallet() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 //For troubleshooting
-    let signature = ['4soqU54JH4QTrdW8onAovht1JPVRkmH6F2CH6nBnTmXhbHxQoke7X3jZGnGJKFdc7sgDY9nBfM7M312ToRFTuNM5']
+    let signature = ['jLgLTnhpJFf5faAdeJvP5j4d5hAQboEj7b7U8SrQhFW6k8oHmdfrpkj6Cgpi8pVruSDUfXXUvehNtEi2SroD4GH']
     //['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
@@ -139,7 +136,7 @@ async function initializeWallet() {
         let transactionData = null
         let amountWithAuthority = null
         let amountWithoutAuthority = null
-        let aggregator = null
+        let aggregator = [];
         let gasFee = null
         let tokenDestination = null
         let solNetChange = null
@@ -162,7 +159,7 @@ async function initializeWallet() {
         console.log('Signature:', i)
 
 // Debugging certain parts
-        //if (forIteration < 0 || forIteration > 1000) {
+        //if (forIteration < 3435 || forIteration > 3436) {
         //    continue mainLoop
         //}
 
@@ -361,22 +358,19 @@ async function initializeWallet() {
         
 
         transactionData.meta.postTokenBalances.forEach(balance => {
-            if (balance.owner == wallet) {
+            if (balance.owner == wallet && balance.mint != solAddress) {
                 tokenAddresses.push([balance.mint])
             }
         })
         if (tokenAddresses.length == 0) {
             transactionData.meta.preTokenBalances.forEach(balance => {
-                if (balance.owner == wallet) {
+                if (balance.owner == wallet && balance.mint != solAddress) {
                     tokenAddresses.push([balance.mint])
                 }
             })
         }
         
         console.log(tokenAddresses)
-        if (tokenAddresses[0] == 'FLiPKiL2fAzXecVcEJsuEskCPrcF5Gygb3YwRcdwBZJ4') {
-            continue mainLoop
-        }
 
         // Determine aggregator
         let aggregatorList = await fetch('https://quote-api.jup.ag/v6/program-id-to-label', {
@@ -389,16 +383,25 @@ async function initializeWallet() {
         aggregatorList = await aggregatorList.json()
         
         for (let j of transactionData.transaction.message.instructions) {
-            if (aggregatorList[j] != undefined) {
-                aggregator = aggregatorList[j]
-            } else {
-                console.log('No valid aggregator found')
+            for (let l of transactionData.meta.innerInstructions){
+                if (aggregatorList[j.programId] != undefined) {
+                    aggregator.push(aggregatorList[j.programId])
+                } else if (aggregatorList[l.instructions?.programId] != undefined) {
+                    aggregator.push(aggregatorList[l.instructions.programId])
+                }
             }
+        }
+        if (aggregator.length == 1){
+            console.log(`1 aggregator pathway: ${aggregator[0]}`)
+        } else if (aggregator.length > 1) {
+            console.log(`${aggregator.length} aggregator pathways: ${aggregator}`)
+        } else if (aggregator.length == 0) {
+            console.log('No valid Aggregator found')
+        }
 
         transactionData.meta.innerInstructions.forEach(innerInstructions => {
             innerInstructions.instructions.forEach((instructions, index, instructionsArray) => {
                 if (instructions?.parsed?.info?.amount && instructions?.parsed?.type == 'transfer' && instructions?.parsed?.info?.amount != (rawPreTokenAmount - rawPostTokenAmount) && instructions?.parsed?.info?.amount != (rawPostTokenAmount - rawPreTokenAmount)) {
-
                     solAmountArray.push([instructions?.parsed?.info?.amount, instructions?.parsed?.info?.authority])
 
                 } else if (instructions?.parsed?.info?.tokenAmount?.amount && instructions?.parsed?.type == 'transferChecked') {
@@ -536,12 +539,12 @@ async function initializeWallet() {
                 solNetChange = (transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0])
 
                 // Gets first value
-                try {
-                    if (solAmountArray[0][1] == wallet) {
+                if (solAmountArray.length != 0) {
+                    if ((solAmountArray[0][1] == wallet && solAmountArray.length == 2) || (solAmountArray[0][1] == wallet && solAmountArray[1][1] == wallet && solAmountArray.length == 3 && parseFloat(solAmountArray[0][0]) > parseFloat(solAmountArray[1][0]))) {
                         solAmount = parseFloat(solAmountArray[0][0])
+                    } else if (solAmountArray[0][1] == wallet && solAmountArray[1][1] == wallet && solAmountArray.length == 3 && parseFloat(solAmountArray[0][0]) < parseFloat(solAmountArray[1][0])) {
+                        solAmount = parseFloat(solAmountArray[1][0])
                     }
-                } catch (err) {
-
                 }
 
                 if (!solAmount) {
@@ -609,7 +612,7 @@ async function initializeWallet() {
                 solNetChange = transactionData.meta.postBalances[0] - transactionData.meta.preBalances[0]
                 
                 
-                // LAst value typically the amount being deposited
+                // Last value typically the amount being deposited
                 for (let l of solAmountArray.reverse()) {
                     if (l[1] != wallet) {
                         solAmount = parseFloat(l[0])
@@ -1029,11 +1032,9 @@ async function initializeWallet() {
                         if (tokens[tokenKey].tokenSymbol == symbol) {
                             if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
                                 //sell
-                                console.log('sol amt sell')
                                 solAmount = (1/solAvgPrice) * (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount) * 1e9
                             } else if ((!preTokenAmount && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
                                 //buy
-                                console.log('sol amt buy')
                                 solAmount = (1/solAvgPrice) * (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount) * 1e9
                             }
                             tokens.token1.solAmount = parseFloat(solAmount)
@@ -1048,23 +1049,36 @@ async function initializeWallet() {
                             tokens[tokenKey].solAmount = parseFloat(solAmountArray[1][0])
                         } else {
                             let c = 0
-                            solAmountArray.reverse().every(a => {
+                            if (((preTokenAmount > postTokenAmount && (postTokenAmount !=0 && postTokenAmount != null)) || (preTokenAmount > postTokenAmount && (postTokenAmount == 0 || postTokenAmount == null)))) {
+                                //sell
                                 // Gets the first second last value thats not authoritised by the wallet
-                                if (a[1] != wallet) {
-                                    console.log('Found key')
-                                    tokens[tokenKey].solAmount = parseFloat(solAmountArray[c + 1][0])
-                                    return false
-                                } else {
-                                    c += 1
-                                    return true
-                                }
-                            })
+                                solAmountArray.reverse().every(a => {
+                                    if (a[1] != wallet) {
+                                        console.log('Found key')
+                                        tokens[tokenKey].solAmount = parseFloat(solAmountArray[c + 1][0])
+                                        return false
+                                    } else {
+                                        c += 1
+                                        return true
+                                    }
+                                })
+                            } else if ((!preTokenAmount && postTokenAmount > 0) || (postTokenAmount > preTokenAmount)) {
+                                // buy
+                                solAmountArray.reverse().every(a => {
+                                    if (a[1] == wallet) {
+                                        console.log('Found key')
+                                        tokens[tokenKey].solAmount = parseFloat(solAmountArray[c + 1][0])
+                                        return false
+                                    } else {
+                                        c += 1
+                                        return true
+                                    }
+                                })
+                            }
                         }
                     }
                 }
             }
-            console.log(tokens.token1)
-            console.log(tokens.token2)
                     
             for (const tokenKey in tokens) {
                 if (tokens.hasOwnProperty(tokenKey)) {        
