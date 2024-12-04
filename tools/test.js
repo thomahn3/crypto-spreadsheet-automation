@@ -2,15 +2,21 @@
 require('dotenv').config();
 
 async function getData() {
-  const response = await fetch(`https://api.helius.xyz/v0/transactions?api-key=${process.env.API_KEY2}`, {
-    method: 'POST',
+  let aggregatorList = await fetch('https://quote-api.jup.ag/v6/program-id-to-label', {
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({"transactions": ['5tam5RMqR874usYoLJ69FppvdkQLFuKrpmw9Yey8oeTVYS26C5KNZpV7XFFKRdLdBErz7i2VNtiWgMoDjfU8boBm']}),
-});
-  const data = await response.json();
-  console.log(data[0])
-}
+        'Accept': 'application/json'
+    }
+  })
+
+  aggregatorList = await aggregatorList.json()
+
+  console.log(aggregatorList)
+  console.log(aggregatorList['SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8'])
+
+  for (let k in aggregatorList) {
+    console.log(k)
+  }
+};
 
 getData()

@@ -162,9 +162,9 @@ async function initializeWallet() {
         console.log('Signature:', i)
 
 // Debugging certain parts
-        if (forIteration < 0 || forIteration > 1000) {
-            continue mainLoop
-        }
+        //if (forIteration < 0 || forIteration > 1000) {
+        //    continue mainLoop
+        //}
 
         //let lMatch = false
         //for (let l of [
@@ -379,46 +379,21 @@ async function initializeWallet() {
         }
 
         // Determine aggregator
-        for (let j of transactionData.transaction.message.instructions) {
-            if (j.programId == raydium) {
-                console.log('Raydium Program')
-                aggregator = 'raydium'
-                break
-            } else if (j.programId == pumpfun) {
-                console.log('Pump.fun Program')
-                aggregator = 'pumpfun'
-                break
-            } else if (j.programId == jupiter) {
-                console.log('Jupiter Program')
-                aggregator = 'jupiter'
-                transactionData.meta.innerInstructions.forEach(instructionGroup => {
-                    instructionGroup.instructions.forEach(instruction => {
-                        if(instruction.programId == orca) {
-                            console.log('jupiter-orca')
-                            aggregator = 'orca'
-                        } else if (instruction.programId == raydium) {
-                            console.log('jupiter-raydium')
-                        } else if (instruction.programId == meteora) {
-                            console.log('jupiter meteora')
-                            aggregator = 'meteora'
-                        }
-                    })
-                })
-                break
-            } else if (j.programId == orca) {
-                console.log('Orca Program')
-                aggregator = 'orca'
-                break
-            } else if (j.programId == meteora) {
-                console.log('Meteora Program')
-                aggregator = 'meteora'
-                break
-            } else if (j.programId == okx_dex) {
-                console.log('OKX Program')
-                aggregator = 'okx-dex'
-                break
+        let aggregatorList = await fetch('https://quote-api.jup.ag/v6/program-id-to-label', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
             }
-        }
+        })
+        
+        aggregatorList = await aggregatorList.json()
+        
+        for (let j of transactionData.transaction.message.instructions) {
+            if (aggregatorList[j] != undefined) {
+                aggregator = aggregatorList[j]
+            } else {
+                console.log('No valid aggregator found')
+            }
 
         transactionData.meta.innerInstructions.forEach(innerInstructions => {
             innerInstructions.instructions.forEach((instructions, index, instructionsArray) => {
@@ -561,8 +536,12 @@ async function initializeWallet() {
                 solNetChange = (transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0])
 
                 // Gets first value
-                if (solAmountArray[0][1] == wallet) {
-                    solAmount = parseFloat(solAmountArray[0][0])
+                try {
+                    if (solAmountArray[0][1] == wallet) {
+                        solAmount = parseFloat(solAmountArray[0][0])
+                    }
+                } catch (err) {
+
                 }
 
                 if (!solAmount) {
@@ -598,7 +577,7 @@ async function initializeWallet() {
                     )[0]; 
                 }
 
-                if (aggregator == 'pumpfun') {
+                if (aggregator == 'pump.fun') {
                     transactionData.meta.innerInstructions.forEach(instructionGroup => {
                         instructionGroup.instructions.forEach(instruction => {
                             if(instruction.parsed?.info?.amount == rawPostTokenAmount) {
@@ -1383,7 +1362,6 @@ initializeWallet();
 // TODO
 // Simplify BUY logic
 // increase efficiency by combinging API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
-// Check aggregator First (Alllows aggregator err Handling)
-// Get non SOL-token transactions working
+// Token transfers to 
 
 // ISSUES 
