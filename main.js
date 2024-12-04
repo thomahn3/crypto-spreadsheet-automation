@@ -69,6 +69,7 @@ async function initializeWallet() {
     const solAddress = 'So11111111111111111111111111111111111111112'
     const usdcAddress = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
     const usdtAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
+    let aggregatorList = null
 
 
 //Gets wallet address
@@ -80,10 +81,23 @@ async function initializeWallet() {
          });
             wallet = response.data.values[0][0]
             console.log('Wallet:' + wallet)
-        } catch (err) {
-            console.log('The API returned an error: ' + err);
-        }
-
+    } catch (err) {
+        console.log('The API returned an error: ' + err);
+    }
+    
+    // Determine aggregator
+    try {
+        aggregatorList = await fetch('https://quote-api.jup.ag/v6/program-id-to-label', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        console.log("Fetched active program ID's")
+        aggregatorList = await aggregatorList.json()
+    } catch (err) {
+        console.log('Error while fetching aggregator:', err)
+    }
 
 // Gets Transaction Signitures
     while (signatures.length == 0) {
@@ -222,11 +236,26 @@ async function initializeWallet() {
         } catch (err) {
             console.log('Error fetching sol price: ' + err)
         }
+        
+        for (let j of transactionData.transaction.message.instructions) {
+            for (let l of transactionData.meta.innerInstructions){
+                if (aggregatorList[j.programId] != undefined) {
+                    aggregator.push(aggregatorList[j.programId])
+                } else if (aggregatorList[l.instructions?.programId] != undefined) {
+                    aggregator.push(aggregatorList[l.instructions.programId])
+                }
+            }
+        }
+
+        if (aggregator.length == 1){
+            console.log(`1 aggregator pathway: ${aggregator[0]}`)
+        } else if (aggregator.length > 1) {
+            console.log(`${aggregator.length} aggregator pathways: ${aggregator}`)
+        }
 
 // Determines if its a send or Receive transfer
         if (!transactionData.meta.innerInstructions || (Array.isArray(transactionData.meta.innerInstructions) && transactionData.meta.innerInstructions.length == 0)) {
             console.log('TRANSFER TRANSACTION:');
-            continue mainLoop
             // Iterate over instructions
             for (let instruction of transactionData.transaction.message.instructions) {
                 // Extract parsed data
@@ -269,7 +298,7 @@ async function initializeWallet() {
                             'Transaction Error',
                             null,
                             null,
-                            totalFees
+                            ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
                         ];
                         transferArray.push(newEntry)
                         console.log('Error Sending transfer', newEntry)
@@ -281,8 +310,8 @@ async function initializeWallet() {
                             i,
                             (solAvgPrice * (solAmount * 1e-9)).toPrecision(15) ,
                             null,
-                            ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15),
-                            totalFees
+                            solAmount,
+                            (((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9) - solAmount).toPrecision(15)
                         ];
                         transferArray.push(newEntry)
                         console.log('Sent:', newEntry)
@@ -290,52 +319,6 @@ async function initializeWallet() {
                     }
                 }
             }
-            //if (!match) {
-            //    //Non-Sol transfer
-            //    if (!isReceive || !isSend) {
-            //        transactionData.meta.preTokenBalances.forEach(infoPre => {
-            //            transactionData.meta.postTokenBalances.forEach(infoPost => {
-            //                if (infoPre.uiTokenAmount.amount - infoPost.uiTokenAmount.amount > 0 && infoPre.owner == wallet && infoPost.owner == wallet) {
-            //                    isSend = true
-            //                    isReceive = false
-            //                } else if (infoPost.uiTokenAmount.amount - infoPre.uiTokenAmount.amount > 0 && infoPre.owner == wallet && infoPost.owner == wallet) {
-            //                    isReceive = true
-            //                    isSend = false
-            //                }
-            //            })
-            //        })
-            //        tokenId = transactionData.meta.preTokenBalances.mint
-            //        if (isSend) {
-            //            if (transactionData.meta.err != null) {
-            //                let newEntry = [
-            //                    dateStr,
-            //                    i,
-            //                    'Transaction Error',
-            //                    null,
-            //                    null,
-            //                    totalFees
-            //                ];
-            //                transferArray.push(newEntry)
-            //                console.log('Error Sending transfer', newEntry)
-            //                continue mainLoop
-            //            }
-            //        } else {
-            //            const sentAmounts = transactionData.meta.preTokenBalances.uiTokenAmount.uiAmount
-            //            let newEntry = [
-            //                dateStr,
-            //                i,
-            //                (solAvgPrice * (solAmount * 1e-9)).toPrecision(15) ,
-            //                null,
-            //                tokenId,
-            //                ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
-            //            ]; 
-//
-            //            transferArray.push(newEntry)
-            //            console.log('Sent:', newEntry)
-            //            continue mainLoop;
-            //        }
-            //    }
-            //}
         }
 
 // Handles MISC transactions (Transfers, Errors)
@@ -353,10 +336,7 @@ async function initializeWallet() {
             continue mainLoop;
         }
 
-// Determines SOL net Change 
-        
-        
-
+// Maps all non sol values to an array
         transactionData.meta.postTokenBalances.forEach(balance => {
             if (balance.owner == wallet && balance.mint != solAddress) {
                 tokenAddresses.push([balance.mint])
@@ -372,33 +352,7 @@ async function initializeWallet() {
         
         console.log(tokenAddresses)
 
-        // Determine aggregator
-        let aggregatorList = await fetch('https://quote-api.jup.ag/v6/program-id-to-label', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        
-        aggregatorList = await aggregatorList.json()
-        
-        for (let j of transactionData.transaction.message.instructions) {
-            for (let l of transactionData.meta.innerInstructions){
-                if (aggregatorList[j.programId] != undefined) {
-                    aggregator.push(aggregatorList[j.programId])
-                } else if (aggregatorList[l.instructions?.programId] != undefined) {
-                    aggregator.push(aggregatorList[l.instructions.programId])
-                }
-            }
-        }
-        if (aggregator.length == 1){
-            console.log(`1 aggregator pathway: ${aggregator[0]}`)
-        } else if (aggregator.length > 1) {
-            console.log(`${aggregator.length} aggregator pathways: ${aggregator}`)
-        } else if (aggregator.length == 0) {
-            console.log('No valid Aggregator found')
-        }
-
+// Determines SOL net Change 
         transactionData.meta.innerInstructions.forEach(innerInstructions => {
             innerInstructions.instructions.forEach((instructions, index, instructionsArray) => {
                 if (instructions?.parsed?.info?.amount && instructions?.parsed?.type == 'transfer' && instructions?.parsed?.info?.amount != (rawPreTokenAmount - rawPostTokenAmount) && instructions?.parsed?.info?.amount != (rawPostTokenAmount - rawPreTokenAmount)) {
@@ -523,12 +477,6 @@ async function initializeWallet() {
                 }
             } else {
                 preTokenAmount = 0
-            }
-
-            if (!aggregator) {
-                console.log('Invalid Agregator')
-                tokenName = 'Invalid Aggregator'
-                tokenSymbol = 'Invalid Aggregator'
             }
 
             // assign first or last values for the solAmount using [].length - 1] for last or [0] for first
@@ -679,6 +627,13 @@ async function initializeWallet() {
                 continue;
             }
 
+            if (aggregator.length == 0) {
+                console.log('No valid Aggregator found')
+                solAmount = 0
+                tokenAvgPrice = 0
+                totalFees = 0
+            }
+
             token.tokenName = tokenName
             token.tokenSymbol = tokenSymbol
             token.address = tokenId
@@ -694,8 +649,8 @@ async function initializeWallet() {
             
     // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
             // Determine the type of transaction
-            if (!token.preTokenAmount && token.postTokenAmount > 0) {
-                transactionType = 'Fresh Buy'
+            if ((!token.preTokenAmount && token.postTokenAmount > 0) || (token.postTokenAmount > token.preTokenAmount)) {
+                transactionType = 'Buy'
                 transCount = 1
 
                 transactionArray = transactionArray.map(row => {
@@ -735,44 +690,8 @@ async function initializeWallet() {
                     transactionArray.push(newEntry)
                 }
 
-            } else if (token.postTokenAmount > token.preTokenAmount) {
-                transactionType = 'Buy More'
-
-                transactionArray = transactionArray.map(row => {
-                    console.log(`Checking row[3]: ${row[3]}, tokenId: ${token.address}`);
-
-                    if (row[3] === token.address) {
-
-                        buyCount = row[4].split(",").length + 1
-                        console.log('Buy Count', buyCount)
-
-                        updatedRow = [...row];
-                        console.log("Updating row:", updatedRow);
-
-                        //Adding values
-                        updatedRow[0] = row[0] + 1
-                        updatedRow[4] = `${row[4]}, ${token.signature}`
-                        updatedRow[5] = `${row[5]}, ${token.date}`
-                        updatedRow[6] = (parseFloat(row[6]) + (token.postTokenAmount - token.preTokenAmount))
-                        updatedRow[7] = parseFloat(row[7]) + parseFloat((token.solAmount * 1e-9).toPrecision(15))
-                        console.log(parseFloat(row[7]))
-                        console.log(parseFloat(token.solAmount) * 1e-9)
-                        if (buyCount == 2) {
-                            updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2)
-                        } else {
-                            updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice)/buyCount)
-                        }
-                        updatedRow[9] = parseFloat(row[9]) + parseFloat(token.fees.toPrecision(15))
-                        console.log("Updated row:", updatedRow);
-                        //console.log("After updates:", transactionArray);
-                        return updatedRow
-                    }
-                    return row
-                });
-
-
-            } else if (token.preTokenAmount > token.postTokenAmount && (token.postTokenAmount !=0 && token.postTokenAmount != null)) {
-                transactionType = 'Partial Sell'
+            } else if ((token.preTokenAmount > token.postTokenAmount && (token.postTokenAmount !=0 && token.postTokenAmount != null)) || (token.preTokenAmount > token.postTokenAmount && (token.postTokenAmount == 0 || token.postTokenAmount == null))) {
+                transactionType = 'Sell'
                 
                 transactionArray = transactionArray.map(row => {
                     console.log(`Checking row[3]: ${row[3]}, tokenId: ${token.address}`);
@@ -809,49 +728,6 @@ async function initializeWallet() {
                     return row;
                 });
 
-
-
-            } else if (token.preTokenAmount > token.postTokenAmount && (token.postTokenAmount == 0 || token.postTokenAmount == null)) {
-                transactionType = 'Full Sell'
-
-                transactionArray = transactionArray.map(row => {
-                    console.log(`Checking row[3]: ${row[3]}, tokenId: ${token.address}`);
-                    if (row[3] === token.address) {
-                        updatedRow = [...row];
-                        
-                        // Checks if token has been sold before
-                        if (!row[10]) {
-
-                            let newEntry = [token.signature, token.date, (token.preTokenAmount - token.postTokenAmount), parseFloat((token.solAmount * 1e-9).toPrecision(15)), parseFloat(token.avgPrice.toPrecision(15)), parseFloat(token.fees.toPrecision(15))]
-                            updatedRow[0] = row[0] + 1
-
-                            console.log(...updatedRow, ...newEntry)
-                            return [...updatedRow, ...newEntry];
-                        } else {
-
-                            sellCount = row[10].split(",").length + 1
-                            console.log('Sell Count:', sellCount)
-                            console.log("Updating row:", updatedRow);
-
-                            updatedRow[0] = row[0] + 1
-                            updatedRow[10] = `${row[10]}, ${token.signature}`
-                            updatedRow[11] = `${row[11]}, ${token.date}`
-                            updatedRow[12] = (parseFloat(row[12]) + token.preTokenAmount)
-                            updatedRow[13] = parseFloat(row[13]) + parseFloat((token.solAmount * 1e-9).toPrecision(15))
-                            if (sellCount == 2) {
-                                updatedRow[14] = (parseFloat(row[14]) + token.avgPrice)/2
-                            } else {
-                                updatedRow[14] = (parseFloat(row[14]) * (sellCount - 1) + token.avgPrice)/sellCount
-                            }
-                            updatedRow[15] = parseFloat(row[15]) + parseFloat(token.fees.toPrecision(15))
-                            console.log("Updated row:", updatedRow);
-                            return updatedRow
-                        }
-                    }
-                    return row;
-                });
-                
-
             } else {
                 console.log('Not supported Transaction Type')
                 continue;
@@ -871,20 +747,6 @@ async function initializeWallet() {
                 }
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
         } else if (tokenAddresses.length == 2) {
             solTrans = false
             console.log('---- NON-SOL TRANSACTION ----')
@@ -1109,8 +971,8 @@ async function initializeWallet() {
                     
                     // Determine wether its a buy or sell transaction and if its first buy/buy more or partial sell/sell all
                     // Determine the type of transaction
-                    if (!tokens[tokenKey].preTokenAmount && tokens[tokenKey].postTokenAmount > 0) {
-                        transactionType = 'Fresh Buy'
+                    if ((!tokens[tokenKey].preTokenAmount && tokens[tokenKey].postTokenAmount > 0) || (tokens[tokenKey].postTokenAmount > tokens[tokenKey].preTokenAmount)) {
+                        transactionType = 'Buy'
                         transCount = 1
 
                         transactionArray = transactionArray.map(row => {
@@ -1150,49 +1012,14 @@ async function initializeWallet() {
                             transactionArray.push(newEntry)
                         }
 
-                    } else if (tokens[tokenKey].postTokenAmount > tokens[tokenKey].preTokenAmount) {
-                        transactionType = 'Buy More'
-
-                        transactionArray = transactionArray.map(row => {
-                            console.log(`Checking row[3]: ${row[3]}, tokenId: ${tokens[tokenKey].address}`);
-
-                            if (row[3] === tokens[tokenKey].address) {
-
-                                buyCount = row[4].split(",").length + 1
-                                console.log('Buy Count', buyCount)
-
-                                updatedRow = [...row];
-                                console.log("Updating row:", updatedRow);
-
-                                //Adding values
-                                updatedRow[0] = row[0] + 1
-                                updatedRow[4] = `${row[4]}, ${tokens[tokenKey].signature}`
-                                updatedRow[5] = `${row[5]}, ${tokens[tokenKey].date}`
-                                updatedRow[6] = (parseFloat(row[6]) + (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount))
-                                updatedRow[7] = parseFloat(row[7]) + parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15)) 
-                                if (buyCount == 2) {
-                                    updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2) 
-                                } else {
-                                    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice)/buyCount) 
-                                }
-                                updatedRow[9] = parseFloat(row[9]) + parseFloat((tokens[tokenKey].fees).toPrecision(15))
-                                console.log("Updated row:", updatedRow);
-                                //console.log("After updates:", transactionArray);
-                                return updatedRow
-                            }
-                            return row
-                        });
-
-                        
-                    } else if (tokens[tokenKey].preTokenAmount > tokens[tokenKey].postTokenAmount && (tokens[tokenKey].postTokenAmount !=0 && tokens[tokenKey].postTokenAmount != null)) {
-                        transactionType = 'Partial Sell'
+                    } else if ((tokens[tokenKey].preTokenAmount > tokens[tokenKey].postTokenAmount && (tokens[tokenKey].postTokenAmount !=0 && tokens[tokenKey].postTokenAmount != null)) || (tokens[tokenKey].preTokenAmount > tokens[tokenKey].postTokenAmount && (tokens[tokenKey].postTokenAmount == 0 || tokens[tokenKey].postTokenAmount == null))) {
+                        transactionType = 'Sell'
                         
                         transactionArray = transactionArray.map(row => {
                             console.log(`Checking row[3]: ${row[3]}, tokenId: ${tokens[tokenKey].address}`);
                             if (row[3] === tokens[tokenKey].address) {
                                 updatedRow = [...row];
                                 
-                                console.log(transactionArray)
                                 // Checks if tokens[tokenKey] has been sold before
                                 if (!row[10]) {
                                     
@@ -1227,47 +1054,6 @@ async function initializeWallet() {
 
 
 
-                    } else if (tokens[tokenKey].preTokenAmount > tokens[tokenKey].postTokenAmount && (tokens[tokenKey].postTokenAmount == 0 || tokens[tokenKey].postTokenAmount == null)) {
-                        transactionType = 'Full Sell'
-
-                        transactionArray = transactionArray.map(row => {
-                            console.log(`Checking row[3]: ${row[3]}, tokenId: ${tokens[tokenKey].address}`);
-                            if (row[3] === tokens[tokenKey].address) {
-                                updatedRow = [...row];
-        
-                                // Checks if tokens[tokenKey] has been sold before
-                                if (!row[10]) {
-
-                                    let newEntry = [tokens[tokenKey].signature, tokens[tokenKey].date, (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount), parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15)), parseFloat(tokens[tokenKey].avgPrice.toPrecision(15)), parseFloat(tokens[tokenKey].fees.toPrecision(15))]
-                                    updatedRow[0] = row[0] + 1
-                                    console.log('New Sell Array:', [...updatedRow, ...newEntry])
-                                    return [...updatedRow, ...newEntry];
-                                } else {
-
-                                    sellCount = row[10].split(",").length + 1
-                                    console.log('Sell Count:', sellCount)
-                                    console.log("Updating row:", updatedRow);
-
-
-                                    updatedRow[0] = row[0] + 1 
-                                    updatedRow[10] = `${row[10]}, ${tokens[tokenKey].signature}`
-                                    updatedRow[11] = `${row[11]}, ${tokens[tokenKey].date}`
-                                    updatedRow[12] = ((parseFloat(row[12]) + tokens[tokenKey].preTokenAmount)) 
-                                    updatedRow[13] = parseFloat(row[13]) + parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15)) 
-                                    if (sellCount == 2) {
-                                        updatedRow[14] = ((parseFloat(row[14]) + tokens[tokenKey].avgPrice)/2) 
-                                    } else {
-                                        updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokens[tokenKey].avgPrice)/sellCount) 
-                                    }
-                                    updatedRow[15] = parseFloat(row[15]) + parseFloat((tokens[tokenKey].fees).toPrecision(15))
-                                    console.log("Updated row:", updatedRow);
-                                    return updatedRow
-                                }
-                            }
-                            return row;
-                        });
-                        
-
                     } else {
                         console.log('Not supported Transaction Type')
                         continue;
@@ -1286,28 +1072,17 @@ async function initializeWallet() {
                             break; // Exit the loop once the match is found
                         }
                     }
-
-
-
-
                 }
             }
             console.log(`Token1 info:`, tokens.token1)
             console.log(`Token2 info:`, tokens.token2)
  
-
         } else {
             console.log('Incorrect Token Address reading')
             continue mainLoop;
         }
-        
-        
-     
     }
     
-
-           
-
 // Logs all data 
     console.log('SHEET DATA')
     console.log(transactionArray)
@@ -1332,7 +1107,6 @@ async function initializeWallet() {
               console.log('Successfully wrote data')
          }
       });
-
 
 // Writes the current prices in order according ot their coins
       const sheetResource1 = {
@@ -1374,8 +1148,10 @@ async function initializeWallet() {
 initializeWallet();
 
 // TODO
-// Simplify BUY logic
+// Simplify code by removing repeating codeblocks
 // increase efficiency by combinging API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
-// Token transfers to 
+// receive token transfers
+// send token transfers
+// SOL transfers
 
 // ISSUES 
