@@ -3,10 +3,9 @@ require('dotenv').config();
 const web3 = require("@solana/web3.js");
 
 async function getData() {
-  const fetch = require('node-fetch'); // Install using npm install node-fetch if not already installed
 
 const urls = [
-  `https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY1}`,
+  `https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`,
   `https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY}`,
   `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`
 ];

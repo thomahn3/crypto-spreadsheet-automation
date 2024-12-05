@@ -9,14 +9,14 @@ const dasApi = require('@metaplex-foundation/digital-asset-standard-api');
 
 
 // Writes console outputs to a file
-const { appendFileSync } = require('fs');
-const origConsole = globalThis.console;
-const console = {
-    log: (...args) => {
-        appendFileSync('./logresults.txt', args.join('\n') + '\n');
-        return origConsole.log.apply(origConsole, args);
-    }
-}
+//const { appendFileSync } = require('fs');
+//const origConsole = globalThis.console;
+//const console = {
+//    log: (...args) => {
+//        appendFileSync('./logresults.txt', args.join('\n') + '\n');
+//        return origConsole.log.apply(origConsole, args);
+//    }
+//}
 
 
 const { google } = require('googleapis');
@@ -44,7 +44,7 @@ jwtClient.authorize(function (err, tokens) {
     // Used for getting full wallet history
 const solanaQuickNode = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); 
     // Mainly to get quickest response times
-const solana = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`);
+const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`);
 //RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} 
 //QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}
 //HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
@@ -108,7 +108,7 @@ async function initializeWallet() {
             console.log('Signature', signatures.length)
             let transLength = signatures.length
             while (transLength >= 1000) {
-                console.log('MORE THAN 1000 SIGNATURES')
+                //console.log('MORE THAN 1000 SIGNATURES')
                 let newSignatures = [];
                 const lastSignature = signatures[signatures.length - 1];
                 //console.log(lastSignature)
@@ -127,7 +127,7 @@ async function initializeWallet() {
     console.log('FINAL SIGNATURE COUNT:',(signatures.length))
 
 //For troubleshooting
-    let signature = ['jLgLTnhpJFf5faAdeJvP5j4d5hAQboEj7b7U8SrQhFW6k8oHmdfrpkj6Cgpi8pVruSDUfXXUvehNtEi2SroD4GH']
+    let signature = ['5DB585CjxcgJX3weWP32RM7PnezK1zAWBdAxUsWjFVHHUeB4sr5pnq9nZt2SsF1izQfmRGbeM31RUPGa2K5jHS4o']
     //['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
@@ -173,7 +173,7 @@ async function initializeWallet() {
         console.log('Signature:', i)
 
 // Debugging certain parts
-        //if (forIteration < 3435 || forIteration > 3436) {
+        //if (forIteration < 0 || forIteration > 15) {
         //    continue mainLoop
         //}
 
@@ -238,15 +238,20 @@ async function initializeWallet() {
         }
         
         for (let j of transactionData.transaction.message.instructions) {
-            for (let l of transactionData.meta.innerInstructions){
-                if (aggregatorList[j.programId] != undefined) {
-                    aggregator.push(aggregatorList[j.programId])
-                } else if (aggregatorList[l.instructions?.programId] != undefined) {
-                    aggregator.push(aggregatorList[l.instructions.programId])
-                }
+            if (aggregatorList[j.programId] != undefined) {
+                aggregator.push(aggregatorList[j.programId])
             }
         }
-
+        transactionData.meta.innerInstructions.forEach(innerInstructions => {
+            innerInstructions.instructions.forEach(instructions => {
+                if (aggregatorList[instructions.programId] != undefined) {
+                    
+                    aggregator.push(aggregatorList[instructions.programId])
+                }
+            })
+           
+        })
+            
         if (aggregator.length == 1){
             console.log(`1 aggregator pathway: ${aggregator[0]}`)
         } else if (aggregator.length > 1) {
@@ -310,8 +315,8 @@ async function initializeWallet() {
                             i,
                             (solAvgPrice * (solAmount * 1e-9)).toPrecision(15) ,
                             null,
-                            solAmount,
-                            (((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9) - solAmount).toPrecision(15)
+                            (solAmount * 1e-9).toPrecision(15),
+                            (transactionData.meta.fee * 1e-9).toPrecision(15)
                         ];
                         transferArray.push(newEntry)
                         console.log('Sent:', newEntry)
@@ -528,7 +533,7 @@ async function initializeWallet() {
                     )[0]; 
                 }
 
-                if (aggregator == 'pump.fun') {
+                if (aggregator[0] == 'Pump.fun') {
                     transactionData.meta.innerInstructions.forEach(instructionGroup => {
                         instructionGroup.instructions.forEach(instruction => {
                             if(instruction.parsed?.info?.amount == rawPostTokenAmount) {
@@ -1149,9 +1154,7 @@ initializeWallet();
 
 // TODO
 // Simplify code by removing repeating codeblocks
-// increase efficiency by combinging API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
-// receive token transfers
-// send token transfers
-// SOL transfers
+// increase efficiency by combining API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
 
 // ISSUES 
+// Transfer fees are negative
