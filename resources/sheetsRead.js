@@ -1,5 +1,5 @@
 var { google } = require('googleapis');
-let secretKey = require("../client_secret.json");
+let secretKey = require("../auth/client_secret.json");
 let jwtClient = new google.auth.JWT(
        secretKey.client_email,
        null,
@@ -18,7 +18,7 @@ jwtClient.authorize(function (err, tokens) {
 //Google Sheets API
 // Array of info [Row 1[Column 1, Column 2], Row 2[Column 1, Column 2]]
 let spreadsheetId = '1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM';
-let sheetRange = 'automated-crypto!A1:C2';
+let sheetRange = 'test!A1:AA100';
 let sheets = google.sheets('v4');
 sheets.spreadsheets.values.get({
    auth: jwtClient,

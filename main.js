@@ -21,7 +21,7 @@ const dasApi = require('@metaplex-foundation/digital-asset-standard-api');
 
 const { google } = require('googleapis');
 let secretKey = require("./auth/client_secret.json");
-let spreadsheetId = '1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM';
+let spreadsheetId = process.env.spreadsheetId;
 let sheets = google.sheets('v4');
 let jwtClient = new google.auth.JWT(
        secretKey.client_email,
@@ -1095,58 +1095,86 @@ async function initializeWallet() {
     console.log(transferArray)
 
 // Writes all teh transaction info
-    let rowCount = transactionArray.length
-    const sheetResource = {
-        values : transactionArray,
-      };
-      sheets.spreadsheets.values.update({
-         auth: jwtClient,
-         spreadsheetId: spreadsheetId,
-         range: `automated-crypto!I3:X${rowCount+3}`,
-         resource: sheetResource,
-         valueInputOption: 'USER_ENTERED'
-      }, function (err, response) {
-         if (err) {
-             console.log('The API returned an error: ' + err);
-         } else {
-              console.log('Successfully wrote data')
-         }
-      });
+    //let rowCount = transactionArray.length
+      //const sheetResource = {
+      //  values : transactionArray,
+      //};
+      //sheets.spreadsheets.values.update({
+      //   auth: jwtClient,
+      //   spreadsheetId: spreadsheetId,
+      //   range: `automated-crypto!A9:P`,
+      //   resource: sheetResource,
+      //   valueInputOption: 'USER_ENTERED'
+      //}, function (err, response) {
+      //   if (err) {
+      //       console.log('The API returned an error: ' + err);
+      //   } else {
+      //        console.log('Successfully wrote data')
+      //   }
+      //});
+//
+// Wri//tes the current prices in order according ot their coins
+      //const sheetResource1 = {
+      //  values : currentPriceArray,
+      //};
+      //sheets.spreadsheets.values.update({
+      //   auth: jwtClient,
+      //   spreadsheetId: spreadsheetId,
+      //   range: `automated-crypto!Q9:Q`,
+      //   resource: sheetResource1,
+      //   valueInputOption: 'USER_ENTERED'
+      //}, function (err, response) {
+      //   if (err) {
+      //       console.log('The API returned an error: ' + err);
+      //   } else {
+      //        console.log('Successfully wrote current price')
+      //   }
+      //});
+//
+// Wri//tes all teh error and transfer transactions
+      //const sheetResource2 = {
+      //  values : transferArray,
+      //};
+      //sheets.spreadsheets.values.update({
+      //   auth: jwtClient,
+      //   spreadsheetId: spreadsheetId,
+      //   range: `automated-crypto!V9:AA`,
+      //   resource: sheetResource2,
+      //   valueInputOption: 'USER_ENTERED'
+      //}, function (err, response) {
+      //   if (err) {
+      //       console.log('The API returned an error: ' + err);
+      //   } else {
+      //        console.log('Successfully wrote transfer amounts')
+      //   }
+      //});
 
-// Writes the current prices in order according ot their coins
-      const sheetResource1 = {
-        values : currentPriceArray,
-      };
-      sheets.spreadsheets.values.update({
-         auth: jwtClient,
-         spreadsheetId: spreadsheetId,
-         range: `automated-crypto!Y3:Y`,
-         resource: sheetResource1,
-         valueInputOption: 'USER_ENTERED'
-      }, function (err, response) {
-         if (err) {
-             console.log('The API returned an error: ' + err);
-         } else {
-              console.log('Successfully wrote current price')
-         }
-      });
-
-// Writes all teh error and transfer transactions
-      const sheetResource2 = {
-        values : transferArray,
-      };
-      sheets.spreadsheets.values.update({
-         auth: jwtClient,
-         spreadsheetId: spreadsheetId,
-         range: `automated-crypto!A10:F`,
-         resource: sheetResource2,
-         valueInputOption: 'USER_ENTERED'
-      }, function (err, response) {
-         if (err) {
-             console.log('The API returned an error: ' + err);
-         } else {
-              console.log('Successfully wrote transfer amounts')
-         }
+      sheets.spreadsheets.values.batchUpdate({
+        auth: jwtClient,
+        spreadsheetId: spreadsheetId,
+        resource: {
+            valueInputOption: 'USER_ENTERED',
+            data: [
+                {
+                    range: `automated-crypto!V9:AA`,
+                    values: transferArray
+                },
+                {
+                    range: `automated-crypto!A9:P`,
+                    values: transactionArray
+                },
+                {
+                    range: `automated-crypto!Q9:Q`,
+                    values: currentPriceArray
+                }
+            ]
+        }, function (err, response) {
+            if (err) {
+                console.log('The API returned an error: ' + err);
+            } else {
+                 console.log('Successfully wrote data')
+            }
+        }
       });
 };
 
