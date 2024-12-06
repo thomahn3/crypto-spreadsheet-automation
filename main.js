@@ -1,6 +1,4 @@
 const web3 = require("@solana/web3.js");
-const borsh = require('borsh');
-const bs58 = require('bs58');
 require('dotenv').config();
 const { promisify } = require('util');
 const publicKey = require('@metaplex-foundation/umi');
@@ -42,12 +40,9 @@ jwtClient.authorize(function (err, tokens) {
 
 // Establish connection to RPC node
     // Used for getting full wallet history
-const solanaQuickNode = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`); 
+const solanaQuickNode = new web3.Connection(process.env.RPCURL); 
     // Mainly to get quickest response times
-const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`);
-//RPC endpoint ALCHAMEY: https://solana-mainnet.g.alchemy.com/v2/${process.env.API_KEY} 
-//QUICKNODE: https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}
-//HELIUS: `https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2} 
+const solana = new web3.Connection(process.env.RPCURL1);
 
 async function initializeWallet() {
 
@@ -71,19 +66,513 @@ async function initializeWallet() {
     const usdtAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
     let aggregatorList = null
 
+    sheets.spreadsheets.values.get({
+        auth: jwtClient,
+        spreadsheetId: spreadsheetId,
+        range: `${process.env.sheetName}!A2:AA100`
+     }, async function (err, response) {
+        if (err) {
+            console.log('The API returned an error: ' + err);
+        } else {
+            const data = await JSON.parse(JSON.stringify(response, null))
+            if (data.data.values == undefined) {
+                try {
+                    const response = await sheets.spreadsheets.values.get({
+                        auth: jwtClient,
+                        spreadsheetId: spreadsheetId,
+                        range: `${process.env.sheetName}!A1`
+                    });
+                        wallet = response.data.values[0][0]
+                        console.log('Wallet: ' + wallet)
+                } catch (err) {
+                    console.log('The API returned an error: ' + err);
+                }
+             console.log('formatting')
+             sheets.spreadsheets.batchUpdate({
+               auth: jwtClient,
+               spreadsheetId: spreadsheetId,
+               resource: {
+                 "requests": [
+                   // Merge cells and add text
+                   // Adds required fields
+                   {
+                     "updateSheetProperties": {
+                       "properties": {
+                         "sheetId": process.env.SHEET_ID,
+                         "gridProperties": {
+                           "columnCount": 27 
+                         }
+                       },
+                       "fields": "gridProperties.columnCount"
+                     }
+                   },
+                   {
+                     "updateSheetProperties": {
+                       "properties": {
+                         "sheetId": process.env.SHEET_ID,
+                         "gridProperties": {
+                           "rowCount": 10000  // Set to the desired number of rows
+                         }
+                       },
+                       "fields": "gridProperties.rowCount"
+                     }
+                   },
+                   // sol balance
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 0, "endColumnIndex": 2 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 0, "endColumnIndex": 2 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "SOL BALANCE" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   // profit and loss
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 2, "endColumnIndex": 4 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 2, "endColumnIndex": 4 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Profit and Loss" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   // wallet
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 4, "endColumnIndex": 6 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 4, "endColumnIndex": 6 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Wallet" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   // Inert wallet here
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 4, "endColumnIndex": 6 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 4, "endColumnIndex": 6 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "stringValue": wallet }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   // transfers and error block
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 4, "endRowIndex": 6, "startColumnIndex": 21, "endColumnIndex": 27 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 4, "endRowIndex": 6, "startColumnIndex": 21, "endColumnIndex": 27 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Transfers and Error transactions" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+               
+                   // Adding formulas
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=SUM(Y9:Y)+SUM(N9:N)-(SUM(Z9:Z)+SUM(AA9:AA)+H8+J8+P8)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   {
+                     "mergeCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
+                       "mergeType": "MERGE_ALL"
+                     }
+                   },
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
+                       "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=S8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   
+               
+                   // Freeze row 8
+                   {
+                     "updateSheetProperties": {
+                       "properties": { "sheetId": process.env.SHEET_ID, "gridProperties": { "frozenRowCount": 8 } },
+                       "fields": "gridProperties.frozenRowCount"
+                     }
+                   },
+               
+                    //Add headers to rows 7 and 8
+                   {
+                     "updateCells": {
+                       "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 6, "endRowIndex": 8, "startColumnIndex": 0, "endColumnIndex": 28 },
+                       "rows": [
+                         { "values": [{ "userEnteredValue": { "stringValue": "Count" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Name" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Ticker" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "CA" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Transaction ID" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Entry Dates" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Tokens" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "SOL" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Average Buy" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Fees (SOL)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Transaction ID" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Exit Dates" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Tokens" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "SOL" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Average Sell" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Fees (SOL)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Current Price" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Unrealized PnL" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Profit (SOL)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Date" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Transaction ID" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "$ Amount" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "SOL Received" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "SOL Withdrawn" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                           { "userEnteredValue": { "stringValue": "Fees" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } }] },
+                         { "values": [{ "userEnteredValue": { "formulaValue": "=SUM(A9:A)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(H9:H)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(J9:J)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(N9:N)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(P9:P)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(R9:R)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(S9:S)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(X9:X)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(Y9:Y)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(Z9:Z)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } },
+                           { "userEnteredValue": { "formulaValue": "=SUM(AA9:AA)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }
+                       ],
+                       "fields": "userEnteredValue,userEnteredFormat"
+                     }
+                   },
+                   // Conditional Formatting
+                   {
+                     "addConditionalFormatRule": {
+                       "rule": {
+                         "ranges": [
+                           {
+                             "sheetId": process.env.SHEET_ID,  
+                             "startRowIndex": 2,
+                             "endRowIndex": 4,
+                             "startColumnIndex": 2,
+                             "endColumnIndex": 4
+                           }
+                         ],
+                         "booleanRule": {
+                           "condition": {
+                             "type": "NUMBER_GREATER",
+                             "values": [
+                               {
+                                 "userEnteredValue": "0"
+                               }
+                             ]
+                           },
+                           "format": {
+                             "backgroundColor": {
+                               "red": 0.0,
+                               "green": 1.0,
+                               "blue": 0.0
+                             }
+                           }
+                         }
+                       },
+                       "index": 0
+                     }
+                   },
+                   {
+                     "addConditionalFormatRule": {
+                       "rule": {
+                         "ranges": [
+                           {
+                             "sheetId": process.env.SHEET_ID,  
+                             "startRowIndex": 2,
+                             "endRowIndex": 4,
+                             "startColumnIndex": 2,
+                             "endColumnIndex": 4
+                           }
+                         ],
+                         "booleanRule": {
+                           "condition": {
+                             "type": "NUMBER_LESS",
+                             "values": [
+                               {
+                                 "userEnteredValue": "0"
+                               }
+                             ]
+                           },
+                           "format": {
+                             "backgroundColor": {
+                               "red": 1.0,
+                               "green": 0.0,
+                               "blue": 0.0
+                             }
+                           }
+                         }
+                       },
+                       "index": 1
+                     }
+                   },
+                   // Add background colour
+                   {
+                     "updateCells": {
+                       "range": {
+                         "sheetId": process.env.SHEET_ID,
+                         "startRowIndex": 6,
+                         "endRowIndex": 7,
+                         "startColumnIndex": 0,
+                         "endColumnIndex": 19,
+                       },
+                       "rows": [
+                         {
+                           "values": [
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 1.0,
+                                   "green": 0.8980392156862745,
+                                   "blue": 0.6
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 1.0,
+                                   "green": 0.8980392156862745,
+                                   "blue": 0.6
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 1.0,
+                                   "green": 0.8980392156862745,
+                                   "blue": 0.6
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 1.0,
+                                   "green": 0.8980392156862745,
+                                   "blue": 0.6
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 1.0,
+                                   "green": 0.8980392156862745,
+                                   "blue": 0.6
+                                 }
+                               }
+                             },
+                             {
+                               userEnteredFormat: {
+                                 backgroundColor: {
+                                   red: 0.6431372549019608,
+                                   green: 0.7607843137254902,
+                                   blue: 0.9568627450980393
+                                 }
+                               }
+                             },
+                             {
+                               userEnteredFormat: {
+                                 backgroundColor: {
+                                   red: 0.6431372549019608,
+                                   green: 0.7607843137254902,
+                                   blue: 0.9568627450980393
+                                 }
+                               }
+                             },
+                             {
+                               userEnteredFormat: {
+                                 backgroundColor: {
+                                   red: 0.6431372549019608,
+                                   green: 0.7607843137254902,
+                                   blue: 0.9568627450980393
+                                 }
+                               }
+                             },
+                             {
+                               userEnteredFormat: {
+                                 backgroundColor: {
+                                   red: 0.6431372549019608,
+                                   green: 0.7607843137254902,
+                                   blue: 0.9568627450980393
+                                 }
+                               }
+                             },
+                             {
+                               userEnteredFormat: {
+                                 backgroundColor: {
+                                   red: 0.6431372549019608,
+                                   green: 0.7607843137254902,
+                                   blue: 0.9568627450980393
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.7058823529411765,
+                                   "green": 0.6549019607843137,
+                                   "blue": 0.8392156862745098
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.7058823529411765,
+                                   "green": 0.6549019607843137,
+                                   "blue": 0.8392156862745098
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.7058823529411765,
+                                   "green": 0.6549019607843137,
+                                   "blue": 0.8392156862745098
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.7058823529411765,
+                                   "green": 0.6549019607843137,
+                                   "blue": 0.8392156862745098
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.7058823529411765,
+                                   "green": 0.6549019607843137,
+                                   "blue": 0.8392156862745098
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.7058823529411765,
+                                   "green": 0.6549019607843137,
+                                   "blue": 0.8392156862745098
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.8352941176470589,
+                                   "green": 0.6509803921568628,
+                                   "blue": 0.7411764705882353
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.8352941176470589,
+                                   "green": 0.6509803921568628,
+                                   "blue": 0.7411764705882353
+                                 }
+                               }
+                             },
+                             {
+                               "userEnteredFormat": {
+                                 "backgroundColor": {
+                                   "red": 0.8352941176470589,
+                                   "green": 0.6509803921568628,
+                                   "blue": 0.7411764705882353
+                                 }
+                               }
+                             },
+                           ]
+                         }
+                       ],
+                       "fields": "userEnteredFormat.backgroundColor"
+                     }
+                   }
+     
+                 ]
+               }, function (err, response) {
+                   if (err) {
+                       console.log('The API returned an error: ' + err);
+                   } else {
+                     console.log('Succesfully formatted')
+                   } 
+               }
+             })
+       }
+     }      
+     });
 
-//Gets wallet address
-    try {
-        const response = await sheets.spreadsheets.values.get({
-            auth: jwtClient,
-            spreadsheetId: spreadsheetId,
-            range: 'automated-crypto!E3'
-         });
-            wallet = response.data.values[0][0]
-            console.log('Wallet:' + wallet)
-    } catch (err) {
-        console.log('The API returned an error: ' + err);
-    }
+//Gets wallet address in an foramtted enviroment
+    if (!wallet) {
+        try {
+            const response = await sheets.spreadsheets.values.get({
+                auth: jwtClient,
+                spreadsheetId: spreadsheetId,
+                range: `${process.env.sheetName}!E3`
+            });
+                wallet = response.data.values[0][0]
+                console.log('Wallet:' + wallet)
+        } catch (err) {
+            console.log('The API returned an error: ' + err);
+        }
+}
     
     // Determine aggregator
     try {
@@ -120,6 +609,7 @@ async function initializeWallet() {
             };
         } catch (err) {
             console.log('Error fetching Addresses:', err)
+            break
         }
     }
     signatures = signatures.reverse()
@@ -173,32 +663,9 @@ async function initializeWallet() {
         console.log('Signature:', i)
 
 // Debugging certain parts
-        //if (forIteration < 0 || forIteration > 15) {
-        //    continue mainLoop
-        //}
-
-        //let lMatch = false
-        //for (let l of [
-        //    '5LXbng2UkfRqbwkoNKo6b6EGq1xxTbNWSwrUfzMDq56p8Ja9FczMXGUjSetjew5kWjn7ecQoj1qr28LZJAo4Uk5q', 
-        //    '29DT3QDMrHmD95ixwC29AK3NLuiLwZrrJXmFhn7GMge38djXxiwqQYkMSbBZBEovyp57Eo8vPZvvtcRMFsm2zPXk', 
-        //    '6vdLevVehgbSjcsu9b1qDgWKiQSpSMJjHjj9GvWemgzahxE5KwNm7CYoYrayKMd57fJK9gQ924WxcyAba7zhnNe', 
-        //    '5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb', 
-        //    '5xxN6TEbx7EcKY1XXjnSVEyFaovSx3LwGY7zpB9ih6P5UzHQE2zhtBmXAyQbjzotaxSGv9rMHMPJvDcSbWmBcQJX', 
-        //    '48VevFnpN2By4YyzJKgicCp4hMY63Aw47Dd48EvL8hhxo4aBTczMECCEwYXJHcP11VZKJJgVHgGbyPodCskV419c', 
-        //    '5LbFCchSTbYmhP85qESpppWrBhCjhLTuzecNxdJUeV3hLFmxo37hUKsEXs27cRLBkP37RncJ7YuB2LtRubL2Nh47',
-        //    '4VT3BoaQEs46hVAqcmNE9s6g9exgwXMvM81XN11c3NaE7Bej7aqiKVsdNPJRxgBAPgtcpq3y6m5TMWzxqmrhn5nZ', 
-        //    '3QczrM8nGaxvecuiUsFFwSPAgMrPY61EKXji3DNAaN12PFXfxVkT6Z62SdxbW3CUG2rPdzceDFRo6dzCiwjgzAmq', 
-        //    'fDkSh7kur3Lo4BYxoZxsXM4nmaZjWcqqrZxbDkzhXbGtum1Jkqvzco19z3SGvMV2LmK8jLZovvqDxk38H6RcRzY'
-//
-        //]) {
-        //    if (i == l) {
-        //        lMatch = true
-        //        break
-        //    } 
-        //}
-        //if (!lMatch) {
-        //    continue mainLoop
-        //}
+        if (forIteration < 0 || forIteration > 50) {
+            continue mainLoop
+        }
 
 
 // Fetches the transaction info for the signiture present in the loop
@@ -420,7 +887,7 @@ async function initializeWallet() {
                         //Backup 2
                         if (!tokenName || !tokenSymbol) {
                             try {
-                                const umi = createUmi.createUmi(`https://mainnet.helius-rpc.com/?api-key=${process.env.API_KEY2}`).use(dasApi.dasApi());
+                                const umi = createUmi.createUmi(process.env.RPCURL1).use(dasApi.dasApi());
                                 const assetId = publicKey.publicKey(tokenId);
                                 const tokenData = await umi.rpc.getAsset(assetId);
                                 tokenName = tokenData.content.metadata.name;
@@ -1094,88 +1561,34 @@ async function initializeWallet() {
     console.log(currentPriceArray)
     console.log(transferArray)
 
-// Writes all teh transaction info
-    //let rowCount = transactionArray.length
-      //const sheetResource = {
-      //  values : transactionArray,
-      //};
-      //sheets.spreadsheets.values.update({
-      //   auth: jwtClient,
-      //   spreadsheetId: spreadsheetId,
-      //   range: `automated-crypto!A9:P`,
-      //   resource: sheetResource,
-      //   valueInputOption: 'USER_ENTERED'
-      //}, function (err, response) {
-      //   if (err) {
-      //       console.log('The API returned an error: ' + err);
-      //   } else {
-      //        console.log('Successfully wrote data')
-      //   }
-      //});
-//
-// Wri//tes the current prices in order according ot their coins
-      //const sheetResource1 = {
-      //  values : currentPriceArray,
-      //};
-      //sheets.spreadsheets.values.update({
-      //   auth: jwtClient,
-      //   spreadsheetId: spreadsheetId,
-      //   range: `automated-crypto!Q9:Q`,
-      //   resource: sheetResource1,
-      //   valueInputOption: 'USER_ENTERED'
-      //}, function (err, response) {
-      //   if (err) {
-      //       console.log('The API returned an error: ' + err);
-      //   } else {
-      //        console.log('Successfully wrote current price')
-      //   }
-      //});
-//
-// Wri//tes all teh error and transfer transactions
-      //const sheetResource2 = {
-      //  values : transferArray,
-      //};
-      //sheets.spreadsheets.values.update({
-      //   auth: jwtClient,
-      //   spreadsheetId: spreadsheetId,
-      //   range: `automated-crypto!V9:AA`,
-      //   resource: sheetResource2,
-      //   valueInputOption: 'USER_ENTERED'
-      //}, function (err, response) {
-      //   if (err) {
-      //       console.log('The API returned an error: ' + err);
-      //   } else {
-      //        console.log('Successfully wrote transfer amounts')
-      //   }
-      //});
-
-      sheets.spreadsheets.values.batchUpdate({
-        auth: jwtClient,
-        spreadsheetId: spreadsheetId,
-        resource: {
-            valueInputOption: 'USER_ENTERED',
-            data: [
-                {
-                    range: `automated-crypto!V9:AA`,
-                    values: transferArray
-                },
-                {
-                    range: `automated-crypto!A9:P`,
-                    values: transactionArray
-                },
-                {
-                    range: `automated-crypto!Q9:Q`,
-                    values: currentPriceArray
-                }
-            ]
-        }, function (err, response) {
-            if (err) {
-                console.log('The API returned an error: ' + err);
-            } else {
-                 console.log('Successfully wrote data')
+// Writes all the transaction info
+    sheets.spreadsheets.values.batchUpdate({
+    auth: jwtClient,
+    spreadsheetId: spreadsheetId,
+    resource: {
+        valueInputOption: 'USER_ENTERED',
+        data: [
+            {
+                range: `${process.env.sheetName}!V9:AA`,
+                values: transferArray
+            },
+            {
+                range: `${process.env.sheetName}!A9:P`,
+                values: transactionArray
+            },
+            {
+                range: `${process.env.sheetName}!Q9:Q`,
+                values: currentPriceArray
             }
+        ]
+    }, function (err, response) {
+        if (err) {
+            console.log('The API returned an error: ' + err);
+        } else {
+                console.log('Successfully wrote data')
         }
-      });
+    }
+    });
 };
 
 initializeWallet();
