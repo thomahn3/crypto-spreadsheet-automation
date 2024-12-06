@@ -546,7 +546,7 @@ async function initializeWallet() {
                                     }
                                 ],
                                 "fields": "userEnteredFormat.backgroundColor"
-                            }
+                            } 
                         }
                     ]
                 }, function(err, response) {
@@ -557,7 +557,31 @@ async function initializeWallet() {
                     }
                 }
             });
+        } else {
+            let response= await sheets.spreadsheets.values.get({
+                auth: jwtClient,
+                spreadsheetId: spreadsheetId,
+                range: `${process.env.sheetName}!A9:P`
+            });
+            transactionArray = response.data.values
+
+            response = await sheets.spreadsheets.values.get({
+                auth: jwtClient,
+                spreadsheetId: spreadsheetId,
+                range: `${process.env.sheetName}!V9:AA`
+            });
+            transferArray = response.data.values
+
+
+            response = await sheets.spreadsheets.values.get({
+                auth: jwtClient,
+                spreadsheetId: spreadsheetId,
+                range: `${process.env.sheetName}!Q9:Q`
+            });
+            currentPriceArray = response.data.values
+
         }
+
     } catch (err) {
         console.log('Error fetching sheet information:', err)
         return
