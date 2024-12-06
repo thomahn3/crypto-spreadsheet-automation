@@ -42,7 +42,7 @@ jwtClient.authorize(function (err, tokens) {
     // Used for getting full wallet history
 const solanaQuickNode = new web3.Connection(process.env.RPCURL); 
     // Mainly to get quickest response times
-const solana = new web3.Connection(process.env.RPCURL1);
+const solana = new web3.Connection(process.env.RPCURL);
 
 async function initializeWallet() {
 
@@ -981,7 +981,7 @@ async function initializeWallet() {
                         //Backup 2
                         if (!tokenName || !tokenSymbol) {
                             try {
-                                const umi = createUmi.createUmi(process.env.RPCURL1).use(dasApi.dasApi());
+                                const umi = createUmi.createUmi(process.env.RPCURL).use(dasApi.dasApi());
                                 const assetId = publicKey.publicKey(tokenId);
                                 const tokenData = await umi.rpc.getAsset(assetId);
                                 tokenName = tokenData.content.metadata.name;
@@ -1698,8 +1698,6 @@ async function initializeWallet() {
 initializeWallet();
 
 // TODO
-// Simplify code by removing repeating codeblocks
-// increase efficiency by combining API requests and by getting all of the signitures and comparing arrays to only fetch new transactions
 
 // ISSUES 
-// Transfer fees are negative
+
