@@ -1,5 +1,5 @@
-let { google}  = require('googleapis');
-let secretKey = require("../client_secret.json");
+let { google }  = require('googleapis');
+let secretKey = require("../auth/client_secret.json");
 let jwtClient = new google.auth.JWT(
        secretKey.client_email,
        null,
@@ -15,27 +15,53 @@ jwtClient.authorize(function (err, tokens) {
  }
 });
 
+// Writes console outputs to a file
+const { appendFileSync } = require('fs');
+const origConsole = globalThis.console;
+const console = {
+    log: (...args) => {
+        appendFileSync('./logresults.txt', args.join('\n') + '\n');
+        return origConsole.log.apply(origConsole, args);
+    }
+}
+
 //Google Sheets API
 let spreadsheetId = '1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM';
-let sheetRange = 'automated-crypto!J2:J3'
+let sheetRange = 'automated-crypto!E9:E'
 let sheets = google.sheets('v4');
-// Array of info [Row 1[Column 1, Column 2], Row 2[Column 1, Column 2]]
-let values = [
-  ['Jarvis'], ['Wealth']
-];
-const sheetResource = {
-  values,
-};
-sheets.spreadsheets.values.update({
-   auth: jwtClient,
-   spreadsheetId: spreadsheetId,
-   range: sheetRange,
-   resource: sheetResource,
-   valueInputOption: 'USER_ENTERED'
-}, function (err, response) {
-   if (err) {
-       console.log('The API returned an error: ' + err);
-   } else {
-        console.log('Successful')
-   }
-});
+let flattenedArray = [];
+let response = null
+
+async function getsig() {
+try {
+  response = await sheets.spreadsheets.values.batchGet({
+      auth: jwtClient,
+      spreadsheetId: spreadsheetId,
+      ranges: ['automated-crypto!E9:E', 'automated-crypto!K9:K', 'automated-crypto!W9:W'],
+  });
+} catch (err) {
+  console.log('The API returned an error: ' + err);
+}
+
+const array = [response.data.valueRanges[0].values, response.data.valueRanges[1].values, response.data.valueRanges[2].values]
+
+const result =[]
+
+for (let arr of array) {
+  for (let subArray of arr) {
+    for (let item of subArray) {
+      // If the string contains a comma, split it and push each part
+      if (item.includes(',')) {
+        const parts = item.split(',').map(str => str.trim());
+        result.push(...parts); // Spread operator to push each part into result
+      } else {
+        result.push(item); // If no comma, just push the string
+      }
+    }
+  }
+}
+console.log(result.reverse())
+console.log(result.length)
+}
+
+getsig()

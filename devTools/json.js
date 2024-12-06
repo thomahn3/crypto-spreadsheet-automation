@@ -11,9 +11,9 @@ const console = {
 }
 
 async function getJson() {
-  const solana = new web3.Connection(`https://sleek-purple-shape.solana-mainnet.quiknode.pro/${process.env.API_KEY3}`);
+  const solana = new web3.Connection(process.env.RPCURL);
     transaction = await solana.getParsedTransaction(
-      "5DB585CjxcgJX3weWP32RM7PnezK1zAWBdAxUsWjFVHHUeB4sr5pnq9nZt2SsF1izQfmRGbeM31RUPGa2K5jHS4o",
+      "64fBEkQFJfuHG8XVvinThKsRTwNYsn1FETb3P454qd5eya75xRcrZVSSXSpBxmG2hFKeEegrGkvDHAqebzvFdCtD",
       { maxSupportedTransactionVersion: 0 }
     )
   const data = JSON.parse(JSON.stringify(transaction, null, 2))
