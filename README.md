@@ -4,7 +4,7 @@ This program uses google's API's to fill out the cells with information retreive
 # Outline
 - Automatically formats a fresh spreadsheet and propogates data upon initilisation
 - Retrives current data within the spreadsheet as to not duplicate it
-- Gets all teh transaction signatures of a specific wallet
+- Gets all the transaction signatures of a specific wallet
 - Gets each transaction's:
     - time of transaction
     - token symbol
@@ -16,14 +16,14 @@ This program uses google's API's to fill out the cells with information retreive
 # How to Use
 - Need node.js
 - Clone the repository
-- Run the following command inside teh main folder to install dependencies
+- Run the following command inside the main folder to install dependencies
 ```npm i```
-- Make a `.env` file with teh information in the `.env.sample`
+- Make a `.env` file with the information in the `.env.sample`
     - `RPCURL` is the url to a solana rpc node which needs to be DAS compatible and need to have an extensive signature history, I use [Quicknode](https://www.quicknode.com/) or [Helius](https://www.helius.dev/).
     - `spreadsheetId` is the identification for the spreadsheet you are using as highlighted and obtained from the url of your spreadsheet (`https://docs.google.com/spreadsheets/d/<mark>1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM</mark>/edit?gid=1817498683#gid=1817498683)
     - `SHEET_ID` is the highlighted portion obtained from the url of the spreadsheet: (`https://docs.google.com/spreadsheets/d/1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM/edit?gid=<mark>1817498683</mark>#gid=1817498683) 
     - `SheetName` is the name of the sheet tab located at the bottom of page. 
-- In teh blank sheet place you solana wallet address in cell `A1`
+- In the blank sheet place you solana wallet address in cell `A1`
 - Finally run ```node main.js``` and it shoudl automatically propogate all the infromation. 
 
 # Development Timeline
