@@ -1660,7 +1660,7 @@ async function initializeWallet() {
                         console.log("Updating row:", updatedRow);
 
                         //Adding values
-                        updatedRow[0] = row[0] + 1
+                        updatedRow[0] = parseFloat(row[0]) + 1
                         updatedRow[4] = `${row[4]}, ${token.signature}`
                         updatedRow[5] = `${row[5]}, ${token.date}`
                         updatedRow[6] = (parseFloat(row[6]) + (token.postTokenAmount - token.preTokenAmount))
@@ -1696,7 +1696,7 @@ async function initializeWallet() {
                         if (!row[10]) {
                         
                             let newEntry = [token.signature, token.date, (token.preTokenAmount - token.postTokenAmount), parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2)), parseFloat(token.avgPrice.toPrecision(15)), parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))]
-                            updatedRow[0] = row[0] + 1
+                            updatedRow[0] = parseFloat(row[0]) + 1
 
                             return [...updatedRow, ...newEntry];
                         } else {
@@ -1704,7 +1704,7 @@ async function initializeWallet() {
                             sellCount = row[10].split(",").length + 1
                             console.log('Sell Count:', sellCount)
 
-                            updatedRow[0] = row[0] + 1
+                            updatedRow[0] = parseFloat(row[0]) + 1
                             updatedRow[10] = `${row[10]}, ${token.signature}`
                             updatedRow[11] = `${row[11]}, ${token.date}`
                             updatedRow[12] = (parseFloat(row[12]) + (token.preTokenAmount - token.postTokenAmount))
@@ -1982,7 +1982,7 @@ async function initializeWallet() {
                                 console.log("Updating row:", updatedRow);
 
                                 //Adding values
-                                updatedRow[0] = row[0] + 1
+                                updatedRow[0] = parseFloat(row[0]) + 1
                                 updatedRow[4] = `${row[4]}, ${tokens[tokenKey].signature}`
                                 updatedRow[5] = `${row[5]}, ${tokens[tokenKey].date}`
                                 updatedRow[6] = (parseFloat(row[6]) + (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount))
@@ -2018,7 +2018,7 @@ async function initializeWallet() {
                                 if (!row[10]) {
                                     
                                     let newEntry = [tokens[tokenKey].signature, tokens[tokenKey].date, (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount), parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2)), parseFloat(tokens[tokenKey].avgPrice.toPrecision(15)), parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2))]
-                                    updatedRow[0] = row[0] + 1
+                                    updatedRow[0] = parseFloat(row[0]) + 1
                                     console.log('New Sell Array:', [...updatedRow, ...newEntry])
                                     return [...updatedRow, ...newEntry];
 
@@ -2028,7 +2028,7 @@ async function initializeWallet() {
                                     console.log('Sell Count:', sellCount)
                                     console.log("Updating row:", updatedRow);
 
-                                    updatedRow[0] = row[0] + 1
+                                    updatedRow[0] = parseFloat(row[0]) + 1
                                     updatedRow[10] = `${row[10]}, ${tokens[tokenKey].signature}`
                                     updatedRow[11] = `${row[11]}, ${tokens[tokenKey].date}`
                                     updatedRow[12] = (parseFloat(row[12]) + (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount))
