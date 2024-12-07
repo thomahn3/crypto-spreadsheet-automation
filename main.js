@@ -429,8 +429,8 @@ async function initializeWallet() {
                                             "sheetId": process.env.SHEET_ID,
                                             "startRowIndex": 2,
                                             "endRowIndex": 4,
-                                            "startColumnIndex": 2,
-                                            "endColumnIndex": 4
+                                            "startColumnIndex": 10,
+                                            "endColumnIndex": 12
                                         }
                                     ],
                                     "booleanRule": {
@@ -2144,10 +2144,7 @@ async function initializeWallet() {
 initializeWallet();
 
 // TODO
-//Google O2Auth to make it available to everyone
-// swap sol amounts to $ amounts
+// Update current Price even if all signitures are done
 
 // ISSUES 
 
-// =IF((G9-M9) = 0, 0, IF((H9-N9) > 0, ((((G9-M9)*Q9))-(H9-N9)), (((G9-M9)*Q9))-((G9-M9)*I9)))
-//=IF((G9-M9) <> 0, R9, (N9-H9-J9-P9))
