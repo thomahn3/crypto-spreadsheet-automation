@@ -35,7 +35,7 @@ This program uses google's API's to fill out the cells with information retreive
 ## Final Outcome
 <img src='./media/finalFormatted.png'>
 
-[![Using the Application](https://raw.githubusercontent.com/thomahn3/crypto-spreadsheet-automation/main/media/finalFormatted.png)](https://raw.githubusercontent.com/thomahn3/crypto-spreadsheet-automation/main/media/inAction.mov)
+![](./media/ApplicationUsage.gif)
 
 
 
