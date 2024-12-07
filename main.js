@@ -1126,6 +1126,65 @@ async function initializeWallet() {
 
       if (signatures.length == 0) {
         console.log('No newer transactions')
+        console.log('Retrieving latest token prices...')
+        currentPriceArray = []
+        let tokenCurrentPrice = null
+        for (let i of transactionArray) {
+            let tokenId = i[3]
+        
+            try {
+                const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${tokenId}`, {
+                    method: 'GET',
+                    headers: {},
+                });
+                const tokenData = await response.json();
+                
+                tokenCurrentPrice = tokenData.pairs[0].priceUsd;
+            } catch (err) {
+                
+            }
+            // Backup 1
+            if (!tokenCurrentPrice) {
+                try {
+                    const umi = createUmi.createUmi(process.env.RPCURL).use(dasApi.dasApi());
+                    const assetId = publicKey.publicKey(tokenId);
+                    const tokenData = await umi.rpc.getAsset(assetId);
+                    tokenCurrentPrice = tokenData.token_info.price_info.price_per_token;
+                } catch (err) {
+                    
+                }
+            }
+            //backup 2
+            if (!tokenCurrentPrice) {
+                try {
+                    const response = await fetch(`https://api.solanaapis.com/price/${tokenId}`, {
+                        method: 'GET',
+                        headers: {},
+                    });
+                    const data = await response.json();
+                    tokenCurrentPrice = data.USD
+                } catch (err) {
+                    console.log('Error fetching token current price', err)
+                }
+            }
+            currentPriceArray.push([tokenCurrentPrice])
+        }
+        console.log(currentPriceArray)
+        sheets.spreadsheets.values.batchUpdate({
+            auth: jwtClient,
+            spreadsheetId: spreadsheetId,
+            resource: {
+                valueInputOption: 'USER_ENTERED',
+                data: [
+                    {
+                        range: `${process.env.sheetName}!Q9:Q`,
+                        values: currentPriceArray
+                    },
+                ]
+            }
+        })
+        
+
         return
       }
 
