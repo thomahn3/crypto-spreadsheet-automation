@@ -30,7 +30,8 @@ This program uses google's API's to fill out the cells with information retreive
 
 ## Tips
 - For each wallet add a new tab (as seen below) for every wallet you want to add then make a totals tab adding values from each sheet (possibly a new automated feature).
-<img src='./media/newSheet.png'>
+
+  <img src='./media/newSheet.png'>
 
 ## Final Outcome
 <img src='./media/finalFormatted.png'>
