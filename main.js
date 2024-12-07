@@ -66,6 +66,7 @@ async function initializeWallet() {
     const usdtAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
     let aggregatorList = null
     let solPrice = null
+    let solBalance = null
     
    
     try {
@@ -216,6 +217,33 @@ async function initializeWallet() {
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
+                        // Sol balance
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 8, "endColumnIndex": 10 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'SOL BALANCE'}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 8, "endColumnIndex": 10 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": ''}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
                         // transfers and error block
                         {
                             "mergeCells": {
@@ -241,7 +269,7 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=SUM(FILTER(X9:X, Y9:Y<>""))+SUM(N9:N)-(IF(COUNTIF(Z9:Z, "<>") = 0, 0, SUM(FILTER(X:X, Z9:Z<>"")))+SUM(AA9:AA)+H8+J8+P8)` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=SUM(FILTER(X9:X, Y9:Y<>""))+SUM(N9:N)+R8+(G3*I3)-(IF(COUNTIF(Z9:Z, "<>") = 0, 0, SUM(FILTER(X:X, Z9:Z<>"")))+SUM(AA9:AA)+H8+J8+P8)` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
@@ -675,6 +703,8 @@ async function initializeWallet() {
     while (signatures.length == 0) {
         try{
             const pubkey = new web3.PublicKey(wallet);
+            solBalance = await solana.getBalance(pubkey);
+            console.log('Sol Balance:', solBalance)
             transactionList = await solanaQuickNode.getSignaturesForAddress(pubkey);
             signatures = transactionList.map(item => item.signature)
             console.log('Signature', signatures.length)
@@ -1706,7 +1736,7 @@ async function initializeWallet() {
                 null,
                 null,
                 null,
-                parseFloat((solAvgPrice * parseFlaot((transactionData.meta.fee * 1e-9).toPrecision(15))).toFixed(2))
+                parseFloat((solAvgPrice * parseFloat((transactionData.meta.fee * 1e-9).toPrecision(15))).toFixed(2))
             ];
             transferArray.push(newEntry)
             console.log('Error incoming transaction:', newEntry)
@@ -1752,6 +1782,10 @@ async function initializeWallet() {
             {
                 range: `${process.env.sheetName}!G3:H4`,
                 values: [[solPrice]]
+            },
+            {
+                range: `${process.env.sheetName}!I3:J4`,
+                values: [[solBalance * 1e-9]]
             },
         ]
     }, function (err, response) {
