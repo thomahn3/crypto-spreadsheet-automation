@@ -277,7 +277,7 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 5, "endColumnIndex": 7 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=SUM(FILTER(X9:X, Y9:Y<>""))+N8+R8+(A3*H3)-(IF(COUNTIF(Z9:Z, "<>") = 0, 0, SUM(FILTER(X9:X, Z9:Z<>"")))+SUM(AA9:AA)+H8+J8+P8)` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"}} }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=(H3*A3)+SUM(ARRAYFORMULA(IF(G9:G - M9:M = 0, 0, H9:H - N9:N + R9:R)))` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"}} }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
