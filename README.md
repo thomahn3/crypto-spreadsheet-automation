@@ -35,7 +35,7 @@ This program uses google's API's to fill out the cells with information retreive
 ## Final Outcome
 <img src='./media/finalFormatted.png'>
 
-![](./media/ApplicationUsage.gif)
+![](./media/ApplicationUsage.gif)*sped up
 
 
 
