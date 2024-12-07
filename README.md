@@ -38,6 +38,21 @@ This program uses google's API's to fill out the cells with information retreive
 
 ![](./media/ApplicationUsage.gif)*sped up
 
+## Future Ideas
+- If you want to fork the porject and implement any of tehse features feel free to
+1. Automatic sheet per wallet propogation with a totals sheet
+2. Support for other blockchains such as ETH, Base, etc..
+3. Web interface to make it easier to use (possibly using nextjs)
+    - Need to add OAuth 2.0 to validate the user to use the API
+4. Add webhooks for automatic updates
+
+## Final Thoughts
+- I started this project knowing absolutely nothing about the solana blockchain
+- I hadn't had any extensive expreience with javascript and this is the first major porject I have been involved with it in
+    - I chose js due to the `@solana/web3.js` packages available
+- This project took just under a month due to the learning curve associated with learnign anything frfom scratch
+- This was a fun and and useful project
+- (My code looks like a dog vommited I know, thanks)
 
 
 # Development Timeline
@@ -64,7 +79,7 @@ This program uses google's API's to fill out the cells with information retreive
 - 2024-12-04 Got the transfer of tokens working and updated the program Id’s to fetch it from jupiter’s v6 api to get the latest information. 
 - 2024-12-05 Fixed minor bugs and initialised the web interface with nextjs
 - 2024-12-06 Got initialised formatting for the spreadsheet working, working on getting previous signatures and leaving them out to make it more efficient so previous transactions aren’t processed. Started updated the README.md. 
-- 2024-12-07 Changed data to be based in USDT format, updated formatting and added unrealised and realised profit. 
+- 2024-12-07 Changed data to be based in USDT format, updated formatting and added unrealised and realised profit formulas. Finsihed the README.md. 
 
 
 
