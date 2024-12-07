@@ -14,17 +14,29 @@ This program uses google's API's to fill out the cells with information retreive
     - total fees
 
 # How to Use
-- Need node.js
-- Clone the repository
-- Run the following command inside the main folder to install dependencies
+1. Have [node.js](https://nodejs.org/en/download/package-manager) installed
+2. Clone the repository
+2.  Run the following command inside the main folder to install dependencies
 ```npm i```
-- Make a `.env` file with the information in the `.env.sample`
+4.  Go to [google cloud](https://console.cloud.google.com/) to make a project and use [this tutorial](https://ai2.appinventor.mit.edu/reference/other/googlesheets-api-setup.html) on how to get the required validation keys to enable use of the API.
+    - Rename the downloaded JSON key as `client_secret.json` and put it into the `auth` folder.
+5. Make a `.env` file with the information in the `.env.sample`
     - `RPCURL` is the url to a solana rpc node which needs to be DAS compatible and need to have an extensive signature history, I use [Quicknode](https://www.quicknode.com/) or [Helius](https://www.helius.dev/).
-    - `spreadsheetId` is the identification for the spreadsheet you are using as highlighted and obtained from the url of your spreadsheet (`https://docs.google.com/spreadsheets/d/<mark>1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM</mark>/edit?gid=1817498683#gid=1817498683)
-    - `SHEET_ID` is the highlighted portion obtained from the url of the spreadsheet: (`https://docs.google.com/spreadsheets/d/1NGAVBZwK75jsTkhsRIIN8fGYH6mBc8FbVkfGZ1VHKnM/edit?gid=<mark>1817498683</mark>#gid=1817498683) 
+    - `spreadsheetId` is the identification for the spreadsheet you are using as highlighted and obtained from the url of your spreadsheet (https:/<span>/docs.google.com/spreadsheets/d/`<spreadsheetId>`/edit?gid=SHEET_ID#gid=SHEET_ID)
+    - `SHEET_ID` is the highlighted portion obtained from the url of the spreadsheet: (https:/<span>/docs.google.com/spreadsheets/d/spreadsheetId/edit?gid=`<SHEET_ID>`#gid=`<SHEET_ID>`) 
     - `SheetName` is the name of the sheet tab located at the bottom of page. 
-- In the blank sheet place you solana wallet address in cell `A1`
-- Finally run ```node main.js``` and it shoudl automatically propogate all the infromation. 
+6.  In the blank sheet place you solana wallet address in cell `A1`
+7. Finally run ```node main.js``` and it shoudl automatically propogate all the infromation. 
+
+## Tips
+- For each wallet add a new tab (as seen below) for every wallet you want to add then make a totals tab adding values from each sheet (possibly a new automated feature).
+<img src='./media/newSheet.png'>
+
+## Final Outcome
+<img src='./media/finalFormatted.png'>
+
+[![Video of using the application](https://raw.githubusercontent.com/thomahn3/crypto-spreadsheet-automation/main/media/inAction.mp4)]
+
 
 # Development Timeline
 - 2024-11-09 Had the idea to start this project
@@ -49,7 +61,8 @@ This program uses google's API's to fill out the cells with information retreive
 - 2024-12-02 I’m directly analysing the parsed transactions but I’ve read about using IDL files to identify program instructions in a more readable format but there isn’t much information about it. I finally got all the transactions working for the non-sol transactions on one of the wallets and now the code works completely for two wallets. I just need to get more data to test then handle the transfer component of tokens. 
 - 2024-12-04 Got the transfer of tokens working and updated the program Id’s to fetch it from jupiter’s v6 api to get the latest information. 
 - 2024-12-05 Fixed minor bugs and initialised the web interface with nextjs
-- 2024-12-06 Got initialised formatting for the spreadsheet working, working on getting previous signatures and leaving them out to make it more efficient so previous transactions aren’t processed. 
+- 2024-12-06 Got initialised formatting for the spreadsheet working, working on getting previous signatures and leaving them out to make it more efficient so previous transactions aren’t processed. Started updated the README.md. 
+- 2024-12-07 Changed data to be based in USDT format, updated formatting and added unrealised and realised profit. 
 
 
 

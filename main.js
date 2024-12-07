@@ -134,7 +134,7 @@ async function initializeWallet() {
                                 "fields": "gridProperties.rowCount"
                             }
                         },
-                        // sol balance
+                        // sol price
                         {
                             "mergeCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 0, "endColumnIndex": 2 },
@@ -144,106 +144,113 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 0, "endColumnIndex": 2 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "BALANCE" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Sol Price" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
-                        // profit and loss
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 2, "endColumnIndex": 4 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 2, "endColumnIndex": 4 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Profit and Loss" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": solPrice.toString() }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"} } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
                         // wallet
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 4, "endColumnIndex": 6 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 2, "endColumnIndex": 4 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 4, "endColumnIndex": 6 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Wallet" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
-                                "fields": "userEnteredValue,userEnteredFormat"
-                            }
-                        },
-                        // wallet address
-                        {
-                            "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 4, "endColumnIndex": 6 },
-                                "mergeType": "MERGE_ALL"
-                            }
-                        },
-                        {
-                            "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 4, "endColumnIndex": 6 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": wallet }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
-                                "fields": "userEnteredValue,userEnteredFormat"
-                            }
-                        },
-                        // SOL current price
-                        {
-                            "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 6, "endColumnIndex": 8 },
-                                "mergeType": "MERGE_ALL"
-                            }
-                        },
-                        {
-                            "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 6, "endColumnIndex": 8 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'SOL PRICE' }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 2, "endColumnIndex": 4 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'Wallet'}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": solPrice.toString()}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": wallet}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
-                        // Sol balance
+                        // balance
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 8, "endColumnIndex": 10 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 5, "endColumnIndex": 7 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'SOL BALANCE'}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 5, "endColumnIndex": 7 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Balance" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        // sol Balance
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 7, "endColumnIndex": 9 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 7, "endColumnIndex": 9 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "Sol Balance" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 8, "endColumnIndex": 10 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 7, "endColumnIndex": 9 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        // PnL
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 10, "endColumnIndex": 12 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": ''}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 10, "endColumnIndex": 12 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'Profit and Loss' }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
+                        // Trading Volume
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 12, "endColumnIndex": 14 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 12, "endColumnIndex": 14 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'Trading Volume' }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        
                         // transfers and error block
                         {
                             "mergeCells": {
@@ -260,39 +267,49 @@ async function initializeWallet() {
                         },
 
                         // Adding formulas
+                        // balance
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 5, "endColumnIndex": 7 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=SUM(FILTER(X9:X, Y9:Y<>""))+SUM(N9:N)+R8+(G3*I3)-(IF(COUNTIF(Z9:Z, "<>") = 0, 0, SUM(FILTER(X:X, Z9:Z<>"")))+SUM(AA9:AA)+H8+J8+P8)` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 5, "endColumnIndex": 7 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=SUM(FILTER(X9:X, Y9:Y<>""))+SUM(N9:N)+R8+(A3*H3)-(IF(COUNTIF(Z9:Z, "<>") = 0, 0, SUM(FILTER(X:X, Z9:Z<>"")))+SUM(AA9:AA)+H8+J8+P8)` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"}} }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
+                        //PnL
                         {
                             "mergeCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 10, "endColumnIndex": 12 },
                                 "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=S8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 10, "endColumnIndex": 12 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=S8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"} } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        // Trading Volume
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 12, "endColumnIndex": 14 },
+                                "mergeType": "MERGE_ALL"
                             }
                         },
                         {
                             "updateCells": {
-                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=S8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 12, "endColumnIndex": 14 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=H8+N8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"} } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
+                        
 
 
                         // Freeze row 8
@@ -379,8 +396,8 @@ async function initializeWallet() {
                                             "sheetId": process.env.SHEET_ID,
                                             "startRowIndex": 2,
                                             "endRowIndex": 4,
-                                            "startColumnIndex": 2,
-                                            "endColumnIndex": 4
+                                            "startColumnIndex": 10,
+                                            "endColumnIndex": 12
                                         }
                                     ],
                                     "booleanRule": {
@@ -394,9 +411,9 @@ async function initializeWallet() {
                                         },
                                         "format": {
                                             "backgroundColor": {
-                                                "red": 0.0,
-                                                "green": 1.0,
-                                                "blue": 0.0
+                                                "red": 0.7137254901960784,
+                                                "green": 0.8431372549019608,
+                                                "blue": 0.6588235294117647
                                             }
                                         }
                                     }
@@ -427,9 +444,9 @@ async function initializeWallet() {
                                         },
                                         "format": {
                                             "backgroundColor": {
-                                                "red": 1.0,
-                                                "green": 0.0,
-                                                "blue": 0.0
+                                                "red": 0.8784313725490196,
+                                                "green": 0.4,
+                                                "blue": 0.4
                                             }
                                         }
                                     }
@@ -437,6 +454,332 @@ async function initializeWallet() {
                                 "index": 1
                             }
                         },
+                        // Add Borders
+                        {
+                            "updateBorders": {
+                                "range": {
+                                "sheetId": process.env.SHEET_ID,  
+                                "startRowIndex": 0,  
+                                "endRowIndex": 4,    
+                                "startColumnIndex": 0, 
+                                "endColumnIndex": 4   
+                                },
+                                "top": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "bottom": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "left": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "right": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerHorizontal": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerVertical": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                            }
+                        }
+                      },
+                      {
+                            "updateBorders": {
+                                "range": {
+                                "sheetId": process.env.SHEET_ID,  
+                                "startRowIndex": 0,  
+                                "endRowIndex": 4,    
+                                "startColumnIndex": 5, 
+                                "endColumnIndex": 9   
+                                },
+                                "top": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "bottom": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "left": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "right": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerHorizontal": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerVertical": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                            }
+                        }
+                    },
+                                {
+                                    "updateBorders": {
+                                        "range": {
+                                        "sheetId": process.env.SHEET_ID,  
+                                        "startRowIndex": 0,  
+                                        "endRowIndex": 4,    
+                                        "startColumnIndex": 10, 
+                                        "endColumnIndex": 14   
+                                        },
+                                        "top": {
+                                        "style": "SOLID",
+                                        "width": 1,
+                                        "color": {
+                                            "red": 0.0,
+                                            "green": 0.0,
+                                            "blue": 0.0
+                                        }
+                                        },
+                                        "bottom": {
+                                        "style": "SOLID",
+                                        "width": 1,
+                                        "color": {
+                                            "red": 0.0,
+                                            "green": 0.0,
+                                            "blue": 0.0
+                                        }
+                                        },
+                                        "left": {
+                                        "style": "SOLID",
+                                        "width": 1,
+                                        "color": {
+                                            "red": 0.0,
+                                            "green": 0.0,
+                                            "blue": 0.0
+                                        }
+                                        },
+                                        "right": {
+                                        "style": "SOLID",
+                                        "width": 1,
+                                        "color": {
+                                            "red": 0.0,
+                                            "green": 0.0,
+                                            "blue": 0.0
+                                        }
+                                        },
+                                        "innerHorizontal": {
+                                        "style": "SOLID",
+                                        "width": 1,
+                                        "color": {
+                                            "red": 0.0,
+                                            "green": 0.0,
+                                            "blue": 0.0
+                                        }
+                                        },
+                                        "innerVertical": {
+                                        "style": "SOLID",
+                                        "width": 1,
+                                        "color": {
+                                            "red": 0.0,
+                                            "green": 0.0,
+                                            "blue": 0.0
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "updateBorders": {
+                                    "range": {
+                                    "sheetId": process.env.SHEET_ID,  
+                                    "startRowIndex": 6,  
+                                    "endRowIndex": 8,    
+                                    "startColumnIndex": 0, 
+                                    "endColumnIndex": 19   
+                                    },
+                                    "top": {
+                                    "style": "SOLID",
+                                    "width": 1,
+                                    "color": {
+                                        "red": 0.0,
+                                        "green": 0.0,
+                                        "blue": 0.0
+                                    }
+                                    },
+                                    "bottom": {
+                                    "style": "SOLID",
+                                    "width": 1,
+                                    "color": {
+                                        "red": 0.0,
+                                        "green": 0.0,
+                                        "blue": 0.0
+                                    }
+                                    },
+                                    "left": {
+                                    "style": "SOLID",
+                                    "width": 1,
+                                    "color": {
+                                        "red": 0.0,
+                                        "green": 0.0,
+                                        "blue": 0.0
+                                    }
+                                    },
+                                    "right": {
+                                    "style": "SOLID",
+                                    "width": 1,
+                                    "color": {
+                                        "red": 0.0,
+                                        "green": 0.0,
+                                        "blue": 0.0
+                                    }
+                                    },
+                                    "innerHorizontal": {
+                                    "style": "SOLID",
+                                    "width": 1,
+                                    "color": {
+                                        "red": 0.0,
+                                        "green": 0.0,
+                                        "blue": 0.0
+                                    }
+                                    },
+                                    "innerVertical": {
+                                    "style": "SOLID",
+                                    "width": 1,
+                                    "color": {
+                                        "red": 0.0,
+                                        "green": 0.0,
+                                        "blue": 0.0
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "updateBorders": {
+                                "range": {
+                                "sheetId": process.env.SHEET_ID,  
+                                "startRowIndex": 4,  
+                                "endRowIndex": 8,    
+                                "startColumnIndex": 21, 
+                                "endColumnIndex": 28   
+                                },
+                                "top": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "bottom": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "left": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "right": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerHorizontal": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerVertical": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                            }
+                        }
+                    },
                         // Add background colour
                         {
                             "updateCells": {
@@ -676,7 +1019,7 @@ async function initializeWallet() {
             const response = await sheets.spreadsheets.values.get({
                 auth: jwtClient,
                 spreadsheetId: spreadsheetId,
-                range: `${process.env.sheetName}!E3`
+                range: `${process.env.sheetName}!C3`
             });
                 wallet = response.data.values[0][0]
                 console.log('Wallet:' + wallet)
@@ -1780,11 +2123,11 @@ async function initializeWallet() {
                 values: formulas
             },
             {
-                range: `${process.env.sheetName}!G3:H4`,
+                range: `${process.env.sheetName}!A3:B4`,
                 values: [[solPrice]]
             },
             {
-                range: `${process.env.sheetName}!I3:J4`,
+                range: `${process.env.sheetName}!H3:I4`,
                 values: [[solBalance * 1e-9]]
             },
         ]
