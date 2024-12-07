@@ -126,7 +126,7 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 0, "endColumnIndex": 2 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "SOL BALANCE" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": "BALANCE" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
@@ -197,7 +197,7 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 0, "endColumnIndex": 2 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=SUM(Y9:Y)+SUM(N9:N)-(SUM(Z9:Z)+SUM(AA9:AA)+H8+J8+P8)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=SUM(FILTER(X9:X, Y9:Y<>""))+SUM(N9:N)-(IF(COUNTIF(Z9:Z, "<>") = 0, 0, SUM(FILTER(X:X, Z9:Z<>"")))+SUM(AA9:AA)+H8+J8+P8)` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
@@ -205,6 +205,13 @@ async function initializeWallet() {
                             "mergeCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
                                 "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 2, "endColumnIndex": 4 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=S8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
                         {
@@ -237,25 +244,25 @@ async function initializeWallet() {
                                         { "userEnteredValue": { "stringValue": "Transaction ID" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Entry Dates" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Tokens" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "SOL" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Amount" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Average Buy" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "Fees (SOL)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Fees" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Transaction ID" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Exit Dates" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Tokens" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "SOL" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Amount" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Average Sell" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "Fees (SOL)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Fees" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Current Price" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Unrealized PnL" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "Profit (SOL)" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Profit" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Date" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Transaction ID" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "$ Amount" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "SOL Received" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
-                                        { "userEnteredValue": { "stringValue": "SOL Withdrawn" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Total Amount" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Received" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
+                                        { "userEnteredValue": { "stringValue": "Withdrawn" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } },
                                         { "userEnteredValue": { "stringValue": "Fees" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "textFormat": { "bold": true } } }]
                                     },
                                     {
@@ -563,23 +570,27 @@ async function initializeWallet() {
                 spreadsheetId: spreadsheetId,
                 range: `${process.env.sheetName}!A9:P`
             });
-            transactionArray = response.data.values
+            if (response.data.values != undefined) {
+                transactionArray = response.data.values
+            }
 
             response = await sheets.spreadsheets.values.get({
                 auth: jwtClient,
                 spreadsheetId: spreadsheetId,
                 range: `${process.env.sheetName}!V9:AA`
             });
-            transferArray = response.data.values
-
+            if (response.data.values != undefined) {
+                transferArray = response.data.values
+            }
 
             response = await sheets.spreadsheets.values.get({
                 auth: jwtClient,
                 spreadsheetId: spreadsheetId,
                 range: `${process.env.sheetName}!Q9:Q`
             });
-            currentPriceArray = response.data.values
-
+            if (response.data.values != undefined) {
+                currentPriceArray = response.data.values
+            }
         }
 
     } catch (err) {
@@ -702,7 +713,7 @@ async function initializeWallet() {
       }
 
 //For troubleshooting
-    let signature = ['5DB585CjxcgJX3weWP32RM7PnezK1zAWBdAxUsWjFVHHUeB4sr5pnq9nZt2SsF1izQfmRGbeM31RUPGa2K5jHS4o']
+    let signature = ['2v4Qxow4bfdJdAGbEscKdz7WviNjfDFpf8zMwSddikWVELJjnTVYBoevXibx9NwYgLrYfmPcswjQzUQTixHpjDxZ', '3Yt4R8nvye3tNEtc1VGn6jd9CJXU2VuBVrJ8bUnvqo3XDsG3WbnNRcJFUKRZcxQ2wu2cVvrexPwvrLtBsqvQ7JPa', '5nsE4jwLybxYgWtYixKaPESAq5YNKpDttdnZ9bD3nCYLjpNgfvjbLj3kDEGES2GtFcmFT6m46Hba91E4Xes5G1E2', '5JvHV7Jmm3MzxRUyVzK4YQo9LjdkQjimPaActuxg7M49HtdYtFByd57ve3PAzhdNTSWuAnCqXjo5DPTbXFkbApeh']
     //['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
@@ -864,7 +875,7 @@ async function initializeWallet() {
                             'Transaction Error',
                             null,
                             null,
-                            ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
+                            parseFloat((solAvgPrice * ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)).toFixed(2))
                         ];
                         transferArray.push(newEntry)
                         console.log('Error Sending transfer', newEntry)
@@ -877,7 +888,7 @@ async function initializeWallet() {
                             (solAvgPrice * (solAmount * 1e-9)).toPrecision(15) ,
                             null,
                             (solAmount * 1e-9).toPrecision(15),
-                            (transactionData.meta.fee * 1e-9).toPrecision(15)
+                            parseFloat((solAvgPrice * (transactionData.meta.fee * 1e-9).toPrecision(15)).toFixed(2))
                         ];
                         transferArray.push(newEntry)
                         console.log('Sent:', newEntry)
@@ -896,7 +907,7 @@ async function initializeWallet() {
                 'Transaction Error',
                 null,
                 null,
-                ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)
+                parseFloat((solAvgPrice * ((transactionData.meta.preBalances[0] - transactionData.meta.postBalances[0]) * 1e-9).toPrecision(15)).toFixed(2))
             ];
             transferArray.push(newEntry)
             continue mainLoop;
@@ -1114,7 +1125,7 @@ async function initializeWallet() {
                     });
                 }
             
-            tokenAvgPrice = (solAvgPrice * parseFloat(parseFloat((solAmount * 1e-9).toPrecision(15)).toFixed(2))/(postTokenAmount - preTokenAmount))
+            tokenAvgPrice = parseFloat((solAvgPrice * parseFloat((solAmount * 1e-9).toPrecision(15))).toFixed(2))/(postTokenAmount - preTokenAmount)
                         
             totalFees = ((parseFloat(solNetChange) - parseFloat(solAmount)));
             tokenBuyArray.push(tokenId)
@@ -1236,13 +1247,13 @@ async function initializeWallet() {
                         updatedRow[4] = `${row[4]}, ${token.signature}`
                         updatedRow[5] = `${row[5]}, ${token.date}`
                         updatedRow[6] = (parseFloat(row[6]) + (token.postTokenAmount - token.preTokenAmount))
-                        updatedRow[7] = parseFloat(row[7]) + parseFloat((token.solAmount * 1e-9).toPrecision(15))
+                        updatedRow[7] = parseFloat(row[7]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
                         if (buyCount == 2) {
                             updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2)
                         } else {
                             updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice)/buyCount)
                         }
-                        updatedRow[9] = parseFloat(row[9]) + parseFloat(token.fees.toPrecision(15))
+                        updatedRow[9] = parseFloat(row[9]) + parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))
                         console.log("Updated row:", updatedRow);
                         //console.log("After updates:", transactionArray);
                         return updatedRow
@@ -1251,7 +1262,7 @@ async function initializeWallet() {
                 });
                 if (!match) {
                     // Data layout (BUY): [[Transaction Count: Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL)]] 
-                    const newEntry = [transCount, token.tokenName, token.tokenSymbol, token.address, token.signature, token.date, token.postTokenAmount, parseFloat((token.solAmount * 1e-9).toPrecision(15)), parseFloat(token.avgPrice.toPrecision(15)), parseFloat(token.fees.toPrecision(15))]
+                    const newEntry = [transCount, token.tokenName, token.tokenSymbol, token.address, token.signature, token.date, token.postTokenAmount, parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2)), parseFloat(token.avgPrice.toPrecision(15)), parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))]
                         
                     transactionArray.push(newEntry)
                 }
@@ -1267,7 +1278,7 @@ async function initializeWallet() {
                         // Checks if token has been sold before
                         if (!row[10]) {
                         
-                            let newEntry = [token.signature, token.date, (token.preTokenAmount - token.postTokenAmount), parseFloat((token.solAmount * 1e-9).toPrecision(15)), parseFloat(token.avgPrice.toPrecision(15)), parseFloat(token.fees.toPrecision(15))]
+                            let newEntry = [token.signature, token.date, (token.preTokenAmount - token.postTokenAmount), parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2)), parseFloat(token.avgPrice.toPrecision(15)), parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))]
                             updatedRow[0] = row[0] + 1
 
                             return [...updatedRow, ...newEntry];
@@ -1280,13 +1291,13 @@ async function initializeWallet() {
                             updatedRow[10] = `${row[10]}, ${token.signature}`
                             updatedRow[11] = `${row[11]}, ${token.date}`
                             updatedRow[12] = (parseFloat(row[12]) + (token.preTokenAmount - token.postTokenAmount))
-                            updatedRow[13] = parseFloat(row[13]) + parseFloat((token.solAmount * 1e-9).toPrecision(15))
+                            updatedRow[13] = parseFloat(row[13]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
                             if (sellCount == 2) {
                                 updatedRow[14] = parseFloat(((parseFloat(row[14]) + token.avgPrice)/2).toPrecision(15))
                             } else {
                                 updatedRow[14] = (parseFloat(row[14]) * (sellCount - 1) + token.avgPrice)/sellCount
                             }
-                            updatedRow[15] = parseFloat(row[15]) + parseFloat(token.fees.toPrecision(15))
+                            updatedRow[15] = parseFloat(row[15]) + parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))
                             console.log("Updated row:", updatedRow);
                             return updatedRow
                         }
@@ -1558,13 +1569,13 @@ async function initializeWallet() {
                                 updatedRow[4] = `${row[4]}, ${tokens[tokenKey].signature}`
                                 updatedRow[5] = `${row[5]}, ${tokens[tokenKey].date}`
                                 updatedRow[6] = (parseFloat(row[6]) + (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount))
-                                updatedRow[7] = parseFloat(row[7]) + parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15))
+                                updatedRow[7] = parseFloat(row[7]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
                                 if (buyCount == 2) {
                                     updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2) 
                                 } else {
                                     updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice)/buyCount) 
                                 }
-                                updatedRow[9] = parseFloat(row[9]) + parseFloat(tokens[tokenKey].fees.toPrecision(15)) 
+                                updatedRow[9] = parseFloat(row[9]) + parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2)) 
                                 console.log("Updated row:", updatedRow);
                                 //console.log("After updates:", transactionArray);
                                 return updatedRow
@@ -1573,7 +1584,7 @@ async function initializeWallet() {
                         });
                         if (!match) {
                             // Data layout (BUY): [[Transaction Count: Name, Ticker, CA, TransactionID, Entry Dates, Tokens, SOL (bought), Average Buy, Fees (SOL)]] 
-                            const newEntry = [transCount , tokens[tokenKey].tokenName, tokens[tokenKey].tokenSymbol, tokens[tokenKey].address, tokens[tokenKey].signature, tokens[tokenKey].date, tokens[tokenKey].postTokenAmount, parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15)), parseFloat(tokens[tokenKey].avgPrice.toPrecision(15)), parseFloat(tokens[tokenKey].fees.toPrecision(15))]
+                            const newEntry = [transCount , tokens[tokenKey].tokenName, tokens[tokenKey].tokenSymbol, tokens[tokenKey].address, tokens[tokenKey].signature, tokens[tokenKey].date, tokens[tokenKey].postTokenAmount, parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2)), parseFloat(tokens[tokenKey].avgPrice.toPrecision(15)), parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2))]
                                 
                             transactionArray.push(newEntry)
                         }
@@ -1589,7 +1600,7 @@ async function initializeWallet() {
                                 // Checks if tokens[tokenKey] has been sold before
                                 if (!row[10]) {
                                     
-                                    let newEntry = [tokens[tokenKey].signature, tokens[tokenKey].date, (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount), parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15)), parseFloat(tokens[tokenKey].avgPrice.toPrecision(15)), parseFloat(tokens[tokenKey].fees.toPrecision(15))]
+                                    let newEntry = [tokens[tokenKey].signature, tokens[tokenKey].date, (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount), parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2)), parseFloat(tokens[tokenKey].avgPrice.toPrecision(15)), parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2))]
                                     updatedRow[0] = row[0] + 1
                                     console.log('New Sell Array:', [...updatedRow, ...newEntry])
                                     return [...updatedRow, ...newEntry];
@@ -1604,13 +1615,13 @@ async function initializeWallet() {
                                     updatedRow[10] = `${row[10]}, ${tokens[tokenKey].signature}`
                                     updatedRow[11] = `${row[11]}, ${tokens[tokenKey].date}`
                                     updatedRow[12] = (parseFloat(row[12]) + (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount))
-                                    updatedRow[13] = parseFloat(row[13]) + parseFloat((tokens[tokenKey].solAmount * 1e-9).toPrecision(15))
+                                    updatedRow[13] = parseFloat(row[13]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
                                     if (sellCount == 2) {
                                         updatedRow[14] = (parseFloat(row[14]) + tokens[tokenKey].avgPrice)/2
                                     } else {
                                         updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokens[tokenKey].avgPrice)/sellCount) 
                                     }
-                                    updatedRow[15] = parseFloat(row[15]) + parseFloat((tokens[tokenKey].fees).toPrecision(15))
+                                    updatedRow[15] = parseFloat(row[15]) + parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2))
                                     console.log("Updated row:", updatedRow);
                                     return updatedRow
                                 }
@@ -1651,7 +1662,7 @@ async function initializeWallet() {
                 null,
                 null,
                 null,
-                (transactionData.meta.fee * 1e-9).toPrecision(15)
+                parseFloat((solAvgPrice * parseFlaot((transactionData.meta.fee * 1e-9).toPrecision(15))).toFixed(2))
             ];
             transferArray.push(newEntry)
             console.log('Error incoming transaction:', newEntry)
@@ -1664,6 +1675,12 @@ async function initializeWallet() {
     console.log(transactionArray)
     console.log(currentPriceArray)
     console.log(transferArray)
+
+    let formulas = [];
+    for (let i = 0; i < transactionArray.length; i++) {
+        const newEntry = [`=IF((G${i+9}-M${i+9}) = 0, 0, IF((H${i+9}-N${i+9}) > 0, ((((G${i+9}-M${i+9})*Q${i+9}))-(H${i+9}-N${i+9})), (((G${i+9}-M${i+9})*Q${i+9}))-((G${i+9}-M${i+9})*I${i+9})))`, `=IF((G${i+9}-M${i+9}) <> 0, R${i+9}, (N${i+9}-H${i+9}-J${i+9}-P${i+9}))`]
+        formulas.push(newEntry)
+    }
 
 // Writes all the transaction info
     sheets.spreadsheets.values.batchUpdate({
@@ -1683,6 +1700,10 @@ async function initializeWallet() {
             {
                 range: `${process.env.sheetName}!Q9:Q`,
                 values: currentPriceArray
+            },
+            {
+                range: `${process.env.sheetName}!R9:S`,
+                values: formulas
             }
         ]
     }, function (err, response) {
@@ -1703,3 +1724,5 @@ initializeWallet();
 
 // ISSUES 
 
+// =IF((G9-M9) = 0, 0, IF((H9-N9) > 0, ((((G9-M9)*Q9))-(H9-N9)), (((G9-M9)*Q9))-((G9-M9)*I9)))
+//=IF((G9-M9) <> 0, R9, (N9-H9-J9-P9))
