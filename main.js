@@ -558,7 +558,7 @@ async function initializeWallet() {
                 }
             });
         } else {
-            let response= await sheets.spreadsheets.values.get({
+            let response = await sheets.spreadsheets.values.get({
                 auth: jwtClient,
                 spreadsheetId: spreadsheetId,
                 range: `${process.env.sheetName}!A9:P`
@@ -648,7 +648,7 @@ async function initializeWallet() {
         response = await sheets.spreadsheets.values.batchGet({
             auth: jwtClient,
             spreadsheetId: spreadsheetId,
-            ranges: ['automated-crypto!E9:E', 'automated-crypto!K9:K', 'automated-crypto!W9:W'],
+            ranges: [`${process.env.sheetName}!E9:E`, `${process.env.sheetName}!K9:K`, `${process.env.sheetName}!W9:W`],
         });
         console.log('Fetching Previous signatures')
       } catch (err) {
@@ -1698,6 +1698,8 @@ async function initializeWallet() {
 initializeWallet();
 
 // TODO
+//Google O2Auth to make it available to everyone
+// swap sol amounts to $ amounts
 
 // ISSUES 
 
