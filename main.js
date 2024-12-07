@@ -65,7 +65,24 @@ async function initializeWallet() {
     const usdcAddress = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
     const usdtAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
     let aggregatorList = null
+    let solPrice = null
     
+   
+    try {
+        const solData = await fetch(`https://api.binance.com/api/v3/klines?symbol=SOLUSDC&interval=1s&startTime=${(parseFloat((Date.now() * 1e-3).toFixed(0)) - 2) * 1e3}&endTime=${(parseFloat((Date.now() * 1e-3).toFixed(0)) - 2) * 1e3 + 999}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            },
+    });
+        const solPriceList = await solData.json();
+        solPrice = await (JSON.parse(solPriceList[0][1]) + JSON.parse(solPriceList[0][4]))/2
+        console.log('solprice', solPrice)
+    } catch (err) {
+        console.log('Error fetching sol price: ' + err)
+    }
+
+
     try {
         const response = await sheets.spreadsheets.values.get({
             auth: jwtClient,
@@ -158,7 +175,7 @@ async function initializeWallet() {
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
-                        // Inert wallet here
+                        // wallet address
                         {
                             "mergeCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 4, "endColumnIndex": 6 },
@@ -169,6 +186,33 @@ async function initializeWallet() {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 4, "endColumnIndex": 6 },
                                 "rows": [{ "values": [{ "userEnteredValue": { "stringValue": wallet }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        // SOL current price
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'SOL PRICE' }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 6, "endColumnIndex": 8 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": solPrice.toString()}, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
@@ -1704,7 +1748,11 @@ async function initializeWallet() {
             {
                 range: `${process.env.sheetName}!R9:S`,
                 values: formulas
-            }
+            },
+            {
+                range: `${process.env.sheetName}!G3:H4`,
+                values: [[solPrice]]
+            },
         ]
     }, function (err, response) {
         if (err) {
