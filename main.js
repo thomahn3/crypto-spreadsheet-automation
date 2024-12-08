@@ -1180,6 +1180,10 @@ async function initializeWallet() {
                         range: `${process.env.sheetName}!Q9:Q`,
                         values: currentPriceArray
                     },
+                    {
+                        range: `${process.env.sheetName}!H3:I4`,
+                        values: [[solBalance * 1e-9]]
+                    },
                 ]
             }
         })
