@@ -277,7 +277,7 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 5, "endColumnIndex": 7 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=(H3*A3)+SUM(ARRAYFORMULA(IF(G9:G - M9:M = 0, 0, H9:H - N9:N + R9:R)))` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"}} }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": `=(H3*A3)+SUM(ARRAYFORMULA(IF(G9:G - M9:M = 0, 0, (G9:G-M9:M)*Q9:Q)))` }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"}} }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
@@ -1193,7 +1193,7 @@ async function initializeWallet() {
       }
 
 //For troubleshooting
-    let signature = ['2v4Qxow4bfdJdAGbEscKdz7WviNjfDFpf8zMwSddikWVELJjnTVYBoevXibx9NwYgLrYfmPcswjQzUQTixHpjDxZ', '3Yt4R8nvye3tNEtc1VGn6jd9CJXU2VuBVrJ8bUnvqo3XDsG3WbnNRcJFUKRZcxQ2wu2cVvrexPwvrLtBsqvQ7JPa', '5nsE4jwLybxYgWtYixKaPESAq5YNKpDttdnZ9bD3nCYLjpNgfvjbLj3kDEGES2GtFcmFT6m46Hba91E4Xes5G1E2', '5JvHV7Jmm3MzxRUyVzK4YQo9LjdkQjimPaActuxg7M49HtdYtFByd57ve3PAzhdNTSWuAnCqXjo5DPTbXFkbApeh']
+    let signature = ['5Ms4hAD8qCPCumyXZG8DWYqY8odCLNNkKA5ecbGVpUb9TL1owJ74SssUGaEzXHFd4ENjjLm1PNzao2pxBsgVkZd2', '2deSAU8gHfJqatPphaHc63CgwWojKgisoJZJRj6sCAgQQwzyvqepyUtEfP4dnXPQ727AGwaDXiVehd5PoRcHqRUi', '5EmbhyE5sWqCfveRGkjEWjs5oPxybo8N4g2A11btok8KeCufqqzPNHqw4PbzZ5PLmu6aLMvmD1UZzPXG1grkQ26W', '5dGAzbZV5rPvGvNjpXPxP9y8fq9CszGueYh8cyrMBG23EKMa1H92zmdV8detZVG6ZtS84ZygsRJW5EzuiaowL6eK', '4sjJuxkdmu14t54CyAHmjqo1G1GfBbHSKbBQ9QqnvcKaC5zpkTi998F31afL57THAtJUwrNahUY47f4daYDrj3nn', '5QVptjey2yta7a8voZ3eBraGwjub44qXSVUSXR4XmA9gDtTCdCQ34C7ZBvsyp8gUob18KbEX8uhwLKgiwDvouPkG', '4hfEooPsVxT4GuiPKmeZUuBoo9sQ2YmirpYJvc1efvtX9Me54Ltr97DbtmU9Wzq7mrfNadwAeYduMT5TcJYtUaJ8', '3Aqx4fKZhR2SHz8UFsDJni3hpiFAVnduitnLvSmw2hPusPhG3xcigcuVMxkwWyFp3aEQiFZQW9WEauUWPMRgYGxu', 'XQ8qL2KHYQYb8h4xjVexeU9uEdGrvjtt8HJMwCz6bKa8VmyBYAbfrcFTsJV8Dt7WFKMM8pT6xd3qEhU9aKvbqmx', '8bsiAek9Ec7e2pW18AKV8GpGVUZWcS1ar3un8wBcDL1krmg4eMHydNxf79tX8VETfUVTQv925khErKj1SDsMJ89', '5BuTyX1Y5puRBm15YGHea6xHpaLsh5sGVojGgSSpiNQc5ZeHtUE4gkELAhxPmqhRrnMxuPSb3a9hPfV5XcAdN8Ew', '7MGArcEAAMiYKHdpqhwq66gXL7BSXzPfkvdW9nD8D4bR5KTMgoJcpqnuoHGEWTbUe3gsJVw3JSjmFFfvmyV2xbj', '5mus23vD7jbEWHxW3BjKaYku9sLvQeFr3xsX3KawjNehEjgU3iQaNKGoDhLr7p3nWksFv3hww2kKiqcuPvLJc9Au', '5ykmQEJ5oeq4X5pNdqCYqCu5FEaftJTr2ZSwGzH7R2wXCLiSpUKxnMXDcTUVvp5SVgWnR9oXLYEHSxr6LtYmtwK3', '2caCtDs2khdiSrmsMg6UYhpxkvwMcTWR3skFCBcquyQbSotutgKFMPes2XVeQJWAL4TSV76P81F4jbwmXThckMuD', '2GwszcY9Tdwup9MskpdrefuXgFfuEjwzMFDBgaZbr5pbwHQ7hvCu38adVVLmr7HQXocqd2WfyL9XnHvcNC9E2igq']
     //['5McGzScriB1DkQUpbvSGFkn1pMiZRQBLDYGx4j6MC5QzuEov3JAp7P1KekPsstTkCMjDVVKVm3XMBRbr5Hewfgmb']
     //wallet = 'C9ZE9Xtn21r1NqPNQqk82vxnsGiCW8JXmncrhmSJQ2b1'
 
@@ -1728,11 +1728,12 @@ async function initializeWallet() {
                         updatedRow[5] = `${row[5]}, ${token.date}`
                         updatedRow[6] = (parseFloat(row[6]) + (token.postTokenAmount - token.preTokenAmount))
                         updatedRow[7] = parseFloat(row[7]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
-                        if (buyCount == 2) {
-                            updatedRow[8] = ((parseFloat(row[8]) + token.avgPrice)/2)
-                        } else {
-                            updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice)/buyCount)
-                        }
+                        updatedRow[8] = updatedRow[7]/updatedRow[6]
+                        //if (buyCount == 2) {
+                        //    updatedRow[8] = updatedRow[7]/updatedRow[6]
+                        //} else {
+                        //    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + token.avgPrice)/buyCount)
+                        //}
                         updatedRow[9] = parseFloat(row[9]) + parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))
                         console.log("Updated row:", updatedRow);
                         //console.log("After updates:", transactionArray);
@@ -1772,11 +1773,12 @@ async function initializeWallet() {
                             updatedRow[11] = `${row[11]}, ${token.date}`
                             updatedRow[12] = (parseFloat(row[12]) + (token.preTokenAmount - token.postTokenAmount))
                             updatedRow[13] = parseFloat(row[13]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
-                            if (sellCount == 2) {
-                                updatedRow[14] = parseFloat(((parseFloat(row[14]) + token.avgPrice)/2).toPrecision(15))
-                            } else {
-                                updatedRow[14] = (parseFloat(row[14]) * (sellCount - 1) + token.avgPrice)/sellCount
-                            }
+                            updatedRow[14] = updatedRow[13]/updatedRow[12]
+                            //if (sellCount == 2) {
+                            //    updatedRow[14] = parseFloat(((parseFloat(row[14]) + token.avgPrice)/2).toPrecision(15))
+                            //} else {
+                            //    updatedRow[14] = (parseFloat(row[14]) * (sellCount - 1) + token.avgPrice)/sellCount
+                            //}
                             updatedRow[15] = parseFloat(row[15]) + parseFloat((solAvgPrice * parseFloat(token.fees.toPrecision(15))).toFixed(2))
                             console.log("Updated row:", updatedRow);
                             return updatedRow
@@ -2050,11 +2052,12 @@ async function initializeWallet() {
                                 updatedRow[5] = `${row[5]}, ${tokens[tokenKey].date}`
                                 updatedRow[6] = (parseFloat(row[6]) + (tokens[tokenKey].postTokenAmount - tokens[tokenKey].preTokenAmount))
                                 updatedRow[7] = parseFloat(row[7]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
-                                if (buyCount == 2) {
-                                    updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2) 
-                                } else {
-                                    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice)/buyCount) 
-                                }
+                                updatedRow[8] = updatedRow[7]/updatedRow[6]
+                                //if (buyCount == 2) {
+                                //    updatedRow[8] = ((parseFloat(row[8]) + tokens[tokenKey].avgPrice)/2) 
+                                //} else {
+                                //    updatedRow[8] = ((parseFloat(row[8]) * (buyCount - 1) + tokens[tokenKey].avgPrice)/buyCount) 
+                                //}
                                 updatedRow[9] = parseFloat(row[9]) + parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2)) 
                                 console.log("Updated row:", updatedRow);
                                 //console.log("After updates:", transactionArray);
@@ -2096,11 +2099,12 @@ async function initializeWallet() {
                                     updatedRow[11] = `${row[11]}, ${tokens[tokenKey].date}`
                                     updatedRow[12] = (parseFloat(row[12]) + (tokens[tokenKey].preTokenAmount - tokens[tokenKey].postTokenAmount))
                                     updatedRow[13] = parseFloat(row[13]) + parseFloat((solAvgPrice * parseFloat((token.solAmount * 1e-9).toPrecision(15))).toFixed(2))
-                                    if (sellCount == 2) {
-                                        updatedRow[14] = (parseFloat(row[14]) + tokens[tokenKey].avgPrice)/2
-                                    } else {
-                                        updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokens[tokenKey].avgPrice)/sellCount) 
-                                    }
+                                    updatedRow[14] = updatedRow[13]/updatedRow[12]
+                                    //if (sellCount == 2) {
+                                    //    updatedRow[14] = (parseFloat(row[14]) + tokens[tokenKey].avgPrice)/2
+                                    //} else {
+                                    //    updatedRow[14] = ((parseFloat(row[14]) * (sellCount - 1) + tokens[tokenKey].avgPrice)/sellCount) 
+                                    //}
                                     updatedRow[15] = parseFloat(row[15]) + parseFloat((solAvgPrice * parseFloat(tokens[tokenKey].fees.toPrecision(15))).toFixed(2))
                                     console.log("Updated row:", updatedRow);
                                     return updatedRow
@@ -2158,7 +2162,7 @@ async function initializeWallet() {
 
     let formulas = [];
     for (let i = 0; i < transactionArray.length; i++) {
-        const newEntry = [`=IF((G${i+9}-M${i+9}) = 0, 0, IF((H${i+9}-N${i+9}) > 0, ((((G${i+9}-M${i+9})*Q${i+9}))-(H${i+9}-N${i+9})), (((G${i+9}-M${i+9})*Q${i+9}))-((G${i+9}-M${i+9})*I${i+9})))`, `=IF((G${i+9}-M${i+9}) <> 0, R${i+9}, (N${i+9}-H${i+9}-J${i+9}-P${i+9}))`]
+        const newEntry = [`=IF((G${i+9}-M${i+9}) = 0, 0, IF((H${i+9}-N${i+9}) > 0, ((((G${i+9}-M${i+9})*Q${i+9}))-(H${i+9}-N${i+9})), (((G${i+9}-M${i+9})*Q${i+9}))-((G${i+9}-M${i+9})*I${i+9})))`, `=IF((G${i+9}-M${i+9}) <> 0, N${i+9}, (N${i+9}-H${i+9}-J${i+9}-P${i+9}))`]
         formulas.push(newEntry)
     }
 
