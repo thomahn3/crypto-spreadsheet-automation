@@ -2162,7 +2162,7 @@ async function initializeWallet() {
 
     let formulas = [];
     for (let i = 0; i < transactionArray.length; i++) {
-        const newEntry = [`=IF((G${i+9}-M${i+9}) = 0, 0, IF((H${i+9}-N${i+9}) > 0, ((((G${i+9}-M${i+9})*Q${i+9}))-(H${i+9}-N${i+9})), (((G${i+9}-M${i+9})*Q${i+9}))-((G${i+9}-M${i+9})*I${i+9})))`, `=IF((G${i+9}-M${i+9}) <> 0, N${i+9}, (N${i+9}-H${i+9}-J${i+9}-P${i+9}))`]
+        const newEntry = [`=IF((G${i+9}-M${i+9}) = 0, 0, IF((H${i+9}-N${i+9}) > 0, ((((G${i+9}-M${i+9})*Q${i+9}))-(H${i+9}-N${i+9})), (((G${i+9}-M${i+9})*Q${i+9}))-((G${i+9}-M${i+9})*I${i+9})))`, `=IF((G${i+9}-M${i+9}) <> 0, N${i+9}-H${i+9}+R${i+9}, (N${i+9}-H${i+9}-J${i+9}-P${i+9}))`]
         formulas.push(newEntry)
     }
 
