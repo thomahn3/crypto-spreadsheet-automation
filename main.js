@@ -250,6 +250,20 @@ async function initializeWallet() {
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
+                        // Total Fees
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 14, "endColumnIndex": 16 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 0, "endRowIndex": 2, "startColumnIndex": 14, "endColumnIndex": 16 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "stringValue": 'Total Fees' }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP" } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
                         
                         // transfers and error block
                         {
@@ -305,7 +319,21 @@ async function initializeWallet() {
                         {
                             "updateCells": {
                                 "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 12, "endColumnIndex": 14 },
-                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=H8+N8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"} } }] }],
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=H8+N8+J8+P8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"} } }] }],
+                                "fields": "userEnteredValue,userEnteredFormat"
+                            }
+                        },
+                        // Total fees cost
+                        {
+                            "mergeCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 14, "endColumnIndex": 16 },
+                                "mergeType": "MERGE_ALL"
+                            }
+                        },
+                        {
+                            "updateCells": {
+                                "range": { "sheetId": process.env.SHEET_ID, "startRowIndex": 2, "endRowIndex": 4, "startColumnIndex": 14, "endColumnIndex": 16 },
+                                "rows": [{ "values": [{ "userEnteredValue": { "formulaValue": "=J8+P8" }, "userEnteredFormat": { "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "numberFormat": {"type": "currency", "pattern": "$#,##0.00"} } }] }],
                                 "fields": "userEnteredValue,userEnteredFormat"
                             }
                         },
@@ -723,6 +751,71 @@ async function initializeWallet() {
                                 "endRowIndex": 8,    
                                 "startColumnIndex": 21, 
                                 "endColumnIndex": 28   
+                                },
+                                "top": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "bottom": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "left": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "right": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerHorizontal": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                                },
+                                "innerVertical": {
+                                "style": "SOLID",
+                                "width": 1,
+                                "color": {
+                                    "red": 0.0,
+                                    "green": 0.0,
+                                    "blue": 0.0
+                                }
+                            }
+                        }
+                    },
+                        {
+                            "updateBorders": {
+                                "range": {
+                                "sheetId": process.env.SHEET_ID,  
+                                "startRowIndex": 0,  
+                                "endRowIndex": 4,    
+                                "startColumnIndex": 14, 
+                                "endColumnIndex": 16   
                                 },
                                 "top": {
                                 "style": "SOLID",
