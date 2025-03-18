@@ -50,9 +50,8 @@ This program uses google's API's to fill out the cells with information retreive
 - I started this project knowing absolutely nothing about the solana blockchain
 - I hadn't had any extensive expreience with javascript and this is the first major porject I have been involved with it in
     - I chose js due to the `@solana/web3.js` packages available
-- This project took just under a month due to the learning curve associated with learnign anything frfom scratch
+- This project took just under a month due to the learning curve associated with learning anything from scratch
 - This was a fun and and useful project
-- (My code looks like a dog vommited I know, thanks)
 
 
 # Development Timeline
